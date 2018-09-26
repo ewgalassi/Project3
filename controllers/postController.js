@@ -89,6 +89,7 @@ module.exports = {
   */
   commentPost: (req, res, next) => {
     db.Post.findById(req.body.post_id).then((post) => {
+      console.log(req.body.post_id);
       return post.comment({
         author: req.user._id,
         text: req.body.comment

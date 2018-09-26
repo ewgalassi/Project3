@@ -5,6 +5,7 @@ import './App.css';
 // import Navbar from "./components/Navbar/Navbar";
 import Newsfeed from "./pages/Newsfeed/Newsfeed";
 import Profile from "./pages/Profile/Profile";
+import Login from "./pages/Login/Login";
 
 
 
@@ -15,6 +16,7 @@ const App = () => (
         <Route exact path="/" component={Newsfeed}/>
         <Route exact path="/newsfeed" component={Newsfeed} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/login" component={Login} />
     </div>
   </Router>
 );
