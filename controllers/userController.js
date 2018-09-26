@@ -25,7 +25,7 @@ module.exports = {
           lastName: lastName
         }).then(data => {
           console.log(data);
-          res.json(data);
+          res.redirect(307, "/user/login");
         }).catch(err => {
           console.log(err);
           res.json(err);
