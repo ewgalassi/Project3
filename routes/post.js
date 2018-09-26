@@ -24,4 +24,8 @@ router.route('/posts/:id')
 // Delete a post by id
   .delete(postController.deletePost)
 
+// Get all posts by individual user
+router.route("/posts/author/:id")
+  .get(postController.getAllById)
+
 module.exports = router;
