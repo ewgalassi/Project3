@@ -29,6 +29,10 @@ export default  {
         return axios.delete("/api/posts/" + id);
     },
 
+    getPostId: function (id){
+        return axios.get("/api/posts/author/" + id);
+    }
+
 
     // like a post
 
