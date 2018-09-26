@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+import './App.css';
+// import Navbar from "./components/Navbar/Navbar";
+// import Newsfeed from "./pages/Newsfeed/Newsfeed";
+// import Profile from "./pages/Profile/Profile";
+
+
+
+const App = () => (
+  <Router>
+    <div>
+      {/* <Navbar />
+      <Wrapper>
+        <Route exact path="/" component={} />
+        <Route exact path="/newsfeed" component={Newsfeed} />
+        <Route exact path="/profile" component={Profile} />
+      </Wrapper>
+      <Footer /> */}
+    </div>
+  </Router>
+);
+
 
 export default App;
