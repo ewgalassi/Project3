@@ -13,6 +13,12 @@ class Profile extends Component {
     state = {
 
     }
+    render(){
+        return(
+            <h3>profile page</h3>
+        )
+     
+    }
 
 }
 

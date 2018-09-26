@@ -8,8 +8,12 @@ import React, { Component } from "react";
 //  post type: snippet, status, article
 
 class Newsfeed extends Component {
-    state = {
-
+    
+    render() {
+        return(
+            <h3>Newsfeed page</h3>      
+        )
+        
     }
 
 }
