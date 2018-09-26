@@ -14,7 +14,7 @@ const userSchema = new Schema({
 	profile: {
 		pic: { type: String, trim: true },
 		github: { type: String, trim: true },
-		linkedIn: { type: String, trim: true },
+		linkedin: { type: String, trim: true },
 		portfolio: { type: String, trim: true },
 		projects: { type: Array, trim: true },
 		languages: { type: Array, trim: true }, // favorite programming languages
