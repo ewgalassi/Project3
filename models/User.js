@@ -12,7 +12,7 @@ const userSchema = new Schema({
 	lastName: { type: String, required: true, trim: true },
 	fullName: String, // get automatically generated from first and last name
 	profile: {
-		pic: { type: String, trim: true },
+		pic: { type: String, trim: true, default: "https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg" },
 		github: { type: String, trim: true },
 		linkedin: { type: String, trim: true },
 		portfolio: { type: String, trim: true },
