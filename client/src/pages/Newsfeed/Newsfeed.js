@@ -41,15 +41,20 @@ class Newsfeed extends Component {
       <Container>
         <Row>
           <Col size="md-8">
-            <PicIcon />
-            <PostBox />
+            <Row>
+              <PicIcon />
+              <PostBox />
             <hr />
-            <PostBtn />
-            <TypeMenu />
+              <PostBtn />
+              <TypeMenu />
+            </Row>
+            <Row>
+              <Postfeed />
+            </Row>
           </Col>
         </Row>
 
-        <Postfeed />
+      
 
         <Row>
           <List>
