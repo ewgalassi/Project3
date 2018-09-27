@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import Postfeed from "../../components/Postfeed/Postfeed";
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import PicIcon from "../../components/PicIcon";
-import PostBox from "../../components/PostBox";
-import TypeMenu from "../../components/TypeMenu";
-import PostBtn from "../../components/PostBtn";
+
+import NewPost from "../../components/NewPost/NewPost";
+
 import PostAPI from "../../utils/postAPI";
 import "./Newsfeed.css";
 
@@ -42,11 +40,7 @@ class Newsfeed extends Component {
         <Row>
           <Col size="md-8">
             <Row>
-              <PicIcon />
-              <PostBox />
-            <hr />
-              <PostBtn />
-              <TypeMenu />
+             <NewPost/>
             </Row>
             <Row>
               <Postfeed />

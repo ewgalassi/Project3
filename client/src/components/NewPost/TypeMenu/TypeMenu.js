@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./TypeMenu.css";
+import TypeBtn from "./TypeBtn";
 
 class TypeMenu extends Component {
   constructor() {
@@ -43,9 +44,8 @@ class TypeMenu extends Component {
               this.dropdownMenu = element;
             }}
           >
-            <button className="dropBtn btn btn-light"> Code Snipet </button>
-            <button className="dropBtn btn btn-light"> Status Update </button>
-            <button className="dropBtn btn btn-light"> Article </button>
+           {this.props.children}
+
           </div>
         ) : null}
       </div>
