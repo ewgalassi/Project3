@@ -6,7 +6,7 @@ import Post from "./Post/Post";
 class Postfeed extends Component {
     render(){
         return(
-            <div className="container" style={{width:"800px"}}>
+            <div>
                 
                 <Post />
             
