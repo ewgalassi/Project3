@@ -1,34 +1,5 @@
-// import React from "react";
-import "./TypeMenu.css";
-
-// const TypeMenu = () => (
-//   <div className="dropdown">
-//     <button
-//       className="btn btn-secondary dropdown-toggle"
-//       type="button"
-//       id="dropdownMenuButton"
-//       data-toggle="dropdown"
-//       aria-haspopup="true"
-//       aria-expanded="false"
-//     >
-//       Dropdown button
-//     </button>
-//     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-//       <a className="dropdown-item" href="#">
-//         Action
-//       </a>
-//       <a className="dropdown-item" href="#">
-//         Another action
-//       </a>
-//       <a className="dropdown-item" href="#">
-//         Something else here
-//       </a>
-//     </div>
-//   </div>
-// );
-
-// $(".dropdown-toggle").dropdown();
 import React, { Component } from "react";
+import "./TypeMenu.css";
 
 class TypeMenu extends Component {
   constructor() {
@@ -61,7 +32,9 @@ class TypeMenu extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.showMenu}>Show menu</button>
+        <button className="typeBtn btn btn-light" onClick={this.showMenu}>
+          Select Type
+        </button>
 
         {this.state.showMenu ? (
           <div
@@ -70,9 +43,9 @@ class TypeMenu extends Component {
               this.dropdownMenu = element;
             }}
           >
-            <button> Menu item 1 </button>
-            <button> Menu item 2 </button>
-            <button> Menu item 3 </button>
+            <button className="dropBtn btn btn-light"> Code Snipet </button>
+            <button className="dropBtn btn btn-light"> Status Update </button>
+            <button className="dropBtn btn btn-light"> Article </button>
           </div>
         ) : null}
       </div>

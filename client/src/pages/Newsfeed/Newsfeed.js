@@ -22,8 +22,8 @@ class Newsfeed extends Component {
             <PicIcon />
             <PostBox />
             <hr />
-            <TypeMenu />
             <PostBtn />
+            <TypeMenu />
           </Col>
         </Row>
       </Container>
