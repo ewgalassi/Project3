@@ -1,0 +1,30 @@
+/* Article Card */
+.articleCard {
+  margin: 30px;
+  margin-top: 55px;
+  text-align: left;
+}
+p {
+  margin-top: 10px;
+}
+
+/* Snippet Card */
+.content {
+  margin: 30px;
+  margin-top: 55px;
+  text-align: left;
+}
+.snippet {
+  margin-top: 10px;
+  height: 250px;
+  background-color: rgba(245, 245, 245, 0.82);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* Status Card */
+.statusContent {
+  margin: 30px;
+  margin-top: 55px;
+  text-align: left;
+}
+/* p styling the same as Arcitle card */

@@ -1,17 +1,15 @@
+/* Container */
 .container {
-  /* background-color: red; */
-  text-align: center;
   padding-right: 5%;
   padding-left: 5%;
-  display: inline-block
 }
 
+/* Row */
 .row {
   margin-top: 30px;
-  text-align: center;
 }
 
-
+/* Col */
 .col-md-8 {
   margin: auto;
   height: 160px;
