@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import PicIcon from "../../components/PicIcon";
 import PostBox from "../../components/PostBox";
+import TypeMenu from "../../components/TypeMenu";
+import PostBtn from "../../components/PostBtn";
 import "./Newsfeed.css";
 
 //components needed:
@@ -20,6 +22,8 @@ class Newsfeed extends Component {
             <PicIcon />
             <PostBox />
             <hr />
+            <TypeMenu />
+            <PostBtn />
           </Col>
         </Row>
       </Container>
