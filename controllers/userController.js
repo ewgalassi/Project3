@@ -41,7 +41,7 @@ module.exports = {
   /* Login handled in routes/user.js */
 
 
-  /* ----- GET USER DATA ------
+  /* ----- GET USER DATA (of logged in user) ------
   route- get /user
   */
   getUserData: (req, res, next) => {
@@ -52,7 +52,22 @@ module.exports = {
         res.json({ success: false, message: err });
       })
     } else {
-      res.json({ success: false, user: null });
+      res.json({ success: false, message: "No user loggeed in" });
+    }
+  },
+
+  /* ----- GET USER DATA (of logged in user) ------
+  route- get /user
+  */
+  getUserData: (req, res, next) => {
+    if (req.user) {
+      db.User.findOne({ _id: req.user._id }).then(user => {
+        res.json(user)
+      }).catch(err => {
+        res.json({ success: false, message: err });
+      })
+    } else {
+      res.json({ success: false, message: "Could not find user " + id });
     }
   },
 
