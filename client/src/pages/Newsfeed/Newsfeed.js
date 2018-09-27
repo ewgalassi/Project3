@@ -56,7 +56,7 @@ class Newsfeed extends Component {
 
       
 
-        <Row>
+        {/* <Row>
           <List>
             {this.state.posts.map(post => {
               return (
@@ -70,7 +70,7 @@ class Newsfeed extends Component {
               );
             })}
           </List>
-        </Row>
+        </Row> */}
       </Container>
     );
   }
