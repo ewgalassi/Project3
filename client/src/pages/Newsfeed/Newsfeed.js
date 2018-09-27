@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Postfeed from "../../components/Postfeed/Postfeed";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import PicIcon from "../../components/PicIcon";
@@ -49,6 +50,9 @@ class Newsfeed extends Component {
             <TypeMenu />
           </Col>
         </Row>
+      
+        <Postfeed />
+
         <Row>
           <List>
             {this.state.posts.map(post => {
@@ -69,6 +73,7 @@ class Newsfeed extends Component {
             })}
           </List>
         </Row>
+
       </Container>
     );
   }
