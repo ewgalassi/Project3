@@ -8,7 +8,7 @@ class UserInfo extends Component {
         return(
             <Card>
                 <div className="info-content">
-                    <h2>Brittani Slimp</h2>
+                    <h2>{this.props.fullName}</h2>
                     <h6>Full Stack Junior Developer</h6>
                     <ul className="languages">Language(s):</ul>
                         <li>JavaScript</li>
