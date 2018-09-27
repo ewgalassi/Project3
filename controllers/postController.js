@@ -36,6 +36,7 @@ module.exports = {
   */
   getAll: (req, res, next) => {
     db.Post.find()
+      .sort({_id: -1})
       .populate('author')
       .populate('comments.author').exec((err, post) => {
         if (err)
@@ -54,6 +55,7 @@ module.exports = {
   */
    getAllById: (req, res, next) => {
     db.Post.find({author: req.params.id})
+      .sort({_id: -1})
       .populate('comments.author').exec((err, post) => {
         if (err)
           res.json({ success: false, message: err });
