@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Postfeed from "../../components/Postfeed/Postfeed";
 
 //components needed:
 //navbar
@@ -11,7 +12,11 @@ class Newsfeed extends Component {
     
     render() {
         return(
-            <h3>Newsfeed page</h3>      
+            <div>
+                <h3>Newsfeed page</h3>  
+                <Postfeed />
+            </div>
+                
         )
         
     }
