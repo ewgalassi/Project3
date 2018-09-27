@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import PostAPI from "../../utils/postAPI";
-=======
 import { Col, Row, Container } from "../../components/Grid";
 import PicIcon from "../../components/PicIcon";
 import PostBox from "../../components/PostBox";
 import TypeMenu from "../../components/TypeMenu";
 import PostBtn from "../../components/PostBtn";
+import PostAPI from "../../utils/postAPI"
 import "./Newsfeed.css";
->>>>>>> master
 
 //components needed:
 
@@ -18,46 +15,23 @@ import "./Newsfeed.css";
 //  post type: snippet, status, article
 
 class Newsfeed extends Component {
-<<<<<<< HEAD
-    
-    render() {
-        return(
-            <h3>Newsfeed page</h3>      
-        )
+
+  state = {
+    posts:[]
+  }
+
+  componentDidMount() {
+    this.loadPosts();
+    console.log(this.state.posts)
+  };
+
+  loadPosts = () => {
+    PostAPI.getPosts()
+      .then(res => this.setState({
+        posts: res.data,
         
-    }
-
-
-    componentDidMount() {
-        this.loadPosts();
-      };
-
-    handlePostSubmit = event =>{
-        event.preventDefault();
-        if (this.state.author && this.state.text){
-            PostAPI.commentPost({
-                
-            })
-            
-        }
-    };
-
-    handleLikeClick();
-
-    handleComment();
-
-    handlePostDelete();
-
-    loadPosts = () => {
-        PostAPI.getPosts()
-        .then(res => this.setState({}))
-    }
-}
-
-
-
-export default Newsfeed;
-=======
+      })).catch(err => console.log(err));
+  }
   render() {
     return (
       <Container>
@@ -76,4 +50,3 @@ export default Newsfeed;
 }
 
 export default Newsfeed;
->>>>>>> master
