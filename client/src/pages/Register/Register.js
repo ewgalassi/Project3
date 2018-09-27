@@ -26,9 +26,11 @@ class Register extends Component {
             fullName: this.state.fullName,
             lastName: this.state.lastName
         };
-        UserAPI.loginUser(user).then(data => {
+        UserAPI.createUser(user).then(data => {
             console.log(data);
             window.location.replace("/");
+        }).catch(err => {
+            console.log(err);
         });
     };
 
@@ -48,16 +50,16 @@ class Register extends Component {
                     <br />
 
                     <label>First Name</label>
-                    <input name="firstName" value={this.state.password} onChange={this.handleInput} />
+                    <input name="firstName" value={this.state.firstName} onChange={this.handleInput} />
 
                     <br />
 
                     <label>Last Name</label>
-                    <input name="lastName" value={this.state.password} onChange={this.handleInput} />
+                    <input name="lastName" value={this.state.lastName} onChange={this.handleInput} />
 
                     <br />
 
-                    <button type="submit" onClick={this.handleSubmit}>Login</button>
+                    <button type="submit" onClick={this.handleSubmit}>Register</button>
                 </form>
 
                 <p>{this.state.message}</p>
