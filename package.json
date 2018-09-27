@@ -25,7 +25,8 @@
     "build": "cd client && yarn run build",
     "reset_db": "node scripts/reset_db.js",
     "install-server": "yarn",
-    "install-client": "cd client && yarn"
+    "install-client": "cd client && yarn",
+    "seed_db": "node scripts/seed_sb.js"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
