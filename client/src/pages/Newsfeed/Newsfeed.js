@@ -1,21 +1,23 @@
 import React, { Component } from "react";
+import { Col, Row, Container } from "../../components/Grid";
 
 //components needed:
-//navbar
+
 //add new post
-//post feed 
+//post feed
 // card
 //  post type: snippet, status, article
 
 class Newsfeed extends Component {
-    
-    render() {
-        return(
-            <h3>Newsfeed page</h3>      
-        )
-        
-    }
-
+  render() {
+    return (
+      <Container>
+        <Row>
+          <Col size="md-8">test</Col>
+        </Row>
+      </Container>
+    );
+  }
 }
 
 export default Newsfeed;

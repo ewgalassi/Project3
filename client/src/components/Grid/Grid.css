@@ -1,0 +1,31 @@
+.container {
+  /* background-color: red; */
+  text-align: center;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.row {
+  margin-top: 30px;
+}
+
+.col-md-8 {
+  margin: auto;
+  height: 120px;
+  position: relative;
+  background: #dfe3ee;
+  border-radius: 0.4em;
+}
+.col-md-8:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 0;
+  height: 0;
+  border: 22px solid transparent;
+  border-bottom-color: #dfe3ee;
+  border-top: 0;
+  margin-left: -22px;
+  margin-top: -22px;
+}
