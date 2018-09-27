@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PostAPI from "../../utils/postAPI";
 
 //components needed:
 //navbar
@@ -16,6 +17,33 @@ class Newsfeed extends Component {
         
     }
 
+
+    componentDidMount() {
+        this.loadPosts();
+      };
+
+    handlePostSubmit = event =>{
+        event.preventDefault();
+        if (this.state.author && this.state.text){
+            PostAPI.commentPost({
+                
+            })
+            
+        }
+    };
+
+    handleLikeClick();
+
+    handleComment();
+
+    handlePostDelete();
+
+    loadPosts = () => {
+        PostAPI.getPosts()
+        .then(res => this.setState({}))
+    }
 }
+
+
 
 export default Newsfeed;
