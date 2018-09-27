@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import PicIcon from "../../components/PicIcon";
+import PostBox from "../../components/PostBox";
 import "./Newsfeed.css";
 
 //components needed:
@@ -17,6 +18,8 @@ class Newsfeed extends Component {
         <Row>
           <Col size="md-8">
             <PicIcon />
+            <PostBox />
+            <hr />
           </Col>
         </Row>
       </Container>

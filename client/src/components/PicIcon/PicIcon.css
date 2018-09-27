@@ -1,7 +1,8 @@
 .PicIcon {
-  border: 10px solid red;
+  border: 1.5px solid #8b9dc3;
   position: absolute;
-  top: 20px;
-  padding: 30px;
+  top: 18px;
+  left: 15px;
+  padding: 25px;
   border-radius: 50%;
 }
