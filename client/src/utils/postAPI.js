@@ -17,7 +17,7 @@ export default  {
         return axios.post("/api/posts/comment")
     },
     // Gets the post with the given id
-    getPost: function (id) {
+    getOnecPost: function (id) {
         return axios.get("/api/posts/" + id);
     },
 
