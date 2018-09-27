@@ -9,6 +9,8 @@ class Register extends Component {
     state = {
         username: "",
         password: ""
+        
+
     };
 
     handleInput = event => {
@@ -19,16 +21,17 @@ class Register extends Component {
     };
 
     handleSubmit = event => {
+        console.log("SUBMIT WORKING")
         event.preventDefault();
         const user = {
             username: this.state.username,
             password: this.state.password,
-            fullName: this.state.fullName,
+            firstName: this.state.firstName,
             lastName: this.state.lastName
         };
         UserAPI.createUser(user).then(data => {
             console.log(data);
-            window.location.replace("/");
+            // window.location.replace("/");
         }).catch(err => {
             console.log(err);
         });
