@@ -1,9 +1,12 @@
 import React from "react";
 import "./UserPic.css";
 
-const UserPic = () => (
+const UserPic = props => (
   <div className="userImage-div">
-    <img className="userImage"src="http://placehold.it/300x300" />
+    <img className="userImage"
+    src={props.pic} 
+    alt="Profile" 
+    />
   </div>
 );
 
