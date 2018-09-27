@@ -1,19 +1,7 @@
 import React, { Component } from "react";
 import "./PostType.css";
-
 // import Row from "../../Grid/Row";
 
-//layout of article post
-// const styles = {
-//   card: {
-//     margin: 30,
-//     marginTop: 55,
-//     textAlign: "left"
-//   },
-//   p: {
-//     marginTop: 10
-//   }
-// };
 class Article extends Component {
   render() {
     return (

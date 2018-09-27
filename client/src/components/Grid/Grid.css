@@ -1,12 +1,15 @@
+/* Container */
 .container {
   padding-right: 5%;
   padding-left: 5%;
 }
 
+/* Row */
 .row {
   margin-top: 30px;
 }
 
+/* Col */
 .col-md-8 {
   margin: auto;
   height: 160px;
