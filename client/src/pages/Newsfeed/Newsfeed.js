@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Post from "../../components/Post/Post";
+import SubmitPost from "../../components/SubmitPost/SubmitPost";
 
 class Newsfeed extends Component {
     state = {
@@ -50,6 +51,10 @@ class Newsfeed extends Component {
                 <h3>Welcome {this.state.user.fullName}!</h3>
                 
                 <button onClick={this.handleLogout}>Logout</button>
+                <br />
+
+                <SubmitPost />
+                <hr />
 
             {this.state.posts.map(post => {
                 return (
