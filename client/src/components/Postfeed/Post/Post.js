@@ -14,25 +14,49 @@ import "./Post.css";
 //THIS SHOULD EVENTUALLY ONLY DISPLAY ONE POSTTYPE WITH POSTHEADER
 
 class Post extends Component {
+
+  returnType = (type) => {
+    switch(type) {
+      case "status":
+        return (
+          <Status 
+          post={this.props.post}
+          />
+        );
+        break;
+      case "article":
+       return (
+          <Article
+          post={this.props.post} 
+          />
+       );
+       break;
+      case "snippet":
+       return (
+         <Snippet 
+         post={this.props.post}
+         />
+       )
+    }
+  }
+
   render() {
     return (
-      <div className="tempcontainer">
         <Card>
-          <PostHeader />
-          <Article />
-          <PostFooter />
-        </Card>
-        <Card>
-          <PostHeader />
-          <Snippet />
-        </Card>
-        <Card>
-          <PostHeader />
-          <Status />
-        </Card>
+          <PostHeader 
+          author={this.props.author}
+          pic={this.props.pic}
+          />
 
-      </div>
-    );
+          {this.returnType(this.props.type)}
+
+          <PostFooter 
+          numLikes={this.props.numLikes}
+          comments={this.props.comments}
+          />
+        </Card>
+    )
+  
   }
 }
 

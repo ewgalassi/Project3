@@ -4,13 +4,17 @@ import "./PostType.css";
 
 //layout of status post
 
-const Status = () => (
-  <div className="statusContent">
-    <p className>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.{" "}
-    </p>
-  </div>
-);
+class Status extends React.Component {
+
+  render() {
+    return (
+      <div className="statusContent">
+        <p className>
+          {this.props.post}
+        </p>
+      </div>
+    );
+  }
+}
 
 export default Status;
