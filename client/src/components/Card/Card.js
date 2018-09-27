@@ -4,10 +4,9 @@ import React from "react";
 
 const Card = props => (
   <div className="card">
-        <div className="card-header" >Post heading</div>
-        <div className="card-body">card text</div>
-    
-  
+    <div className="card-header">Post heading</div>
+    <div className="card-body">card text</div>
+
     {/* {!props.image && <i className="fa fa-spinner fa-spin" aria-hidden="true" />}
     <CardBtn
       style={{ opacity: props.image ? 1 : 0 }}
