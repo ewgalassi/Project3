@@ -12,6 +12,8 @@ const PostBox = () => (
       />
     </div>
   </form>
+
+  
 );
 
 export default PostBox;
