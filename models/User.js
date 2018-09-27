@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// const bcrypt = require('bcrypt-nodejs');
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt-nodejs');
 mongoose.promise = Promise;
 
 // Define userSchema
@@ -33,7 +32,7 @@ userSchema.methods = {
 		return bcrypt.compareSync(inputPassword, this.password);
 	},
 	hashPassword: plainTextPassword => {
-		return bcrypt.hashSync(plainTextPassword, 10);
+		return bcrypt.hashSync(plainTextPassword);
 	},
 };
 
