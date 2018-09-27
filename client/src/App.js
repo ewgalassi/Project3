@@ -5,6 +5,8 @@ import './App.css';
 import Navbar from "./components/Navbar/Navbar";
 import Newsfeed from "./pages/Newsfeed/Newsfeed";
 import Profile from "./pages/Profile/Profile";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 
 
 
