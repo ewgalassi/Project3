@@ -33,7 +33,7 @@ userSchema.methods = {
 		return bcrypt.compareSync(inputPassword, this.password);
 	},
 	hashPassword: plainTextPassword => {
-		return bcrypt.hashSync(plainTextPassword, 10);
+		return bcrypt.hashSync(plainTextPassword);
 	},
 };
 
