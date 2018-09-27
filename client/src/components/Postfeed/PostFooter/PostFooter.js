@@ -3,10 +3,9 @@ import "./PostFooter.css";
 
 const PostFooter = (props) => (
   <div className="row">
-    Likes: {props.numLikes}
-    <button>Like</button>
-    <button>Comment</button>
-    <button>Save</button>
+    <button type="button" className="post-btn btn btn-secondary"><span className="fa fa-thumbs-o-up"></span> Like ({props.numLikes})</button>
+    <button type="button" className="post-btn btn btn-secondary"><span className="fa fa-thumbs-o-up"></span> Comment</button>
+    {/* <button>Save</button> */}
   </div>
 );
 

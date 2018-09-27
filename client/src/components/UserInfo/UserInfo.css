@@ -1,0 +1,15 @@
+.info-wrapper {
+    border:1px solid grey;
+    background:#fff;
+}
+
+.info-content {
+    margin:20px;
+    
+}
+
+.languages,
+.skills {
+    padding:0;
+   
+}
