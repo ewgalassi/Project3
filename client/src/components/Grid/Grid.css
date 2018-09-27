@@ -13,7 +13,7 @@
   margin: auto;
   height: 120px;
   position: relative;
-  background: #dfe3ee;
+  background: #ffffff;
   border-radius: 0.4em;
 }
 .col-md-8:after {
@@ -24,7 +24,7 @@
   width: 0;
   height: 0;
   border: 22px solid transparent;
-  border-bottom-color: #dfe3ee;
+  border-bottom-color: #ffffff;
   border-top: 0;
   margin-left: -22px;
   margin-top: -22px;
