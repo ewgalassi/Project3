@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
 const app = express();
+const path = require("path");
 const PORT = process.env.PORT || 3001;
 
 // MIDDLEWARE
@@ -49,6 +50,11 @@ const userRoutes = require('./routes/user');
 const postRoutes = require("./routes/post");
 app.use('/user', userRoutes);
 app.use("/api", postRoutes);
+
+// Handle React routing, return all requests to React app
+// app.get('*', function (req, res) {
+//   res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+// });
 
 
 // Start Server 
