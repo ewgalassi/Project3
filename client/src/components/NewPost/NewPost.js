@@ -9,8 +9,17 @@ import TypeBtn from "./TypeMenu/TypeBtn";
 
 class NewPost extends Component {
     state = {
+        posts:[],
         post: ""
       };
+
+      loadPosts = () => {PostAPI.getPosts().then(data => {
+          console.log("LOAD POSTS IS WORKING")
+        this.setState({
+            
+            posts: data.data
+        });
+    })}
      
       handleInput = event => {
           console.log("handling input!")
@@ -29,6 +38,7 @@ class NewPost extends Component {
         };
         PostAPI.savePost(post).then(data => {
           console.log(data);
+            this.loadPosts()
         //   window.location.replace("/");
         }).catch(err => {
           console.log(err);
