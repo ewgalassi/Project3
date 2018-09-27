@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Logout from "../Logout/Logout";
 
 const Navbar = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -56,6 +57,9 @@ const Navbar = () => (
           >
             Register
           </Link>
+        </li>
+        <li>
+          <Logout />
         </li>
       </ul>
     </div>
