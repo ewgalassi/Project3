@@ -1,14 +1,24 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import PostAPI from "../../utils/postAPI";
+=======
+import { Col, Row, Container } from "../../components/Grid";
+import PicIcon from "../../components/PicIcon";
+import PostBox from "../../components/PostBox";
+import TypeMenu from "../../components/TypeMenu";
+import PostBtn from "../../components/PostBtn";
+import "./Newsfeed.css";
+>>>>>>> master
 
 //components needed:
-//navbar
+
 //add new post
-//post feed 
+//post feed
 // card
 //  post type: snippet, status, article
 
 class Newsfeed extends Component {
+<<<<<<< HEAD
     
     render() {
         return(
@@ -47,3 +57,23 @@ class Newsfeed extends Component {
 
 
 export default Newsfeed;
+=======
+  render() {
+    return (
+      <Container>
+        <Row>
+          <Col size="md-8">
+            <PicIcon />
+            <PostBox />
+            <hr />
+            <PostBtn />
+            <TypeMenu />
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
+}
+
+export default Newsfeed;
+>>>>>>> master
