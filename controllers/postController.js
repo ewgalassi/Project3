@@ -35,7 +35,7 @@ module.exports = {
     route- GET /api/posts
   */
   getAll: (req, res, next) => {
-    db.Post.find(req.params.id)
+    db.Post.find()
       .populate('author')
       .populate('comments.author').exec((err, post) => {
         if (err)
@@ -47,6 +47,24 @@ module.exports = {
         next();
       })
   },
+
+  /* GET ALL POSTS BY USER ID (profile page)
+    route- GET /api/posts/author/:id
+    params- userId
+  */
+   getAllById: (req, res, next) => {
+    db.Post.find({author: req.params.id})
+      .populate('comments.author').exec((err, post) => {
+        if (err)
+          res.json({ success: false, message: err });
+        else if (!post)
+          res.send(404);
+        else
+          res.json(post);
+        next();
+      })
+  },
+
 
   /* LIKE A POST
     route- PUT /api/posts
