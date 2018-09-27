@@ -11,7 +11,7 @@
 
 /* Col */
 .col-md-8 {
-  margin: auto;
+  margin: 0px auto;
   height: 160px;
   position: relative;
   background: #ffffff;
