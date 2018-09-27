@@ -26,7 +26,7 @@ class Newsfeed extends Component {
 
     getPosts = () => {
         axios.get("/api/posts").then(data => {
-            this.setState({ posts: data.data});
+            this.setState({ posts: data.data });
             console.log(data.data);
         }).catch(err => {
             console.log(err);
