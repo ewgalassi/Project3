@@ -13,13 +13,14 @@ class NewPost extends Component {
         post: ""
       };
 
-      loadPosts = () => {PostAPI.getPosts().then(data => {
-          console.log("LOAD POSTS IS WORKING")
-        this.setState({
-            
-            posts: data.data
-        });
-    })}
+    //   loadPosts = () => {
+    //       PostAPI.getPosts().then(data => {
+    //       console.log("LOAD POSTS IS WORKING")
+    //       consol
+    //     this.setState({
+    //         posts: data.data
+    //     });
+    // })}
      
       handleInput = event => {
           console.log("handling input!")
@@ -38,7 +39,6 @@ class NewPost extends Component {
         };
         PostAPI.savePost(post).then(data => {
           console.log(data);
-            this.loadPosts()
         //   window.location.replace("/");
         }).catch(err => {
           console.log(err);
