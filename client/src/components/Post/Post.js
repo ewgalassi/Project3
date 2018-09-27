@@ -30,10 +30,11 @@ class Post extends Component {
     };
     axios.post("/api/posts/comment", comment).then(data => {
       console.log(data);
+      window.location.reload();
     }).catch(err => {
       console.log(err);
     })
-  }
+  };
 
   render() {
     return (

@@ -33,8 +33,8 @@ class SubmitPost extends Component {
       <div>
         <form>
           <label>New Post:</label><br />
-          <input type="text" name="type" onChange={this.handleInput} value={this.state.type} /><br />
-          <input type="text" name="post" onChange={this.handleInput} value={this.state.post} /><br />
+          <input type="text" name="type" onChange={this.handleInput} value={this.state.type} placeholder="type (snippet, status, article)" /><br />
+          <input type="text" name="post" onChange={this.handleInput} value={this.state.post} placeholder="post" /><br />
           <button onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
