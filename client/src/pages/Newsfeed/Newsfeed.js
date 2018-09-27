@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
+import { List, ListItem } from "../../components/List";
 import PicIcon from "../../components/PicIcon";
 import PostBox from "../../components/PostBox";
 import TypeMenu from "../../components/TypeMenu";
@@ -22,15 +23,19 @@ class Newsfeed extends Component {
 
   componentDidMount() {
     this.loadPosts();
-    console.log(this.state.posts)
+    
   };
 
   loadPosts = () => {
     PostAPI.getPosts()
-      .then(res => this.setState({
-        posts: res.data,
-        
-      })).catch(err => console.log(err));
+    
+      .then(res => 
+        // console.log(res.data)
+        this.setState({
+        posts: res.data
+      })
+      )
+      .catch(err => console.log(err));
   }
   render() {
     return (
@@ -43,6 +48,26 @@ class Newsfeed extends Component {
             <PostBtn />
             <TypeMenu />
           </Col>
+        </Row>
+        <Row>
+          <List>
+            {this.state.posts.map(post => {
+              return (
+                <ListItem key={post._id}>
+                  <a href={"/posts/" + post._id}>
+                    <h5>
+                      {post.post} 
+                    </h5>
+                    <hr/>
+                    <p>
+                    by {post.author.username}
+                    </p>
+                  </a>
+
+                </ListItem>
+              );
+            })}
+          </List>
         </Row>
       </Container>
     );
