@@ -13,6 +13,7 @@ class NewPost extends Component {
       };
      
       handleInput = event => {
+          console.log("handling input!")
         const { name, value } = event.target;
         this.setState({
           [name]: value
@@ -27,8 +28,8 @@ class NewPost extends Component {
           post: this.state.post
         };
         PostAPI.savePost(post).then(data => {
-          console.log("data.data");
-          window.location.replace("/");
+          console.log(data);
+        //   window.location.replace("/");
         }).catch(err => {
           console.log(err);
         });
@@ -38,7 +39,7 @@ render(){
     return(
         <div>
         <PicIcon/>
-        <PostBox/>
+        <PostBox onChange={this.handleInput} value={this.state.post} name="post"/>
         <hr/>
         <TypeMenu>
 
