@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-// const db = require('../models');
 const passport = require('../passport');
 const userController = require("../controllers/userController");
 
@@ -21,6 +20,9 @@ router.post('/login', function (req, res, next) {
 
 // Get user data (see who is logged in, profile data)
 router.get('/', userController.getUserData);
+
+// Get user data (by specified id)
+router.get("/:id", userController.getUserDataById);
 
 // Update profile data
 router.put("/profile", userController.updateProfile);

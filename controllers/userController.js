@@ -47,7 +47,7 @@ module.exports = {
   getUserData: (req, res, next) => {
     if (req.user) {
       db.User.findOne({ _id: req.user._id }).then(user => {
-        res.json(user)
+        res.json(user);
       }).catch(err => {
         res.json({ success: false, message: err });
       })
@@ -56,19 +56,20 @@ module.exports = {
     }
   },
 
-  /* ----- GET USER DATA (of logged in user) ------
-  route- get /user
+  /* ----- GET USER DATA (by user id) ------
+  route- get /user/:id
+  params- user_id
   */
-  getUserData: (req, res, next) => {
-    if (req.user) {
-      db.User.findOne({ _id: req.user._id }).then(user => {
-        res.json(user)
-      }).catch(err => {
-        res.json({ success: false, message: err });
-      })
-    } else {
-      res.json({ success: false, message: "Could not find user " + id });
-    }
+  getUserDataById: (req, res, next) => {
+    db.User.findOne({ _id: req.params.id }).then(user => {
+      res.json(user);
+    }).catch(err => {
+      res.json({
+        success: false,
+        message: "Could not find user " + req.params.id,
+        error: err
+      });
+    })
   },
 
   /* ----- LOGOUT ------
