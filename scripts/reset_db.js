@@ -1,4 +1,3 @@
-require("dotenv").config();
 const mongoose = require("mongoose");
 const db = require("../models");
 const inquirer = require("inquirer");
@@ -6,13 +5,12 @@ const inquirer = require("inquirer");
 // WARNING: This will clear all data from the database!
 // Use this during development if changes are made to the models.
 mongoose.Promise = global.Promise;
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/project3';
+const uri = 'mongodb://localhost:27017/project3';
 mongoose.connect(uri, { useNewUrlParser: true });
 mongoose.connection.on('error', function (err) {
   console.log("-----Mongoose error: -----\n" + err);
 });
 mongoose.connection.once('open', function () {
-  console.log("\nMongoose connected successfully\n");
   prompt();
 });
 
