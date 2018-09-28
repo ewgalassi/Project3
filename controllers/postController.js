@@ -68,6 +68,25 @@ module.exports = {
       })
   },
 
+  /* GET ALL SNIPPETS BY USER ID (saved snippets page)
+    route- GET /api/posts/snippets/:id
+    params- userId
+  */
+  getAllSnippetsById: (req, res, next) => {
+    db.Post.find({author: req.user._id})
+      .where("type").equals("snippet")
+      .sort({_id: -1})
+      .populate('comments.author').exec((err, post) => {
+        if (err)
+          res.json({ success: false, message: err });
+        else if (!post)
+          res.send(404);
+        else
+          res.json(post);
+        next();
+      })
+  },
+
 
   /* LIKE A POST
     route- PUT /api/posts
