@@ -19,7 +19,7 @@ class Postfeed extends Component {
                 PostAPI.getPostId(data.data._id)
                 .then(data => {
                 this.setState({
-                    posts: data.data
+                    posts: data.data || []
                 });
             })
             })
@@ -27,7 +27,7 @@ class Postfeed extends Component {
         
         PostAPI.getPosts().then(data => {
             this.setState({
-                posts: data.data
+                posts: data.data || []
             });
         }); 
     };
