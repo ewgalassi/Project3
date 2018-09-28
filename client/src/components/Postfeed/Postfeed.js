@@ -26,7 +26,7 @@ class Postfeed extends Component {
         }
         
         PostAPI.getPosts().then(data => {
-            console.log(data.data);
+            console.log(data.data)
             this.setState({
                 posts: data.data || []
             });
