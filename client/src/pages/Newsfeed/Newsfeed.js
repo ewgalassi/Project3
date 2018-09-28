@@ -6,6 +6,7 @@ import NewPost from "../../components/NewPost/NewPost";
 
 import PostAPI from "../../utils/postAPI";
 import "./Newsfeed.css";
+import UserAPI from "../../utils/userAPI";
 
 //components needed:
 
@@ -20,8 +21,18 @@ class Newsfeed extends Component {
   };
 
   componentDidMount() {
+    this.getUserData();
     this.loadPosts();
   }
+
+  getUserData = () => {
+    UserAPI.getUser().then(data => {
+      if (data.data.success === false) {
+        window.location.replace("/login");
+      };
+      console.log(data.data);
+    });
+  };
 
   loadPosts = () => {
     PostAPI.getPosts()
@@ -40,7 +51,7 @@ class Newsfeed extends Component {
         <Row>
           <Col size="md-8">
             <Row>
-             <NewPost/>
+              <NewPost />
             </Row>
             <Row>
               <Postfeed />
@@ -48,7 +59,7 @@ class Newsfeed extends Component {
           </Col>
         </Row>
 
-      
+
 
         {/* <Row>
           <List>
