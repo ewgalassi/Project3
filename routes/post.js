@@ -28,4 +28,7 @@ router.route('/posts/:id')
 router.route("/posts/author/:id")
   .get(postController.getAllById)
 
+router.route("/posts/types/snippets")
+  .get(postController.getAllSnippetsById)
+
 module.exports = router;
