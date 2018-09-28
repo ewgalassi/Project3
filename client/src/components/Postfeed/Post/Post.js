@@ -8,11 +8,6 @@ import PostFooter from "../PostFooter/PostFooter";
 
 import "./Post.css";
 
-//determines which post type is rendered based on data
-
-//FOR NOW: wrapping everything in temp div container and displaying several posts for visual purposes
-//THIS SHOULD EVENTUALLY ONLY DISPLAY ONE POSTTYPE WITH POSTHEADER
-
 class Post extends Component {
 
   returnType = (type) => {

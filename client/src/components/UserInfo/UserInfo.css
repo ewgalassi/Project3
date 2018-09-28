@@ -3,13 +3,21 @@
     background:#fff;
 }
 
-.info-content {
-    margin:20px;
-    
+.info-card,
+.skills-card {
+    padding:30px;
+    background-color:#fff;
+    margin:20px 0px;
+
 }
 
 .languages,
-.skills {
+.technologies {
     padding:0;
+    margin:10px 0px;
    
+}
+
+li {
+    margin-left:20px;
 }

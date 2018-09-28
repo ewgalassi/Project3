@@ -7,16 +7,16 @@ import NewPost from "../../components/NewPost/NewPost";
 import UserAPI from "../../utils/userAPI";
 
 
-//components needed:
-
-//profile pic
-//user info
-//add new post
-
 class Profile extends Component {
   state = {
     user: {},
-    pic: ""
+    pic: "",
+    linkedin:"",
+    portfolio:"",
+    projects:[],
+    languages:[],
+    technologies:[],
+    jobInfo:{},
   };
 
   componentDidMount() {
@@ -28,7 +28,14 @@ class Profile extends Component {
       console.log(data.data);
       this.setState({
         user: data.data,
-        pic: data.data.profile.pic
+        pic: data.data.profile.pic,
+        github: data.data.profile.github,
+        linkedin: data.data.profile.linkedin,
+        portfolio: data.data.profile.portfolio,
+        projects: data.data.profile.projects,
+        languages: data.data.profile.languages,
+        technologies: data.data.profile.technologies,
+        jobInfo: data.data.profile.jobInfo,
         });
     }).catch(err => {
       console.log(err);
@@ -41,8 +48,20 @@ class Profile extends Component {
     <Container>
         <Row>
           <Col size="md-4">
-            <UserPic pic={this.state.pic} />
-            <UserInfo fullName={this.state.user.fullName} />
+            <UserPic 
+              pic={this.state.pic} 
+              fullName={this.state.user.fullName} />
+            <UserInfo 
+              title={this.state.jobInfo.title}
+              company={this.state.jobInfo.company}
+              languages={this.state.languages}
+              github={this.state.github}
+              linkedin={this.state.linkedin}
+              portfolio={this.state.portfolio}
+              projects={this.state.projects}
+              technologies={this.state.technologies}
+
+               />
           </Col>
           <Col size="md-8">
             <Row>
