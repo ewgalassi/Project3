@@ -30,7 +30,7 @@ class Postfeed extends Component {
                     posts: data.data || []
                 })
             })
-        }
+        } else {
         
         PostAPI.getPosts().then(data => {
             console.log(data.data)
@@ -38,6 +38,7 @@ class Postfeed extends Component {
                 posts: data.data || []
             });
         }); 
+    }
     };
 
 
