@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Card from "../Card/Card"
-import UserAPI from "../../utils/userAPI"
 import "./UserInfo.css";
 
 //function to iterate through languages array and create li
@@ -9,13 +8,29 @@ import "./UserInfo.css";
 
 class UserInfo extends Component {
     
-    state = {
-        languages:[],
-        technologies:[]
-    }
+    // state = {
+    //     languages:[],
+    //     technologies:[]
+    // }
+
+ 
 
 
     render() {
+        const generateLanguages = () => {
+            this.props.languages.map(language => {
+                return(
+                   <li>{language}</li>
+                )
+            })
+        }
+        const generateTechnologies = () => {
+            this.props.technologies.map(tech => {
+                return(
+                   <li>{tech}</li>
+                )
+            })
+        }
         return(
             
             <div className="info-content">
@@ -36,17 +51,19 @@ class UserInfo extends Component {
                         <div className="col-md-6">
                           <ul className="languages">
                             <h6>Language(s):</h6>
-                            <li>JavaScript</li>
+                            { generateLanguages }
+                            {/* <li>JavaScript</li>
                             <li>Python</li>
-                            <li>PHP</li>
+                            <li>PHP</li> */}
                           </ul>
                         </div>
                         <div className="col-md-6">
                           <ul className="technologies">
                             <h6>Technologies:</h6>
-                            <li>HTML/CSS</li>
+                            { generateTechnologies }
+                            {/* <li>HTML/CSS</li>
                             <li>React</li>
-                            <li>MongoDB</li>
+                            <li>MongoDB</li> */}
                           </ul>
                         </div>
                     </div>
