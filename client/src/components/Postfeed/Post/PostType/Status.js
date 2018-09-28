@@ -9,7 +9,7 @@ class Status extends React.Component {
   render() {
     return (
       <div className="statusContent">
-        <p className>
+        <p>
           {this.props.post}
         </p>
       </div>

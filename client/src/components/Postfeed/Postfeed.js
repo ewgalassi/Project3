@@ -23,6 +23,13 @@ class Postfeed extends Component {
                 });
             })
             })
+        } else if (window.location.href == "http://localhost:3000/snippets"){
+            console.log("SNippets are working")
+            PostAPI.getSnippets().then(data =>{
+                this.setState({
+                    posts: data.data || []
+                })
+            })
         }
         
         PostAPI.getPosts().then(data => {

@@ -58,9 +58,19 @@ const Navbar = () => (
             Register
           </Link>
         </li>
+        <li className="nav-item">
+          <Link
+          to="/snippets"
+          className={window.location.pathname === "/snippets"
+          ? "nav-link active"
+          :"nav-link"} >
+          Snippets
+          </Link>
+        </li>
         <li>
           <Logout />
         </li>
+
       </ul>
     </div>
   </nav>
