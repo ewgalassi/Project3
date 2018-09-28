@@ -38,7 +38,8 @@ module.exports = {
     db.Post.find()
       .sort({_id: -1})
       .populate('author', ['fullName', 'username', 'profile.pic'])
-      .populate('comments.author').exec((err, post) => {
+      .populate('comments.author', ['fullName', 'username', 'firstName', 'profile.pic'])
+      .exec((err, post) => {
         if (err)
           res.json({ success: false, message: err });
         else if (!post)
