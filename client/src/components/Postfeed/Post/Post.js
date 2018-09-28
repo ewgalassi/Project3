@@ -48,6 +48,7 @@ class Post extends Component {
           <PostFooter 
           numLikes={this.props.numLikes}
           comments={this.props.comments}
+          id={this.props.id}
           />
         </Card>
     )

@@ -10,8 +10,8 @@ export default  {
         return axios.post("/api/posts", postData)
     },
 
-    likePost: function () {
-        return axios.put("/api/posts")
+    likePost: function (id) {
+        return axios.put("/api/posts", {post_id: id})
     },
     commentPost: function (id) {
         return axios.post("/api/posts/comment")
