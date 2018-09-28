@@ -31,7 +31,7 @@ class NewPost extends Component {
       };
      
       handleSubmit = event => {
-          console.log("WORKING")
+          
         event.preventDefault();
         const post = {
           type: "status",
@@ -39,7 +39,12 @@ class NewPost extends Component {
         };
         PostAPI.savePost(post).then(data => {
           console.log(data);
-        //   window.location.replace("/");
+          if (window.location.href == "http://localhost:3000/profile"){
+            console.log("WORKING")
+          window.location.replace("/profile");
+          } 
+          console.log("NOT WORKING")
+          // window.location.replace("/");
         }).catch(err => {
           console.log(err);
         });

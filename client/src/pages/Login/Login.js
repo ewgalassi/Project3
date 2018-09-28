@@ -26,7 +26,7 @@ class Login extends Component {
         };
         UserAPI.loginUser(user).then(data => {
             console.log(data);
-            window.location.replace("/");
+            window.location.replace("/profile");
         });
     };
 
