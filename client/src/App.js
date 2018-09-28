@@ -6,6 +6,7 @@ import Newsfeed from "./pages/Newsfeed/Newsfeed";
 import Profile from "./pages/Profile/Profile";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import Snippets from "./pages/Saved Snipets/Snippets"
 
 const App = () => (
   <Router>
@@ -16,6 +17,7 @@ const App = () => (
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
+      <Route exact path="/snippets" component={Snippets} />
     </div>
   </Router>
 );

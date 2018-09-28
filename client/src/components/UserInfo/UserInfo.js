@@ -13,24 +13,26 @@ class UserInfo extends Component {
     //     technologies:[]
     // }
 
- 
+     generateLanguages = () => {
+        this.props.languages.map(language => {
+            console.log(language)
+            return(
+               <li>{language}</li>
+            )
+        })
+    }
+    generateTechnologies = () => {
+        this.props.technologies.map(tech => {
+            console.log(tech)
+            return(
+               <li>{tech}</li>
+            )
+        })
+    }
 
 
     render() {
-        const generateLanguages = () => {
-            this.props.languages.map(language => {
-                return(
-                   <li>{language}</li>
-                )
-            })
-        }
-        const generateTechnologies = () => {
-            this.props.technologies.map(tech => {
-                return(
-                   <li>{tech}</li>
-                )
-            })
-        }
+        
         return(
             
             <div className="info-content">
@@ -51,7 +53,7 @@ class UserInfo extends Component {
                         <div className="col-md-6">
                           <ul className="languages">
                             <h6>Language(s):</h6>
-                            { generateLanguages }
+                            { this.generateLanguages() }
                             {/* <li>JavaScript</li>
                             <li>Python</li>
                             <li>PHP</li> */}
@@ -60,7 +62,7 @@ class UserInfo extends Component {
                         <div className="col-md-6">
                           <ul className="technologies">
                             <h6>Technologies:</h6>
-                            { generateTechnologies }
+                            { this.generateTechnologies() }
                             {/* <li>HTML/CSS</li>
                             <li>React</li>
                             <li>MongoDB</li> */}
