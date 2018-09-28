@@ -18,6 +18,9 @@ router.post('/login', function (req, res, next) {
   }
 );
 
+// Logout
+router.get('/logout', userController.logout);
+
 // Get user data (see who is logged in, profile data)
 router.get('/', userController.getUserData);
 
@@ -27,7 +30,5 @@ router.get("/:id", userController.getUserDataById);
 // Update profile data
 router.put("/profile", userController.updateProfile);
 
-// Logout
-router.get('/logout', userController.logout);
 
 module.exports = router;

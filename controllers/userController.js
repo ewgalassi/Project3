@@ -77,6 +77,7 @@ module.exports = {
   */
   logout: (req, res) => {
     if (req.user) {
+      console.log("LOGGING OUT")
       req.logout();
       res.send({ msg: 'logging out' });
     } else {
