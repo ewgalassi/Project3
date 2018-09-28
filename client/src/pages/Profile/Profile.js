@@ -16,7 +16,8 @@ class Profile extends Component {
     projects:[],
     languages:[],
     technologies:[],
-    jobInfo:{},
+    jobTitle: "",
+    jobCompany: ""
   };
 
   componentDidMount() {
@@ -25,7 +26,10 @@ class Profile extends Component {
 
   getUserData = () => {
     UserAPI.getUser().then(data => {
-      console.log(data.data);
+      if (data.data.success === false) {
+        window.location.replace("/login");
+      };
+      console.log(data.data.profile.pic);
       this.setState({
         user: data.data,
         pic: data.data.profile.pic,
@@ -35,8 +39,9 @@ class Profile extends Component {
         projects: data.data.profile.projects,
         languages: data.data.profile.languages,
         technologies: data.data.profile.technologies,
-        jobInfo: data.data.profile.jobInfo,
-        });
+        jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.jobTitle : "Job Title",
+        jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.jobCompany : "Job Company"
+        }, () => console.log(this.state.pic));
     }).catch(err => {
       console.log(err);
     });
@@ -52,8 +57,8 @@ class Profile extends Component {
               pic={this.state.pic} 
               fullName={this.state.user.fullName} />
             <UserInfo 
-              title={this.state.jobInfo.title}
-              company={this.state.jobInfo.company}
+              title={this.state.jobTitle}
+              company={this.state.jobCompany}
               languages={this.state.languages}
               github={this.state.github}
               linkedin={this.state.linkedin}

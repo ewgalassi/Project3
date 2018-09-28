@@ -26,6 +26,7 @@ class Postfeed extends Component {
         }
         
         PostAPI.getPosts().then(data => {
+            console.log(data.data)
             this.setState({
                 posts: data.data || []
             });
@@ -41,6 +42,7 @@ class Postfeed extends Component {
                     return (
                         <Post 
                         key={post._id}
+                        id={post._id}
                         author={post.author.fullName} 
                         post={post.post}
                         type={post.type}
