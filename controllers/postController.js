@@ -37,7 +37,7 @@ module.exports = {
   getAll: (req, res, next) => {
     db.Post.find()
       .sort({_id: -1})
-      .populate('author')
+      .populate('author', ['fullName', 'username', 'profile.pic'])
       .populate('comments.author').exec((err, post) => {
         if (err)
           res.json({ success: false, message: err });
