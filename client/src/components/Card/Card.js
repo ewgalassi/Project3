@@ -1,6 +1,6 @@
 import React from "react";
 // import CardBtn from "../CardBtn";
-// import "./Card.css";
+import "./Card.css";
 
 
 const Card = props => <div className="card" {...props}/>

@@ -3,7 +3,6 @@ import Post from "./Post/Post";
 import PostAPI from "../../utils/postAPI";
 import Status from "./Post/PostType/Status";
 
-//need to map and render all posts here
 
 class Postfeed extends Component {
 
