@@ -3,7 +3,7 @@ import PicIcon from "../../NewPost/PicIcon/PicIcon";
 import "./PostHeader.css";
 
 const PostHeader = (props) => (
-  <div className="row">
+  <div className="postheader">
     <PicIcon />
     <a href="#">
       <h5 className="author">{props.author}</h5>

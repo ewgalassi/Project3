@@ -8,10 +8,12 @@ class Status extends React.Component {
 
   render() {
     return (
+      <div className="row">
       <div className="statusContent">
         <p>
           {this.props.post}
         </p>
+      </div>
       </div>
     );
   }

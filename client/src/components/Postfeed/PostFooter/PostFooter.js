@@ -30,22 +30,9 @@ class PostFooter extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        {/* Like button */}
-        <button
-          onClick={() => this.handleLike(this.props.id)}
-          type="button"
-          className="post-btn btn btn-secondary">
-          <span className="fa fa-thumbs-o-up"></span> Like ({this.state.numLikes})
-        </button>
-
-        {/* Comment button */}
-        <button type="button"
-          className="post-btn btn btn-secondary"
-          onClick={() => this.handleComment(this.props.id)}>
-          <span className="fa fa-thumbs-o-up"></span> Comment
-        </button>
-
+      <div>
+        <button type="button" className="post-btn btn btn-secondary"><span className="fa fa-thumbs-o-up"></span> Comment</button>
+        <button onClick={() => this.handleLike(this.props.id)} type="button" className="post-btn btn btn-secondary"><span className="fa fa-thumbs-o-up"></span> Like ({this.state.numLikes})</button>
         {/* <button>Save</button> */}
       </div>
     );
