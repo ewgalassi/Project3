@@ -31,6 +31,11 @@ export default  {
 
     getPostId: function (id){
         return axios.get("/api/posts/author/" + id);
+    },
+
+    getSnippets: function(){
+        console.log("this is also working")
+        return axios.get("/api/posts/types/snippets")
     }
 
 

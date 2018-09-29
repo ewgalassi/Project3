@@ -37,7 +37,7 @@ class Post extends Component {
 
   render() {
     return (
-        <Card>
+        <Card style={{marginTop:30}}>
           <PostHeader 
           author={this.props.author}
           pic={this.props.pic}

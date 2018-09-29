@@ -1,53 +1,48 @@
 import React, { Component } from "react";
+import "./Dropdown.css"; 
 
 
 class Dropdown extends Component {
-    state = {
-        show:false
-    } 
+  state = {
+    isOpen: false,
+    selection:""
+  };
 
-    showMenu = event => {
-        event.preventDefault();
-    
-        this.setState({ show: true }, () => {
-          document.addEventListener("click", this.closeMenu);
-        });
-      }
-    
-      closeMenu = event => {
-        if (!this.dropdownMenu.contains(event.target)) {
-          this.setState({ show: false }, () => {
-            document.removeEventListener("click", this.closeMenu);
-          });
-        }
-      }
+  toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
 
-    render() {
-        return(
-  <div className={`dropdown ${this.state.show ? 'show' : ''}`} ref={(dropdown) => this.dropdown = dropdown}>
-        <button 
-          className="btn btn-secondary dropdown-toggle" 
-          type="button" 
-          id="dropdownMenuButton" 
-          data-toggle="dropdown" 
-          aria-haspopup="true" 
-        //   aria-expanded={this.state.show}
-          onClick={this.showMenu}>
-          Select Type
+  handleSelect = (event) => {
+    console.log(event.target)
+    
+  }
+
+  render() {
+    const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
+    return (
+      <div className="dropdown" onClick={this.toggleOpen}>
+        <button
+          className="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+        >
+          {this.props.name}
         </button>
-        {this.state.show ? (
-            <div 
-              className="dropdown-menu" 
-              aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="#nogo">Status</a>
-                <a className="dropdown-item" href="#nogo">Snippet</a>
-                <a className="dropdown-item" href="#nogo">Article</a>
-            </div>
-        ): null}
-       
-  </div>
-        )
-    }
+        <div className={menuClass} aria-labelledby="dropdownMenuButton" >
+          <a className="dropdown-item" href="#nogo" value={this.props.option1.toLowerCase()} onClick={this.handleSelect}>
+            {this.props.option1}
+          </a>
+          <a className="dropdown-item" href="#nogo" value={this.props.option2.toLowerCase()} onClick={this.handleSelect} >
+            {this.props.option2}
+          </a>
+          <a className="dropdown-item" href="#nogo" value={this.props.option3.toLowerCase()} onClick={this.handleSelect}>
+            {this.props.option3}
+          </a>
+        </div>
+      </div>
+    );
+  }
 }
+
 
 export default Dropdown;

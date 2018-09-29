@@ -12,9 +12,9 @@
 /* Col */
 .col-md-8 {
   margin: 0px auto;
-  height: 160px;
+  /* height: 160px; */
   position: relative;
-  background: #ffffff;
+  /* background: #ffffff; */
   border-radius: 0.4em;
 }
 .col-md-8:after {

@@ -11,7 +11,7 @@ class UserInfo extends Component {
     generateLanguages = () => {
          const arr = this.props.languages.map(language => {
             return(
-               <li>{language}</li>
+               <li key={this.props.id+language}>{language}</li>
             ) 
         });
         return arr;
@@ -20,7 +20,7 @@ class UserInfo extends Component {
     generateTechnologies = () => {
         const arr = this.props.technologies.map(tech => {
             return(
-               <li>{tech}</li>
+               <li key={this.props.id+tech}>{tech}</li>
             )
         });
         return arr;
