@@ -1,7 +1,5 @@
-button.post-btn {
-    height:30px;
-    float: right;
-    font-size:20px;
-    font-family: sans-serif;
-    
-  }
+.post-btn {
+  float:right;
+  margin-left:10px;
+}
+
