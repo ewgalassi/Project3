@@ -35,7 +35,6 @@ module.exports = {
     route- GET /api/posts
   */
   getAll: (req, res, next) => {
-    console.log("NOT WORKING")
     db.Post.find()
       .sort({_id: -1})
       .populate('author', ['fullName', 'username', 'profile.pic'])
@@ -74,7 +73,6 @@ module.exports = {
     params- userId
   */
   getAllSnippetsById: (req, res, next) => {
-    console.log("this too is working")
     db.Post.find({author: req.user._id})
       .where("type").equals("snippet")
       .sort({_id: -1})
@@ -118,8 +116,9 @@ module.exports = {
       return post.comment({
         author: req.user._id,
         text: req.body.comment
-      }).then(() => {
-        return res.json({ success: true, message: "Commented!" });
+      }, {new: true}).then((commentData) => {
+        console.log(commentData);
+        return res.json(commentData);
       })
     }).catch(next);
   },
@@ -161,7 +160,7 @@ module.exports = {
       res.json({success: true, message: "Deleted post"})
     }).catch(err => {
       res.json({success: false, message: err})
-    })
+    });
   }
 
 };
