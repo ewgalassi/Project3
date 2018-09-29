@@ -116,9 +116,9 @@ module.exports = {
       return post.comment({
         author: req.user._id,
         text: req.body.comment
-      }).then((commentData) => {
-        console.log(comentData);
-        return res.json({ success: true, message: "Commented!" });
+      }, {new: true}).then((commentData) => {
+        console.log(commentData);
+        return res.json(commentData);
       })
     }).catch(next);
   },

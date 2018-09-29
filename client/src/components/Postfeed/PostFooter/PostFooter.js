@@ -1,12 +1,13 @@
 import React from "react";
 import "./PostFooter.css";
 import PostAPI from "../../../utils/postAPI";
+import Comment from "./Comment";
 
 class PostFooter extends React.Component {
 
   state = {
     numLikes: this.props.numLikes,
-    comments: []
+    comments: this.props.comments || []
   };
 
   handleLike = id => {
@@ -23,17 +24,40 @@ class PostFooter extends React.Component {
       post_id: id,
       comment: comment
     }).then(data => {
-      console.log(data.data);
-      console.log(this.props.comments);
+      console.log(data.data.comments);
+      this.setState({
+        comments: data.data.comments || []
+      });
+    }).catch(err => {
+      console.log(err);
+    });
+  };
+
+  displayComments = () => {
+    console.log(this.state.comments);
+    return this.state.comments.map(comment => {
+      console.log(comment);
+      return (
+        <li>
+          {comment.author.firstName}: {comment.text}
+        </li>
+      );
     });
   };
 
   render() {
     return (
       <div>
-        <button type="button" className="post-btn btn btn-secondary"><span className="fa fa-thumbs-o-up"></span> Comment</button>
-        <button onClick={() => this.handleLike(this.props.id)} type="button" className="post-btn btn btn-secondary"><span className="fa fa-thumbs-o-up"></span> Like ({this.state.numLikes})</button>
-        {/* <button>Save</button> */}
+        <div>
+          <button onClick={() => this.handleComment(this.props.id)} type="button" className="post-btn btn btn-secondary"><span className="fa fa-thumbs-o-up"></span> Comment</button>
+          <button onClick={() => this.handleLike(this.props.id)} type="button" className="post-btn btn btn-secondary"><span className="fa fa-thumbs-o-up"></span> Like ({this.state.numLikes})</button>
+          {/* <button>Save</button> */}
+        </div>
+
+      <div>
+        {this.displayComments()}
+      </div>
+
       </div>
     );
   }
