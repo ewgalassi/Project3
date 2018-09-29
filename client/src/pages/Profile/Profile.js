@@ -10,6 +10,7 @@ import UserAPI from "../../utils/userAPI";
 class Profile extends Component {
   state = {
     user: {},
+    id:"",
     pic: "",
     linkedin:"",
     portfolio:"",
@@ -29,9 +30,11 @@ class Profile extends Component {
       if (data.data.success === false) {
         window.location.replace("/login");
       };
-      console.log(data.data.profile.pic);
+      console.log(data.data);
+
       this.setState({
         user: data.data,
+        id: data.data._id,
         pic: data.data.profile.pic,
         github: data.data.profile.github,
         linkedin: data.data.profile.linkedin,
@@ -57,6 +60,7 @@ class Profile extends Component {
               pic={this.state.pic} 
               fullName={this.state.user.fullName} />
             <UserInfo 
+              id={this.state.id}
               title={this.state.jobTitle}
               company={this.state.jobCompany}
               languages={this.state.languages}
@@ -65,14 +69,13 @@ class Profile extends Component {
               portfolio={this.state.portfolio}
               projects={this.state.projects}
               technologies={this.state.technologies}
-
                />
           </Col>
           <Col size="md-8">
-            <Row>
+            
               <NewPost/>
               <Postfeed />
-            </Row>
+            
           </Col>
          
         </Row>

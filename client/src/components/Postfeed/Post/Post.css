@@ -1,4 +1,6 @@
-.card {
+
+.post-card {
   margin-top:30px;
   position: relative;
+  background-color:#fff;
 }

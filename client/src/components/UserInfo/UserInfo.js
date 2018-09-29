@@ -8,31 +8,27 @@ import "./UserInfo.css";
 
 class UserInfo extends Component {
     
-    // state = {
-    //     languages:[],
-    //     technologies:[]
-    // }
-
-     generateLanguages = () => {
-        this.props.languages.map(language => {
-            console.log(language)
+    generateLanguages = () => {
+         const arr = this.props.languages.map(language => {
             return(
-               <li>{language}</li>
-            )
-        })
+               <li key={this.props.id+language}>{language}</li>
+            ) 
+        });
+        return arr;
     }
+
     generateTechnologies = () => {
-        this.props.technologies.map(tech => {
-            console.log(tech)
+        const arr = this.props.technologies.map(tech => {
             return(
-               <li>{tech}</li>
+               <li key={this.props.id+tech}>{tech}</li>
             )
-        })
+        });
+        return arr;
     }
 
 
     render() {
-        
+       
         return(
             
             <div className="info-content">
