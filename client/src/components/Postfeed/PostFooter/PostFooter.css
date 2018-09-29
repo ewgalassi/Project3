@@ -1,5 +1,17 @@
+.footer {
+  position:relative;
+}
+
 .post-btn {
-  float:right;
-  margin-left:10px;
+  position:absolute;
+  bottom:0;
+}
+
+.comment-btn {
+  right:0;
+}
+
+.like-btn {
+  right:18%;
 }
 
