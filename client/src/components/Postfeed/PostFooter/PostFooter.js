@@ -36,7 +36,10 @@ class PostFooter extends React.Component {
       console.log(comment);
       return (
         <li key={comment._id}>
-          {comment.author.firstName}: {comment.text}
+          <a href={"/user/" + comment.author._id}>
+          {comment.author.firstName}
+          </a>: {comment.text}
+          
         </li>
       );
     });
