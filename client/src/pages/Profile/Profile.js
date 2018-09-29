@@ -29,7 +29,8 @@ class Profile extends Component {
       if (data.data.success === false) {
         window.location.replace("/login");
       };
-      console.log(data.data.profile.pic);
+      console.log(data.data);
+
       this.setState({
         user: data.data,
         pic: data.data.profile.pic,
@@ -39,8 +40,8 @@ class Profile extends Component {
         projects: data.data.profile.projects,
         languages: data.data.profile.languages,
         technologies: data.data.profile.technologies,
-        jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.jobTitle : "Job Title",
-        jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.jobCompany : "Job Company"
+        jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.title : "Job Title",
+        jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.company : "Job Company"
         }, () => console.log(this.state.pic));
     }).catch(err => {
       console.log(err);

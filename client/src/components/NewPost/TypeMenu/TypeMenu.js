@@ -33,7 +33,7 @@ class TypeMenu extends Component {
   render() {
     return (
       <div>
-        <button className="typeBtn btn btn-light" onClick={this.showMenu}>
+        <button className="typeBtn btn btn-light dropdown-toggle" onClick={this.showMenu}>
           Select Type
         </button>
 

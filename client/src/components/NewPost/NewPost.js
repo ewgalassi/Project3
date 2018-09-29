@@ -5,6 +5,7 @@ import PostBtn from "./PostBtn/PostBtn";
 import PicIcon from "./PicIcon/PicIcon";
 import PostAPI from "../../utils/postAPI";
 import TypeBtn from "./TypeMenu/TypeBtn";
+import Dropdown from "../Dropdown/Dropdown";
 
 
 class NewPost extends Component {
@@ -56,12 +57,13 @@ render(){
         <PicIcon/>
         <PostBox onChange={this.handleInput} value={this.state.post} name="post"/>
         <hr/>
-        <TypeMenu>
+        <Dropdown />
+        {/* <TypeMenu>
 
             <TypeBtn value="Snippet">Snippet</TypeBtn>
             <TypeBtn value="Article">Article</TypeBtn>
             <TypeBtn value="Status">Status</TypeBtn>
-        </TypeMenu>
+        </TypeMenu> */}
         <PostBtn onClick={this.handleSubmit}/>
         </div>
         
