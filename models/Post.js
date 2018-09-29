@@ -1,4 +1,11 @@
 const mongoose = require('mongoose');
+const metascraper = require('metascraper')([
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-title')(),
+]);
+const got = require('got');
+
 
 const POST_TYPES = ["snippet", "status", "article"];
 
@@ -42,6 +49,15 @@ let PostSchema = new mongoose.Schema({
 		type: Date,
 		default: Date.now
 	},
+	// articleMetadata: {
+	// 	title: { type: String, trim: true, default: "Untitled" },
+	// 	description: { type: String, trim: true },
+	// 	image: { type: String, trim: true }
+	// },
+	articleTitle: {
+		type: String,
+		default: "Untitled"
+	},
 	comments: [
 		{
 			author: {
@@ -70,7 +86,7 @@ PostSchema.methods.comment = function (c) {
 };
 
 // Edit post
-PostSchema.methods.edit = function(updatedPost) {
+PostSchema.methods.edit = function (updatedPost) {
 	this.post = updatedPost;
 	return this.save();
 };
@@ -87,5 +103,26 @@ PostSchema.methods.getUserPosts = function (_id) {
 		return article;
 	});
 };
+
+PostSchema.methods.getMetadata = function(url) {
+	  const targetUrl = url;
+  ; (async () => {
+    const { body: html, url } = await got(targetUrl);
+    const metadata = await metascraper({ html, url });
+		this.articleMetadata = metadata;
+		console.log(metadata);
+    return metadata;
+  })()
+}
+
+// Article helper function (gets title, desc, image for post type "article")
+PostSchema.pre("save", function (next) {
+	if (this.type === "article") {
+	  this.getMetadata(this.post.trim());
+		next();
+	} else {
+		next();
+	};
+});
 
 module.exports = mongoose.model('Post', PostSchema);
