@@ -50,12 +50,10 @@ class Newsfeed extends Component {
       <Container>
         <Row>
           <Col size="md-8">
-            <Row>
+              
               <NewPost />
-            </Row>
-            <Row>
               <Postfeed />
-            </Row>
+            
           </Col>
         </Row>
 

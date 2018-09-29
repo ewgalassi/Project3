@@ -1,7 +1,6 @@
 import React from "react";
 import "./PostFooter.css";
 import PostAPI from "../../../utils/postAPI";
-import Comment from "./Comment";
 
 class PostFooter extends React.Component {
 
@@ -47,10 +46,10 @@ class PostFooter extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="footer">
         <div>
-          <button onClick={() => this.handleComment(this.props.id)} type="button" className="post-btn btn btn-secondary"><span className="fa fa-thumbs-o-up"></span> Comment</button>
-          <button onClick={() => this.handleLike(this.props.id)} type="button" className="post-btn btn btn-secondary"><span className="fa fa-thumbs-o-up"></span> Like ({this.state.numLikes})</button>
+          <button onClick={() => this.handleComment(this.props.id)} type="button" className="post-btn comment-btn btn btn-secondary btn-sm"><span className="fa fa-thumbs-o-up"></span> Comment</button>
+          <button onClick={() => this.handleLike(this.props.id)} type="button" className="post-btn like-btn btn btn-secondary btn-sm"><span className="fa fa-thumbs-o-up"></span> Like ({this.state.numLikes})</button>
           {/* <button>Save</button> */}
         </div>
 

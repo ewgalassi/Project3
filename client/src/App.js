@@ -6,7 +6,7 @@ import Newsfeed from "./pages/Newsfeed/Newsfeed";
 import Profile from "./pages/Profile/Profile";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import Snippets from "./pages/Saved Snipets/Snippets"
+import Snippets from "./pages/Snippets/Snippets"
 
 const App = () => (
   <Router>
