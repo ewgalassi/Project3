@@ -13,8 +13,8 @@ export default  {
     likePost: function (id) {
         return axios.put("/api/posts", {post_id: id})
     },
-    commentPost: function (id) {
-        return axios.post("/api/posts/comment")
+    commentPost: function (commentData) {
+        return axios.post("/api/posts/comment", commentData)
     },
     // Gets the post with the given id
     getOnecPost: function (id) {
