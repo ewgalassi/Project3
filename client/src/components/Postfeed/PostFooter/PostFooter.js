@@ -1,7 +1,6 @@
 import React from "react";
 import "./PostFooter.css";
 import PostAPI from "../../../utils/postAPI";
-import Comment from "./Comment";
 
 class PostFooter extends React.Component {
 
@@ -24,7 +23,6 @@ class PostFooter extends React.Component {
       post_id: id,
       comment: comment
     }).then(data => {
-      console.log(data.data.comments);
       this.setState({
         comments: data.data.comments || []
       });
@@ -34,11 +32,10 @@ class PostFooter extends React.Component {
   };
 
   displayComments = () => {
-    console.log(this.state.comments);
     return this.state.comments.map(comment => {
       console.log(comment);
       return (
-        <li>
+        <li key={comment._id}>
           {comment.author.firstName}: {comment.text}
         </li>
       );
