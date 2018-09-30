@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import PostBox from "./PostBox/PostBox";
 import PostBtn from "./PostBtn/PostBtn";
-import PicIcon from "./PicIcon/PicIcon";
+// import PicIcon from "./PicIcon/PicIcon";
 import PostAPI from "../../utils/postAPI";
 import Dropdown from "../Dropdown/Dropdown";
 import Card from "../Card/Card";
@@ -54,7 +54,6 @@ class NewPost extends Component {
 render(){
     return(
         <Card style={{padding:20}}>
-          <PicIcon/>
           <PostBox onChange={this.handleInput} value={this.state.post} name="post"/>
           <hr/>
           <div className="postbox-footer">
