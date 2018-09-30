@@ -2,19 +2,28 @@ import React from "react";
 import UserAPI from "../../utils/userAPI";
 
 class Logout extends React.Component {
-
-  handleSubmit = event => {
-    event.preventDefault();
-    UserAPI.logoutUser()
-    .then(data => {
-      console.log("LOGGED OUT");
+ state = {
+   loggedIn:true,
+   message:"Login"
+ }
+  clickLogout = () => {
+    // event.preventDefault();
+    if (this.state.loggedIn === false){
       window.location.replace("/login");
-    })
+    } else {
+      UserAPI.logoutUser()
+      .then(data => {
+        console.log("LOGGED OUT");
+        window.location.replace("/login");
+      }).then(this.setState({loggedIn:false}))
+    }
+  
+
 };
 
   render() {
     return <div>
-      <button onClick={this.handleSubmit}> Logout </button>
+      <button className="btn btn-secondary btn-sm" onClick={() => this.clickLogout()}>  {this.state.loggedIn ? 'Logout' : 'Login'} </button>
     </div>
   }
 }

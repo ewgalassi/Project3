@@ -6,9 +6,10 @@ import "./PostType.css";
 
 const Snippet = () => (
   <div className="content">
+  
     <p>(snippet description) Lorem ipsum dolor sit amet</p>
     <p>#hashtags #react #js #bootstrap</p>
-    <div className="snippet">code</div>
+    <div className="snippet">{console.log("snippet props", this.props)}</div>
   </div>
 );
 

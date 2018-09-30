@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import UserAPI from "../../utils/userAPI";
 
-//components needed:
-//navbar
-//user info
 
 class Login extends Component {
     state = {
         username: "",
-        password: ""
+        password: "",
+        loggedIn:false
     };
 
     handleInput = event => {
@@ -26,6 +24,7 @@ class Login extends Component {
         };
         UserAPI.loginUser(user).then(data => {
             console.log(data);
+            this.setState({loggedIn:true})
             window.location.replace("/profile");
         });
     };
