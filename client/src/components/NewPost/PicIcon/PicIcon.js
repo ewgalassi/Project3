@@ -1,10 +1,11 @@
 import React from "react";
 import "./PicIcon.css";
 
-const PicIcon = () => (
-  <div
+const PicIcon = (props) => (
+  <img
     className="PicIcon"
-    style={{ backgroundImage: `url(http://placehold.it/50x50)` }}
+    src={props.pic}
+    alt="Profile pic"
   />
 );
 
