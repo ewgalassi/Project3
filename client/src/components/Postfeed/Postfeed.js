@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Post from "./Post/Post";
 import UserAPI from "../../utils/userAPI";
 import PostAPI from "../../utils/postAPI";
-import Status from "./Post/PostType/Status";
+// import Status from "./Post/PostType/Status";
 
 
 class Postfeed extends Component {

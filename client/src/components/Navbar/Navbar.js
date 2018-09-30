@@ -34,7 +34,7 @@ const Navbar = () => (
             Profile
           </Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link
             to="/login"
             className={
@@ -45,7 +45,7 @@ const Navbar = () => (
           >
             Login
           </Link>
-        </li>
+        </li> */}
         <li className="nav-item">
           <Link
             to="/register"
