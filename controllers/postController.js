@@ -112,7 +112,8 @@ module.exports = {
     body- post_id, comment
   */
   commentPost: (req, res, next) => {
-    db.Post.findById(req.body.post_id).then(post => {
+    db.Post.findById(req.body.post_id)
+    .then(post => {
       return post.comment({
         author: req.user._id,
         text: req.body.comment
