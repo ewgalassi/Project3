@@ -13,6 +13,10 @@ export default {
         return axios.get('/user/')
     },
 
+    getUserById: function(id) {
+        return axios.get("/user/" + id)
+    },
+
     editUser: function(update){
         return axios.put('/user/profile', update)
     },
