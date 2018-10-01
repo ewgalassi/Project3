@@ -1,6 +1,10 @@
 import React from "react";
 import "./PostBox.css";
 
+//create PostBOx class component
+//switch statement to render diff postbox options based on props.type
+
+
 const PostBox = props => (
   <form className="post">
     <div className="userInput">
