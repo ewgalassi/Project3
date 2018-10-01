@@ -22,16 +22,38 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    this.getUserData();
+    const { match: { params } } = this.props;
+    if (params.id) {
+      this.getUserData(params.id)
+    } else {
+      this.getUserData()
+    }
   };
 
-  getUserData = () => {
-    UserAPI.getUser().then(data => {
+  getUserData = (id) => {
+    if (!id === undefined) {
+   UserAPI.getUser().then(data => {
       if (data.data.success === false) {
         window.location.replace("/login");
       };
-      
-
+      this.setState({
+        user: data.data,
+        id: data.data._id,
+        pic: data.data.profile.pic,
+        github: data.data.profile.github,
+        linkedin: data.data.profile.linkedin,
+        portfolio: data.data.profile.portfolio,
+        projects: data.data.profile.projects,
+        languages: data.data.profile.languages,
+        technologies: data.data.profile.technologies,
+        jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.title : "Job Title",
+        jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.company : "Job Company"
+        }, () => console.log(this.state.pic));
+    }).catch(err => {
+      console.log(err);
+    });
+  } else {
+       UserAPI.getUserById(id).then(data => {
       this.setState({
         user: data.data,
         id: data.data._id,
@@ -49,6 +71,14 @@ class Profile extends Component {
       console.log(err);
     });
   };
+  
+
+
+
+    }
+
+
+ 
 
   render() {
     
