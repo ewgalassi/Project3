@@ -24,13 +24,13 @@ class TypeMenu extends Component {
           Select Type
         </button>
         <div className={menuClass} aria-labelledby="dropdownMenuButton">
-          <a className="dropdown-item" href="#nogo">
+          <a className="dropdown-item" >
             Status
           </a>
-          <a className="dropdown-item" href="#nogo">
+          <a className="dropdown-item" >
             Snippet
           </a>
-          <a className="dropdown-item" href="#nogo">
+          <a className="dropdown-item" >
             Article
           </a>
         </div>

@@ -77,13 +77,13 @@ module.exports = {
       .where("type").equals("snippet")
       .sort({_id: -1})
       .populate('comments.author').exec((err, post) => {
-        console.log("WHY WONT THIS WORK")
+        
         if (err)
           res.json({ success: false, message: err });
         else if (!post)
           res.send(404);
         else
-          console.log("IT WORKS--------")
+          
           res.json(post);
         next();
       })
