@@ -31,10 +31,6 @@ class Postfeed extends Component {
         } else {
         
         PostAPI.getPosts().then(data => {
-<<<<<<< HEAD
-            // console.log(data.data)
-=======
->>>>>>> 88ca633bd672bec17eff98cc43a4e2bb46f74d62
             this.setState({
                 posts: data.data || []
             });
@@ -48,10 +44,6 @@ class Postfeed extends Component {
             <div>
                 
                 {this.state.posts.map(post => {
-<<<<<<< HEAD
-                    // console.log(post)
-=======
->>>>>>> 88ca633bd672bec17eff98cc43a4e2bb46f74d62
                     return (
                         <Post 
                         key={post._id}

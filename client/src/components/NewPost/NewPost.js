@@ -45,7 +45,7 @@ class NewPost extends Component {
           
         event.preventDefault();
         const post = {
-          type: "status",
+          type: this.state.type,
           post: this.state.post
         };
         PostAPI.savePost(post).then(data => {
