@@ -7,19 +7,18 @@ class Article extends Component {
     return (
       <div className="articleCard">
         <div>
-          <h4>Article title</h4>
-          <a href="#">
+          <a target="_blank" href={this.props.post}>
+            <h4>{this.props.articleMetadata.title}</h4>
+          </a>
             <div>
               <img
-                src="http://placehold.it/650x300"
-                className="
-                            img-fluid"
+                src={this.props.articleMetadata.image}
+                className="img-fluid"
               />
             </div>
             <p>
-             {this.props.post}
+              {this.props.articleMetadata.description}
             </p>
-          </a>
         </div>
       </div>
     );

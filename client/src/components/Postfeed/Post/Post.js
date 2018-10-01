@@ -22,6 +22,7 @@ class Post extends Component {
         return (
           <Article
             post={this.props.post}
+            articleMetadata={this.props.articleMetadata}
           />
         );
       case "snippet":
