@@ -65,7 +65,7 @@ class NewPost extends Component {
 render(){
     return(
         <Card style={{padding:20}}>
-          <PostBox onChange={this.handleInput} value={this.state.post} name="post"/>
+          <PostBox onChange={this.handleInput} value={this.state.post} name="post" type={this.state.type}/>
           <hr/>
           <div className="postbox-footer">
             <PostBtn onClick={this.handleSubmit}/>
