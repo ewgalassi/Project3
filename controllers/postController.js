@@ -21,7 +21,7 @@ module.exports = {
     let { post, type } = req.body;
     let author = req.user._id;
 
-
+    if (req.body.type === "article") {
     const targetUrl = req.body.post;
   ; (async () => {
     const { body: html, url } = await got(targetUrl);
@@ -30,6 +30,9 @@ module.exports = {
 		console.log(metadata);
     return metadata;
     })()
+  } else {
+    savePost({ post, type, author });
+  }
 
 
     function savePost(obj) {
