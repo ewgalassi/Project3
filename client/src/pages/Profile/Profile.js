@@ -33,8 +33,6 @@ class Profile extends Component {
   getUserData = (id) => {
     if (!id === undefined) {
    UserAPI.getUser().then(data => {
-     console.log(data.data)
-     console.log("queryid is valid")
       if (data.data.success === false) {
         window.location.replace("/login");
       };
@@ -56,7 +54,6 @@ class Profile extends Component {
     });
   } else {
        UserAPI.getUserById(id).then(data => {
-         console.log(data.data)
       this.setState({
         user: data.data,
         id: data.data._id,
