@@ -46,7 +46,7 @@ class UserInfo extends Component {
                 </Card>
                 <Card className="skills-card">
                     <div className="row skills-row">
-                        <div className="col-md-6">
+                        <div className="col-xs-6">
                           <ul className="languages">
                             <h6>Language(s):</h6>
                             { this.generateLanguages() }
@@ -55,7 +55,7 @@ class UserInfo extends Component {
                             <li>PHP</li> */}
                           </ul>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-xs-6">
                           <ul className="technologies">
                             <h6>Technologies:</h6>
                             { this.generateTechnologies() }
