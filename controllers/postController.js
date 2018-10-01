@@ -1,4 +1,10 @@
 const db = require("../models");
+const metascraper = require('metascraper')([
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-title')(),
+]);
+const got = require('got');
 
 // Post controller
 module.exports = {
@@ -15,7 +21,16 @@ module.exports = {
     let { post, type } = req.body;
     let author = req.user._id;
 
-    savePost({ post, type, author });
+
+    const targetUrl = req.body.post;
+  ; (async () => {
+    const { body: html, url } = await got(targetUrl);
+    const articleMetadata = await metascraper({ html, url });
+    savePost({ post, type, author, articleMetadata });    
+		console.log(metadata);
+    return metadata;
+    })()
+
 
     function savePost(obj) {
       new db.Post(obj).save((err, post) => {

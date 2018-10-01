@@ -49,14 +49,10 @@ let PostSchema = new mongoose.Schema({
 		type: Date,
 		default: Date.now
 	},
-	// articleMetadata: {
-	// 	title: { type: String, trim: true, default: "Untitled" },
-	// 	description: { type: String, trim: true },
-	// 	image: { type: String, trim: true }
-	// },
-	articleTitle: {
-		type: String,
-		default: "Untitled"
+	articleMetadata: {
+		title: { type: String, trim: true },
+		description: { type: String, trim: true },
+		image: { type: String, trim: true }
 	},
 	comments: [
 		{
@@ -104,25 +100,26 @@ PostSchema.methods.getUserPosts = function (_id) {
 	});
 };
 
-PostSchema.methods.getMetadata = function(url) {
-	  const targetUrl = url;
-  ; (async () => {
-    const { body: html, url } = await got(targetUrl);
-    const metadata = await metascraper({ html, url });
-		this.articleMetadata = metadata;
-		console.log(metadata);
-    return metadata;
-  })()
-}
+// PostSchema.methods.getMetadata = function(url) {
+// 	  const targetUrl = url;
+//   ; (async () => {
+//     const { body: html, url } = await got(targetUrl);
+//     const metadata = await metascraper({ html, url });
+// 		this.articleMetadata = metadata;
+
+// 		console.log(metadata);
+//     return metadata;
+//   })()
+// }
 
 // Article helper function (gets title, desc, image for post type "article")
-PostSchema.pre("save", function (next) {
-	if (this.type === "article") {
-	  this.getMetadata(this.post.trim());
-		next();
-	} else {
-		next();
-	};
-});
+// PostSchema.pre("save", function (next) {
+// 	if (this.type === "article") {
+// 	  this.getMetadata(this.post.trim());
+// 		next();
+// 	} else {
+// 		next();
+// 	};
+// });
 
 module.exports = mongoose.model('Post', PostSchema);
