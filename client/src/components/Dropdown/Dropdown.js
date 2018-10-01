@@ -29,13 +29,13 @@ class Dropdown extends Component {
           {this.props.name}
         </button>
         <div className={menuClass} aria-labelledby="dropdownMenuButton" >
-          <a className="dropdown-item" href="#nogo" value={this.props.option1.toLowerCase()} onClick={this.handleSelect}>
+          <a className="dropdown-item"  value={this.props.option1.toLowerCase()} onClick={this.handleSelect}>
             {this.props.option1}
           </a>
-          <a className="dropdown-item" href="#nogo" value={this.props.option2.toLowerCase()} onClick={this.handleSelect} >
+          <a className="dropdown-item"  value={this.props.option2.toLowerCase()} onClick={this.handleSelect} >
             {this.props.option2}
           </a>
-          <a className="dropdown-item" href="#nogo" value={this.props.option3.toLowerCase()} onClick={this.handleSelect}>
+          <a className="dropdown-item"  value={this.props.option3.toLowerCase()} onClick={this.handleSelect}>
             {this.props.option3}
           </a>
         </div>

@@ -40,12 +40,13 @@ class NewPost extends Component {
         };
         PostAPI.savePost(post).then(data => {
           console.log(data);
-          if (window.location.href === "http://localhost:3000/profile"){
+          if (window.location.href == "http://localhost:3000/profile"){
             console.log("WORKING")
-          window.location.replace("/profile");
-          } 
+          // window.location.replace("/profile");
+          } else {
           console.log("NOT WORKING")
           // window.location.replace("/");
+          }
         }).catch(err => {
           console.log(err);
         });
