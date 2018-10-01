@@ -10,10 +10,13 @@ class PostFooter extends React.Component {
   };
 
   handleLike = id => {
-    // console.log(id);
+    console.log(id);
     PostAPI.likePost(id).then(data => {
+      console.log(data);
       this.setState({ numLikes: this.state.numLikes + 1 });
-    });
+    }).catch(err => {
+      console.log(err);
+    })
   };
 
   handleComment = id => {
