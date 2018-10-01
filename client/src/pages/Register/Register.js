@@ -21,7 +21,7 @@ class Register extends Component {
     };
 
     handleSubmit = event => {
-        console.log("SUBMIT WORKING")
+        
         event.preventDefault();
         const user = {
             username: this.state.username,
@@ -32,7 +32,7 @@ class Register extends Component {
         UserAPI.createUser(user).then(data => {
             console.log(data);
             window.location.replace("/profile");
-            // window.location.replace("/");
+            
         }).catch(err => {
             console.log(err);
         });

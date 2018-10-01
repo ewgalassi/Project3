@@ -30,7 +30,7 @@ class Profile extends Component {
       if (data.data.success === false) {
         window.location.replace("/login");
       };
-      console.log(data.data);
+      
 
       this.setState({
         user: data.data,
