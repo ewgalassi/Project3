@@ -1,4 +1,10 @@
 const db = require("../models");
+const metascraper = require('metascraper')([
+  require('metascraper-description')(),
+  require('metascraper-image')(),
+  require('metascraper-title')(),
+]);
+const got = require('got');
 
 // Post controller
 module.exports = {
@@ -15,7 +21,19 @@ module.exports = {
     let { post, type } = req.body;
     let author = req.user._id;
 
+    if (req.body.type === "article") {
+    const targetUrl = req.body.post;
+  ; (async () => {
+    const { body: html, url } = await got(targetUrl);
+    const articleMetadata = await metascraper({ html, url });
+    savePost({ post, type, author, articleMetadata });    
+		console.log(metadata);
+    return metadata;
+    })()
+  } else {
     savePost({ post, type, author });
+  }
+
 
     function savePost(obj) {
       new db.Post(obj).save((err, post) => {
@@ -112,16 +130,18 @@ module.exports = {
     body- post_id, comment
   */
   commentPost: (req, res, next) => {
-    db.Post.findById(req.body.post_id).then(post => {
+    db.Post.findById(req.body.post_id)
+    .then(post => {
       return post.comment({
         author: req.user._id,
-        text: req.body.comment
-      }, {new: true}).then((commentData) => {
+        text: req.body.comment,
+        firstName: req.user.firstName
+      }, {new: true})
+      .then((commentData) => {
         console.log(commentData);
         return res.json(commentData);
       })
     }).catch(err => {
-      console.log("THERE WAS AN ERROR")
       console.log(err);
       res.json(err);
       next();
