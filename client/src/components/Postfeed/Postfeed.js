@@ -52,6 +52,7 @@ class Postfeed extends Component {
                         author={post.author.fullName} 
                         post={post.post}
                         type={post.type}
+                        articleMetadata={post.articleMetadata || "not an article"}
                         numLikes={post.numLikes}
                         comments={post.comments}
                         pic={post.author.profile ? post.author.profile.pic : "https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"}
