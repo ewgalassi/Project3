@@ -13,10 +13,10 @@ class PostBox extends Component {
       <form className="post">
       <div className="userInput">
         <input
-          onChange={props.onChange}
-          type={props.type}
-          name={props.name}
-          value={props.value}
+          onChange={this.props.onChange}
+          type={this.props.type}
+          name={this.props.name}
+          value={this.props.value}
           className="form-control"
           placeholder="What would you like to share?"
           id="userPost"
