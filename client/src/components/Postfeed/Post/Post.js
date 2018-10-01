@@ -27,8 +27,9 @@ class Post extends Component {
       case "snippet":
         return (
           <Snippet
-            post={this.props.post}
-          />
+            post={this.props.post}>
+            {this.props.post}
+          </Snippet>
         )
       default:
         return (
