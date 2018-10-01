@@ -4,12 +4,19 @@ import "./PostType.css";
 
 //layout of snippet post
 
-const Snippet = () => (
+const Snippet = (props) => (
   <div className="content">
   
     <p>(snippet description) Lorem ipsum dolor sit amet</p>
     <p>#hashtags #react #js #bootstrap</p>
-    <div className="snippet">{console.log("snippet props", this.props)}</div>
+    <div className="snippet">
+      <pre>
+        <code>
+          {props.children}
+        </code>
+      </pre>
+      
+    </div>
   </div>
 );
 
