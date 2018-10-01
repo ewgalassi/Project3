@@ -117,6 +117,7 @@ module.exports = {
       return post.comment({
         author: req.user._id,
         text: req.body.comment,
+        firstName: req.user.firstName
       }, {new: true})
       .then((commentData) => {
         console.log(commentData);

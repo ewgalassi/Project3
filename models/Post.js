@@ -51,6 +51,10 @@ let PostSchema = new mongoose.Schema({
 			text: {
 				type: String,
 				trim: true
+			},
+			firstName: {
+				type: String,
+				trim: true
 			}
 		}
 	]

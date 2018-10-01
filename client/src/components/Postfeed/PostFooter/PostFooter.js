@@ -24,6 +24,7 @@ class PostFooter extends React.Component {
       post_id: id,
       comment: comment
     }).then(data => {
+      console.log(data.data.comments);
       this.setState({
         comments: data.data.comments || []
       });
@@ -37,7 +38,7 @@ class PostFooter extends React.Component {
       return (
         <li key={comment._id}>
           <a href={"/profile/" + comment.author._id}>
-          {comment.author.firstName}
+          {comment.author.firstName || comment.firstName}
           </a>: {comment.text}
           
         </li>
