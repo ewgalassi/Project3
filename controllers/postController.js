@@ -95,13 +95,13 @@ module.exports = {
       .where("type").equals("snippet")
       .sort({_id: -1})
       .populate('comments.author').exec((err, post) => {
-        console.log("WHY WONT THIS WORK")
+        
         if (err)
           res.json({ success: false, message: err });
         else if (!post)
           res.send(404);
         else
-          console.log("IT WORKS--------")
+          
           res.json(post);
         next();
       })
@@ -130,7 +130,7 @@ module.exports = {
     body- post_id, comment
   */
   commentPost: (req, res, next) => {
-    db.Post.findById(req.body.post_id).then((post) => {
+    db.Post.findById(req.body.post_id).then(post => {
       return post.comment({
         author: req.user._id,
         text: req.body.comment
@@ -138,7 +138,12 @@ module.exports = {
         console.log(commentData);
         return res.json(commentData);
       })
-    }).catch(next);
+    }).catch(err => {
+      console.log("THERE WAS AN ERROR")
+      console.log(err);
+      res.json(err);
+      next();
+    });
   },
 
 

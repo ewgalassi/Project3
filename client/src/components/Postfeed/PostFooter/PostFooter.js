@@ -12,12 +12,15 @@ class PostFooter extends React.Component {
   handleLike = id => {
     console.log(id);
     PostAPI.likePost(id).then(data => {
+      console.log(data);
       this.setState({ numLikes: this.state.numLikes + 1 });
-    });
+    }).catch(err => {
+      console.log(err);
+    })
   };
 
   handleComment = id => {
-    console.log(id);
+    // console.log(id);
     const comment = prompt("Add a comment:");
     PostAPI.commentPost({
       post_id: id,
@@ -33,10 +36,10 @@ class PostFooter extends React.Component {
 
   displayComments = () => {
     return this.state.comments.map(comment => {
-      console.log(comment);
+      console.log(comment)
       return (
         <li key={comment._id}>
-          <a href={"/user/" + comment.author._id}>
+          <a href={"/profile/" + comment.author._id}>
           {comment.author.firstName}
           </a>: {comment.text}
           

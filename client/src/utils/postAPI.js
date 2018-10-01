@@ -34,7 +34,7 @@ export default  {
     },
 
     getSnippets: function(){
-        console.log("this is also working")
+        
         return axios.get("/api/posts/types/snippets")
     }
 

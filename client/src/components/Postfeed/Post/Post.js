@@ -11,48 +11,55 @@ import "./Post.css";
 class Post extends Component {
 
   returnType = (type) => {
-    switch(type) {
+    switch (type) {
       case "status":
         return (
-          <Status 
-          post={this.props.post}
+          <Status
+            post={this.props.post}
           />
         );
-        break;
       case "article":
-       return (
+        return (
           <Article
-          post={this.props.post} 
+            post={this.props.post}
           />
-       );
-       break;
+        );
       case "snippet":
-       return (
-         <Snippet 
-         post={this.props.post}
-         />
-       )
+        return (
+          <Snippet
+            post={this.props.post}
+          />
+        )
+      default:
+        return (
+          <Snippet
+            post={this.props.post}
+          />
+        )
     }
+    
   }
 
   render() {
     return (
-        <Card style={{marginTop:30, padding:20}}>
-          <PostHeader 
+      <Card style={{ marginTop: 30, padding: 20 }}>
+        <PostHeader
           author={this.props.author}
           pic={this.props.pic}
-          />
+          authorId={this.props.authorId}
+        />
 
-          {this.returnType(this.props.type)}
+        {this.returnType(this.props.type)}
 
-          <PostFooter 
+        <PostFooter
           numLikes={this.props.numLikes}
           comments={this.props.comments}
+          authorId={this.props.authorId}
           id={this.props.id}
-          />
-        </Card>
+        />
+      </Card>
     )
-  
+
   }
 }
 

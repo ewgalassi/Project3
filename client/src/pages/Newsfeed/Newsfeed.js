@@ -30,7 +30,6 @@ class Newsfeed extends Component {
       if (data.data.success === false) {
         window.location.replace("/login");
       };
-      console.log(data.data);
     });
   };
 
@@ -38,7 +37,6 @@ class Newsfeed extends Component {
     PostAPI.getPosts()
 
       .then(res =>
-        // console.log(res.data)
         this.setState({
           posts: res.data
         })
