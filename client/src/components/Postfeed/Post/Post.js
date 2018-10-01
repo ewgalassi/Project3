@@ -49,6 +49,7 @@ class Post extends Component {
           author={this.props.author}
           pic={this.props.pic}
           authorId={this.props.authorId}
+          id={this.props.id}
         />
 
         {this.returnType(this.props.type)}
