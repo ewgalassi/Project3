@@ -11,7 +11,8 @@ import "./NewPost.css";
 class NewPost extends Component {
     state = {
         posts:[],
-        post: ""
+        post: "",
+        type:""
       };
 
     //   loadPosts = () => {
@@ -24,11 +25,20 @@ class NewPost extends Component {
     // })}
      
       handleInput = event => {
-          console.log("handling input!")
         const { name, value } = event.target;
         this.setState({
           [name]: value
         });
+      };
+
+      handleSelect = (event) => {
+        this.setState({
+          type: event.target.type
+        }, () => console.log(this.state.type))
+        
+       
+        //assign post type to db
+        
       };
      
       handleSubmit = event => {
@@ -60,9 +70,11 @@ render(){
             <PostBtn onClick={this.handleSubmit}/>
             <Dropdown 
               name="Select Type"
-              option1="Status"
-              option2="Snippet"
-              option3="Article"
+              option1="Status Update"
+              option2="Code Snippet"
+              option3="Article Link"
+              handleSelect={this.handleSelect}
+              type={this.state.type}
             />
             
           </div>

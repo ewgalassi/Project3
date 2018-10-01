@@ -5,15 +5,9 @@ import "./Dropdown.css";
 class Dropdown extends Component {
   state = {
     isOpen: false,
-    selection:""
   };
 
   toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
-
-  handleSelect = (event) => {
-    console.log(event.target)
-    
-  }
 
   render() {
     const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
@@ -29,13 +23,13 @@ class Dropdown extends Component {
           {this.props.name}
         </button>
         <div className={menuClass} aria-labelledby="dropdownMenuButton" >
-          <a className="dropdown-item" href="#nogo" value={this.props.option1.toLowerCase()} onClick={this.handleSelect}>
+          <a className="dropdown-item" href="#nogo" type="status" onClick={this.props.handleSelect}>
             {this.props.option1}
           </a>
-          <a className="dropdown-item" href="#nogo" value={this.props.option2.toLowerCase()} onClick={this.handleSelect} >
+          <a className="dropdown-item" href="#nogo" type="snippet" onClick={this.props.handleSelect}>
             {this.props.option2}
           </a>
-          <a className="dropdown-item" href="#nogo" value={this.props.option3.toLowerCase()} onClick={this.handleSelect}>
+          <a className="dropdown-item" href="#nogo" type="article" onClick={this.props.handleSelect}>
             {this.props.option3}
           </a>
         </div>
