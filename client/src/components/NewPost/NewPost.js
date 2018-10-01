@@ -12,7 +12,7 @@ class NewPost extends Component {
     state = {
         posts:[],
         post: "",
-        type:""
+        type: ""
       };
 
     //   loadPosts = () => {
@@ -51,11 +51,12 @@ class NewPost extends Component {
         PostAPI.savePost(post).then(data => {
           console.log(data);
           if (window.location.href === "http://localhost:3000/profile"){
-            console.log("WORKING")
+           
           window.location.replace("/profile");
-          } 
-          console.log("NOT WORKING")
-          // window.location.replace("/");
+          } else {
+         
+          window.location.replace("/");
+          }
         }).catch(err => {
           console.log(err);
         });
