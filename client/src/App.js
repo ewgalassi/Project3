@@ -6,7 +6,7 @@ import Newsfeed from "./pages/Newsfeed/Newsfeed";
 import Profile from "./pages/Profile/Profile";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import Snippets from "./pages/Snippets/Snippets"
+import Snippets from "./pages/Snippets/Snippets";
 
 const App = () => (
   <Router>
@@ -18,6 +18,7 @@ const App = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/snippets" component={Snippets} />
+      <Route exact path="/profile/:id" component={Profile} />
     </div>
   </Router>
 );

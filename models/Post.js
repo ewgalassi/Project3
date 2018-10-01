@@ -64,6 +64,10 @@ let PostSchema = new mongoose.Schema({
 		description: { type: String, trim: true },
 		image: { type: String, trim: true }
 	},
+	description: {
+		type: String,
+		trim: true
+	},
 	comments: [
 		{
 			author: {
