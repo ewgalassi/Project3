@@ -116,12 +116,12 @@ module.exports = {
       return post.comment({
         author: req.user._id,
         text: req.body.comment
-      }, {new: true}).then((commentData) => {
+      }, {new: true})
+      .then((commentData) => {
         console.log(commentData);
         return res.json(commentData);
       })
     }).catch(err => {
-      console.log("THERE WAS AN ERROR")
       console.log(err);
       res.json(err);
       next();
