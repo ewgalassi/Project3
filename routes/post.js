@@ -10,6 +10,9 @@ router.route('/posts')
   .post(postController.addPost)
   .put(postController.likePost)
 
+router.route('/posts/save')
+  .put(postController.SaveSnippet)
+
 // Add a comment
 router.route('/posts/comment')
   .post(postController.commentPost)

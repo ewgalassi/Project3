@@ -36,7 +36,12 @@ export default  {
     getSnippets: function(){
         
         return axios.get("/api/posts/types/snippets")
+    },
+
+    saveSnippet: function (id){
+        return axios.put("/api/posts/save")
     }
+
 
 
     // like a post

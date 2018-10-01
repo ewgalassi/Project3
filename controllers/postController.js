@@ -86,6 +86,18 @@ module.exports = {
       })
   },
 
+  SaveSnippet: (req,res, next) => {
+    const postId = req.body.post_id;
+    const userId = req.user._id;
+    db.Post.findById(postId).then((post) => {
+      return post.saveSnippet({
+        author: userId
+      }).then(() => {
+        return res.json({ success: true, message: "Saved post!" });
+      })
+    }).catch(next);
+  },
+
   /* GET ALL SNIPPETS BY USER ID (saved snippets page)
     route- GET /api/posts/snippets/:id
     params- userId

@@ -37,6 +37,16 @@ let PostSchema = new mongoose.Schema({
 			}
 		}
 	],
+
+	saves: [
+		{
+			author: {
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "User"
+			}
+		}
+	],
+
 	numLikes: {
 		type: Number,
 		default: 0
@@ -76,6 +86,12 @@ let PostSchema = new mongoose.Schema({
 PostSchema.methods.like = function (l) {
 	this.likes.push(l);
 	this.numLikes = this.likes.length;
+	return this.save();
+}
+
+PostSchema.methods.saveSnippet = function(s) {
+	this.saves.push(s);
+	console.log(saves);
 	return this.save();
 }
 
