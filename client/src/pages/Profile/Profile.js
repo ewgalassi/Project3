@@ -10,13 +10,13 @@ import UserAPI from "../../utils/userAPI";
 class Profile extends Component {
   state = {
     user: {},
-    id:"",
+    id: "",
     pic: "",
-    linkedin:"",
-    portfolio:"",
-    projects:[],
-    languages:[],
-    technologies:[],
+    linkedin: "",
+    portfolio: "",
+    projects: [],
+    languages: [],
+    technologies: [],
     jobTitle: "",
     jobCompany: ""
   };
@@ -30,9 +30,8 @@ class Profile extends Component {
     }
   };
 
-  getUserData = (id) => {
-    if (!id === undefined) {
-   UserAPI.getUser().then(data => {
+  getUserData = () => {
+    UserAPI.getUser().then(data => {
       if (data.data.success === false) {
         window.location.replace("/login");
       };
@@ -48,12 +47,15 @@ class Profile extends Component {
         technologies: data.data.profile.technologies,
         jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.title : "Job Title",
         jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.company : "Job Company"
-        }, () => console.log(this.state.pic));
+      });
     }).catch(err => {
       console.log(err);
     });
-  } else {
-       UserAPI.getUserById(id).then(data => {
+  };
+
+
+  getuserDataById = id => {
+    UserAPI.getUserById(id).then(data => {
       this.setState({
         user: data.data,
         id: data.data._id,
@@ -66,52 +68,48 @@ class Profile extends Component {
         technologies: data.data.profile.technologies,
         jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.title : "Job Title",
         jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.company : "Job Company"
-        }, () => console.log(this.state.pic));
+      });
     }).catch(err => {
       console.log(err);
     });
   };
-  
 
 
 
-    }
 
 
- 
+render() {
 
-  render() {
-    
-    return (
+  return (
     <Container>
-        <Row>
-          <Col size="md-4">
-            <UserPic 
-              pic={this.state.pic} 
-              fullName={this.state.user.fullName} />
-            <UserInfo 
-              id={this.state.id}
-              title={this.state.jobTitle}
-              company={this.state.jobCompany}
-              languages={this.state.languages}
-              github={this.state.github}
-              linkedin={this.state.linkedin}
-              portfolio={this.state.portfolio}
-              projects={this.state.projects}
-              technologies={this.state.technologies}
-               />
-          </Col>
-          <Col size="md-8">
-            
-              <NewPost/>
-              <Postfeed />
-            
-          </Col>
-         
-        </Row>
+      <Row>
+        <Col size="md-4">
+          <UserPic
+            pic={this.state.pic}
+            fullName={this.state.user.fullName} />
+          <UserInfo
+            id={this.state.id}
+            title={this.state.jobTitle}
+            company={this.state.jobCompany}
+            languages={this.state.languages}
+            github={this.state.github}
+            linkedin={this.state.linkedin}
+            portfolio={this.state.portfolio}
+            projects={this.state.projects}
+            technologies={this.state.technologies}
+          />
+        </Col>
+        <Col size="md-8">
+
+          <NewPost />
+          <Postfeed />
+
+        </Col>
+
+      </Row>
     </Container>
-    )
-  }
+  )
+}
 }
 
 export default Profile;
