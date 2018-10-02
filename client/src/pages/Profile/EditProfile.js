@@ -39,7 +39,6 @@ class EditProfile extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state.languages)
     UserAPI.editUser({
       "profile.pic": this.state.pic,
       "profile.github": this.state.github,
@@ -49,10 +48,14 @@ class EditProfile extends React.Component {
       "profile.technologies": this.state.technologies.split(","),
 
     }).then(data => {
-      console.log(data.data);
+      if (data.data.success) {
+        window.location.replace("/profile");
+      } else {
+        console.log(data.data);
+      }
     }).catch(err => {
       console.log(err);
-    })
+    });
   };
 
 

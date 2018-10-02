@@ -15,7 +15,7 @@ const Navbar = () => (
             to="/"
             className={
               window.location.pathname === "/" ||
-              window.location.pathname === "/newsfeed"
+                window.location.pathname === "/newsfeed"
                 ? "nav-link active"
                 : "nav-link"
             }
@@ -37,6 +37,18 @@ const Navbar = () => (
         </li>
         <li className="nav-item">
           <Link
+            to="/editProfile"
+            className={
+              window.location.pathname === "/editProfile"
+                ? "nav-link active"
+                : "nav-link"
+            }
+          >
+            Edit Profile
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link
             to="/register"
             className={
               window.location.pathname === "/register"
@@ -49,11 +61,11 @@ const Navbar = () => (
         </li>
         <li className="nav-item">
           <Link
-          to="/snippets"
-          className={window.location.pathname === "/snippets"
-          ? "nav-link active"
-          :"nav-link"} >
-          Snippets
+            to="/snippets"
+            className={window.location.pathname === "/snippets"
+              ? "nav-link active"
+              : "nav-link"} >
+            Snippets
           </Link>
         </li>
         <li id="logout">

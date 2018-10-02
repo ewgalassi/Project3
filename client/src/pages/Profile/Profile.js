@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Postfeed from "../../components/Postfeed/Postfeed";
 import UserPic from "../../components/UserPic/UserPic";
@@ -85,12 +84,6 @@ class Profile extends Component {
       <Container>
         <Row>
           <Col size="md-4">
-            <Router>
-              <div>
-                <Route exact path="/editProfile" component={EditProfile} /> 
-                <Link to="/editProfile">Edit Profile</Link>
-              </div>
-            </Router>
 
             <UserPic
               pic={this.state.pic}
@@ -102,7 +95,6 @@ class Profile extends Component {
               github={this.state.github}
               linkedin={this.state.linkedin}
               portfolio={this.state.portfolio}
-              // projects={this.state.projects}
               technologies={this.state.technologies}
               title={this.state.jobTitle}
               company={this.state.jobCompany}
