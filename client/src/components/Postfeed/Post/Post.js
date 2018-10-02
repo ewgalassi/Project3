@@ -58,6 +58,7 @@ class Post extends Component {
 
         {this.returnType(this.props.type)}
 
+        <hr />
         <PostFooter
           numLikes={this.props.numLikes}
           comments={this.props.comments}
