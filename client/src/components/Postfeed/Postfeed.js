@@ -24,21 +24,6 @@ class Postfeed extends Component {
                 console.log(err);
             });
         } else if (window.location.href.includes("snippets")) {
-            PostAPI.getSnippets().then(data =>{
-                this.setState({
-                    posts: data.data || []
-                })
-            })
-        } else if (window.location.href.includes("profile")) {
-            UserAPI.getUser().then(data =>{
-                PostAPI.getPostId(data.data._id)
-                .then(data => {
-                this.setState({
-                    posts: data.data || []
-                });
-            })
-            })
-        } else if (window.location.href === "http://localhost:3000/snippets"){
             // PostAPI.getSnippets().then(data =>{
             //     this.setState({
             //         posts: data.data || []
@@ -46,12 +31,30 @@ class Postfeed extends Component {
             // })
             SavedAPI.getSavedSnippets().then(data => {
                 console.log(data);
+                let arr;
+                if(data.data) {
+                    arr = data.data.map(elem => elem.post);
+                }
+                else {
+                    arr = [];
+                }
+                console.log(arr);
                 this.setState({
-                    posts: data.data || []
-                })
-                console.log(this.state.posts)
+                    posts: arr
+                }, () => console.log(this.state.posts))
+                
             })
-        } else {
+        } else if (window.location.href.includes("profile")) {
+            UserAPI.getUser().then(data =>{
+                PostAPI.getPostId(data.data._id)
+                .then(data => {
+                    console.log(data);
+                    this.setState({
+                        posts: data.data || []
+                    });
+                })
+            })
+        }  else {
         PostAPI.getPosts().then(data => {
             this.setState({
                 posts: data.data || []
