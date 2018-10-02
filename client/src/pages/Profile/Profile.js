@@ -14,7 +14,7 @@ class Profile extends Component {
     pic: "",
     linkedin: "",
     portfolio: "",
-    projects: [],
+    // projects: [],
     languages: [],
     technologies: [],
     jobTitle: "",
@@ -42,7 +42,7 @@ class Profile extends Component {
         github: data.data.profile.github,
         linkedin: data.data.profile.linkedin,
         portfolio: data.data.profile.portfolio,
-        projects: data.data.profile.projects,
+        // projects: data.data.profile.projects,
         languages: data.data.profile.languages,
         technologies: data.data.profile.technologies,
         jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.title : "Job Title",
@@ -63,7 +63,7 @@ class Profile extends Component {
         github: data.data.profile.github,
         linkedin: data.data.profile.linkedin,
         portfolio: data.data.profile.portfolio,
-        projects: data.data.profile.projects,
+        // projects: data.data.profile.projects,
         languages: data.data.profile.languages,
         technologies: data.data.profile.technologies,
         jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.title : "Job Title",
@@ -89,14 +89,14 @@ render() {
             fullName={this.state.user.fullName} />
           <UserInfo
             id={this.state.id}
-            title={this.state.jobTitle}
-            company={this.state.jobCompany}
             languages={this.state.languages}
             github={this.state.github}
             linkedin={this.state.linkedin}
             portfolio={this.state.portfolio}
-            projects={this.state.projects}
+            // projects={this.state.projects}
             technologies={this.state.technologies}
+            title={this.state.jobTitle}
+            company={this.state.jobCompany}
           />
         </Col>
         <Col size="md-8">
