@@ -1,4 +1,33 @@
-.register-form {
-  text-align: center;
-  margin-top: 100px;
+.regTitle {
+  font-size: 36px;
+  margin: 60px 0px 25px 0px;
+  color: #a8a7a3;
+}
+
+.regInput {
+  margin: 7px 0px;
+  width: 70%;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 8px 10px;
+  color: #ffffff;
+  border: 1px solid #eee8aa;
+  background: none;
+}
+
+.regInput:focus {
+  outline-color: #00cdcd;
+}
+
+.regSubmit {
+  margin-top: 25px;
+  padding: 7px 40px;
+  font-size: 19px;
+  color: #a8a7a3;
+  background-color: #120f0a;
+}
+
+.regSubmit:hover {
+  color: #00cdcd;
+  border-color: #00cdcd;
 }

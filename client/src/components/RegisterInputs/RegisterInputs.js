@@ -36,20 +36,43 @@ class Register extends Component {
   render() {
     return (
       <div className="container">
-        <form className="register-form">
-          <h3>Create a new account!</h3>
-          <label>Username</label>
+        <form className="registerForm">
+          <h3 className="regTitle">Create a new account</h3>
+
           <input
+            className="regInput"
+            name="firstName"
+            placeholder="First name"
+            value={this.state.firstName}
+            onChange={this.handleInput}
+          />
+
+          <br />
+
+          <input
+            className="regInput"
+            name="lastName"
+            placeholder="Last name"
+            value={this.state.lastName}
+            onChange={this.handleInput}
+          />
+
+          <br />
+
+          <input
+            className="regInput"
             name="username"
+            placeholder="Username"
             value={this.state.username}
             onChange={this.handleInput}
           />
 
           <br />
 
-          <label>Password</label>
           <input
+            className="regInput"
             name="password"
+            placeholder="Password"
             value={this.state.password}
             onChange={this.handleInput}
             type="password"
@@ -57,25 +80,11 @@ class Register extends Component {
 
           <br />
 
-          <label>First Name</label>
-          <input
-            name="firstName"
-            value={this.state.firstName}
-            onChange={this.handleInput}
-          />
-
-          <br />
-
-          <label>Last Name</label>
-          <input
-            name="lastName"
-            value={this.state.lastName}
-            onChange={this.handleInput}
-          />
-
-          <br />
-
-          <button type="submit" onClick={this.handleSubmit}>
+          <button
+            className="regSubmit"
+            type="submit"
+            onClick={this.handleSubmit}
+          >
             Register
           </button>
         </form>
