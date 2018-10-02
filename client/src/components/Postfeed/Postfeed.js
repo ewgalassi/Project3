@@ -69,11 +69,8 @@ class Postfeed extends Component {
                     for (let i=0; i < post.likes.length; i++) {
                         if (this.props.loggedInUser === post.likes[i].author) {
                             isLiked = true;
-                            console.log("AUTHOR: " + post.author._id);
-                            console.log("LIKER: " + post.likes[i].author);
                         };
                     };
-                    console.log(`${post._id} status: ${isLiked}`);
                     return (
                         <Post 
                         key={post._id}
