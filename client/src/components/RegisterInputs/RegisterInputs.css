@@ -1,6 +1,10 @@
+.registerForm {
+  margin-left: 5px;
+}
+
 .regTitle {
-  font-size: 36px;
-  margin: 60px 0px 25px 0px;
+  font-size: 40px;
+  margin: 45px 0px 25px 0px;
   color: #a8a7a3;
 }
 
