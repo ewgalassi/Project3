@@ -17,10 +17,10 @@ class Postfeed extends Component {
             UserAPI.getUser().then(data =>{
                 PostAPI.getPostId(data.data._id)
                 .then(data => {
-                this.setState({
-                    posts: data.data || []
-                });
-            })
+                    this.setState({
+                        posts: data.data || []
+                    });
+                })
             })
         } else if (window.location.href === "http://localhost:3000/snippets"){
             PostAPI.getSnippets().then(data =>{
@@ -30,12 +30,12 @@ class Postfeed extends Component {
             })
         } else {
         
-        PostAPI.getPosts().then(data => {
-            this.setState({
-                posts: data.data || []
-            });
-        }); 
-    }
+            PostAPI.getPosts().then(data => {
+                this.setState({
+                    posts: data.data || []
+                });
+            }); 
+        }
     };
 
 
