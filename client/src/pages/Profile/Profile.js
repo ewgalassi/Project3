@@ -5,7 +5,6 @@ import UserPic from "../../components/UserPic/UserPic";
 import UserInfo from "../../components/UserInfo/UserInfo";
 import NewPost from "../../components/NewPost/NewPost";
 import UserAPI from "../../utils/userAPI";
-import EditProfile from "./EditProfile";
 
 
 class Profile extends Component {

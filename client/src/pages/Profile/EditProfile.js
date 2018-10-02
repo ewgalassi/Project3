@@ -23,8 +23,8 @@ class EditProfile extends React.Component {
         portfolio: data.data.profile.portfolio,
         languages: data.data.profile.languages.join(","),
         technologies: data.data.profile.technologies.join(","),
-        jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.title : "Job Title",
-        jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.company : "Job Company"
+        jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.title : "",
+        jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.company : ""
       });
     });
   };
