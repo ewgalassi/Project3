@@ -107,6 +107,7 @@ class PostFooter extends React.Component {
           </div>
         </div>
       </div>
+      </div>
     );
   }
 }
