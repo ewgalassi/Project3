@@ -10,13 +10,13 @@ import UserAPI from "../../utils/userAPI";
 class Profile extends Component {
   state = {
     user: {},
-    id:"",
+    id: "",
     pic: "",
-    linkedin:"",
-    portfolio:"",
-    projects:[],
-    languages:[],
-    technologies:[],
+    linkedin: "",
+    portfolio: "",
+    // projects: [],
+    languages: [],
+    technologies: [],
     jobTitle: "",
     jobCompany: ""
   };
@@ -24,15 +24,14 @@ class Profile extends Component {
   componentDidMount() {
     const { match: { params } } = this.props;
     if (params.id) {
-      this.getUserData(params.id)
+      this.getUserDataById(params.id);
     } else {
-      this.getUserData()
+      this.getUserData();
     }
   };
 
-  getUserData = (id) => {
-    if (!id === undefined) {
-   UserAPI.getUser().then(data => {
+  getUserData = () => {
+    UserAPI.getUser().then(data => {
       if (data.data.success === false) {
         window.location.replace("/login");
       };
@@ -43,17 +42,20 @@ class Profile extends Component {
         github: data.data.profile.github,
         linkedin: data.data.profile.linkedin,
         portfolio: data.data.profile.portfolio,
-        projects: data.data.profile.projects,
+        // projects: data.data.profile.projects,
         languages: data.data.profile.languages,
         technologies: data.data.profile.technologies,
         jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.title : "Job Title",
         jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.company : "Job Company"
-        }, () => console.log(this.state.pic));
+      });
     }).catch(err => {
       console.log(err);
     });
-  } else {
-       UserAPI.getUserById(id).then(data => {
+  };
+
+
+  getUserDataById = id => {
+    UserAPI.getUserById(id).then(data => {
       this.setState({
         user: data.data,
         id: data.data._id,
@@ -61,57 +63,53 @@ class Profile extends Component {
         github: data.data.profile.github,
         linkedin: data.data.profile.linkedin,
         portfolio: data.data.profile.portfolio,
-        projects: data.data.profile.projects,
+        // projects: data.data.profile.projects,
         languages: data.data.profile.languages,
         technologies: data.data.profile.technologies,
         jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.title : "Job Title",
         jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.company : "Job Company"
-        }, () => console.log(this.state.pic));
+      });
     }).catch(err => {
       console.log(err);
     });
   };
-  
 
 
 
-    }
 
 
- 
+render() {
 
-  render() {
-    
-    return (
+  return (
     <Container>
-        <Row>
-          <Col size="md-4">
-            <UserPic 
-              pic={this.state.pic} 
-              fullName={this.state.user.fullName} />
-            <UserInfo 
-              id={this.state.id}
-              title={this.state.jobTitle}
-              company={this.state.jobCompany}
-              languages={this.state.languages}
-              github={this.state.github}
-              linkedin={this.state.linkedin}
-              portfolio={this.state.portfolio}
-              projects={this.state.projects}
-              technologies={this.state.technologies}
-               />
-          </Col>
-          <Col size="md-8">
-            
-              <NewPost/>
-              <Postfeed />
-            
-          </Col>
-         
-        </Row>
+      <Row>
+        <Col size="md-4">
+          <UserPic
+            pic={this.state.pic}
+            fullName={this.state.user.fullName} />
+          <UserInfo
+            id={this.state.id}
+            languages={this.state.languages}
+            github={this.state.github}
+            linkedin={this.state.linkedin}
+            portfolio={this.state.portfolio}
+            // projects={this.state.projects}
+            technologies={this.state.technologies}
+            title={this.state.jobTitle}
+            company={this.state.jobCompany}
+          />
+        </Col>
+        <Col size="md-8">
+
+          <NewPost />
+          <Postfeed />
+
+        </Col>
+
+      </Row>
     </Container>
-    )
-  }
+  )
+}
 }
 
 export default Profile;
