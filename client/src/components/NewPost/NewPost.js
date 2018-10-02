@@ -61,25 +61,26 @@ class NewPost extends Component {
     });
   };
 
-  render() {
-    return (
-      <Card style={{ padding: 20 }}>
-        <PostBox onChange={this.handleInput} value={this.state.post} name="post" />
-        <hr />
-        <div className="postbox-footer">
-          <PostBtn onClick={this.handleSubmit} />
-          <Dropdown
-            name="Select Type"
-            option1="Status Update"
-            option2="Code Snippet"
-            option3="Article Link"
-            handleSelect={this.handleSelect}
-            type={this.state.type}
-          />
 
-        </div>
-      </Card>
-
+render(){
+    return(
+        <Card style={{padding:20}}>
+          <PostBox onChange={this.handleInput} value={this.state.post} name="post" type={this.state.type}/>
+          <hr/>
+          <div className="postbox-footer">
+            <PostBtn onClick={this.handleSubmit}/>
+            <Dropdown 
+              name="Select Type"
+              option1="Status Update"
+              option2="Code Snippet"
+              option3="Article Link"
+              handleSelect={this.handleSelect}
+              type={this.state.type}
+            />
+            
+          </div>
+        </Card>
+        
     )
   }
 }

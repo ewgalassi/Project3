@@ -1,5 +1,5 @@
 .post {
-  margin: 16px 0 0 70px;
+  margin: 10px 20px;
 }
 .form-control {
   padding: 15px;
@@ -9,4 +9,10 @@
 .form-control:focus {
   box-shadow: none !important;
   color: #8b9dc3;
+}
+
+.snippet-text {
+  border:1px solid rgba(0,0,0,.125);
+  width:100%;
+  height:200px;
 }
