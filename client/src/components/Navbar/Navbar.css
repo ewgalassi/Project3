@@ -7,18 +7,22 @@ nav.navbar {
   height: 57px;
 }
 
-li:not(#logout) {
+.nav-item:not(#logout) {
   box-sizing: border-box;
   width: 106px;
   height: 41px;
   text-align: center;
 }
 
-li:not(#logout):hover {
+.nav-item:not(#logout):hover {
   border-radius: 5px;
   border: 1px solid gray;
 }
 
 button {
   cursor: pointer;
+}
+
+#logout {
+  float:right;
 }

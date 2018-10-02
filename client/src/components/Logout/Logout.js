@@ -23,7 +23,7 @@ class Logout extends React.Component {
 
   render() {
     return <div>
-      <button className="btn btn-secondary btn-sm" onClick={() => this.clickLogout()}>  {this.state.loggedIn ? 'Logout' : 'Login'} </button>
+      <button className="logout-btn btn btn-secondary btn-sm" onClick={() => this.clickLogout()}>  {this.state.loggedIn ? 'Logout' : 'Login'} </button>
     </div>
   }
 }

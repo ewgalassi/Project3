@@ -27,12 +27,13 @@ class PostBox extends Component {
             <input
             className="snippet-desc"
             onChange={this.props.onChange}
+            // description={this.props.description}
             type={this.props.type}
-            name={this.props.name}
-            value={this.props.value}
+            name="description"
+            // value={this.props.value}
             className="form-control"
             placeholder="Add a description for your snippet"
-            id="userPost"
+            // id="userPost"
             />
           <textarea
             className="snippet-text"

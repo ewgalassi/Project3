@@ -1,7 +1,7 @@
 /* Article Card */
 .articleCard {
   margin: 0 30px;
-  margin-top: 55px;
+  /* margin-top: 55px; */
   text-align: left;
 }
 p {
@@ -10,21 +10,22 @@ p {
 
 /* Snippet Card */
 .content {
-  margin: 30px;
-  margin-top: 55px;
+  margin:10px 30px;
+  /* margin-top: 55px; */
   text-align: left;
 }
 .snippet {
+  padding:20px;
   margin-top: 10px;
-  height: 250px;
+  height: auto;
   background-color: rgba(245, 245, 245, 0.82);
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 /* Status Card */
 .status-content {
-  margin: 30px;
-  width:100%;
+  margin:10px 30px;
+  width:90%;
   /* margin-top: 55px; */
   text-align: left;
 }

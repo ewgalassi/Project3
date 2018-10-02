@@ -22,12 +22,12 @@ class PostHeader extends React.Component {
     return (
       <div className="postheader">
         {/* <PicIcon pic={this.props.pic} /> */}
-        <img src={this.props.pic} alt="Profile pic" style={{width: 80}}/>
+        <img className="thumbnail" src={this.props.pic} alt="Profile pic"/>
         <a href={"/profile/" + this.props.authorId}>
           <h5 className="author">{this.props.author}</h5>
         </a>
         <button 
-        className="btn btn-sm btn-danger float-right"
+        className="btn btn-sm btn-light float-right"
         onClick={() => this.handleDelete(this.props.id)}
         >X</button>
       </div>

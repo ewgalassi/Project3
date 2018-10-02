@@ -54,6 +54,7 @@ class Post extends Component {
           authorId={this.props.authorId}
           id={this.props.id}
         />
+        <hr/>
 
         {this.returnType(this.props.type)}
 

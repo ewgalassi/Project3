@@ -1,10 +1,8 @@
-.footer {
-  position:relative;
-}
+
 
 .post-btn {
-  position:absolute;
-  bottom:0;
+
+  float:right;
 }
 
 .comment-btn {
