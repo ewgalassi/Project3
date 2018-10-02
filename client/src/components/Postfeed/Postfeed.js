@@ -59,6 +59,7 @@ class Postfeed extends Component {
                         key={post._id}
                         id={post._id}
                         authorId={post.author._id}
+                        loggedInUser={this.props.loggedInUser}
                         author={post.author.fullName} 
                         post={post.post}
                         type={post.type}

@@ -22,12 +22,11 @@ class PostBox extends Component {
         return (
           <div>
             <input
-              className="snippet-desc"
+              className="snippet-desc form-control"
               onChange={this.props.onChange}
               type={this.props.type}
               name="description"
               value={this.props.description}
-              className="form-control"
               placeholder="Add a description for your snippet"
             />
             <textarea
@@ -52,7 +51,18 @@ class PostBox extends Component {
             id="userPost"
           />
         );
-
+      default:
+        return (
+          <input
+            onChange={this.props.onChange}
+            type={this.props.type}
+            name="post"
+            value={this.props.post}
+            className="form-control"
+            placeholder="Post a status update"
+            id="userPost"
+          />
+        );
     }
   }
 

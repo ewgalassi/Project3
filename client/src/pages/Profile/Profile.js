@@ -78,40 +78,40 @@ class Profile extends Component {
 
 
 
-render() {
+  render() {
 
-  return (
-    <Container>
-      <Row>
-        <Col size="md-4">
-          <UserPic
-            pic={this.state.pic}
-            fullName={this.state.user.fullName} />
-          <UserInfo
-            id={this.state.id}
-            languages={this.state.languages}
-            github={this.state.github}
-            linkedin={this.state.linkedin}
-            portfolio={this.state.portfolio}
-            // projects={this.state.projects}
-            technologies={this.state.technologies}
-            title={this.state.jobTitle}
-            company={this.state.jobCompany}
-          />
-        </Col>
-        <Col size="md-8">
+    return (
+      <Container>
+        <Row>
+          <Col size="md-4">
+            <UserPic
+              pic={this.state.pic}
+              fullName={this.state.user.fullName} />
+            <UserInfo
+              id={this.state.id}
+              languages={this.state.languages}
+              github={this.state.github}
+              linkedin={this.state.linkedin}
+              portfolio={this.state.portfolio}
+              // projects={this.state.projects}
+              technologies={this.state.technologies}
+              title={this.state.jobTitle}
+              company={this.state.jobCompany}
+            />
+          </Col>
+          <Col size="md-8">
 
-          <NewPost />
-          <Postfeed 
-          userId={this.props.match.params.id}
-          />
+            <NewPost />
+            <Postfeed
+              userId={this.props.match.params.id}
+            />
 
-        </Col>
+          </Col>
 
-      </Row>
-    </Container>
-  )
-}
+        </Row>
+      </Container>
+    )
+  }
 }
 
 export default Profile;

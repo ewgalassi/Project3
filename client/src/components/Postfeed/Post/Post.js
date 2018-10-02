@@ -53,6 +53,7 @@ class Post extends Component {
           pic={this.props.pic}
           authorId={this.props.authorId}
           id={this.props.id}
+          loggedInUser={this.props.loggedInUser}
         />
         <hr/>
 
