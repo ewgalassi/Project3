@@ -14,6 +14,7 @@ class Article extends Component {
               <img
                 src={this.props.articleMetadata.image}
                 className="img-fluid"
+                alt={this.props.post}
               />
             </div>
             <p>

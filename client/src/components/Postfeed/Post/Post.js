@@ -28,7 +28,9 @@ class Post extends Component {
       case "snippet":
         return (
           <Snippet
-            post={this.props.post}>
+            post={this.props.post}
+            description={this.props.description}
+            >
             {this.props.post}
           </Snippet>
         )
@@ -36,6 +38,7 @@ class Post extends Component {
         return (
           <Snippet
             post={this.props.post}
+            description={this.props.description}
           />
         )
     }
@@ -49,6 +52,7 @@ class Post extends Component {
           author={this.props.author}
           pic={this.props.pic}
           authorId={this.props.authorId}
+          id={this.props.id}
         />
 
         {this.returnType(this.props.type)}

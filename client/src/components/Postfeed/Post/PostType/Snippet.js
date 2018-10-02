@@ -7,8 +7,8 @@ import "./PostType.css";
 const Snippet = (props) => (
   <div className="content">
   
-    <h5>{props.children}</h5>
-    {/* <p>#hashtags #react #js #bootstrap</p> */}
+    <p>Description: {props.description}</p>
+    <p>#hashtags #react #js #bootstrap</p>
     <div className="snippet">
       <pre>
         <code>
