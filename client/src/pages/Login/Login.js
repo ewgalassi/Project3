@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import UserAPI from "../../utils/userAPI";
-
+import "./Login.css";
 
 class Login extends Component {
     state = {
@@ -31,8 +31,8 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                <form>
+            <div className="container">
+                <form className="login-form">
 
                     <label>Username</label>
                     <input name="username" value={this.state.username} onChange={this.handleInput} />
