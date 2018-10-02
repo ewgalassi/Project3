@@ -100,12 +100,14 @@ class PostFooter extends React.Component {
           <button onClick={() => this.handleComment(this.props.id)} type="button" className="post-btn comment-btn btn btn-secondary btn-sm"><span className="fa fa-thumbs-o-up"></span> Comment</button>
           <button onClick={() => this.handleLike(this.props.id)} type="button" className="post-btn like-btn btn btn-secondary btn-sm" style={btn_class}><span className="fa fa-thumbs-o-up"></span> Like ({this.state.numLikes})</button>
           <button onClick={() => this.saveSnippet(this.props.id)}  type="button" className="post-btn snippet-btn btn btn-secondary btn-sm"><span></span> Save Snippet</button>
+          
     
         <div className="row comment-row" style={{margin:10}}>
           <div className="comments">
             {this.displayComments()}
           </div>
         </div>
+      </div>
       </div>
     );
   }

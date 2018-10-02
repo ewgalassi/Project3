@@ -17,6 +17,8 @@ class Post extends Component {
   //       );
   //   }
   // }
+  
+
 
   returnType = (type) => {
     switch (type) {
@@ -36,6 +38,7 @@ class Post extends Component {
       case "snippet":
         return (
           <Snippet
+            id="snippet"
             post={this.props.post}
             description={this.props.description}
             >
