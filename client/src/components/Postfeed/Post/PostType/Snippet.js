@@ -5,13 +5,11 @@ import CopytoClipboard from "react-copy-to-clipboard";
 
 class Snippet extends React.Component {
 
-  copyCode = () => {
-    console.log(this.props.post)
-    var copyText = this.props.post;
-    
-    copyText.execCommand("copy");
-    alert("Copied the text: " + copyText.value);
+
+  state = {
+    copied: false
   }
+
   render() {
 
     return (
@@ -26,8 +24,11 @@ class Snippet extends React.Component {
               {this.props.post}
             </code>
           </pre>
-          <CopytoClipboard text={this.props.post}>
+          <CopytoClipboard text={this.props.post}
+          onCopy={() => alert("copied to clipboard")}
+          >
           <button>Copy Snippet</button>
+          
           </CopytoClipboard>
         </div>
       </div>
