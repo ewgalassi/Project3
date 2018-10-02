@@ -193,17 +193,17 @@ module.exports = {
     route- DELETE /api/posts/comment
     body- post_id, comment_id
   */
-  deleteComment: (req, res, next) => {
-    db.Post.findById(req.body.post_id).then(post => {
-      return post.deleteComment(req.body.comment_id).then(data => {
-        res.json({success: true, data: data})
-      }).catch(err => {
-        console.log(err);
-        res.json({success: false, message: err});
-        next();
-      });
-    });
-  },
+  // deleteComment: (req, res, next) => {
+  //   db.Post.findById(req.body.post_id).then(post => {
+  //     return post.deleteComment(req.body.comment_id).then(data => {
+  //       res.json({success: true, data: data})
+  //     }).catch(err => {
+  //       console.log(err);
+  //       res.json({success: false, message: err});
+  //       next();
+  //     });
+  //   });
+  // },
 
   /* DELETE POST
     route- delete /api/posts/:id

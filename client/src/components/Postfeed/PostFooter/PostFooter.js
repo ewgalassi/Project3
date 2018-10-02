@@ -40,7 +40,6 @@ class PostFooter extends React.Component {
       post_id: id,
       comment: comment
     }).then(data => {
-      console.log(data.data.comments);
       this.setState({
         comments: data.data.comments || []
       });
@@ -69,7 +68,6 @@ class PostFooter extends React.Component {
 
       // Determine if delete button should render
       const deleteBtn = () => {
-        console.log(comment)
         if (comment.author._id === this.props.loggedInUser) {
           return (
             <button

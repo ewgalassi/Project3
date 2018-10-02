@@ -106,19 +106,6 @@ PostSchema.methods.comment = function (c) {
 	return this.save();
 };
 
-// Delete a comment
-PostSchema.methods.deleteComment = function(c) {
-	let index;
-	for (let i=0; i < this.comments.length; i++) {
-		if (this.comments[i]._id === c) {
-			index = i;
-			break;
-		};
-	};
-	this.comments.splice(index, 1);
-	return this.save();
-};
-
 // Edit post
 PostSchema.methods.edit = function (updatedPost) {
 	this.post = updatedPost;

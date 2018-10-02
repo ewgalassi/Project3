@@ -3,13 +3,13 @@ import React from "react";
 import "./PostHeader.css";
 import PostAPI from "../../../utils/postAPI";
 
-const styles = {
-  head: {
-    fontFamily: "Helvetica",
-    fontSize: 18,
-    color: "red"
-  }
-}
+// const styles = {
+//   head: {
+//     fontFamily: "Helvetica",
+//     fontSize: 18,
+//     color: "red"
+//   }
+// }
 
 class PostHeader extends React.Component {
 
