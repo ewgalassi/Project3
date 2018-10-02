@@ -40,9 +40,9 @@ class UserInfo extends Component {
                         <a href={this.props.portfolio} target="_blank"> Portfolio</a> |
                         <a href={this.props.linkedin} target="_blank"> LinkedIn</a>
                     </div>
-                    <div className="profile-projects">
+                    {/* <div className="profile-projects">
                         <h6>Projects</h6>
-                    </div>
+                    </div> */}
                 </Card>
                 <Card className="skills-card">
                     <div>
