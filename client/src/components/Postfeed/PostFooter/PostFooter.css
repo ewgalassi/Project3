@@ -2,16 +2,20 @@
 
 .post-btn {
 
-  float:right;
-  vertical-align: baseline;
+
 }
 
-.comment-btn {
+/* .comment-btn {
   right:0;
 }
 
 .like-btn {
   right:20%;
+} */
+
+.btn-row {
+  width:100%;
+  text-align:right;
 }
 
 /* .comments {
@@ -19,4 +23,11 @@
   margin:0;
   width:100;
 } */
+
+.comment-x {
+  font-size:10px;
+  margin:0px;
+  vertical-align:center;
+  padding:2px;
+}
 

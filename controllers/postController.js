@@ -147,6 +147,14 @@ module.exports = {
       });
   },
 
+  deleteComment: (req, res, next) => {
+    db.Post.findOneAndDelete({ _id: req.body.comment_id }).then(() => { 
+      res.json({ success: true, message: "Deleted comment" })
+    }).catch(err => {
+      res.json({ success: false, message: err })
+    });
+  },
+
 
   /* FETCH ONE INDIVIDUAL POST
     route- get /api/posts/:id

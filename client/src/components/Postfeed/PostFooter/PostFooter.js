@@ -33,12 +33,33 @@ class PostFooter extends React.Component {
     });
   };
 
+  
+  handleDelete = (id) => {
+    console.log(id);
+    PostAPI.deleteComment(id).then(data => {
+      if (data.data.success) {
+        window.location.reload();
+      } else {
+        console.log(data.data);
+      };
+    }).catch(err => {
+      console.log(err);
+    });
+  };
+
+
   displayComments = () => {
     return this.state.comments.map(comment => {
       return (
+        
         <li key={comment._id}>
+          <button 
+            className="comment-x btn btn-sm btn-light mr-2 align-middle"
+            onClick={() => this.handleDelete(comment._id)}
+            >X
+          </button>
           <a href={"/profile/" + comment.author._id}>
-          {comment.author.firstName || comment.firstName}
+            {comment.author.firstName || comment.firstName}
           </a>: {comment.text}
           
         </li>
@@ -49,16 +70,19 @@ class PostFooter extends React.Component {
   render() {
     return (
       <div className="footer">
-        <div>
-          <button onClick={() => this.handleComment(this.props.id)} type="button" className="post-btn comment-btn btn btn-secondary btn-sm"><span className="fa fa-thumbs-o-up"></span> Comment</button>
-          <button onClick={() => this.handleLike(this.props.id)} type="button" className="post-btn like-btn btn btn-secondary btn-sm"><span className="fa fa-thumbs-o-up"></span> Like ({this.state.numLikes})</button>
-          {/* <button>Save</button> */}
+        <div className="row" style={{margin:0}}>
+          <div className="btn-row">
+            <button onClick={() => this.handleComment(this.props.id)} type="button" className="post-btn comment-btn btn btn-secondary btn-sm"><span className="fa fa-thumbs-o-up"></span> Comment</button>
+            <button onClick={() => this.handleLike(this.props.id)} type="button" className="post-btn like-btn btn btn-secondary btn-sm"><span className="fa fa-thumbs-o-up"></span> Like ({this.state.numLikes})</button>
+            {/* <button>Save</button> */}
+          </div>
         </div>
-
-      <div className="comments">
-        {this.displayComments()}
-      </div>
-
+    
+        <div className="row comment-row" style={{margin:10}}>
+          <div className="comments">
+            {this.displayComments()}
+          </div>
+        </div>
       </div>
     );
   }
