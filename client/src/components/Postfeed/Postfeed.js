@@ -24,11 +24,6 @@ class Postfeed extends Component {
                 console.log(err);
             });
         } else if (window.location.href.includes("snippets")) {
-            // PostAPI.getSnippets().then(data =>{
-            //     this.setState({
-            //         posts: data.data || []
-            //     })
-            // })
             SavedAPI.getSavedSnippets().then(data => {
                 console.log(data);
                 let arr;
@@ -69,10 +64,21 @@ class Postfeed extends Component {
             <div>
                 
                 {this.state.posts.map(post => {
+                    // Check if post is liked
+                    let isLiked = false;
+                    for (let i=0; i < post.likes.length; i++) {
+                        if (this.props.loggedInUser === post.likes[i].author) {
+                            isLiked = true;
+                            console.log("AUTHOR: " + post.author._id);
+                            console.log("LIKER: " + post.likes[i].author);
+                        };
+                    };
+                    console.log(`${post._id} status: ${isLiked}`);
                     return (
                         <Post 
                         key={post._id}
                         id={post._id}
+                        isLiked={isLiked}
                         authorId={post.author._id}
                         loggedInUser={this.props.loggedInUser}
                         author={post.author.fullName} 
