@@ -11,12 +11,9 @@
 }
 
 .like-btn {
-  right:20%;
+  right:40%;
 }
 
-/* .comments {
-  background-color:rgba(245, 245, 245, 0.82);
-  margin:0;
-  width:100;
-} */
-
+.snippet-btn {
+  right: 20%;
+}
