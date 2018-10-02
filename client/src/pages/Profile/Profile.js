@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Postfeed from "../../components/Postfeed/Postfeed";
 import UserPic from "../../components/UserPic/UserPic";
@@ -14,7 +15,6 @@ class Profile extends Component {
     pic: "",
     linkedin: "",
     portfolio: "",
-    // projects: [],
     languages: [],
     technologies: [],
     jobTitle: "",
@@ -87,6 +87,9 @@ class Profile extends Component {
             <UserPic
               pic={this.state.pic}
               fullName={this.state.user.fullName} />
+
+            <Link to="/editProfile">Edit Profile</Link>
+
             <UserInfo
               id={this.state.id}
               languages={this.state.languages}
