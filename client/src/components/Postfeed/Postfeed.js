@@ -72,7 +72,7 @@ class Postfeed extends Component {
                     )
                 })}
                 
-            
+                <br></br>
             </div>
             
             
