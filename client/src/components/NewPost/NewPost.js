@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PostBox from "./PostBox/PostBox";
 import PostBtn from "./PostBtn/PostBtn";
 // import PicIcon from "./PicIcon/PicIcon";
@@ -9,63 +9,71 @@ import "./NewPost.css";
 
 
 class NewPost extends Component {
-    state = {
-        posts:[],
-        post: "",
-        type: ""
-      };
+  state = {
+    posts: [],
+    post: "",
+    type: "",
+    description: ""
+  };
 
-    //   loadPosts = () => {
-    //       PostAPI.getPosts().then(data => {
-    //       console.log("LOAD POSTS IS WORKING")
-    //       consol
-    //     this.setState({
-    //         posts: data.data
-    //     });
-    // })}
-     
-      handleInput = event => {
-        const { name, value } = event.target;
-        this.setState({
-          [name]: value
-        });
-      };
+  //   loadPosts = () => {
+  //       PostAPI.getPosts().then(data => {
+  //       console.log("LOAD POSTS IS WORKING")
+  //       consol
+  //     this.setState({
+  //         posts: data.data
+  //     });
+  // })}
 
-      handleSelect = (event) => {
-        this.setState({
-          type: event.target.type
-        }, () => console.log(this.state.type))
-        
-       
-        //assign post type to db
-        
-      };
-     
-      handleSubmit = event => {
-          
-        event.preventDefault();
-        const post = {
-          type: this.state.type,
-          post: this.state.post
-        };
-        PostAPI.savePost(post).then(data => {
-          console.log(data);
-          if (window.location.href === "http://localhost:3000/profile"){
-           
-          window.location.replace("/profile");
-          } else {
-         
-          window.location.replace("/");
-          }
-        }).catch(err => {
-          console.log(err);
-        });
-      };
+  handleInput = event => {
+    console.log(event.target)
+    const { name, value} = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleSelect = (event) => {
+    this.setState({
+      type: event.target.type
+    }, () => console.log(this.state.type))
+
+    //assign post type to db
+
+  };
+
+  handleSubmit = event => {
+
+    event.preventDefault();
+    const post = {
+      type: this.state.type,
+      post: this.state.post,
+      description: this.state.description
+    };
+    PostAPI.savePost(post).then(data => {
+      console.log(data);
+      if (window.location.href === "http://localhost:3000/profile") {
+
+        window.location.replace("/profile");
+      } else {
+
+        window.location.replace("/");
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+  };
+
 
 render(){
     return(
         <Card style={{padding:20}}>
-          <PostBox onChange={this.handleInput} value={this.state.post} name="post"/>
+          <PostBox 
+            onChange={this.handleInput} 
+            value={this.state.post} 
+            name="post" 
+            type={this.state.type}
+            description={this.state.description}/>
           <hr/>
           <div className="postbox-footer">
             <PostBtn onClick={this.handleSubmit}/>
@@ -82,6 +90,6 @@ render(){
         </Card>
         
     )
-}
+  }
 }
 export default NewPost;

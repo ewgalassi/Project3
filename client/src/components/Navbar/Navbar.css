@@ -1,3 +1,28 @@
 nav.navbar.navbar-default {
   margin-bottom: 0;
 }
+
+nav.navbar {
+  box-sizing: border-box;
+  height: 57px;
+}
+
+.nav-item:not(#logout) {
+  box-sizing: border-box;
+  width: 106px;
+  height: 41px;
+  text-align: center;
+}
+
+.nav-item:not(#logout):hover {
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+button {
+  cursor: pointer;
+}
+
+#logout {
+  float:right;
+}
