@@ -1,28 +1,9 @@
 
 
-.post-btn {
-
-
-}
-
-/* .comment-btn {
-  right:0;
-}
-
-.like-btn {
-  right:20%;
-} */
-
 .btn-row {
   width:100%;
   text-align:right;
 }
-
-/* .comments {
-  background-color:rgba(245, 245, 245, 0.82);
-  margin:0;
-  width:100;
-} */
 
 .comment-x {
   font-size:10px;
@@ -30,9 +11,6 @@
   vertical-align:center;
   padding:2px;
 }
-
-  /* right:40%;
-} */
 
 .snippet-btn {
   right: 20%;
