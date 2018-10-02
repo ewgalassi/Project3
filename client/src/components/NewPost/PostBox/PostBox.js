@@ -3,7 +3,9 @@ import "./PostBox.css";
 
 //create PostBOx class component
 //switch statement to render diff postbox options based on props.type
-
+const styles = {
+  color: "rgb(75, 75, 75)"
+}
 
 class PostBox extends Component {
 
@@ -67,7 +69,7 @@ class PostBox extends Component {
     return(
       <form className="post">
       <div className="userInput">
-      <h5>What would you like to share? (select a type!)</h5>
+      <h5 style={styles}>What would you like to share? (select a type!)</h5>
         {this.renderType(this.props.type)}
       </div>
     </form>

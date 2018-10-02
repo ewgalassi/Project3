@@ -3,6 +3,14 @@ import React from "react";
 import "./PostHeader.css";
 import PostAPI from "../../../utils/postAPI";
 
+const styles = {
+  head: {
+    fontFamily: "Helvetica",
+    fontSize: 18,
+    color: "red"
+  }
+}
+
 class PostHeader extends React.Component {
 
   handleDelete = (id) => {
@@ -29,6 +37,7 @@ class PostHeader extends React.Component {
         <button 
         className="btn btn-sm btn-light float-right"
         onClick={() => this.handleDelete(this.props.id)}
+        style={styles.head}
         >X</button>
       </div>
     )
