@@ -14,7 +14,7 @@ class Dropdown extends Component {
     return (
       <div className="dropdown" onClick={this.toggleOpen}>
         <button
-          className="btn btn-secondary dropdown-toggle"
+          className="btn btn-secondary dropdown-toggle btn-sm"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"
