@@ -91,8 +91,21 @@ PostSchema.methods.like = function (l) {
 	this.likes.push(l);
 	this.numLikes = this.likes.length;
 	return this.save();
-}
+};
 
+PostSchema.methods.unlike = function(l) {
+	console.log(l);
+	let index;
+	for (let i=0; i < this.likes.length; i++) {
+		if (this.likes[i].author === this.author) {
+			index = i;
+			break;
+		};
+	};
+	this.likes.splice(index, 1);
+	this.numLikes = this.likes.length;
+	return this.save();
+};
 
 
 // Add comment

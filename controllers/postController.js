@@ -111,20 +111,31 @@ module.exports = {
 
 
 
-  /* LIKE A POST
+  /* LIKE/UNLIKE A POST
     route- PUT /api/posts
-    body- post_id
+    body- post_id, action
   */
   likePost: (req, res, next) => {
     const postId = req.body.post_id;
     const userId = req.user._id;
-    db.Post.findById(postId).then((post) => {
-      return post.like({
-        author: userId
-      }).then(() => {
-        return res.json({ success: true, message: "Liked post!" });
-      })
-    }).catch(next);
+
+    if (req.body.action === "like") {
+      db.Post.findById(postId).then((post) => {
+        return post.like({
+          author: userId
+        }).then(() => {
+          return res.json({ success: true, message: "Liked post!" });
+        })
+      }).catch(next);
+    } else if (req.body.action === "unlike") {
+      db.Post.findById(postId).then((post) => {
+        return post.unlike({
+          author: userId
+        }).then(() => {
+          return res.json({ success: true, message: "Liked post!" });
+        })
+      }).catch(next);
+    }
   },
 
 
@@ -152,7 +163,7 @@ module.exports = {
   },
 
   deleteComment: (req, res, next) => {
-    db.Post.findOneAndDelete({ _id: req.body.comment_id }).then(() => { 
+    db.Post.findOneAndDelete({ _id: req.body.comment_id }).then(() => {
       res.json({ success: true, message: "Deleted comment" })
     }).catch(err => {
       res.json({ success: false, message: err })

@@ -76,6 +76,7 @@ class Post extends Component {
           comments={this.props.comments}
           authorId={this.props.authorId}
           id={this.props.id}
+          isLiked={this.props.isLiked}
         />
         
       </Card>
