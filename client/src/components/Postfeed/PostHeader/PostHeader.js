@@ -18,6 +18,17 @@ class PostHeader extends React.Component {
     });
   };
 
+  renderDeleteBtn = () => {
+    if (this.props.authorId === this.props.loggedInUser) {
+      return (
+        <button 
+        className="btn btn-sm btn-light float-right"
+        onClick={() => this.handleDelete(this.props.id)}
+        >X</button>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="postheader">
@@ -26,10 +37,9 @@ class PostHeader extends React.Component {
         <a href={"/profile/" + this.props.authorId}>
           <h5 className="author">{this.props.author}</h5>
         </a>
-        <button 
-        className="btn btn-sm btn-light float-right"
-        onClick={() => this.handleDelete(this.props.id)}
-        >X</button>
+        
+      {this.renderDeleteBtn()}
+
       </div>
     )
   };
