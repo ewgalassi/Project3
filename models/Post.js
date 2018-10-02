@@ -37,6 +37,16 @@ let PostSchema = new mongoose.Schema({
 			}
 		}
 	],
+
+	saves: [
+		{
+			author: {
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "User"
+			}
+		}
+	],
+
 	numLikes: {
 		type: Number,
 		default: 0
@@ -82,6 +92,8 @@ PostSchema.methods.like = function (l) {
 	this.numLikes = this.likes.length;
 	return this.save();
 }
+
+
 
 // Add comment
 PostSchema.methods.comment = function (c) {

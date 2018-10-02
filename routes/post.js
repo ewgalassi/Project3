@@ -10,9 +10,12 @@ router.route('/posts')
   .post(postController.addPost)
   .put(postController.likePost)
 
+
+
 // Add a comment
 router.route('/posts/comment')
   .post(postController.commentPost)
+  .delete(postController.deleteComment)
 
 // Get one post by id
 router.route('/posts/:id')
@@ -30,5 +33,6 @@ router.route("/posts/author/:id")
 
 router.route("/posts/types/snippets")
   .get(postController.getAllSnippetsById)
+  // .get(postController.getAllSavedSnippets)
 
 module.exports = router;

@@ -1,22 +1,17 @@
 
 
-.post-btn {
-
-  float:right;
-  vertical-align: baseline;
+.btn-row {
+  width:100%;
+  text-align:right;
 }
 
-.comment-btn {
-  right:0;
+.comment-x {
+  font-size:10px;
+  margin:0px;
+  vertical-align:center;
+  padding:2px;
 }
 
-.like-btn {
-  right:20%;
+.snippet-btn {
+  right: 20%;
 }
-
-/* .comments {
-  background-color:rgba(245, 245, 245, 0.82);
-  margin:0;
-  width:100;
-} */
-

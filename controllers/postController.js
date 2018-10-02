@@ -85,6 +85,8 @@ module.exports = {
       })
   },
 
+
+
   /* GET ALL SNIPPETS BY USER ID (saved snippets page)
     route- GET /api/posts/snippets/:id
     params- userId
@@ -105,6 +107,8 @@ module.exports = {
         next();
       })
   },
+
+
 
 
   /* LIKE A POST
@@ -145,6 +149,14 @@ module.exports = {
         res.json(err);
         next();
       });
+  },
+
+  deleteComment: (req, res, next) => {
+    db.Post.findOneAndDelete({ _id: req.body.comment_id }).then(() => { 
+      res.json({ success: true, message: "Deleted comment" })
+    }).catch(err => {
+      res.json({ success: false, message: err })
+    });
   },
 
 

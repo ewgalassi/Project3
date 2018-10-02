@@ -36,6 +36,10 @@ export default  {
     getSnippets: function(){
         
         return axios.get("/api/posts/types/snippets")
+    },
+
+    deleteComment: function(id) {
+        return axios.delete("/api/posts/comment", {comment_id: id});
     }
 
 
