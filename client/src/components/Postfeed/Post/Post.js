@@ -77,6 +77,7 @@ class Post extends Component {
           authorId={this.props.authorId}
           id={this.props.id}
           isLiked={this.props.isLiked}
+          loggedInUser={this.props.loggedInUser}
         />
         
       </Card>

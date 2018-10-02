@@ -1,11 +1,4 @@
 const mongoose = require('mongoose');
-const metascraper = require('metascraper')([
-  require('metascraper-description')(),
-  require('metascraper-image')(),
-  require('metascraper-title')(),
-]);
-const got = require('got');
-
 
 const POST_TYPES = ["snippet", "status", "article"];
 
@@ -93,8 +86,8 @@ PostSchema.methods.like = function (l) {
 	return this.save();
 };
 
+// Remove user from likes array
 PostSchema.methods.unlike = function(l) {
-	console.log(l);
 	let index;
 	for (let i=0; i < this.likes.length; i++) {
 		if (this.likes[i].author === this.author) {
@@ -106,7 +99,6 @@ PostSchema.methods.unlike = function(l) {
 	this.numLikes = this.likes.length;
 	return this.save();
 };
-
 
 // Add comment
 PostSchema.methods.comment = function (c) {
@@ -133,26 +125,5 @@ PostSchema.methods.getUserPosts = function (_id) {
 	});
 };
 
-// PostSchema.methods.getMetadata = function(url) {
-// 	  const targetUrl = url;
-//   ; (async () => {
-//     const { body: html, url } = await got(targetUrl);
-//     const metadata = await metascraper({ html, url });
-// 		this.articleMetadata = metadata;
-
-// 		console.log(metadata);
-//     return metadata;
-//   })()
-// }
-
-// Article helper function (gets title, desc, image for post type "article")
-// PostSchema.pre("save", function (next) {
-// 	if (this.type === "article") {
-// 	  this.getMetadata(this.post.trim());
-// 		next();
-// 	} else {
-// 		next();
-// 	};
-// });
 
 module.exports = mongoose.model('Post', PostSchema);
