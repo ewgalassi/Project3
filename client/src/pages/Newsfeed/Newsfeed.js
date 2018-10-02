@@ -17,7 +17,8 @@ import UserAPI from "../../utils/userAPI";
 
 class Newsfeed extends Component {
   state = {
-    posts: []
+    posts: [],
+    loggedInUser: ""
   };
 
   componentDidMount() {
@@ -28,8 +29,14 @@ class Newsfeed extends Component {
   getUserData = () => {
     UserAPI.getUser().then(data => {
       if (data.data.success === false) {
-        window.location.replace("/login");
-      };
+        return window.location.replace("/login");
+      } else {
+        this.setState({
+          loggedInUser: data.data._id
+        })
+      }
+    }).catch(err => {
+      console.log(err);
     });
   };
 
@@ -50,7 +57,9 @@ class Newsfeed extends Component {
           <Col size="md-8">
               
               <NewPost />
-              <Postfeed />
+              <Postfeed 
+              loggedInUser={this.state.loggedInUser}
+              />
             
           </Col>
         </Row>

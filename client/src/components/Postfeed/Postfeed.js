@@ -13,7 +13,22 @@ class Postfeed extends Component {
     };
 
     componentDidMount() {
-        if (window.location.href === "http://localhost:3000/profile"){
+        if (this.props.userId) {
+
+            PostAPI.getPostId(this.props.userId).then(data => {
+                this.setState({
+                    posts: data.data || []
+                })
+            }).catch(err => {
+                console.log(err);
+            });
+        } else if (window.location.href.includes("snippets")) {
+            PostAPI.getSnippets().then(data =>{
+                this.setState({
+                    posts: data.data || []
+                })
+            })
+        } else if (window.location.href.includes("profile")) {
             UserAPI.getUser().then(data =>{
                 PostAPI.getPostId(data.data._id)
                 .then(data => {
@@ -22,14 +37,9 @@ class Postfeed extends Component {
                 });
             })
             })
-        } else if (window.location.href === "http://localhost:3000/snippets"){
-            PostAPI.getSnippets().then(data =>{
-                this.setState({
-                    posts: data.data || []
-                })
-            })
-        } else {
         
+
+    } else {
         PostAPI.getPosts().then(data => {
             this.setState({
                 posts: data.data || []
@@ -49,6 +59,7 @@ class Postfeed extends Component {
                         key={post._id}
                         id={post._id}
                         authorId={post.author._id}
+                        loggedInUser={this.props.loggedInUser}
                         author={post.author.fullName} 
                         post={post.post}
                         type={post.type}
