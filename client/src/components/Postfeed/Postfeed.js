@@ -14,7 +14,22 @@ class Postfeed extends Component {
     };
 
     componentDidMount() {
-        if (window.location.href === "http://localhost:3000/profile"){
+        if (this.props.userId) {
+
+            PostAPI.getPostId(this.props.userId).then(data => {
+                this.setState({
+                    posts: data.data || []
+                })
+            }).catch(err => {
+                console.log(err);
+            });
+        } else if (window.location.href.includes("snippets")) {
+            PostAPI.getSnippets().then(data =>{
+                this.setState({
+                    posts: data.data || []
+                })
+            })
+        } else if (window.location.href.includes("profile")) {
             UserAPI.getUser().then(data =>{
                 PostAPI.getPostId(data.data._id)
                 .then(data => {
@@ -37,7 +52,6 @@ class Postfeed extends Component {
                 console.log(this.state.posts)
             })
         } else {
-        
         PostAPI.getPosts().then(data => {
             this.setState({
                 posts: data.data || []

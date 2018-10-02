@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PostBox from "./PostBox/PostBox";
 import PostBtn from "./PostBtn/PostBtn";
-// import PicIcon from "./PicIcon/PicIcon";
 import PostAPI from "../../utils/postAPI";
 import Dropdown from "../Dropdown/Dropdown";
 import Card from "../Card/Card";
@@ -12,22 +11,15 @@ class NewPost extends Component {
   state = {
     posts: [],
     post: "",
-    type: ""
+    type: "",
+    description: ""
   };
 
-  //   loadPosts = () => {
-  //       PostAPI.getPosts().then(data => {
-  //       console.log("LOAD POSTS IS WORKING")
-  //       consol
-  //     this.setState({
-  //         posts: data.data
-  //     });
-  // })}
 
   handleInput = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -36,8 +28,6 @@ class NewPost extends Component {
       type: event.target.type
     }, () => console.log(this.state.type))
 
-    //assign post type to db
-
   };
 
   handleSubmit = event => {
@@ -45,7 +35,8 @@ class NewPost extends Component {
     event.preventDefault();
     const post = {
       type: this.state.type,
-      post: this.state.post
+      post: this.state.post,
+      description: this.state.description
     };
     PostAPI.savePost(post).then(data => {
       console.log(data);
@@ -62,25 +53,29 @@ class NewPost extends Component {
   };
 
 
-render(){
-    return(
-        <Card style={{padding:20}}>
-          <PostBox onChange={this.handleInput} value={this.state.post} name="post" type={this.state.type}/>
-          <hr/>
-          <div className="postbox-footer">
-            <PostBtn onClick={this.handleSubmit}/>
-            <Dropdown 
-              name="Select Type"
-              option1="Status Update"
-              option2="Code Snippet"
-              option3="Article Link"
-              handleSelect={this.handleSelect}
-              type={this.state.type}
-            />
-            
-          </div>
-        </Card>
-        
+  render() {
+    return (
+      <Card style={{ padding: 20 }}>
+        <PostBox
+          onChange={this.handleInput}
+          post={this.state.post}
+          type={this.state.type}
+          description={this.state.description} />
+        <hr />
+        <div className="postbox-footer">
+          <PostBtn onClick={this.handleSubmit} />
+          <Dropdown
+            name="Select Type"
+            option1="Status Update"
+            option2="Code Snippet"
+            option3="Article Link"
+            handleSelect={this.handleSelect}
+            type={this.state.type}
+          />
+
+        </div>
+      </Card>
+
     )
   }
 }

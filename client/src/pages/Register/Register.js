@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserAPI from "../../utils/userAPI";
+import "./Register.css";
 
 //components needed:
 //navbar
@@ -40,9 +41,10 @@ class Register extends Component {
 
     render() {
         return (
-            <div>
-                <form>
-
+            <div className="container">
+              
+                <form className="register-form">
+                  <h3>Create a new account!</h3>
                     <label>Username</label>
                     <input name="username" value={this.state.username} onChange={this.handleInput} />
 
@@ -65,7 +67,7 @@ class Register extends Component {
 
                     <button type="submit" onClick={this.handleSubmit}>Register</button>
                 </form>
-
+              {/* </div> */}
                 <p>{this.state.message}</p>
             </div>
         )

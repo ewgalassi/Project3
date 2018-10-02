@@ -31,8 +31,8 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                <form>
+            <div className="container">
+                <form className="login-form">
 
                     <label>Username</label>
                     <input name="username" value={this.state.username} onChange={this.handleInput} />

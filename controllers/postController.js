@@ -18,26 +18,20 @@ module.exports = {
       return res.json({ success: false, message: "Not signed in" });
     };
 
-    let { post, type } = req.body;
-    let author = req.user._id;
+    req.body.author = req.user._id;
 
     if (req.body.type === "article") {
-    const targetUrl = req.body.post;
-  ; (async () => {
-    const { body: html, url } = await got(targetUrl);
-    const articleMetadata = await metascraper({ html, url });
-    savePost({ post, type, author, articleMetadata });    
-		console.log(metadata);
-    return metadata;
-    })()
-  } else if(req.body.type === "snippet"){
-    savePost({post, type, author}).then(post => {
-
-    })
-  }
-  else {
-    savePost({ post, type, author });
-  }
+      const targetUrl = req.body.post;
+      ; (async () => {
+        const { body: html, url } = await got(targetUrl);
+        req.body.articleMetadata = await metascraper({ html, url });
+        savePost(req.body);
+        console.log(metadata);
+        return metadata;
+      })()
+    } else {
+      savePost(req.body);
+    }
 
 
     function savePost(obj) {
@@ -59,7 +53,7 @@ module.exports = {
   */
   getAll: (req, res, next) => {
     db.Post.find()
-      .sort({_id: -1})
+      .sort({ _id: -1 })
       .populate('author', ['fullName', 'username', 'profile.pic'])
       .populate('comments.author', ['fullName', 'username', 'firstName', 'profile.pic'])
       .exec((err, post) => {
@@ -77,9 +71,9 @@ module.exports = {
     route- GET /api/posts/author/:id
     params- userId
   */
-   getAllById: (req, res, next) => {
-    db.Post.find({author: req.params.id})
-      .sort({_id: -1})
+  getAllById: (req, res, next) => {
+    db.Post.find({ author: req.params.id })
+      .sort({ _id: -1 })
       .populate('comments.author').exec((err, post) => {
         if (err)
           res.json({ success: false, message: err });
@@ -98,17 +92,17 @@ module.exports = {
     params- userId
   */
   getAllSnippetsById: (req, res, next) => {
-    db.Post.find({author: req.user._id})
+    db.Post.find({ author: req.user._id })
       .where("type").equals("snippet")
-      .sort({_id: -1})
+      .sort({ _id: -1 })
       .populate('comments.author').exec((err, post) => {
-        
+
         if (err)
           res.json({ success: false, message: err });
         else if (!post)
           res.send(404);
         else
-          
+
           res.json(post);
         next();
       })
@@ -140,21 +134,21 @@ module.exports = {
   */
   commentPost: (req, res, next) => {
     db.Post.findById(req.body.post_id)
-    .then(post => {
-      return post.comment({
-        author: req.user._id,
-        text: req.body.comment,
-        firstName: req.user.firstName
-      }, {new: true})
-      .then((commentData) => {
-        console.log(commentData);
-        return res.json(commentData);
-      })
-    }).catch(err => {
-      console.log(err);
-      res.json(err);
-      next();
-    });
+      .then(post => {
+        return post.comment({
+          author: req.user._id,
+          text: req.body.comment,
+          firstName: req.user.firstName
+        }, { new: true })
+          .then((commentData) => {
+            console.log(commentData);
+            return res.json(commentData);
+          })
+      }).catch(err => {
+        console.log(err);
+        res.json(err);
+        next();
+      });
   },
 
 
@@ -190,10 +184,10 @@ module.exports = {
     params- id (the post's id)
   */
   deletePost: (req, res, next) => {
-    db.Post.findOneAndDelete({_id: req.params.id}).then(() => {
-      res.json({success: true, message: "Deleted post"})
+    db.Post.findOneAndDelete({ _id: req.params.id }).then(() => {
+      res.json({ success: true, message: "Deleted post" })
     }).catch(err => {
-      res.json({success: false, message: err})
+      res.json({ success: false, message: err })
     });
   }
 

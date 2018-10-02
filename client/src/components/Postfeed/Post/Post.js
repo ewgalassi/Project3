@@ -39,7 +39,7 @@ class Post extends Component {
             post={this.props.post}
             description={this.props.description}
             >
-            {this.props.post}
+            {/* {this.props.post} */}
           </Snippet>
         )
       default:
@@ -62,9 +62,11 @@ class Post extends Component {
           authorId={this.props.authorId}
           id={this.props.id}
         />
+        <hr/>
 
         {this.returnType(this.props.type)}
 
+        <hr />
         <PostFooter
           numLikes={this.props.numLikes}
           comments={this.props.comments}
