@@ -1,17 +1,15 @@
 
 
-.post-btn {
-
-  float:right;
-  vertical-align: baseline;
+.btn-row {
+  width:100%;
+  text-align:right;
 }
 
-.comment-btn {
-  right:0;
-}
-
-.like-btn {
-  right:40%;
+.comment-x {
+  font-size:10px;
+  margin:0px;
+  vertical-align:center;
+  padding:2px;
 }
 
 .snippet-btn {

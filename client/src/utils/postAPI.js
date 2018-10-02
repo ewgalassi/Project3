@@ -38,8 +38,9 @@ export default  {
         return axios.get("/api/posts/types/snippets")
     },
 
-
-
+    deleteComment: function(id) {
+        return axios.delete("/api/posts/comment", {comment_id: id});
+    }
 
 
     // like a post
