@@ -63,15 +63,23 @@ class PostFooter extends React.Component {
 
   displayComments = () => {
     return this.state.comments.map(comment => {
-      console.log(comment)
-      return (
 
+      // Determine if delete button should render
+      const deleteBtn = () => {
+        if (comment.author._id === this.props.loggedInUser) {
+          return (
+            <button
+              className="comment-x btn btn-sm btn-light mr-2 align-middle"
+              onClick={() => this.handleDelete(comment._id)}
+            >X
+            </button>
+          );
+        };
+      };
+
+      return (
         <li key={comment._id}>
-          <button
-            className="comment-x btn btn-sm btn-light mr-2 align-middle"
-            onClick={() => this.handleDelete(comment._id)}
-          >X
-          </button>
+          {deleteBtn()}
           <a href={"/profile/" + comment.author._id}>
             {comment.author.firstName || comment.firstName}
           </a>: {comment.text}

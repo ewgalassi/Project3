@@ -132,7 +132,7 @@ module.exports = {
         return post.unlike({
           author: userId
         }).then(() => {
-          return res.json({ success: true, message: "Liked post!" });
+          return res.json({ success: true, message: "Unliked post!" });
         })
       }).catch(next);
     }

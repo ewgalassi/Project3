@@ -94,7 +94,6 @@ PostSchema.methods.like = function (l) {
 };
 
 PostSchema.methods.unlike = function(l) {
-	console.log(l);
 	let index;
 	for (let i=0; i < this.likes.length; i++) {
 		if (this.likes[i].author === this.author) {
