@@ -31,7 +31,7 @@ class Post extends Component {
             post={this.props.post}
             description={this.props.description}
             >
-            {this.props.post}
+            {/* {this.props.post} */}
           </Snippet>
         )
       default:
