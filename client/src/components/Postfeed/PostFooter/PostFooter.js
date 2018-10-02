@@ -120,7 +120,7 @@ class PostFooter extends React.Component {
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default PostFooter;
