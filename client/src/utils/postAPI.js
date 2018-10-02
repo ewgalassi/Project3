@@ -11,8 +11,13 @@ export default  {
     },
 
     likePost: function (id) {
-        return axios.put("/api/posts", {post_id: id})
+        return axios.put("/api/posts", {post_id: id, action: "like"})
     },
+
+    unlikePost: function (id) {
+        return axios.put("/api/posts", {post_id: id, action: "unlike"})
+    },
+
     commentPost: function (commentData) {
         return axios.post("/api/posts/comment", commentData)
     },
@@ -40,13 +45,6 @@ export default  {
 
     deleteComment: function(id) {
         return axios.delete("/api/posts/comment", {comment_id: id});
-    }
+    },
 
-
-    // like a post
-
-
-   
-
-
-}
+};

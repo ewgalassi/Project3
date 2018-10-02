@@ -14,7 +14,6 @@ class Profile extends Component {
     pic: "",
     linkedin: "",
     portfolio: "",
-    // projects: [],
     languages: [],
     technologies: [],
     jobTitle: "",
@@ -84,16 +83,17 @@ class Profile extends Component {
       <Container>
         <Row>
           <Col size="md-4">
+
             <UserPic
               pic={this.state.pic}
               fullName={this.state.user.fullName} />
+
             <UserInfo
               id={this.state.id}
               languages={this.state.languages}
               github={this.state.github}
               linkedin={this.state.linkedin}
               portfolio={this.state.portfolio}
-              // projects={this.state.projects}
               technologies={this.state.technologies}
               title={this.state.jobTitle}
               company={this.state.jobCompany}
