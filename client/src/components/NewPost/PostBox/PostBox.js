@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./PostBox.css";
 
-const styles = {
-  color: "rgb(75, 75, 75)"
-}
+// const styles = {
+//   color: "rgb(75, 75, 75)"
+// }
 
 class PostBox extends Component {
 

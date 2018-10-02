@@ -33,11 +33,13 @@ class PostFooter extends React.Component {
 
   handleComment = id => {
     const comment = prompt("Add a comment:");
+    if (comment === "") {
+      return;
+    };
     PostAPI.commentPost({
       post_id: id,
       comment: comment
     }).then(data => {
-      console.log(data.data.comments);
       this.setState({
         comments: data.data.comments || []
       });
@@ -47,7 +49,7 @@ class PostFooter extends React.Component {
   };
 
 
-  handleDelete = (id) => {
+  handleDelete = id => {
     console.log(id);
     PostAPI.deleteComment(id).then(data => {
       if (data.data.success) {
@@ -63,14 +65,23 @@ class PostFooter extends React.Component {
 
   displayComments = () => {
     return this.state.comments.map(comment => {
-      return (
 
+      // Determine if delete button should render
+      const deleteBtn = () => {
+        if (comment.author._id === this.props.loggedInUser) {
+          return (
+            <button
+              className="comment-x btn btn-sm btn-light mr-2 align-middle"
+              onClick={() => this.handleDelete(comment._id)}
+            >X
+            </button>
+          );
+        };
+      };
+
+      return (
         <li key={comment._id}>
-          <button
-            className="comment-x btn btn-sm btn-light mr-2 align-middle"
-            onClick={() => this.handleDelete(comment._id)}
-          >X
-          </button>
+          {deleteBtn()}
           <a href={"/profile/" + comment.author._id}>
             {comment.author.firstName || comment.firstName}
           </a>: {comment.text}
