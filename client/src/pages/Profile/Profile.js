@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Postfeed from "../../components/Postfeed/Postfeed";
 import UserPic from "../../components/UserPic/UserPic";
 import UserInfo from "../../components/UserInfo/UserInfo";
 import NewPost from "../../components/NewPost/NewPost";
 import UserAPI from "../../utils/userAPI";
+import EditProfile from "./EditProfile";
 
 
 class Profile extends Component {
@@ -84,11 +85,16 @@ class Profile extends Component {
       <Container>
         <Row>
           <Col size="md-4">
+            <Router>
+              <div>
+                <Route exact path="/editProfile" component={EditProfile} /> 
+                <Link to="/editProfile">Edit Profile</Link>
+              </div>
+            </Router>
+
             <UserPic
               pic={this.state.pic}
               fullName={this.state.user.fullName} />
-
-            <Link to="/editProfile">Edit Profile</Link>
 
             <UserInfo
               id={this.state.id}
