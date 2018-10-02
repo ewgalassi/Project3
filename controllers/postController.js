@@ -162,15 +162,6 @@ module.exports = {
       });
   },
 
-  deleteComment: (req, res, next) => {
-    db.Post.findOneAndDelete({ _id: req.body.comment_id }).then(() => {
-      res.json({ success: true, message: "Deleted comment" })
-    }).catch(err => {
-      res.json({ success: false, message: err })
-    });
-  },
-
-
   /* FETCH ONE INDIVIDUAL POST
     route- get /api/posts/:id
     params- id (the post's id)
@@ -196,6 +187,22 @@ module.exports = {
   */
   editPost: (req, res, next) => {
     res.send("Working on it...");
+  },
+
+  /* DELETE COMMENT
+    route- DELETE /api/posts/comment
+    body- post_id, comment_id
+  */
+  deleteComment: (req, res, next) => {
+    db.Post.findById(req.body.post_id).then(post => {
+      return post.deleteComment(req.body.comment_id).then(data => {
+        res.json({success: true, data: data})
+      }).catch(err => {
+        console.log(err);
+        res.json({success: false, message: err});
+        next();
+      });
+    });
   },
 
   /* DELETE POST

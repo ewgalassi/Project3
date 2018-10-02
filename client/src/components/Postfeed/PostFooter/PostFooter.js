@@ -33,6 +33,9 @@ class PostFooter extends React.Component {
 
   handleComment = id => {
     const comment = prompt("Add a comment:");
+    if (comment === "") {
+      return;
+    };
     PostAPI.commentPost({
       post_id: id,
       comment: comment
@@ -47,7 +50,7 @@ class PostFooter extends React.Component {
   };
 
 
-  handleDelete = (id) => {
+  handleDelete = id => {
     console.log(id);
     PostAPI.deleteComment(id).then(data => {
       if (data.data.success) {
@@ -66,6 +69,7 @@ class PostFooter extends React.Component {
 
       // Determine if delete button should render
       const deleteBtn = () => {
+        console.log(comment)
         if (comment.author._id === this.props.loggedInUser) {
           return (
             <button
