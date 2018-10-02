@@ -1,10 +1,9 @@
-.footer {
-  position:relative;
-}
+
 
 .post-btn {
-  position:absolute;
-  bottom:0;
+
+  float:right;
+  vertical-align: baseline;
 }
 
 .comment-btn {
@@ -14,4 +13,10 @@
 .like-btn {
   right:20%;
 }
+
+/* .comments {
+  background-color:rgba(245, 245, 245, 0.82);
+  margin:0;
+  width:100;
+} */
 

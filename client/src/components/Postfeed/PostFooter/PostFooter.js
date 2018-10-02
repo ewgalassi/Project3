@@ -55,7 +55,7 @@ class PostFooter extends React.Component {
           {/* <button>Save</button> */}
         </div>
 
-      <div>
+      <div className="comments">
         {this.displayComments()}
       </div>
 
