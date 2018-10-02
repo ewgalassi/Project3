@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import UserAPI from "../../utils/userAPI";
-import "./Register.css";
+import "./RegisterInputs.css";
 
 class Register extends Component {
   state = {
@@ -79,7 +79,6 @@ class Register extends Component {
             Register
           </button>
         </form>
-        {/* </div> */}
         <p>{this.state.message}</p>
       </div>
     );

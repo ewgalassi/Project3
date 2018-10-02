@@ -1,0 +1,11 @@
+.banner {
+  background-color: #120f0a;
+  height: 500px;
+}
+.row {
+  margin-top: 0px;
+}
+
+.col-md-6 {
+  color: white;
+}

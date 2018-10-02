@@ -5,11 +5,16 @@
   background-color: #404143;
   border-color: #eee8aa;
 }
+.loginBtn:focus {
+  outline: none;
+}
 
 .loginInput {
   margin-left: 10px;
   padding: 2px;
-  border-color: #eee8aa;
+}
+.loginInput:focus {
+  outline-color: #eee8aa;
 }
 
 .login-form {
