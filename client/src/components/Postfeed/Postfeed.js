@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Post from "./Post/Post";
 import UserAPI from "../../utils/userAPI";
 import PostAPI from "../../utils/postAPI";
+import SavedAPI from "../../utils/savedAPI";
 // import Status from "./Post/PostType/Status";
 
 
@@ -23,10 +24,17 @@ class Postfeed extends Component {
             })
             })
         } else if (window.location.href === "http://localhost:3000/snippets"){
-            PostAPI.getSnippets().then(data =>{
+            // PostAPI.getSnippets().then(data =>{
+            //     this.setState({
+            //         posts: data.data || []
+            //     })
+            // })
+            SavedAPI.getSavedSnippets().then(data => {
+                console.log(data);
                 this.setState({
                     posts: data.data || []
                 })
+                console.log(this.state.posts)
             })
         } else {
         

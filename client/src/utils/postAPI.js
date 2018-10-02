@@ -38,9 +38,7 @@ export default  {
         return axios.get("/api/posts/types/snippets")
     },
 
-    saveSnippet: function (id){
-        return axios.put("/api/posts/save", {post_id: id})
-    }
+
 
 
 

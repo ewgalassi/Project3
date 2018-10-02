@@ -30,7 +30,12 @@ module.exports = {
 		console.log(metadata);
     return metadata;
     })()
-  } else {
+  } else if(req.body.type === "snippet"){
+    savePost({post, type, author}).then(post => {
+
+    })
+  }
+  else {
     savePost({ post, type, author });
   }
 
@@ -86,18 +91,7 @@ module.exports = {
       })
   },
 
-  saveSnippet: (req,res, next) => {
-    console.log(req.body.post_id);
-    const postId = req.body.post_id;
-    const userId = req.user._id;
-    db.Post.findById(postId).then(post => {
-      return post.saveSnippet({
-        author: userId
-      }).then(() => {
-        return res.json({ success: true, message: "Saved post!" });
-      })
-    }).catch(next);
-  },
+
 
   /* GET ALL SNIPPETS BY USER ID (saved snippets page)
     route- GET /api/posts/snippets/:id
@@ -119,6 +113,8 @@ module.exports = {
         next();
       })
   },
+
+
 
 
   /* LIKE A POST

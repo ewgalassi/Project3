@@ -48,8 +48,10 @@ if (process.env.NODE_ENV === "production") {
 // Routes
 const userRoutes = require('./routes/user');
 const postRoutes = require("./routes/post");
+const savedRoutes = require('./routes/saved')
 app.use('/user', userRoutes);
 app.use("/api", postRoutes);
+app.use('/api', savedRoutes);
 
 // Handle React routing, return all requests to React app
 // app.get('*', function (req, res) {

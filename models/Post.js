@@ -93,11 +93,7 @@ PostSchema.methods.like = function (l) {
 	return this.save();
 }
 
-PostSchema.methods.saveSnippet = function(s) {
-	this.saves.push(s);
-	console.log(this.saves);
-	return this.save();
-}
+
 
 // Add comment
 PostSchema.methods.comment = function (c) {

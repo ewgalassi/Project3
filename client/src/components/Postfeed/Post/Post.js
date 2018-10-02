@@ -9,6 +9,14 @@ import PostFooter from "../PostFooter/PostFooter";
 import "./Post.css";
 
 class Post extends Component {
+  // renderSave = (type) =>{
+  //   switch (type) {
+  //     case "snippet":
+  //       return (
+          
+  //       );
+  //   }
+  // }
 
   returnType = (type) => {
     switch (type) {
@@ -63,6 +71,7 @@ class Post extends Component {
           authorId={this.props.authorId}
           id={this.props.id}
         />
+        
       </Card>
     )
 
