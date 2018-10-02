@@ -24,9 +24,9 @@ class Profile extends Component {
   componentDidMount() {
     const { match: { params } } = this.props;
     if (params.id) {
-      this.getUserData(params.id)
+      this.getUserDataById(params.id);
     } else {
-      this.getUserData()
+      this.getUserData();
     }
   };
 
@@ -54,7 +54,7 @@ class Profile extends Component {
   };
 
 
-  getuserDataById = id => {
+  getUserDataById = id => {
     UserAPI.getUserById(id).then(data => {
       this.setState({
         user: data.data,
