@@ -85,6 +85,8 @@ module.exports = {
       })
   },
 
+
+
   /* GET ALL SNIPPETS BY USER ID (saved snippets page)
     route- GET /api/posts/snippets/:id
     params- userId
@@ -105,6 +107,8 @@ module.exports = {
         next();
       })
   },
+
+
 
 
   /* LIKE A POST
