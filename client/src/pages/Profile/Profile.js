@@ -102,7 +102,9 @@ render() {
         <Col size="md-8">
 
           <NewPost />
-          <Postfeed />
+          <Postfeed 
+          userId={this.props.match.params.id}
+          />
 
         </Col>
 
