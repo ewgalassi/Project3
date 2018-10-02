@@ -19,10 +19,6 @@ nav.navbar {
   border: 1px solid gray;
 }
 
-button {
-  cursor: pointer;
-}
-
 #logout {
-  float:right;
+  float: right;
 }
