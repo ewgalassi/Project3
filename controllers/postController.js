@@ -86,10 +86,11 @@ module.exports = {
       })
   },
 
-  SaveSnippet: (req,res, next) => {
+  saveSnippet: (req,res, next) => {
+    console.log(req.body.post_id);
     const postId = req.body.post_id;
     const userId = req.user._id;
-    db.Post.findById(postId).then((post) => {
+    db.Post.findById(postId).then(post => {
       return post.saveSnippet({
         author: userId
       }).then(() => {

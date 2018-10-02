@@ -11,7 +11,7 @@ router.route('/posts')
   .put(postController.likePost)
 
 router.route('/posts/save')
-  .put(postController.SaveSnippet)
+  .put(postController.saveSnippet)
 
 // Add a comment
 router.route('/posts/comment')

@@ -95,7 +95,7 @@ PostSchema.methods.like = function (l) {
 
 PostSchema.methods.saveSnippet = function(s) {
 	this.saves.push(s);
-	console.log(saves);
+	console.log(this.saves);
 	return this.save();
 }
 

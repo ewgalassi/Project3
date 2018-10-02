@@ -39,7 +39,7 @@ export default  {
     },
 
     saveSnippet: function (id){
-        return axios.put("/api/posts/save")
+        return axios.put("/api/posts/save", {post_id: id})
     }
 
 
