@@ -31,26 +31,30 @@ class LoginInputs extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="wrapper">
         <form className="login-form">
-          <label>Username</label>
-          <input
-            name="username"
-            value={this.state.username}
-            onChange={this.handleInput}
-          />
+          <div className="box">
+            <label className="boxTitle">Username</label>
+            <br />
+            <input
+              className="loginInput"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleInput}
+            />
+          </div>
 
-          <br />
-
-          <label>Password</label>
-          <input
-            name="password"
-            value={this.state.password}
-            onChange={this.handleInput}
-            type="password"
-          />
-
-          <br />
+          <div className="box">
+            <label className="boxTitle">Password</label>
+            <br />
+            <input
+              className="loginInput"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleInput}
+              type="password"
+            />
+          </div>
 
           <button
             className="loginBtn"

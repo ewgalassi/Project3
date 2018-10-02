@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container } from "../Grid";
-import Login from "../Login";
+import LoginInputs from "../LoginInputs";
 import "./Navbar2.css";
 
 const Navbar2 = () => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <nav className="navbar navbar-expand-lg">
     <Container>
       <Link className="navbar-brand" to="/">
         Project 3
       </Link>
-      <Login />
+      <LoginInputs />
     </Container>
   </nav>
 );
