@@ -31,5 +31,9 @@ export default {
 
     unfollowUser: function(id) {
         return axios.post("/user/unfollow", {user_id: id})
+    },
+
+    searchUsers: function(username) {
+        return axios.get("/user/search/" + username)
     }
 };
