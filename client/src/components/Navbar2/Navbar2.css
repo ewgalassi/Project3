@@ -1,0 +1,11 @@
+nav {
+  background-color: #404143;
+  border-bottom: 1px solid #eee8aa;
+}
+#logo {
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+#logo:hover {
+  color: #ffffff;
+}

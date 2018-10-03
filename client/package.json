@@ -5,6 +5,7 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "axios": "^0.18.0",
+    "newsapi": "^2.4.0",
     "react": "^16.5.2",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.5.2",
