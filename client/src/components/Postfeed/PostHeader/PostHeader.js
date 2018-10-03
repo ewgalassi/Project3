@@ -54,7 +54,9 @@ class PostHeader extends React.Component {
     return (
       <div className="postheader">
         {/* <PicIcon pic={this.props.pic} /> */}
-        <img className="thumbnail" src={this.props.pic} alt="Profile pic"/>
+        <div className="thumbnail-div">
+          <img className="thumbnail" src={this.props.pic} alt="Profile pic"/>
+        </div>
         <a href={"/profile/" + this.props.authorId}>
           <h5 className="author">{this.props.author}</h5>
         </a>
