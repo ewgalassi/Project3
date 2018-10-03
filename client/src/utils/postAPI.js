@@ -11,13 +11,18 @@ export default  {
     },
 
     likePost: function (id) {
-        return axios.put("/api/posts", {post_id: id})
+        return axios.put("/api/posts", {post_id: id, action: "like"})
     },
+
+    unlikePost: function (id) {
+        return axios.put("/api/posts", {post_id: id, action: "unlike"})
+    },
+
     commentPost: function (commentData) {
         return axios.post("/api/posts/comment", commentData)
     },
     // Gets the post with the given id
-    getOnecPost: function (id) {
+    getOnePost: function (id) {
         return axios.get("/api/posts/" + id);
     },
 
@@ -34,15 +39,11 @@ export default  {
     },
 
     getSnippets: function(){
-        
         return axios.get("/api/posts/types/snippets")
-    }
+    },
 
+    deleteComment: function(id) {
+        return axios.delete("/api/posts/comment", {comment_id: id});
+    },
 
-    // like a post
-
-
-   
-
-
-}
+};

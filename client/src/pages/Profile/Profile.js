@@ -15,7 +15,6 @@ class Profile extends Component {
     pic: "",
     linkedin: "",
     portfolio: "",
-    // projects: [],
     languages: [],
     technologies: [],
     jobTitle: "",

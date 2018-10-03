@@ -9,6 +9,15 @@ import PostFooter from "../PostFooter/PostFooter";
 import "./Post.css";
 
 class Post extends Component {
+  // renderSave = (type) =>{
+  //   switch (type) {
+  //     case "snippet":
+  //       return (
+
+  //       );
+  //   }
+  // }
+
   returnType = type => {
     switch (type) {
       case "status":
@@ -22,8 +31,12 @@ class Post extends Component {
         );
       case "snippet":
         return (
-          <Snippet post={this.props.post} description={this.props.description}>
-            {this.props.post}
+          <Snippet
+            id="snippet"
+            post={this.props.post}
+            description={this.props.description}
+          >
+            {/* {this.props.post} */}
           </Snippet>
         );
       default:
@@ -44,6 +57,7 @@ class Post extends Component {
           pic={this.props.pic}
           authorId={this.props.authorId}
           id={this.props.id}
+          loggedInUser={this.props.loggedInUser}
         />
         <hr />
 
@@ -55,6 +69,8 @@ class Post extends Component {
           comments={this.props.comments}
           authorId={this.props.authorId}
           id={this.props.id}
+          isLiked={this.props.isLiked}
+          loggedInUser={this.props.loggedInUser}
         />
       </Card>
     );

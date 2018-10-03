@@ -5,6 +5,7 @@ import Profile from "./pages/Profile/Profile";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Snippets from "./pages/Snippets/Snippets";
+import EditProfile from "./pages/Profile/EditProfile";
 
 const App = () => (
   <Router>
@@ -16,6 +17,7 @@ const App = () => (
       <Route exact path="/register" component={Register} />
       <Route exact path="/snippets" component={Snippets} />
       <Route exact path="/profile/:id" component={Profile} />
+      <Route exact path="/editProfile" component={EditProfile} />
     </div>
   </Router>
 );

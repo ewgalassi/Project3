@@ -18,21 +18,20 @@ module.exports = {
       return res.json({ success: false, message: "Not signed in" });
     };
 
-    let { post, type } = req.body;
-    let author = req.user._id;
+    req.body.author = req.user._id;
 
     if (req.body.type === "article") {
-    const targetUrl = req.body.post;
-  ; (async () => {
-    const { body: html, url } = await got(targetUrl);
-    const articleMetadata = await metascraper({ html, url });
-    savePost({ post, type, author, articleMetadata });    
-		console.log(metadata);
-    return metadata;
-    })()
-  } else {
-    savePost({ post, type, author });
-  }
+      const targetUrl = req.body.post;
+      ; (async () => {
+        const { body: html, url } = await got(targetUrl);
+        req.body.articleMetadata = await metascraper({ html, url });
+        savePost(req.body);
+        console.log(metadata);
+        return metadata;
+      })()
+    } else {
+      savePost(req.body);
+    }
 
 
     function savePost(obj) {
@@ -54,7 +53,7 @@ module.exports = {
   */
   getAll: (req, res, next) => {
     db.Post.find()
-      .sort({_id: -1})
+      .sort({ _id: -1 })
       .populate('author', ['fullName', 'username', 'profile.pic'])
       .populate('comments.author', ['fullName', 'username', 'firstName', 'profile.pic'])
       .exec((err, post) => {
@@ -72,9 +71,9 @@ module.exports = {
     route- GET /api/posts/author/:id
     params- userId
   */
-   getAllById: (req, res, next) => {
-    db.Post.find({author: req.params.id})
-      .sort({_id: -1})
+  getAllById: (req, res, next) => {
+    db.Post.find({ author: req.params.id })
+      .sort({ _id: -1 })
       .populate('comments.author').exec((err, post) => {
         if (err)
           res.json({ success: false, message: err });
@@ -85,43 +84,58 @@ module.exports = {
         next();
       })
   },
+
+
 
   /* GET ALL SNIPPETS BY USER ID (saved snippets page)
     route- GET /api/posts/snippets/:id
     params- userId
   */
   getAllSnippetsById: (req, res, next) => {
-    db.Post.find({author: req.user._id})
+    db.Post.find({ author: req.user._id })
       .where("type").equals("snippet")
-      .sort({_id: -1})
+      .sort({ _id: -1 })
       .populate('comments.author').exec((err, post) => {
-        
+
         if (err)
           res.json({ success: false, message: err });
         else if (!post)
           res.send(404);
         else
-          
+
           res.json(post);
         next();
       })
   },
 
 
-  /* LIKE A POST
+
+
+  /* LIKE/UNLIKE A POST
     route- PUT /api/posts
-    body- post_id
+    body- post_id, action
   */
   likePost: (req, res, next) => {
     const postId = req.body.post_id;
     const userId = req.user._id;
-    db.Post.findById(postId).then((post) => {
-      return post.like({
-        author: userId
-      }).then(() => {
-        return res.json({ success: true, message: "Liked post!" });
-      })
-    }).catch(next);
+
+    if (req.body.action === "like") {
+      db.Post.findById(postId).then((post) => {
+        return post.like({
+          author: userId
+        }).then(() => {
+          return res.json({ success: true, message: "Liked post!" });
+        })
+      }).catch(next);
+    } else if (req.body.action === "unlike") {
+      db.Post.findById(postId).then((post) => {
+        return post.unlike({
+          author: userId
+        }).then(() => {
+          return res.json({ success: true, message: "Unliked post!" });
+        })
+      }).catch(next);
+    }
   },
 
 
@@ -131,23 +145,22 @@ module.exports = {
   */
   commentPost: (req, res, next) => {
     db.Post.findById(req.body.post_id)
-    .then(post => {
-      return post.comment({
-        author: req.user._id,
-        text: req.body.comment,
-        firstName: req.user.firstName
-      }, {new: true})
-      .then((commentData) => {
-        console.log(commentData);
-        return res.json(commentData);
-      })
-    }).catch(err => {
-      console.log(err);
-      res.json(err);
-      next();
-    });
+      .then(post => {
+        return post.comment({
+          author: req.user._id,
+          text: req.body.comment,
+          firstName: req.user.firstName
+        }, { new: true })
+          .then((commentData) => {
+            console.log(commentData);
+            return res.json(commentData);
+          })
+      }).catch(err => {
+        console.log(err);
+        res.json(err);
+        next();
+      });
   },
-
 
   /* FETCH ONE INDIVIDUAL POST
     route- get /api/posts/:id
@@ -176,15 +189,31 @@ module.exports = {
     res.send("Working on it...");
   },
 
+  /* DELETE COMMENT
+    route- DELETE /api/posts/comment
+    body- post_id, comment_id
+  */
+  // deleteComment: (req, res, next) => {
+  //   db.Post.findById(req.body.post_id).then(post => {
+  //     return post.deleteComment(req.body.comment_id).then(data => {
+  //       res.json({success: true, data: data})
+  //     }).catch(err => {
+  //       console.log(err);
+  //       res.json({success: false, message: err});
+  //       next();
+  //     });
+  //   });
+  // },
+
   /* DELETE POST
     route- delete /api/posts/:id
     params- id (the post's id)
   */
   deletePost: (req, res, next) => {
-    db.Post.findOneAndDelete({_id: req.params.id}).then(() => {
-      res.json({success: true, message: "Deleted post"})
+    db.Post.findOneAndDelete({ _id: req.params.id }).then(() => {
+      res.json({ success: true, message: "Deleted post" })
     }).catch(err => {
-      res.json({success: false, message: err})
+      res.json({ success: false, message: err })
     });
   }
 

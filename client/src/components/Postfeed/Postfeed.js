@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Post from "./Post/Post";
 import UserAPI from "../../utils/userAPI";
 import PostAPI from "../../utils/postAPI";
+import SavedAPI from "../../utils/savedAPI";
 // import Status from "./Post/PostType/Status";
 
 
@@ -13,23 +14,42 @@ class Postfeed extends Component {
     };
 
     componentDidMount() {
-        if (window.location.href === "http://localhost:3000/profile"){
-            UserAPI.getUser().then(data =>{
-                PostAPI.getPostId(data.data._id)
-                .then(data => {
-                this.setState({
-                    posts: data.data || []
-                });
-            })
-            })
-        } else if (window.location.href === "http://localhost:3000/snippets"){
-            PostAPI.getSnippets().then(data =>{
+        if (this.props.userId) {
+
+            PostAPI.getPostId(this.props.userId).then(data => {
                 this.setState({
                     posts: data.data || []
                 })
+            }).catch(err => {
+                console.log(err);
+            });
+        } else if (window.location.href.includes("snippets")) {
+            SavedAPI.getSavedSnippets().then(data => {
+                console.log(data);
+                let arr;
+                if(data.data) {
+                    arr = data.data.map(elem => elem.post);
+                }
+                else {
+                    arr = [];
+                }
+                console.log(arr);
+                this.setState({
+                    posts: arr
+                }, () => console.log(this.state.posts))
+                
             })
-        } else {
-        
+        } else if (window.location.href.includes("profile")) {
+            UserAPI.getUser().then(data =>{
+                PostAPI.getPostId(data.data._id)
+                .then(data => {
+                    console.log(data);
+                    this.setState({
+                        posts: data.data || []
+                    });
+                })
+            })
+        }  else {
         PostAPI.getPosts().then(data => {
             this.setState({
                 posts: data.data || []
@@ -44,11 +64,20 @@ class Postfeed extends Component {
             <div>
                 
                 {this.state.posts.map(post => {
+                    // Check if post is liked
+                    let isLiked = false;
+                    for (let i=0; i < post.likes.length; i++) {
+                        if (this.props.loggedInUser === post.likes[i].author) {
+                            isLiked = true;
+                        };
+                    };
                     return (
                         <Post 
                         key={post._id}
                         id={post._id}
+                        isLiked={isLiked}
                         authorId={post.author._id}
+                        loggedInUser={this.props.loggedInUser}
                         author={post.author.fullName} 
                         post={post.post}
                         type={post.type}
@@ -61,7 +90,7 @@ class Postfeed extends Component {
                     )
                 })}
                 
-            
+                <br></br>
             </div>
             
             
