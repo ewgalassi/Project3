@@ -25,7 +25,7 @@ class Postfeed extends Component {
             });
         } else if (window.location.href.includes("snippets")) {
             SavedAPI.getSavedSnippets().then(data => {
-                console.log(data);
+                // console.log(data);
                 let arr;
                 if(data.data) {
                     arr = data.data.map(elem => elem.post);
@@ -43,7 +43,7 @@ class Postfeed extends Component {
             UserAPI.getUser().then(data =>{
                 PostAPI.getPostId(data.data._id)
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     this.setState({
                         posts: data.data || []
                     });

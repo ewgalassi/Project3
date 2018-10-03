@@ -19,7 +19,9 @@ class Post extends Component {
   //   }
   // }
   saveSnippet = id => {
+    alert("Snippet Saved!")
     savedAPI.saveSnippet(id).then(data => {
+      
       // console.log(data);
     });
   };
