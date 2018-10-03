@@ -15,7 +15,7 @@ passport.deserializeUser((id, done) => {
 	console.log('DeserializeUser called');
 	db.User.findOne(
 		{ _id: id },
-		['username','firstName'],
+		['username','firstName','followers','following'],
 		(err, user) => {
 			console.log('*** Deserialize user, user:');
 			console.log(user);
