@@ -5,6 +5,7 @@ import Snippet from "./PostType/Snippet";
 import Status from "./PostType/Status";
 import PostHeader from "../PostHeader/PostHeader";
 import PostFooter from "../PostFooter/PostFooter";
+import savedAPI from "../../../utils/savedAPI"
 
 import "./Post.css";
 
@@ -17,6 +18,29 @@ class Post extends Component {
   //       );
   //   }
   // }
+  saveSnippet = id => {
+    savedAPI.saveSnippet(id).then(data => {
+      // console.log(data);
+    });
+  };
+
+returnSaveSnip = type => {
+  switch (type) {
+    
+    case "snippet":
+    // console.log("working")
+      return (
+        <button
+        onClick={() => this.saveSnippet(this.props.id)}
+        type="button"
+        className="post-btn snippet-btn btn btn-secondary btn-sm"
+      >
+        <span /> Save Snippet
+      </button>
+      )
+    }
+  }
+
 
   returnType = type => {
     switch (type) {
@@ -37,7 +61,9 @@ class Post extends Component {
             description={this.props.description}
           >
             {/* {this.props.post} */}
+           
           </Snippet>
+          
         );
       default:
         return (
@@ -72,6 +98,7 @@ class Post extends Component {
           isLiked={this.props.isLiked}
           loggedInUser={this.props.loggedInUser}
         />
+        {this.returnSaveSnip(this.props.type)}
       </Card>
     );
   }

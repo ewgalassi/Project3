@@ -29,6 +29,7 @@ class Snippet extends React.Component {
           >
           <button>Copy Snippet</button>
           
+          
           </CopytoClipboard>
         </div>
       </div>
