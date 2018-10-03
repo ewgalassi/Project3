@@ -4,16 +4,28 @@
   /* position:relative; */
   text-align: center;
   background: #343637;
+  overflow:hidden;
+}
+
+.image-div {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin:20px auto;
 }
 
 .userImage {
-  border: 1px solid #000000;
-  border-radius: 50%;
-  margin: 30px auto;
+  /* border: 1px solid #000000; */
+  /* border-radius: 50%; */
+  /* margin: 30px auto; */
   margin-bottom: 10px;
   /* position:absolute; */
-  display: inline-block;
-  max-width: 80%;
+  /* display: inline-block; */
+  display: inline;
+  margin: auto;
+  width: 100%;
   height: auto;
 }
 

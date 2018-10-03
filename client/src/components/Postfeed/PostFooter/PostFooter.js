@@ -41,7 +41,7 @@ class PostFooter extends React.Component {
 
   handleInput = event => {
     // const comment = prompt("Add a comment:");
-    console.log(event.target.value)
+    console.log(event.target)
     this.setState({
       comment: event.target.value
     });
@@ -51,14 +51,14 @@ class PostFooter extends React.Component {
 
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     PostAPI.commentPost({
       // post_id: id,
       comment: this.state.comment
     })
       .then(data => {
-        console.log("comment posted")
+        console.log(this.state.comment, "comment posted")
         this.setState({
           comments: data.data.comments || []
         });
@@ -141,7 +141,7 @@ class PostFooter extends React.Component {
           type="button"
           className="post-btn like-btn btn btn-secondary btn-sm"
         >
-          <span id="likeColor" class="fas fa-thumbs-up" /> Like (
+          <span id="likeColor" className="fas fa-thumbs-up" /> Like (
           {this.state.numLikes})
         </button>
       );

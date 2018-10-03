@@ -84,11 +84,13 @@ class UserPic extends React.Component {
     return (
       <Card className="profile-card">
         {this.checkFollowStatus()}
-        <img
-          className="userImage img-responsive"
-          src={this.props.pic}
-          alt="Profile"
-        />
+        <div className="image-div" style={{border:"1px solid", borderRadius:"50%"}}>
+          <img
+            className="userImage img-responsive"
+            src={this.props.pic}
+            alt="Profile"
+          />
+        </div>
         <h2 className="profile-name">{this.props.fullName}</h2>
         {this.renderButton()}
       </Card>

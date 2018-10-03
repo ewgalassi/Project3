@@ -10,6 +10,14 @@
   margin-bottom:10px;
 }
 
+.thumbnail-div {
+  width: 60px;
+  height: 60px;
+  /* position: relative; */
+  overflow: hidden;
+  border-radius: 50%;
+  /* margin:20px auto; */
+}
 .thumbnail {
   width:60px;
   border-radius:50%;
