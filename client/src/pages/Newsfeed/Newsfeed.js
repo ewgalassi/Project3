@@ -92,7 +92,7 @@ class Newsfeed extends Component {
                 {this.state.newsArticles.map(newsArticle => {
                   return (
                     <Sidebar
-                      // key={newArticle.id}
+                      key={newsArticle.title}
                       title={newsArticle.title}
                       author={newsArticle.author}
                       url={newsArticle.url}

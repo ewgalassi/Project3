@@ -57,7 +57,6 @@ class Post extends Component {
       </button>
       )
     } else if (!this.state.isSaved){
-      console.log(this.state.isSaved);
       return (
         <button
         onClick={() => this.saveSnippet(this.props.id)}

@@ -11,6 +11,7 @@ import "./Profile.css";
 class Profile extends Component {
   state = {
     user: {},
+    loggedInUser: "",
     id: "",
     pic: "",
     linkedin: "",
@@ -37,9 +38,10 @@ class Profile extends Component {
       .then(data => {
         if (data.data.success === false) {
           window.location.replace("/login");
-        }
+        };
         this.setState({
           user: data.data,
+          loggedInUser: data.data._id,
           id: data.data._id,
           pic: data.data.profile.pic,
           github: data.data.profile.github,
@@ -62,6 +64,10 @@ class Profile extends Component {
   };
 
   getUserDataById = id => {
+    UserAPI.getUser().then(data => {
+      console.log("LOGGED IN: " + data.data._id);
+      this.setState({loggedInUser: data.data._id})
+    });
     UserAPI.getUserById(id)
       .then(data => {
         this.setState({
@@ -97,6 +103,8 @@ class Profile extends Component {
               <UserPic
                 pic={this.state.pic}
                 fullName={this.state.user.fullName}
+                userId={this.state.id}
+                loggedInUser={this.state.loggedInUser}
               />
               <UserInfo
                 id={this.state.id}
