@@ -8,6 +8,10 @@ export default {
 
     getSavedSnippets: function(){
         return axios.get("api/posts/save")
+    },
+
+    unSaveSnippet: function(id) {
+        return axios.delete("api/posts/save/" + id)
     }
 
 }
