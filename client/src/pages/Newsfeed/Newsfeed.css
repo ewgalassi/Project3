@@ -24,13 +24,3 @@
 .stuck {
   overflow: -moz-scrollbars-none;
 }
-
-.not-stuck::-webkit-scrollbar {
-  width: 0 !important;
-}
-.not-stuck {
-  -ms-overflow-style: none;
-}
-.not-stuck {
-  overflow: -moz-scrollbars-none;
-}
