@@ -3,27 +3,27 @@ import Postfeed from "../../components/Postfeed/Postfeed";
 import { Col, Row, Container } from "../../components/Grid";
 
 import NewPost from "../../components/NewPost/NewPost";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 import PostAPI from "../../utils/postAPI";
 import "./Newsfeed.css";
 import UserAPI from "../../utils/userAPI";
 
-//components needed:
+const NewsAPI = require("newsapi");
+const newsapi = new NewsAPI('2879ab41a44141b3a1c9a2fb6174199d');
 
-//add new post
-//post feed
-// card
-//  post type: snippet, status, article
 
 class Newsfeed extends Component {
   state = {
     posts: [],
-    loggedInUser: ""
+    loggedInUser: "",
+    newsArticles: []
   };
 
   componentDidMount() {
     this.getUserData();
     this.loadPosts();
+    this.fetchNews();
   }
 
   getUserData = () => {
@@ -50,37 +50,56 @@ class Newsfeed extends Component {
       )
       .catch(err => console.log(err));
   };
+
+  fetchNews = () => {
+    newsapi.v2.topHeadlines({
+      category: 'technology',
+      language: 'en',
+      country: 'us',
+      apiKey:'2879ab41a44141b3a1c9a2fb6174199d'
+    }).then(response => {
+      console.log(response.articles);
+      this.setState({
+        newsArticles: response.articles
+      })
+      
+    });
+  }
+
   render() {
     return (
       <Container>
         <Row>
+          {/* <Col size="md-3"> */}
+            {/* <Sidebar /> */}
+          {/* </Col> */}
           <Col size="md-8">
-              
               <NewPost />
               <Postfeed 
               loggedInUser={this.state.loggedInUser}
-              />
-            
+              />  
+          </Col>
+          <Col size="md-4">
+
+            <div className="p-4" style={{border:"1px solid rgba(0,0,0,.125)", backgroundColor:"#fff"}}>
+            <h4>Latest Tech News</h4>
+              {this.state.newsArticles.map(newsArticle => {
+                return (
+                  
+                  <Sidebar
+                    // key={newArticle.id}
+                    title={newsArticle.title}
+                    author={newsArticle.author}
+                    url={newsArticle.url}
+                    source={newsArticle.source.name}
+                    description={newsArticle.description}
+                    />
+                )
+              })}
+            </div>
+
           </Col>
         </Row>
-
-
-
-        {/* <Row>
-          <List>
-            {this.state.posts.map(post => {
-              return (
-                <ListItem key={post._id}>
-                  <a href={"/posts/" + post._id}>
-                    <h5>{post.post}</h5>
-                    <hr />
-                    <p>by {post.author.username}</p>
-                  </a>
-                </ListItem>
-              );
-            })}
-          </List>
-        </Row> */}
       </Container>
     );
   }
