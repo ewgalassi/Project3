@@ -1,5 +1,6 @@
 .profile-card {
   margin: 0px;
+  margin-top: 85px;
   /* position:relative; */
   text-align: center;
   background: #343637;
@@ -17,7 +18,7 @@
 }
 
 h2.profile-name {
-  padding-bottom: 20px;
+  padding: 8px 0px 20px 0px;
   color: #48c5da;
 }
 
