@@ -33,10 +33,12 @@ class Postfeed extends Component {
                 else {
                     arr = [];
                 }
-                console.log(arr);
+                // console.log(arr);
                 this.setState({
                     posts: arr
-                }, () => console.log(this.state.posts))
+                }
+                // , () => console.log(this.state.posts)
+                )
                 
             })
         } else if (window.location.href.includes("profile")) {
