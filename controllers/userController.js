@@ -140,7 +140,20 @@ module.exports = {
   */
   unfollowUser: (req,res,next) => {
     res.send("Coming soon");
-  }
+  },
 
+  /* ----- SEARCH FOR USER ------
+  route- POST /user/search/:username
+  params- username
+  */
+  searchUsers: (req,res,next) => {
+    db.User.findOne({username: req.params.username})
+    .then(user => {
+      res.json(user);
+    }).catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+  }
 
 };
