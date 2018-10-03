@@ -10,7 +10,10 @@ class EditProfile extends React.Component {
     languages: [],
     technologies: [],
     jobTitle: "",
-    jobCompany: ""
+    jobCompany: "",
+    following: [],
+    followInput: "",
+    searchInput: ""
   };
 
   componentDidMount() {
@@ -24,7 +27,8 @@ class EditProfile extends React.Component {
         languages: data.data.profile.languages.join(","),
         technologies: data.data.profile.technologies.join(","),
         jobTitle: data.data.profile.jobInfo ? data.data.profile.jobInfo.title : "",
-        jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.company : ""
+        jobCompany: data.data.profile.jobInfo ? data.data.profile.jobInfo.company : "",
+        following: data.data.following
       });
     });
   };
@@ -35,7 +39,6 @@ class EditProfile extends React.Component {
       [name]: value
     });
   };
-
 
   handleSubmit = event => {
     event.preventDefault();
@@ -56,6 +59,47 @@ class EditProfile extends React.Component {
     }).catch(err => {
       console.log(err);
     });
+  };
+
+  cancel = event => {
+    event.preventDefault();
+    window.location.replace("/profile");
+  };
+
+  handleFollow = event => {
+    event.preventDefault();
+    UserAPI.followUser(this.state.followInput).then(data => {
+      if (data.data.success) {
+        alert("Successfully followed user!");
+        window.location.replace("/editProfile");
+      } else {
+        alert("User not found");
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+  };
+
+  handleUnfollow = id => {
+    UserAPI.unfollowUser(id).then(data => {
+      console.log(data.data);
+      alert(data.data);
+    }).catch(err => {
+      console.log(err);
+      alert("There was an error :(");
+    });
+  };
+
+  handleSearch = event => {
+    event.preventDefault();
+    UserAPI.searchUsers(this.state.searchInput).then(data => {
+      if (!data.data) {
+        return alert("No user found");
+      };
+      window.location.replace("/profile/" + data.data._id);
+    }).catch(err => {
+      console.log(err);
+    })
   };
 
 
@@ -96,9 +140,39 @@ class EditProfile extends React.Component {
           <input name="technologies" value={this.state.technologies} onChange={this.handleInput} type="text" />
           <br />
 
+          <button onClick={this.cancel}>Cancel</button>
           <button onClick={this.handleSubmit}>Submit</button>
 
         </form>
+
+        <hr />
+
+        <h3>You are following:</h3>
+
+
+        {this.state.following.map(user => {
+          return (
+            <div key={user._id}>
+              {user.fullName} 
+              <button onClick={() => this.handleUnfollow(user._id)}>Unfollow</button>
+            </div>
+          )
+        })}
+
+        <p>Follow a user (by id):</p>
+        <form>
+          <input type="text" name="followInput" value={this.state.followInput} onChange={this.handleInput} />
+          <button onClick={this.handleFollow}>Follow</button>
+        </form>
+
+        <hr />
+
+        <p>Search for a user (by username):</p>
+        <form>
+          <input type="text" name="searchInput" value={this.state.searchInput} onChange={this.handleInput} />
+          <button onClick={this.handleSearch}>Search</button>
+        </form>
+
       </div>
     );
   };

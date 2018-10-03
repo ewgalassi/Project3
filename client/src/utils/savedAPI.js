@@ -2,8 +2,9 @@ import axios from "axios";
 
 export default {
 
-    saveSnippet: function (id) {
-        return axios.post("/api/posts/save", { post_id: id })
+    saveSnippet: function (postData) {
+        // console.log("SavedAPI working")
+        return axios.post("/api/posts/save", postData)
     },
 
     getSavedSnippets: function(){

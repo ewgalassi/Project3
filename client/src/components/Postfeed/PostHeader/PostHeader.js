@@ -2,6 +2,7 @@ import React from "react";
 // import PicIcon from "../../NewPost/PicIcon/PicIcon";
 import "./PostHeader.css";
 import PostAPI from "../../../utils/postAPI";
+import SavedAPI from "../../../utils/savedAPI";
 
 // const styles = {
 //   head: {
@@ -14,8 +15,19 @@ import PostAPI from "../../../utils/postAPI";
 class PostHeader extends React.Component {
 
   handleDelete = (id) => {
-    console.log(id);
+    // console.log(id);
+    if (window.location.href.includes('snippets')){
+      // console.log("working")
+      SavedAPI.unSaveSnippet(id).then(data =>{
+        if (data.data.success) {
+          window.location.reload();
+        } else {
+          console.log(data.data);
+        };
+      })
+    } else {
     PostAPI.deletePost(id).then(data => {
+      // console.log("not working")
       if (data.data.success) {
         window.location.reload();
       } else {
@@ -24,6 +36,7 @@ class PostHeader extends React.Component {
     }).catch(err => {
       console.log(err);
     });
+  }
   };
 
   renderDeleteBtn = () => {

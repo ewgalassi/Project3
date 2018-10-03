@@ -12,7 +12,14 @@ import "./Post.css";
 class Post extends Component {
 
   state = {
-    isSaved: this.props.isSaved || false
+    post: this.props.post,
+    type: this.props.type,
+    description: this.props.description,
+    isSaved: this.props.isSaved || false,
+    numLikes: this.props.numLikes,
+    comments: this.props.comments || [],
+    saves: this.props.saves,
+    isLiked: this.props.isLiked || false
   }
   // renderSave = (type) =>{
   //   switch (type) {
@@ -22,25 +29,26 @@ class Post extends Component {
   //       );
   //   }
   // }
-  saveSnippet = id => {
+  saveSnippet = postData => {
     alert("Snippet Saved!")
     console.log(this.state.isSaved);
-    savedAPI.saveSnippet(id).then(data => {
+    savedAPI.saveSnippet(postData).then(data => {
+      // console.log(data);
       this.setState({
         isSaved: true,
-        
+
       })
-      
+
     });
   };
 
-  unSaveSnippet = id => {
+  unSaveSnippet = postData => {
     alert("snippet unsaved")
-    savedAPI.unSaveSnippet(id).then(data => {
-      console.log(data);
-      // this.setState({
-      //   isSaved:false
-      // })
+    savedAPI.unSaveSnippet(postData).then(data => {
+      // console.log(data);
+      this.setState({
+        isSaved:false
+      })
     })
   }
 
@@ -49,39 +57,52 @@ class Post extends Component {
       console.log(this.state.isSaved);
       return (
         <button
-        onClick={() => this.unSaveSnippet(this.props.id)}
-        type="button"
-        className="post-btn snippet-btn btn btn-secondary btn-sm"
-      >
-        <span /> Unsave Snippet
+          onClick={() => this.unSaveSnippet(this.props.id)}
+          type="button"
+          className="post-btn snippet-btn btn btn-secondary btn-sm"
+        >
+          <span /> Unsave Snippet
       </button>
       )
-    } else if (!this.state.isSaved){
-      // console.log(this.state.isSaved);
+    } else if (!this.state.isSaved) {
+      console.log(this.state.isSaved);
+      const postData = {
+        post: this.props.post,
+        type: this.props.type,
+        description: this.props.description,
+        numLikes: this.props.numLikes,
+        comments: this.props.comments || [],
+        saves: this.props.saves,
+      }
       return (
         <button
-        onClick={() => this.saveSnippet(this.props.id)}
-        type="button"
-        className="post-btn snippet-btn btn btn-secondary btn-sm"
-      >
-        <span /> Save Snippet
+          onClick={() => this.saveSnippet(postData)}
+          type="button"
+          className="post-btn snippet-btn btn btn-secondary btn-sm"
+        >
+          <span /> Save Snippet
       </button>
       )
     }
   }
 
-returnSaveSnip = type => {
-  switch (type) {
-    
-    case "snippet":
-    // console.log("working")
-      return (
-        <div>
-          {this.saveOrUnsave()}
-        </div>
-        
-      )
+  returnSaveSnip = type => {
+
+    if (!window.location.href.includes('snippet')) {
+    switch (type) {
+
+      case "snippet":
+        // console.log("working")
+        return (
+          <div>
+            {this.saveOrUnsave()}
+          </div>
+
+        )
     }
+  } else {
+    console.log("not snippet page");
+  }
   }
 
 
@@ -104,9 +125,9 @@ returnSaveSnip = type => {
             description={this.props.description}
           >
             {/* {this.props.post} */}
-           
+
           </Snippet>
-          
+
         );
       default:
         return (
@@ -133,7 +154,7 @@ returnSaveSnip = type => {
         {this.returnType(this.props.type)}
         {this.returnSaveSnip(this.props.type)}
         <hr />
-        
+
         <PostFooter
           numLikes={this.props.numLikes}
           comments={this.props.comments}
@@ -142,10 +163,12 @@ returnSaveSnip = type => {
           isLiked={this.props.isLiked}
           loggedInUser={this.props.loggedInUser}
         />
-        
+
       </Card>
     );
   }
 }
 
 export default Post;
+
+

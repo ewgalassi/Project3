@@ -2,20 +2,22 @@ const Saved = require("../models/Saved");
 
 module.exports = {
     addPost: (req, res, next) => {
-        let author = req.user._id;
-        const post = req.body.post_id
-            saveSnippet({author, post}, res)
+        // console.log(req.body);
+        // let author = req.user._id;
+        // const post = req.body.post_id
+          req.body.author = req.user._id;
+            saveSnippet(req.body, res)
         
     },
 
     getSavedSnippets: (req, res, next) => {
-        console.log(req.user._id)
+        // console.log(req.user._id)
         
         Saved.find({author: req.user._id})
-        .populate('post')
+        
         .sort({_id: -1})
         .then(function(savedSnippets) {
-            console.log(savedSnippets);
+            // console.log(savedSnippets);
             // If all Users are successfully found, send them back to the client
             res.json(savedSnippets);
           })
@@ -29,7 +31,7 @@ module.exports = {
     },
 
     unSave: (req, res, next) => {
-      console.log(req.params.id)
+      // console.log(req.params.id)
       Saved.findOneAndDelete({ _id: req.params.id }).then(() => {
         
         res.json({ success: true, message: "Unsaved Snippet" })
@@ -46,7 +48,7 @@ function saveSnippet(obj, res) {
       } else if (!post) {
         res.send(400);
       } else {
-        console.log("snippet saved");
+        return res.json({ success: true, message: post });
       };
       
     });

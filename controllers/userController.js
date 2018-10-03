@@ -46,7 +46,10 @@ module.exports = {
   */
   getUserData: (req, res, next) => {
     if (req.user) {
-      db.User.findOne({ _id: req.user._id }).then(user => {
+      db.User.findOne({ _id: req.user._id })
+      .populate('followers', ["fullName", "_id"])
+      .populate('following', ["fullName", "_id"])
+      .then(user => {
         res.json(user);
       }).catch(err => {
         res.json({ success: false, message: err });
@@ -94,11 +97,63 @@ module.exports = {
     if (!req.user) return res.json({ success: false, message: "Not signed in" });
     const userId = req.user._id;
     db.User.findOneAndUpdate({ _id: userId }, req.body, { new: true }).then(data => {
-      console.log(data);
       res.json({ success: true, message: "Updated profile!", profile: data.profile });
     }).catch(err => {
       res.json({ success: false, message: err });
     })
+  },
+
+  /* ----- FOLLOW USER ------
+  route- POST /user/follow
+  body- user_id
+  */
+  followUser: (req, res, next) => {
+    if (!req.user) return res.json({ success: false, message: "Not signed in" });
+    db.User.findById(req.user._id).then(user => {
+      return user.follow(req.body.user_id).then(() => {
+        return res.json({ success: true, message: "Followed!" });
+      })
+    }).catch(err => {
+      console.log(err);
+      return res.json({ success: false, message: err });
+      next();
+    });
+  },
+
+  getUserProfile: (req, res, next) => {
+    db.User.findById(req.params.id).then
+      ((_user) => {
+        return db.User.find({ 'following': req.params.id }).then((_users) => {
+          _users.forEach((user_) => {
+            _user.addFollower(user_)
+          })
+          return db.Post.find({ 'author': req.params.id }).then((_posts) => {
+            return res.json({ user: _user, posts: _posts })
+          })
+        })
+      }).catch((err) => console.log(err))
+  },
+
+  /* ----- UNFOLLOW USER ------
+  route- POST /user/unfollow
+  body- user_id
+  */
+  unfollowUser: (req,res,next) => {
+    res.send("Coming soon");
+  },
+
+  /* ----- SEARCH FOR USER ------
+  route- POST /user/search/:username
+  params- username
+  */
+  searchUsers: (req,res,next) => {
+    db.User.findOne({username: req.params.username})
+    .then(user => {
+      res.json(user);
+    }).catch(err => {
+      console.log(err);
+      res.json(err);
+    });
   }
 
 };

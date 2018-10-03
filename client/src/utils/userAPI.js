@@ -23,5 +23,17 @@ export default {
 
     logoutUser: function(){
         return axios.get('/user/logout')
+    },
+
+    followUser: function(id) {
+        return axios.post("/user/follow", {user_id: id})
+    },
+
+    unfollowUser: function(id) {
+        return axios.post("/user/unfollow", {user_id: id})
+    },
+
+    searchUsers: function(username) {
+        return axios.get("/user/search/" + username)
     }
-}
+};

@@ -5,6 +5,7 @@ import PostAPI from "../../utils/postAPI";
 import Dropdown from "../Dropdown/Dropdown";
 import Card from "../Card/Card";
 import "./NewPost.css";
+import savedAPI from "../../utils/savedAPI";
 
 
 class NewPost extends Component {
@@ -38,8 +39,9 @@ class NewPost extends Component {
       post: this.state.post,
       description: this.state.description
     };
+    if (post.type === "snippet"){
     PostAPI.savePost(post).then(data => {
-      console.log(data);
+      // console.log(data);
       if (window.location.href === "http://localhost:3000/profile") {
 
         window.location.replace("/profile");
@@ -50,6 +52,24 @@ class NewPost extends Component {
     }).catch(err => {
       console.log(err);
     });
+    savedAPI.saveSnippet(post).then(data =>{
+      // console.log("saved snippet");
+    })
+  } else {
+    PostAPI.savePost(post).then(data => {
+      // console.log(data);
+      if (window.location.href === "http://localhost:3000/profile") {
+
+        window.location.replace("/profile");
+      } else {
+
+        window.location.replace("/");
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+
+  }
   };
 
 
