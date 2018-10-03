@@ -1,27 +1,25 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import Postfeed from "../../components/Postfeed/Postfeed";
-import Navbar from "../../components/Navbar/Navbar"
+import Navbar from "../../components/Navbar/Navbar";
+import "./Snippets.css";
 
 class Snippet extends Component {
-
-    render() {
-        return (
-          <div>
-          <Navbar/>
-          <Container>
-              <Row>
-                <Col size="md-8">
-                  <Postfeed />
-                </Col>
-              </Row>
-          </Container>
-          </div>
-
-
-        )
-    }
-
+  render() {
+    return (
+      <div>
+        <Navbar />
+        <Container>
+          <Row>
+            <Col size="md-8">
+              <div className="bumper" />
+              <Postfeed />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  }
 }
 
-export default Snippet; 
+export default Snippet;
