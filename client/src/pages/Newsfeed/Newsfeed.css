@@ -1,3 +1,36 @@
-body {
-  background-color: #dfe3ee;
+.stuck {
+  position: fixed;
+  top: 9.5%;
+  /* left: 10px; */
+  bottom: 2.8%;
+  width: 280px;
+  overflow-y: scroll;
+  padding: 4px;
+  border: 1px solid #48c5da;
+  background-color: #343637;
+}
+
+.stuck h4 {
+  color: #ffffff;
+  text-align: center;
+}
+
+.stuck::-webkit-scrollbar {
+  width: 0 !important;
+}
+.stuck {
+  -ms-overflow-style: none;
+}
+.stuck {
+  overflow: -moz-scrollbars-none;
+}
+
+.not-stuck::-webkit-scrollbar {
+  width: 0 !important;
+}
+.not-stuck {
+  -ms-overflow-style: none;
+}
+.not-stuck {
+  overflow: -moz-scrollbars-none;
 }

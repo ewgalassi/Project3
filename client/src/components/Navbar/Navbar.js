@@ -5,7 +5,7 @@ import { Container } from "../Grid";
 import "./Navbar.css";
 
 const Navbar = () => (
-  <nav id="accountNav" className="navbar navbar-expand-lg">
+  <nav id="accountNav" className="navbar fixed-top navbar-expand-lg">
     <Container>
       <Link id="accountLogo" className="navbar-brand" to="/">
         Project 3

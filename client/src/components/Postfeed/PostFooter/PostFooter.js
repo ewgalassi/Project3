@@ -103,10 +103,10 @@ class PostFooter extends React.Component {
         <button
           onClick={() => this.handleUnlike(this.props.id)}
           type="button"
-          className="post-btn like-btn btn btn-danger btn-sm"
+          className="post-btn like-btn btn btn-secondary btn-sm"
         >
-          <span className="fa fa-thumbs-o-down" /> Unlike ({this.state.numLikes}
-          )
+          <span id="likeColor" class="fas fa-thumbs-up" /> Like (
+          {this.state.numLikes})
         </button>
       );
     } else {
