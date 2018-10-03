@@ -12,12 +12,12 @@ class EditProfile extends React.Component {
     jobTitle: "",
     jobCompany: "",
     following: [],
-    followInput: ""
+    followInput: "",
+    searchInput: ""
   };
 
   componentDidMount() {
     UserAPI.getUser().then(data => {
-      console.log(data.data);
       this.setState({
         id: data.data._id,
         pic: data.data.profile.pic,
@@ -90,6 +90,17 @@ class EditProfile extends React.Component {
     });
   };
 
+  handleSearch = event => {
+    event.preventDefault();
+    UserAPI.searchUsers(this.state.searchInput).then(data => {
+      if (!data.data) {
+        return alert("No user found");
+      };
+      window.location.replace("/profile/" + data.data._id);
+    }).catch(err => {
+      console.log(err);
+    })
+  };
 
 
   render() {
@@ -148,10 +159,18 @@ class EditProfile extends React.Component {
           )
         })}
 
-        <p>Follow a user:</p>
+        <p>Follow a user (by id):</p>
         <form>
           <input type="text" name="followInput" value={this.state.followInput} onChange={this.handleInput} />
           <button onClick={this.handleFollow}>Follow</button>
+        </form>
+
+        <hr />
+
+        <p>Search for a user (by username):</p>
+        <form>
+          <input type="text" name="searchInput" value={this.state.searchInput} onChange={this.handleInput} />
+          <button onClick={this.handleSearch}>Search</button>
         </form>
 
       </div>
