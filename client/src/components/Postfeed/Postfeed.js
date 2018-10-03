@@ -26,20 +26,9 @@ class Postfeed extends Component {
         } else if (window.location.href.includes("snippets")) {
             SavedAPI.getSavedSnippets().then(data => {
                 // console.log(data);
-                let arr;
-                if(data.data) {
-                    arr = data.data.map(elem => elem.post);
-                }
-                else {
-                    arr = [];
-                }
-                // console.log(arr);
                 this.setState({
-                    posts: arr
-                }
-                // , () => console.log(this.state.posts)
-                )
-                
+                    posts: data.data
+                })  
             })
         } else if (window.location.href.includes("profile")) {
             UserAPI.getUser().then(data =>{

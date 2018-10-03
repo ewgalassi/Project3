@@ -5,6 +5,7 @@ import savedAPI from "../../../utils/savedAPI";
 
 class PostFooter extends React.Component {
   state = {
+    
     numLikes: this.props.numLikes,
     comments: this.props.comments || [],
     saves: this.props.saves,
@@ -91,25 +92,25 @@ class PostFooter extends React.Component {
     });
   };
 
-  saveSnippet = id => {
-    savedAPI.saveSnippet(id).then(data => {
-      console.log(data);
-    });
-  };
+  // saveSnippet = postData => {
+  //   savedAPI.saveSnippet(postData).then(data => {
+  //     console.log(data);
+  //   });
+  // };
 
-  renderSaveSnippet = () =>{
-    if (this.props.type === "snippet"){
-      return(
-        <button
-            onClick={() => this.saveSnippet(this.props.id)}
-            type="button"
-            className="post-btn snippet-btn btn btn-secondary btn-sm"
-          >
-            <span /> Save Snippet
-          </button>
-      )
-    }
-  }
+  // renderSaveSnippet = () =>{
+  //   if (this.props.type === "snippet" && (!window.location.href.includes('snippet'))){
+  //     return(
+  //       <button
+  //           onClick={() => this.saveSnippet(this.props.id)}
+  //           type="button"
+  //           className="post-btn snippet-btn btn btn-secondary btn-sm"
+  //         >
+  //           <span /> Save Snippet
+  //         </button>
+  //     )
+  //   }
+  // }
 
   renderLikeButton = () => {
     if (this.state.isLiked) {
