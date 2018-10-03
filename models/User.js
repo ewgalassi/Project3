@@ -50,6 +50,16 @@ userSchema.methods.follow = function (user_id) {
 	return this.save();
 };
 
+userSchema.methods.unfollow = function (user_id) {
+	for (let i=0; i < this.following.length; i++) {
+		if (this.following[i]._id == user_id) {
+			console.log("splicing id " + user_id);
+			this.following.splice(i, 1);
+		};
+	};
+	return this.save();
+};
+
 userSchema.methods.addFollower = function (f) {
 	this.followers.push(f);
 };

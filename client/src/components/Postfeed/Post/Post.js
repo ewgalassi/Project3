@@ -20,15 +20,8 @@ class Post extends Component {
     comments: this.props.comments || [],
     saves: this.props.saves,
     isLiked: this.props.isLiked || false
-  }
-  // renderSave = (type) =>{
-  //   switch (type) {
-  //     case "snippet":
-  //       return (
+  };
 
-  //       );
-  //   }
-  // }
   saveSnippet = postData => {
     alert("Snippet Saved!")
     console.log(this.state.isSaved);

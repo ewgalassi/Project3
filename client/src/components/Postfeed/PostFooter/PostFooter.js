@@ -5,7 +5,6 @@ import CommentBox from "../../CommentBox/CommentBox";
 
 class PostFooter extends React.Component {
   state = {
-    
     numLikes: this.props.numLikes,
     comment:"",
     comments: this.props.comments || [],
