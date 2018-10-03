@@ -51,8 +51,27 @@ module.exports = {
   /* GET ALL POSTS (news feed etc...)
     route- GET /api/posts
   */
+  // getAll: (req, res, next) => {
+  //   db.Post.find()
+  //     .sort({ _id: -1 })
+  //     .populate('author', ['fullName', 'username', 'profile.pic'])
+  //     .populate('comments.author', ['fullName', 'username', 'firstName', 'profile.pic'])
+  //     .exec((err, post) => {
+  //       if (err)
+  //         res.json({ success: false, message: err });
+  //       else if (!post)
+  //         res.send(404);
+  //       else
+  //         res.json(post);
+  //       next();
+  //     })
+  // },
+
+  /* GET ALL POSTS FOR FOLLLOWERS (news feed etc...)
+  route- GET /api/posts
+  */
   getAll: (req, res, next) => {
-    db.Post.find()
+    db.Post.find({author: {$in: req.user.following}})
       .sort({ _id: -1 })
       .populate('author', ['fullName', 'username', 'profile.pic'])
       .populate('comments.author', ['fullName', 'username', 'firstName', 'profile.pic'])
