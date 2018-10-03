@@ -38,7 +38,7 @@ class PostFooter extends React.Component {
     });
   };
 
-  handleComment = event => {
+  handleInput = event => {
     // const comment = prompt("Add a comment:");
     console.log(event.target.value)
     this.setState({
@@ -47,20 +47,27 @@ class PostFooter extends React.Component {
     // if (comment === "") {
     //   return;
     // }
-    // PostAPI.commentPost({
-    //   // post_id: id,
-    //   comment: this.state.comment
-    // })
-    //   .then(data => {
-    //     console.log("comment posted")
-    //     this.setState({
-    //       comments: data.data.comments || []
-    //     });
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
+
   };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    PostAPI.commentPost({
+      post_id: id,
+      comment: this.state.comment
+    })
+      .then(data => {
+        console.log("comment posted")
+        this.setState({
+          comments: data.data.comments || []
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+
 
   handleDelete = id => {
     console.log(id);
@@ -175,8 +182,9 @@ class PostFooter extends React.Component {
           <div>
             <CommentBox 
               displayComments={this.displayComments}
-              onChange={this.handleComment}
+              onChange={this.handleInput}
               comment={this.state.comment}
+              onSubmit={this.handleSubmit}
             />
             <div className="row comment-row" style={{ margin: 10 }}>
               <div className="comments">{this.displayComments()}</div>

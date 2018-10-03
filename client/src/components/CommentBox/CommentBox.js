@@ -6,11 +6,13 @@ const CommentBox = (props) => {
         return (
             <div className="row">
                 <div>
+                    <form onSubmit={props.onSubmit}>
                     <input 
                         placeholder="Add a comment"
                         onChange={props.onChange}
-                        value={props.comment}
+                        value={props.comment}   
                     />
+                    </form>
                 </div>
             </div>
         )
