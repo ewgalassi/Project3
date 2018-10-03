@@ -54,7 +54,7 @@ class PostFooter extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     PostAPI.commentPost({
-      post_id: id,
+      // post_id: id,
       comment: this.state.comment
     })
       .then(data => {
