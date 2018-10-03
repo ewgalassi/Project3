@@ -22,7 +22,7 @@ class UserPic extends React.Component {
     for (let i = 0; i < this.props.following.length; i++) {
       if (this.props.following[i]._id === this.props.userId) {
         followStatus = true;
-        return console.log(followStatus);
+        return;
       }
     }
   };
@@ -43,7 +43,7 @@ class UserPic extends React.Component {
   handleUnfollow = id => {
     UserAPI.unfollowUser(id)
       .then(data => {
-        console.log(data);
+        console.log(data.data);
         followStatus = false;
         this.setState({
           following: false

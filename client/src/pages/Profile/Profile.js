@@ -66,7 +66,6 @@ class Profile extends Component {
 
   getUserDataById = id => {
     UserAPI.getUser().then(data => {
-      console.log("LOGGED IN: " + data.data._id);
       this.setState({
         loggedInUser: data.data._id,
         following: data.data.following || []
