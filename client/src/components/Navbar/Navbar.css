@@ -18,3 +18,18 @@
 #accountNav .nav-link:hover {
   color: #ffffff;
 }
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 414px) {
+  .navbar-nav {
+    margin-bottom: 1.5rem;
+    width: 100vw;
+  }
+
+  #accountNav {
+    height: 90px;
+  }
+}

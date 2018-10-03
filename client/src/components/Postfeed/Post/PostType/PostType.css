@@ -41,6 +41,7 @@ p {
 
 .snippet-text {
   background: none;
+  color: rgb(167, 167, 167);
 }
 
 .snippet-text:focus {

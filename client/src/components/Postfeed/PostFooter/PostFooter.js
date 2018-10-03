@@ -119,7 +119,7 @@ class PostFooter extends React.Component {
           type="button"
           className="post-btn like-btn btn btn-danger btn-sm"
         >
-          <span className="fa fa-thumbs-o-down" /> Unlike ({this.state.numLikes}
+          <span className="fa fa-thumbs-down" /> Unlike ({this.state.numLikes}
           )
         </button>
       );
