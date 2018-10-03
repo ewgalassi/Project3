@@ -1,17 +1,19 @@
-
-
 .btn-row {
-  width:100%;
-  text-align:right;
+  width: 100%;
+  text-align: right;
 }
 
 .comment-x {
-  font-size:10px;
-  margin:0px;
-  vertical-align:center;
-  padding:2px;
+  font-size: 10px;
+  margin: 0px;
+  vertical-align: center;
+  padding: 2px;
 }
 
 .snippet-btn {
   right: 20%;
+}
+
+.cardfooter .post-btn {
+  margin: 5px;
 }

@@ -1,30 +1,20 @@
-nav.navbar.navbar-default {
-  margin-bottom: 0;
-}
-
-nav.navbar {
+#accountNav {
   box-sizing: border-box;
   height: 57px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eee8aa;
 }
 
-.nav-item:not(#logout) {
-  box-sizing: border-box;
-  width: 106px;
-  height: 41px;
-  text-align: center;
+#accountLogo {
+  color: white;
 }
 
-.nav-item:not(#logout):hover {
-  border-radius: 5px;
-  border: 1px solid gray;
+#accountNav .nav-link {
+  font-size: 13px;
+  padding: 8px 0px 0px 0px;
+  color: #48c5da;
 }
 
-button {
-  cursor: pointer;
-}
-
-#logout {
-  margin-top: -5px;
-  margin-right: 5px;
-  float: right;
+#accountNav .nav-link:hover {
+  color: #ffffff;
 }
