@@ -16,7 +16,7 @@ class UserPic extends React.Component {
 
   componentDidMount() {
     this.checkFollowStatus();
-  }
+  };
 
   checkFollowStatus = () => {
     for (let i = 0; i < this.props.following.length; i++) {
@@ -43,8 +43,8 @@ class UserPic extends React.Component {
   handleUnfollow = id => {
     UserAPI.unfollowUser(id)
       .then(data => {
-        console.log(data.data);
         followStatus = false;
+        window.location.reload();
         this.setState({
           following: false
         });
