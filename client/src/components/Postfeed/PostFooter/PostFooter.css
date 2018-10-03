@@ -1,17 +1,14 @@
-
-
 .post-btn {
-
-  float:right;
+  float: right;
   vertical-align: baseline;
 }
 
 .comment-btn {
-  right:0;
+  right: 0;
 }
 
 .like-btn {
-  right:20%;
+  right: 20%;
 }
 
 /* .comments {
@@ -19,4 +16,3 @@
   margin:0;
   width:100;
 } */
-

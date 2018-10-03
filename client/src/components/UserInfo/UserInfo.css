@@ -1,24 +1,27 @@
-.info-wrapper {
-    border:1px solid grey;
-    background:#fff;
-}
+/* .info-wrapper {
+  border: 1px solid grey;
+  background: #fff;
+} */
 
 .info-card,
 .skills-card {
-    padding:30px;
-    background-color:#fff;
-    margin:20px 0px;
-
+  padding: 30px;
+  background-color: #343637;
+  color: #48c5da;
+  margin: 20px 0px;
 }
 
 .languages,
 .technologies {
-    padding:0;
-    margin:10px 0px;
-   
+  padding: 0;
+  margin: 10px 0px;
 }
 
 li {
-    margin-left:20px;
-    list-style: none;
+  margin-left: 20px;
+  list-style: none;
+}
+
+.profile-links {
+  color: #ffffff;
 }

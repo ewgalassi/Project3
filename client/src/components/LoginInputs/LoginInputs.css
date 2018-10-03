@@ -1,7 +1,7 @@
 .loginBtn {
   margin-left: 20px;
   margin-top: 10px;
-  color: #00cdcd;
+  color: #48c5da;
   background-color: #404143;
   border-color: #eee8aa;
 }
@@ -17,7 +17,7 @@
   border-color: #eee8aa;
 }
 .loginInput:focus {
-  outline-color: #00cdcd;
+  outline-color: #48c5da;
 }
 
 .login-form {
@@ -35,5 +35,5 @@
   position: relative;
   right: 60px;
   font-size: 0.8rem;
-  color: #00cdcd;
+  color: #48c5da;
 }

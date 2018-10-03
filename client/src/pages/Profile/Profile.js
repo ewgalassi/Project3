@@ -6,6 +6,7 @@ import UserInfo from "../../components/UserInfo/UserInfo";
 import NewPost from "../../components/NewPost/NewPost";
 import Navbar from "../../components/Navbar/Navbar";
 import UserAPI from "../../utils/userAPI";
+import "./Profile.css";
 
 class Profile extends Component {
   state = {

@@ -9,15 +9,10 @@ import PostFooter from "../PostFooter/PostFooter";
 import "./Post.css";
 
 class Post extends Component {
-
-  returnType = (type) => {
+  returnType = type => {
     switch (type) {
       case "status":
-        return (
-          <Status
-            post={this.props.post}
-          />
-        );
+        return <Status post={this.props.post} />;
       case "article":
         return (
           <Article
@@ -27,23 +22,19 @@ class Post extends Component {
         );
       case "snippet":
         return (
-          <Snippet
-            post={this.props.post}
-            description={this.props.description}
-            >
+          <Snippet post={this.props.post} description={this.props.description}>
             {this.props.post}
           </Snippet>
-        )
+        );
       default:
         return (
           <Snippet
             post={this.props.post}
             description={this.props.description}
           />
-        )
+        );
     }
-    
-  }
+  };
 
   render() {
     return (
@@ -54,7 +45,7 @@ class Post extends Component {
           authorId={this.props.authorId}
           id={this.props.id}
         />
-        <hr/>
+        <hr />
 
         {this.returnType(this.props.type)}
 
@@ -66,8 +57,7 @@ class Post extends Component {
           id={this.props.id}
         />
       </Card>
-    )
-
+    );
   }
 }
 

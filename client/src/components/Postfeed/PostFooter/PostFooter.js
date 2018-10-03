@@ -51,7 +51,7 @@ class PostFooter extends React.Component {
 
   render() {
     return (
-      <div className="footer">
+      <div className="Cardfooter">
         <div>
           <button
             onClick={() => this.handleComment(this.props.id)}

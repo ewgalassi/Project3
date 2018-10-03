@@ -20,7 +20,7 @@
 }
 
 .regInput:focus {
-  outline-color: #00cdcd;
+  outline-color: #48c5da;
 }
 
 .regSubmit {
@@ -32,6 +32,6 @@
 }
 
 .regSubmit:hover {
-  color: #00cdcd;
-  border-color: #00cdcd;
+  color: #48c5da;
+  border-color: #48c5da;
 }
