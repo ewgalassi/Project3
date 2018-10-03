@@ -50,7 +50,7 @@ class PostFooter extends React.Component {
   };
 
   handleDelete = id => {
-    console.log(id);
+    // console.log(id);
     PostAPI.deleteComment(id)
       .then(data => {
         if (data.data.success) {

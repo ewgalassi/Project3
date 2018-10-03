@@ -33,7 +33,7 @@ class Post extends Component {
     alert("Snippet Saved!")
     console.log(this.state.isSaved);
     savedAPI.saveSnippet(postData).then(data => {
-      console.log(data);
+      // console.log(data);
       this.setState({
         isSaved: true,
 
@@ -45,7 +45,7 @@ class Post extends Component {
   unSaveSnippet = postData => {
     alert("snippet unsaved")
     savedAPI.unSaveSnippet(postData).then(data => {
-      console.log(data);
+      // console.log(data);
       this.setState({
         isSaved:false
       })
