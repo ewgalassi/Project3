@@ -4,11 +4,28 @@ import UserAPI from "../../utils/userAPI";
 
 import "./UserPic.css";
 
+let followStatus = false;
+
 class UserPic extends React.Component {
   state = {
-    id: this.props.id,
+    userId: this.props.userId,
     loggedInUser: this.props.loggedInUser,
-    following: false
+    isFollowing: false,
+    followStatus: false
+  };
+
+  componentDidMount() {
+    this.checkFollowStatus();
+  };
+
+  checkFollowStatus = () => {
+    console.log(this.props.following)
+    for (let i = 0; i < this.props.following.length; i++) {
+      if (this.props.following[i]._id === this.props.userId) {
+        followStatus = true;
+        return console.log(followStatus);
+      };
+    };
   };
 
   handleFollow = id => {
@@ -35,7 +52,7 @@ class UserPic extends React.Component {
     if (this.props.userId === this.props.loggedInUser) {
       return;
     } else {
-      if (this.state.following) {
+      if (followStatus) {
         return (
           <button
             onClick={() => this.handleUnfollow(this.props.userId)}
@@ -58,6 +75,7 @@ class UserPic extends React.Component {
   render() {
     return (
       <Card className="profile-card">
+        {this.checkFollowStatus()}
         <img className="userImage img-responsive" src={this.props.pic} alt="Profile" />
         <h2 className="profile-name">{this.props.fullName}</h2>
         {this.renderButton()}

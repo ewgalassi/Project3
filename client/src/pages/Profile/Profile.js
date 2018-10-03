@@ -19,7 +19,8 @@ class Profile extends Component {
     languages: [],
     technologies: [],
     jobTitle: "",
-    jobCompany: ""
+    jobCompany: "",
+    following: []
   };
 
   componentDidMount() {
@@ -39,6 +40,7 @@ class Profile extends Component {
         if (data.data.success === false) {
           window.location.replace("/login");
         };
+        console.log(data.data.following)
         this.setState({
           user: data.data,
           loggedInUser: data.data._id,
@@ -47,7 +49,6 @@ class Profile extends Component {
           github: data.data.profile.github,
           linkedin: data.data.profile.linkedin,
           portfolio: data.data.profile.portfolio,
-          // projects: data.data.profile.projects,
           languages: data.data.profile.languages,
           technologies: data.data.profile.technologies,
           jobTitle: data.data.profile.jobInfo
@@ -55,7 +56,8 @@ class Profile extends Component {
             : "Job Title",
           jobCompany: data.data.profile.jobInfo
             ? data.data.profile.jobInfo.company
-            : "Job Company"
+            : "Job Company",
+          following: data.data.following || []
         });
       })
       .catch(err => {
@@ -66,7 +68,10 @@ class Profile extends Component {
   getUserDataById = id => {
     UserAPI.getUser().then(data => {
       console.log("LOGGED IN: " + data.data._id);
-      this.setState({loggedInUser: data.data._id})
+      this.setState({
+        loggedInUser: data.data._id,
+        following: data.data.following || []
+      });
     });
     UserAPI.getUserById(id)
       .then(data => {
@@ -77,7 +82,6 @@ class Profile extends Component {
           github: data.data.profile.github,
           linkedin: data.data.profile.linkedin,
           portfolio: data.data.profile.portfolio,
-          // projects: data.data.profile.projects,
           languages: data.data.profile.languages,
           technologies: data.data.profile.technologies,
           jobTitle: data.data.profile.jobInfo
@@ -105,6 +109,7 @@ class Profile extends Component {
                 fullName={this.state.user.fullName}
                 userId={this.state.id}
                 loggedInUser={this.state.loggedInUser}
+                following={this.state.following}
               />
               <UserInfo
                 id={this.state.id}
@@ -112,7 +117,6 @@ class Profile extends Component {
                 github={this.state.github}
                 linkedin={this.state.linkedin}
                 portfolio={this.state.portfolio}
-                // projects={this.state.projects}
                 technologies={this.state.technologies}
                 title={this.state.jobTitle}
                 company={this.state.jobCompany}
