@@ -1,12 +1,10 @@
 import React from "react";
 import "./PostFooter.css";
 import PostAPI from "../../../utils/postAPI";
-import savedAPI from "../../../utils/savedAPI";
 import CommentBox from "../../CommentBox/CommentBox";
 
 class PostFooter extends React.Component {
   state = {
-    
     numLikes: this.props.numLikes,
     comment:"",
     comments: this.props.comments || [],

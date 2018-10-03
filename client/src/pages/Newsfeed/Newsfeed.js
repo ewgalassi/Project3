@@ -9,7 +9,7 @@ import "./Newsfeed.css";
 import UserAPI from "../../utils/userAPI";
 
 const NewsAPI = require("newsapi");
-const newsapi = new NewsAPI("2879ab41a44141b3a1c9a2fb6174199d");
+const newsapi = new NewsAPI(process.env.REACT_APP_NEWSAPI);
 
 class Newsfeed extends Component {
   state = {
@@ -57,7 +57,7 @@ class Newsfeed extends Component {
         category: "technology",
         language: "en",
         country: "us",
-        apiKey: "2879ab41a44141b3a1c9a2fb6174199d"
+        apiKey: process.env.REACT_APP_NEWSAPI
       })
       .then(response => {
         // console.log(response.articles);

@@ -20,34 +20,23 @@ class Post extends Component {
     comments: this.props.comments || [],
     saves: this.props.saves,
     isLiked: this.props.isLiked || false
-  }
-  // renderSave = (type) =>{
-  //   switch (type) {
-  //     case "snippet":
-  //       return (
+  };
 
-  //       );
-  //   }
-  // }
   saveSnippet = postData => {
     alert("Snippet Saved!")
     console.log(this.state.isSaved);
     savedAPI.saveSnippet(postData).then(data => {
-      // console.log(data);
       this.setState({
         isSaved: true,
-
       })
-
     });
   };
 
   unSaveSnippet = postData => {
     alert("snippet unsaved")
     savedAPI.unSaveSnippet(postData).then(data => {
-      // console.log(data);
       this.setState({
-        isSaved:false
+        isSaved: false
       })
     })
   }
@@ -65,7 +54,6 @@ class Post extends Component {
       </button>
       )
     } else if (!this.state.isSaved) {
-      console.log(this.state.isSaved);
       const postData = {
         post: this.props.post,
         type: this.props.type,
@@ -89,20 +77,23 @@ class Post extends Component {
   returnSaveSnip = type => {
 
     if (!window.location.href.includes('snippet')) {
-    switch (type) {
-
-      case "snippet":
-        // console.log("working")
-        return (
-          <div>
-            {this.saveOrUnsave()}
-          </div>
-
-        )
+      switch (type) {
+        case "snippet":
+          return (
+            <div>
+              {this.saveOrUnsave()}
+            </div>
+          );
+        default:
+          return (
+            <div>
+              {this.saveOrUnsave()}
+            </div>
+          );
+      }
+    } else {
+      console.log("not snippet page");
     }
-  } else {
-    console.log("not snippet page");
-  }
   }
 
 
@@ -124,7 +115,6 @@ class Post extends Component {
             post={this.props.post}
             description={this.props.description}
           >
-            {/* {this.props.post} */}
 
           </Snippet>
 

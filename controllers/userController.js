@@ -47,13 +47,13 @@ module.exports = {
   getUserData: (req, res, next) => {
     if (req.user) {
       db.User.findOne({ _id: req.user._id })
-      .populate('followers', ["fullName", "_id"])
-      .populate('following', ["fullName", "_id"])
-      .then(user => {
-        res.json(user);
-      }).catch(err => {
-        res.json({ success: false, message: err });
-      })
+        .populate('followers', ["fullName", "_id"])
+        .populate('following', ["fullName", "_id"])
+        .then(user => {
+          res.json(user);
+        }).catch(err => {
+          res.json({ success: false, message: err });
+        })
     } else {
       res.json({ success: false, message: "No user loggeed in" });
     }
@@ -116,7 +116,6 @@ module.exports = {
     }).catch(err => {
       console.log(err);
       return res.json({ success: false, message: err });
-      next();
     });
   },
 
@@ -138,22 +137,30 @@ module.exports = {
   route- POST /user/unfollow
   body- user_id
   */
-  unfollowUser: (req,res,next) => {
-    res.send("Coming soon");
+  unfollowUser: (req, res, next) => {
+    if (!req.user) return res.json({ success: false, message: "Not signed in" });
+    db.User.findById(req.user._id).then(user => {
+      user.unfollow(req.body.user_id).then(data => {
+        return res.json({ success: true, message: "Unfollowed!" });
+      });
+    }).catch(err => {
+      console.log(err);
+      return res.json({ success: false, message: err });
+    });
   },
 
   /* ----- SEARCH FOR USER ------
   route- POST /user/search/:username
   params- username
   */
-  searchUsers: (req,res,next) => {
-    db.User.findOne({username: req.params.username})
-    .then(user => {
-      res.json(user);
-    }).catch(err => {
-      console.log(err);
-      res.json(err);
-    });
+  searchUsers: (req, res, next) => {
+    db.User.findOne({ username: req.params.username })
+      .then(user => {
+        res.json(user);
+      }).catch(err => {
+        console.log(err);
+        res.json(err);
+      });
   }
 
 };

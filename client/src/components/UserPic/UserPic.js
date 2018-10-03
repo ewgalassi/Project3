@@ -16,13 +16,13 @@ class UserPic extends React.Component {
 
   componentDidMount() {
     this.checkFollowStatus();
-  }
+  };
 
   checkFollowStatus = () => {
     for (let i = 0; i < this.props.following.length; i++) {
       if (this.props.following[i]._id === this.props.userId) {
         followStatus = true;
-        return console.log(followStatus);
+        return;
       }
     }
   };
@@ -43,8 +43,8 @@ class UserPic extends React.Component {
   handleUnfollow = id => {
     UserAPI.unfollowUser(id)
       .then(data => {
-        console.log(data);
         followStatus = false;
+        window.location.reload();
         this.setState({
           following: false
         });
