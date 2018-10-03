@@ -25,7 +25,7 @@ class Postfeed extends Component {
             });
         } else if (window.location.href.includes("snippets")) {
             SavedAPI.getSavedSnippets().then(data => {
-                console.log(data);
+                // console.log(data);
                 let arr;
                 if(data.data) {
                     arr = data.data.map(elem => elem.post);
@@ -33,17 +33,19 @@ class Postfeed extends Component {
                 else {
                     arr = [];
                 }
-                console.log(arr);
+                // console.log(arr);
                 this.setState({
                     posts: arr
-                }, () => console.log(this.state.posts))
+                }
+                // , () => console.log(this.state.posts)
+                )
                 
             })
         } else if (window.location.href.includes("profile")) {
             UserAPI.getUser().then(data =>{
                 PostAPI.getPostId(data.data._id)
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     this.setState({
                         posts: data.data || []
                     });

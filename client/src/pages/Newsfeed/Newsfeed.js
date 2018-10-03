@@ -60,7 +60,7 @@ class Newsfeed extends Component {
         apiKey: "2879ab41a44141b3a1c9a2fb6174199d"
       })
       .then(response => {
-        console.log(response.articles);
+        // console.log(response.articles);
         this.setState({
           newsArticles: response.articles
         });

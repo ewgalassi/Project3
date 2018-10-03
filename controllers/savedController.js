@@ -26,6 +26,16 @@ module.exports = {
           });
         
         
+    },
+
+    unSave: (req, res, next) => {
+      console.log(req.params.id)
+      Saved.findOneAndDelete({ _id: req.params.id }).then(() => {
+        
+        res.json({ success: true, message: "Unsaved Snippet" })
+      }).catch(err => {
+        res.json({ success: false, message: err })
+      });
     }
 }
 

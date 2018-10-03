@@ -97,6 +97,20 @@ class PostFooter extends React.Component {
     });
   };
 
+  renderSaveSnippet = () =>{
+    if (this.props.type === "snippet"){
+      return(
+        <button
+            onClick={() => this.saveSnippet(this.props.id)}
+            type="button"
+            className="post-btn snippet-btn btn btn-secondary btn-sm"
+          >
+            <span /> Save Snippet
+          </button>
+      )
+    }
+  }
+
   renderLikeButton = () => {
     if (this.state.isLiked) {
       return (
@@ -116,7 +130,7 @@ class PostFooter extends React.Component {
           type="button"
           className="post-btn like-btn btn btn-secondary btn-sm"
         >
-          <span class="far fa-thumbs-up" /> Like ({this.state.numLikes})
+          <span className="far fa-thumbs-up" /> Like ({this.state.numLikes})
         </button>
       );
     }
@@ -134,13 +148,13 @@ class PostFooter extends React.Component {
             Comment
           </button>
           {this.renderLikeButton()}
-          <button
+          {/* <button
             onClick={() => this.saveSnippet(this.props.id)}
             type="button"
             className="post-btn snippet-btn btn btn-secondary btn-sm"
           >
             <span /> Save Snippet
-          </button>
+          </button> */}
 
           <div className="row comment-row" style={{ margin: 10 }}>
             <div className="comments">{this.displayComments()}</div>
