@@ -33,13 +33,13 @@ const userSchema = new Schema({
 });
 
 // Define schema methods
-userSchema.methods = {
-	checkPassword: function (inputPassword) {
-		return bcrypt.compareSync(inputPassword, this.password);
-	},
-	hashPassword: plainTextPassword => {
-		return bcrypt.hashSync(plainTextPassword);
-	},
+userSchema.methods.checkPassword = function (inputPassword) {
+	console.log(inputPassword);
+	return bcrypt.compareSync(inputPassword, this.password);
+};
+
+userSchema.methods.hashPassword = plainTextPassword => {
+	return bcrypt.hashSync(plainTextPassword);
 };
 
 // Handle followers/following
@@ -60,6 +60,8 @@ userSchema.pre('save', function (next) {
 		console.log('models/User.js =======NO PASSWORD PROVIDED=======');
 		next();
 	} else {
+		// proceed further only if the password is modified or the user is new
+    if (!this.isModified('password')) return next();
 		this.password = this.hashPassword(this.password);
 		this.fullName = `${this.firstName} ${this.lastName}`;
 		next();
