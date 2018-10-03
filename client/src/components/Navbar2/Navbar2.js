@@ -7,7 +7,7 @@ import "./Navbar2.css";
 const Navbar2 = () => (
   <nav className="navbar navbar-expand-lg">
     <Container>
-      <Link className="navbar-brand" to="/">
+      <Link id="logo" className="navbar-brand" to="/">
         Project 3
       </Link>
       <LoginInputs />

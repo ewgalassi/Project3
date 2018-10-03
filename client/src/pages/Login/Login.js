@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import Footer from "../../components/Footer";
+import Navbar2 from "../../components/Navbar2/Navbar2";
 import RegisterInputs from "../../components/RegisterInputs";
 import "./Login.css";
 
@@ -8,6 +9,7 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <Navbar2 />
         <div className="banner">
           <Container>
             <Row>

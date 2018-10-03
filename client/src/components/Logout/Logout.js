@@ -1,5 +1,6 @@
 import React from "react";
 import UserAPI from "../../utils/userAPI";
+import "./Logout.css";
 
 class Logout extends React.Component {
   state = {
@@ -23,10 +24,7 @@ class Logout extends React.Component {
   render() {
     return (
       <div>
-        <button
-          className="logout-btn btn btn-secondary btn-sm"
-          onClick={() => this.clickLogout()}
-        >
+        <button className="logout-btn btn" onClick={() => this.clickLogout()}>
           {" "}
           {this.state.loggedIn ? "Logout" : "Login"}{" "}
         </button>

@@ -1,24 +1,20 @@
-nav.navbar.navbar-default {
-  margin-bottom: 0;
-}
-
-nav.navbar {
+#accountNav {
   box-sizing: border-box;
   height: 57px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee8aa;
 }
 
-.nav-item:not(#logout) {
-  box-sizing: border-box;
-  width: 106px;
-  height: 41px;
-  text-align: center;
+#accountLogo {
+  color: white;
 }
 
-.nav-item:not(#logout):hover {
-  border-radius: 5px;
-  border: 1px solid gray;
+#accountNav .nav-link {
+  font-size: 13px;
+  padding: 8px 0px 0px 0px;
+  color: #00cdcd;
 }
 
-#logout {
-  float: right;
+#accountNav .nav-link:hover {
+  color: #ffffff;
 }

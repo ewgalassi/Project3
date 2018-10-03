@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import Postfeed from "../../components/Postfeed/Postfeed";
 import { Col, Row, Container } from "../../components/Grid";
-
 import NewPost from "../../components/NewPost/NewPost";
-
+import Navbar from "../../components/Navbar/Navbar";
 import PostAPI from "../../utils/postAPI";
 import "./Newsfeed.css";
 import UserAPI from "../../utils/userAPI";
@@ -29,7 +28,7 @@ class Newsfeed extends Component {
     UserAPI.getUser().then(data => {
       if (data.data.success === false) {
         window.location.replace("/login");
-      };
+      }
     });
   };
 
@@ -45,19 +44,17 @@ class Newsfeed extends Component {
   };
   render() {
     return (
-      <Container>
-        <Row>
-          <Col size="md-8">
-              
+      <div>
+        <Navbar />
+        <Container>
+          <Row>
+            <Col size="md-8">
               <NewPost />
               <Postfeed />
-            
-          </Col>
-        </Row>
+            </Col>
+          </Row>
 
-
-
-        {/* <Row>
+          {/* <Row>
           <List>
             {this.state.posts.map(post => {
               return (
@@ -72,7 +69,8 @@ class Newsfeed extends Component {
             })}
           </List>
         </Row> */}
-      </Container>
+        </Container>
+      </div>
     );
   }
 }
