@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
 
     saveSnippet: function (postData) {
-        console.log("SavedAPI working")
+        // console.log("SavedAPI working")
         return axios.post("/api/posts/save", postData)
     },
 
