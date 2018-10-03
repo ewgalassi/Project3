@@ -45,10 +45,7 @@ class Postfeed extends Component {
             UserAPI.getUser().then(data =>{
                 PostAPI.getPostId(data.data._id)
                 .then(data => {
-<<<<<<< HEAD
-=======
                     // console.log(data);
->>>>>>> master
                     this.setState({
                         posts: data.data || []
                     });
