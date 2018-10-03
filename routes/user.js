@@ -30,5 +30,13 @@ router.get("/:id", userController.getUserDataById);
 // Update profile data
 router.put("/profile", userController.updateProfile);
 
+router.get("/follow/:id", userController.getUserProfile);
+
+// Follow user
+router.post("/follow", userController.followUser);
+
+// Unfollow user
+router.post("/unfollow", userController.unfollowUser);
+
 
 module.exports = router;
