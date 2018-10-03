@@ -20,10 +20,16 @@ const userSchema = new Schema({
 		languages: { type: Array, trim: true }, // favorite programming languages
 		technologies: { type: Array, trim: true }, // technologies
 		jobInfo: {
-			title: {type: String, trim: true },
-			company: {type: String, trim: true },
+			title: { type: String, trim: true },
+			company: { type: String, trim: true },
 		}
-	}
+	},
+	followers: [
+		{ type: mongoose.Schema.Types.ObjectId, ref: "User" }
+	],
+	following: [
+		{ type: mongoose.Schema.Types.ObjectId, ref: "User" }
+	]
 });
 
 // Define schema methods
@@ -34,6 +40,18 @@ userSchema.methods = {
 	hashPassword: plainTextPassword => {
 		return bcrypt.hashSync(plainTextPassword);
 	},
+};
+
+// Handle followers/following
+userSchema.methods.follow = function (user_id) {
+	if (this.following.indexOf(user_id) === -1) {
+		this.following.push(user_id)
+	};
+	return this.save();
+};
+
+userSchema.methods.addFollower = function (f) {
+	this.followers.push(f);
 };
 
 // Hash password, generate full name
