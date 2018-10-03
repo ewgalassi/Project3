@@ -116,7 +116,7 @@ class PostFooter extends React.Component {
           type="button"
           className="post-btn like-btn btn btn-secondary btn-sm"
         >
-          <span className="fa fa-thumbs-o-up" /> Like ({this.state.numLikes})
+          <span class="far fa-thumbs-up" /> Like ({this.state.numLikes})
         </button>
       );
     }
@@ -131,7 +131,7 @@ class PostFooter extends React.Component {
             type="button"
             className="post-btn comment-btn btn btn-secondary btn-sm"
           >
-            <span className="fa fa-thumbs-o-up" /> Comment
+            Comment
           </button>
           {this.renderLikeButton()}
           <button
