@@ -13,21 +13,15 @@ class Post extends Component {
   //   switch (type) {
   //     case "snippet":
   //       return (
-          
+
   //       );
   //   }
   // }
-  
 
-
-  returnType = (type) => {
+  returnType = type => {
     switch (type) {
       case "status":
-        return (
-          <Status
-            post={this.props.post}
-          />
-        );
+        return <Status post={this.props.post} />;
       case "article":
         return (
           <Article
@@ -41,20 +35,19 @@ class Post extends Component {
             id="snippet"
             post={this.props.post}
             description={this.props.description}
-            >
+          >
             {/* {this.props.post} */}
           </Snippet>
-        )
+        );
       default:
         return (
           <Snippet
             post={this.props.post}
             description={this.props.description}
           />
-        )
+        );
     }
-    
-  }
+  };
 
   render() {
     return (
@@ -66,7 +59,7 @@ class Post extends Component {
           id={this.props.id}
           loggedInUser={this.props.loggedInUser}
         />
-        <hr/>
+        <hr />
 
         {this.returnType(this.props.type)}
 
@@ -79,10 +72,8 @@ class Post extends Component {
           isLiked={this.props.isLiked}
           loggedInUser={this.props.loggedInUser}
         />
-        
       </Card>
-    )
-
+    );
   }
 }
 

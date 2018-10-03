@@ -10,12 +10,12 @@ p {
 
 /* Snippet Card */
 .content {
-  margin:10px 30px;
+  margin: 10px 30px;
   text-align: left;
 }
 
 .snippet {
-  padding:20px;
+  padding: 20px;
   margin-top: 10px;
   height: auto;
   background-color: rgba(245, 245, 245, 0.82);
@@ -24,10 +24,25 @@ p {
 
 /* Status Card */
 .status-content {
-  margin:10px 30px;
-  width:90%;
+  margin: 10px 30px;
+  width: 90%;
   text-align: left;
 }
 
+/* User inputs */
+.form-control {
+  background: none;
+  border: 2px solid #48c5da;
+}
 
-/* p styling the same as Arcitle card */
+.form-control:focus {
+  background: none;
+}
+
+.snippet-text {
+  background: none;
+}
+
+.snippet-text:focus {
+  outline: none;
+}

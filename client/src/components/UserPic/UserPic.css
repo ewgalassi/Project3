@@ -1,26 +1,26 @@
 .profile-card {
-    margin:0px;    /* position:relative; */
-    text-align:center;
-    background:#fff;
-
+  margin: 0px;
+  /* position:relative; */
+  text-align: center;
+  background: #343637;
 }
 
 .userImage {
-    border:1px solid black;
-    border-radius: 50%;
-    margin:30px auto;
-    margin-bottom:10px;
-    /* position:absolute; */
-    display:inline-block;
-    max-width: 100%;
-    height: auto;
-
+  border: 1px solid #000000;
+  border-radius: 50%;
+  margin: 30px auto;
+  margin-bottom: 10px;
+  /* position:absolute; */
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
 }
 
 h2.profile-name {
-    padding-bottom:20px;
+  padding-bottom: 20px;
+  color: #48c5da;
 }
 
 .skills-row {
-    margin:0;
+  margin: 0;
 }
