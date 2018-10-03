@@ -7,7 +7,6 @@ import Card from "../Card/Card";
 import "./NewPost.css";
 import savedAPI from "../../utils/savedAPI";
 
-
 class NewPost extends Component {
   state = {
     posts: [],
@@ -16,71 +15,70 @@ class NewPost extends Component {
     description: ""
   };
 
-
   handleInput = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value,
+      [name]: value
     });
   };
 
-  handleSelect = (event) => {
-    this.setState({
-      type: event.target.type
-    }, () => console.log(this.state.type))
-
+  handleSelect = event => {
+    this.setState(
+      {
+        type: event.target.type
+      },
+      () => console.log(this.state.type)
+    );
   };
 
   handleSubmit = event => {
-
     event.preventDefault();
     const post = {
       type: this.state.type,
       post: this.state.post,
       description: this.state.description
     };
-    if (post.type === "snippet"){
-    PostAPI.savePost(post).then(data => {
-      // console.log(data);
-      if (window.location.href === "http://localhost:3000/profile") {
-
-        window.location.replace("/profile");
-      } else {
-
-        window.location.replace("/");
-      }
-    }).catch(err => {
-      console.log(err);
-    });
-    savedAPI.saveSnippet(post).then(data =>{
-      // console.log("saved snippet");
-    })
-  } else {
-    PostAPI.savePost(post).then(data => {
-      // console.log(data);
-      if (window.location.href === "http://localhost:3000/profile") {
-
-        window.location.replace("/profile");
-      } else {
-
-        window.location.replace("/");
-      }
-    }).catch(err => {
-      console.log(err);
-    });
-
-  }
+    if (post.type === "snippet") {
+      PostAPI.savePost(post)
+        .then(data => {
+          // console.log(data);
+          if (window.location.href === "http://localhost:3000/profile") {
+            window.location.replace("/profile");
+          } else {
+            window.location.replace("/");
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      savedAPI.saveSnippet(post).then(data => {
+        // console.log("saved snippet");
+      });
+    } else {
+      PostAPI.savePost(post)
+        .then(data => {
+          // console.log(data);
+          if (window.location.href === "http://localhost:3000/profile") {
+            window.location.replace("/profile");
+          } else {
+            window.location.replace("/");
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   };
-
 
   render() {
     return (
-      <Card style={{ padding: 20 }}>
+      <Card id="newPostCard" style={{ padding: 20 }}>
         <PostBox
           onChange={this.handleInput}
           post={this.state.post}
           type={this.state.type}
-          description={this.state.description} />
+          description={this.state.description}
+        />
         <hr />
         <div className="postbox-footer">
           <PostBtn onClick={this.handleSubmit} />
@@ -92,11 +90,9 @@ class NewPost extends Component {
             handleSelect={this.handleSelect}
             type={this.state.type}
           />
-
         </div>
       </Card>
-
-    )
+    );
   }
 }
 export default NewPost;

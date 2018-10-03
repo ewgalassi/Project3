@@ -1,5 +1,10 @@
 body {
   background-color: #120f0a;
+  /* overflow: hidden; */
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .row {

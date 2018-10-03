@@ -1,3 +1,18 @@
+.news-article {
+  padding: 5px;
+}
 .summary {
-    font-size:13px;
+  font-size: 13px;
+}
+
+.source {
+  color: #ffffff;
+}
+
+.summary {
+  color: #ffffff;
+}
+
+.news-article hr {
+  border-color: #ffffff;
 }
