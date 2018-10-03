@@ -2,13 +2,16 @@ import React from "react";
 import "./PostFooter.css";
 import PostAPI from "../../../utils/postAPI";
 import savedAPI from "../../../utils/savedAPI";
+import CommentBox from "../../CommentBox/CommentBox";
 
 class PostFooter extends React.Component {
   state = {
     numLikes: this.props.numLikes,
+    comment:"",
     comments: this.props.comments || [],
     saves: this.props.saves,
-    isLiked: this.props.isLiked || false
+    isLiked: this.props.isLiked || false,
+    isHidden: true
   };
 
   handleLike = id => {
@@ -28,24 +31,35 @@ class PostFooter extends React.Component {
       });
     });
   };
+  
+  toggleComment = () => {
+    this.setState({
+      isHidden: !this.state.isHidden
+    });
+  };
 
-  handleComment = id => {
-    const comment = prompt("Add a comment:");
-    if (comment === "") {
-      return;
-    }
-    PostAPI.commentPost({
-      post_id: id,
-      comment: comment
-    })
-      .then(data => {
-        this.setState({
-          comments: data.data.comments || []
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  handleComment = event => {
+    // const comment = prompt("Add a comment:");
+    console.log(event.target.value)
+    this.setState({
+      comment: event.target.value
+    });
+    // if (comment === "") {
+    //   return;
+    // }
+    // PostAPI.commentPost({
+    //   // post_id: id,
+    //   comment: this.state.comment
+    // })
+    //   .then(data => {
+    //     console.log("comment posted")
+    //     this.setState({
+    //       comments: data.data.comments || []
+    //     });
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   };
 
   handleDelete = id => {
@@ -141,12 +155,13 @@ class PostFooter extends React.Component {
       <div className="cardfooter">
         <div>
           <button
-            onClick={() => this.handleComment(this.props.id)}
+            onClick={this.toggleComment}
             type="button"
             className="post-btn comment-btn btn btn-secondary btn-sm"
           >
             Comment
           </button>
+          
           {this.renderLikeButton()}
           {/* <button
             onClick={() => this.saveSnippet(this.props.id)}
@@ -155,10 +170,20 @@ class PostFooter extends React.Component {
           >
             <span /> Save Snippet
           </button> */}
-
-          <div className="row comment-row" style={{ margin: 10 }}>
-            <div className="comments">{this.displayComments()}</div>
+          
+          {!this.state.isHidden && 
+          <div>
+            <CommentBox 
+              displayComments={this.displayComments}
+              onChange={this.handleComment}
+              comment={this.state.comment}
+            />
+            <div className="row comment-row" style={{ margin: 10 }}>
+              <div className="comments">{this.displayComments()}</div>
+            </div>
           </div>
+        }
+          
         </div>
       </div>
     );
