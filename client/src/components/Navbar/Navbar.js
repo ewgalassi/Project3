@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logout from "../Logout/Logout";
-import Dropdown2 from "../Dropdown2/Dropdown2";
+import LogoutDrop from "../LogoutDrop/LogoutDrop";
 import { Container } from "../Grid";
 import UserAPI from "../../utils/userAPI";
 import "./Navbar.css";
@@ -108,7 +107,7 @@ class Navbar extends React.Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Dropdown2 />
+                <LogoutDrop />
               </li>
             </ul>
           </div>

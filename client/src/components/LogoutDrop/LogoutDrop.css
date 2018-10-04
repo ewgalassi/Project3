@@ -1,0 +1,19 @@
+#dropdownMenuButton2 {
+  background-color: #343637;
+  color: #ffffff;
+  border: 1px solid #eee8aa;
+  color: #a8a7a3;
+}
+
+.dropdown-item #editProfile {
+  color: #a8a7a3 !important;
+  font-size: 14px !important;
+}
+
+.dropdown-item #editProfile:hover {
+  color: #48c5da !important;
+}
+
+/* .dropdown-item:hover {
+  background: none;
+} */

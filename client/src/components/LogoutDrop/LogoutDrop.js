@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Logout from "../Logout/Logout";
-import "./Dropdown2.css";
+import "./LogoutDrop.css";
 
-class Dropdown2 extends Component {
+class LogoutDrop extends Component {
   state = {
     isOpen: false
   };
@@ -17,34 +17,27 @@ class Dropdown2 extends Component {
         <button
           className="btn btn-secondary dropdown-toggle btn-sm"
           type="button"
-          id="dropdownMenuButton"
+          id="dropdownMenuButton2"
           data-toggle="dropdown"
           aria-haspopup="true"
         >
           {this.props.name}
         </button>
         <div className={menuClass} aria-labelledby="dropdownMenuButton">
-          <a
-            className="dropdown-item"
-            type="editProfile"
-            // onClick={this.props.handleSelect}
-          >
+          <a className="dropdown-item" type="editProfile">
             <Link
               to="/editProfile"
+              id="editProfile"
               className={
                 window.location.pathname === "/editProfile"
                   ? "nav-link active"
                   : "nav-link"
               }
             >
-              Edit
+              Edit profile
             </Link>
           </a>
-          <a
-            className="dropdown-item"
-            type="logout"
-            onClick={this.props.handleSelect}
-          >
+          <a className="dropdown-item" id="logoutDrop" type="logout">
             <Logout />
           </a>
         </div>
@@ -53,4 +46,4 @@ class Dropdown2 extends Component {
   }
 }
 
-export default Dropdown2;
+export default LogoutDrop;
