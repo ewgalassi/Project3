@@ -6,7 +6,6 @@ const MessageSchema = new mongoose.Schema({
     {
       message: {
         type: String,
-        required: "No message provided",
         trim: true
       },
       from: {

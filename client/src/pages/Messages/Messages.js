@@ -8,7 +8,6 @@ import Message from "../../components/Message/Message";
 class Messages extends React.Component {
   state = {
     messages: [],
-    reply: ""
   };
 
   componentDidMount() {
@@ -21,23 +20,6 @@ class Messages extends React.Component {
       this.setState({
         messages: data.data || []
       });
-    }).catch(err => {
-      console.log(err);
-    });
-  };
-
-
-  handleInput = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-    MessageAPI.reply(this.state.reply, this.props.id).then(data => {
-      console.log(data);
     }).catch(err => {
       console.log(err);
     });
@@ -69,14 +51,6 @@ class Messages extends React.Component {
                   from={message.from}
                 />
 
-                <form>
-                  <input type="text"
-                    name="reply"
-                    onChange={this.handleInput}
-                    value={this.state.reply}
-                  />
-                  <button onClick={this.handleSubmit}>Reply</button>
-                </form>
               </div>
             );
           })}

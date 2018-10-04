@@ -82,6 +82,18 @@ class Navbar extends React.Component {
                   Profile
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link
+                  to="/messages"
+                  className={
+                    window.location.pathname === "/messages"
+                      ? "nav-link active"
+                      : "nav-link"
+                  }
+                >
+                  Messages
+                </Link>
+              </li>
               {/* <li className="nav-item">
                 <Link
                   to="/register"
@@ -107,20 +119,8 @@ class Navbar extends React.Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  to="/messages"
-                  className={
-                    window.location.pathname === "/messages"
-                      ? "nav-link active"
-                      : "nav-link"
-                  }
-                >
-                  Messages
-                </Link>
+                <LogoutDrop />
               </li>
-              {/* <li className="nav-item">
-                <Logout />
-              </li> */}
             </ul>
           </div>
         </Container>

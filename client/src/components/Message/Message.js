@@ -1,5 +1,6 @@
 import React from "react";
 import Reply from "./Reply";
+import ReplyInput from "./ReplyInput";
 
 class Message extends React.Component {
   state = {
@@ -22,9 +23,13 @@ class Message extends React.Component {
                   fromId={msg.from._id}
                   message={msg.message}
                 />
+                
               </div>
             );
           })}
+          <ReplyInput
+          id={this.props.id} />
+          <hr />
       </div>
     );
   };

@@ -28,6 +28,7 @@ router.route("/")
   .get((req, res) => {
     if (!req.user) return res.json({ success: false, message: "Not signed in" });
     db.Message.find({ to: req.user._id })
+      .sort({ _id: -1 })
       .populate("conversation.from", ["profile.pic", "fullName", "firstName"])
       .populate("conversation.to", ["profile.pic", "fullName", "firstName"])
       .populate("from", ["profile.pic", "fullName", "firstName"])
@@ -66,13 +67,14 @@ router.route("/unread")
     if (!req.user) return res.json({ success: false, message: "Not signed in" });
     db.Message.find({ to: req.user._id })
       .where("read").equals(false)
+      .sort({ _id: -1 })
       .populate("from", ["profile.pic", "fullName", "firstName"])
       .populate("to", ["profile.pic", "fullName", "firstName"])
       .exec((err, messages) => {
         if (err) return res.send(err);
-        // messages.forEach(message => {
-        //   message.markAsRead();
-        // });
+        messages.forEach(message => {
+          message.markAsRead();
+        });
         res.send(messages);
       });
   })
