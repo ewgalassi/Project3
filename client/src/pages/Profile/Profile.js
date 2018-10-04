@@ -151,6 +151,7 @@ class Profile extends Component {
                 company={this.state.jobCompany}
               />
               <div>
+                <h4>Stack Overflow Search</h4>
                 <input type="text" 
                 type="text"
                 name="searchInput"
@@ -160,6 +161,7 @@ class Profile extends Component {
                 <button onClick={() => this.searchStack(this.state.searchInput)}>Search</button>
                 </div>
                 <div>
+                  <br></br>
                   <h4>Search Results</h4>
                   {this.state.searchResults.map(searchResult => {
                     return (
