@@ -24,7 +24,7 @@ export default {
 
   // delete a message
   delete: function (id) {
-    return axios.delete("/api/message", { message_id: id });
+    return axios.delete("/api/message/" + id);
   }
 
 };
