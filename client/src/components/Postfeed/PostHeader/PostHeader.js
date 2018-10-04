@@ -28,7 +28,8 @@ class PostHeader extends React.Component {
             <a href={"/profile/" + this.props.authorId}>
               <h5 className="author">{this.props.author}</h5>
             </a>
-            <p className="timestamp">{moment(this.props.time,'0000-00-00T00:00:00.000Z').format('dddd MMM Do')}</p>
+            <p className="timestamp">{moment(this.props.time).format('dddd, MMM Do YYYY, h:mm a')}
+            </p>
           </div>
           
           {this.renderDeleteBtn()}
