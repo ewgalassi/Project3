@@ -1,5 +1,6 @@
 import React from "react";
 import MessageAPI from "../../utils/messageAPI";
+import "./ReplyInput.css";
 
 class ReplyInput extends React.Component {
   state = {
@@ -16,28 +17,35 @@ class ReplyInput extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.props.id);
-    MessageAPI.reply(this.state.input, this.props.id).then(data => {
-      console.log(data);
-      window.location.replace("/messages");
-    }).catch(err => {
-      console.log(err);
-    });
+    MessageAPI.reply(this.state.input, this.props.id)
+      .then(data => {
+        console.log(data);
+        window.location.replace("/messages");
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   render() {
     return (
-      <div>
+      <div className="replyInputField">
         <form>
-          <input type="text"
+          <input
+            type="text"
             name="input"
+            placeholder="Type a reply..."
             onChange={this.handleInput}
             value={this.state.reply}
           />
-          <button onClick={this.handleSubmit}>Reply</button>
+          <br />
+          <button id="replyInputSubmit" onClick={this.handleSubmit}>
+            Reply
+          </button>
         </form>
       </div>
     );
-  };
-};
+  }
+}
 
 export default ReplyInput;

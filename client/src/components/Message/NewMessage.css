@@ -35,8 +35,9 @@
   outline: none;
 }
 
-#newMessageCard input {
+#newMessageCard #toUser {
   padding: 8px;
+  border-radius: 6px;
 }
 
 #newMessageCard #messageTextArea {
@@ -46,6 +47,8 @@
   border: 1px solid #eee8aa;
   color: #ffffff;
   margin-bottom: 15px;
+  border-radius: 6px;
+  padding: 8px;
 }
 
 #newMessageCard #messageTextArea:focus {
@@ -66,4 +69,8 @@
 #submitMessageBtn:hover {
   background-color: rgba(50, 205, 50, 0.53);
   color: #ffffff;
+}
+
+#submitMessageBtn:focus {
+  outline: none;
 }

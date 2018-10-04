@@ -21,7 +21,8 @@
 
 .userSearch {
   position: relative;
-  left: 13.5%;
+  left: 12%;
+  margin-top: 3.5px;
 }
 
 .userSearchInput {

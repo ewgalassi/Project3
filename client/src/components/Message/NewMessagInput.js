@@ -53,10 +53,11 @@ class NewMessageInput extends React.Component {
 
             <label>Message:</label>
             <br />
-            <input
+            <textarea
               id="messageTextArea"
               type="text"
               name="message"
+              placeholder="Write a message..."
               onChange={this.handleInput}
               value={this.state.message}
             />
