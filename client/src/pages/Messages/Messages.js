@@ -27,10 +27,8 @@ class Messages extends React.Component {
   };
 
   handleDelete = id => {
-    console.log(id);
     MessageAPI.delete(id).then(data => {
-      console.log(data);
-      // window.location.replace("/messages");
+      window.location.replace("/messages");
     }).catch(err => {
       console.log(err);
     });
