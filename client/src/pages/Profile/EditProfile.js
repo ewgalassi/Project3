@@ -127,6 +127,7 @@ class EditProfile extends React.Component {
         <Container>
           <Row>
             <Col size="md-8">
+              <h4 className="editTitle">Edit Profile</h4>
               <div id="accordion">
                 <div className="card">
                   <div className="card-header" id="headingOne">
@@ -151,7 +152,7 @@ class EditProfile extends React.Component {
                   >
                     <div className="card-body">
                       <form>
-                        <label>Profile Pic:</label>
+                        <label />
                         <input
                           name="pic"
                           value={this.state.pic}
@@ -187,7 +188,7 @@ class EditProfile extends React.Component {
                   >
                     <div className="card-body">
                       <form>
-                        <label>Github:</label>
+                        <label />
                         <input
                           name="github"
                           value={this.state.github}
@@ -223,7 +224,7 @@ class EditProfile extends React.Component {
                   >
                     <div className="card-body">
                       <form>
-                        <label>LinkedIn:</label>
+                        <label />
                         <input
                           name="linkedin"
                           value={this.state.linkedin}
@@ -259,7 +260,7 @@ class EditProfile extends React.Component {
                   >
                     <div className="card-body">
                       <form>
-                        <label>Portfolio:</label>
+                        <label />
                         <input
                           name="portfolio"
                           value={this.state.portfolio}
@@ -295,7 +296,7 @@ class EditProfile extends React.Component {
                   >
                     <div className="card-body">
                       <form>
-                        <label>Job Title:</label>
+                        <label />
                         <input
                           name="jobTitle"
                           value={this.state.jobTitle}
@@ -331,7 +332,7 @@ class EditProfile extends React.Component {
                   >
                     <div className="card-body">
                       <form>
-                        <label>Company:</label>
+                        <label />
                         <input
                           name="jobCompany"
                           value={this.state.jobCompany}
@@ -367,7 +368,7 @@ class EditProfile extends React.Component {
                   >
                     <div className="card-body">
                       <form>
-                        <label>Languages (separate with comma):</label>
+                        <label>(separate with commas)</label>
                         <input
                           name="languages"
                           value={this.state.languages}
@@ -403,7 +404,7 @@ class EditProfile extends React.Component {
                   >
                     <div className="card-body">
                       <form>
-                        <label>Technologies (separate with comma):</label>
+                        <label>(separate with commas)</label>
                         <input
                           name="technologies"
                           value={this.state.technologies}
@@ -423,21 +424,26 @@ class EditProfile extends React.Component {
 
           <Row>
             <Col size="md-8">
-              <div className="test2">
-                <h3>You are following:</h3>
+              <div className="followers">
+                <h5>You are following:</h5>
 
                 {this.state.following.map(user => {
                   return (
                     <div key={user._id}>
                       {user.fullName}
-                      <button onClick={() => this.handleUnfollow(user._id)}>
+                      <button
+                        id="editUnfollow"
+                        onClick={() => this.handleUnfollow(user._id)}
+                      >
                         Unfollow
                       </button>
                     </div>
                   );
                 })}
 
-                <p>Follow a user (by id):</p>
+                <hr />
+
+                <p>Follow by username:</p>
                 <form>
                   <input
                     type="text"
@@ -446,19 +452,6 @@ class EditProfile extends React.Component {
                     onChange={this.handleInput}
                   />
                   <button onClick={this.handleFollow}>Follow</button>
-                </form>
-
-                <hr />
-
-                <p>Search for a user (by username):</p>
-                <form>
-                  <input
-                    type="text"
-                    name="searchInput"
-                    value={this.state.searchInput}
-                    onChange={this.handleInput}
-                  />
-                  <button onClick={this.handleSearch}>Search</button>
                 </form>
               </div>
             </Col>
