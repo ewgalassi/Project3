@@ -4,7 +4,7 @@ import "./Sidebar.css";
 const Sidebar = props => {
   return (
     <div className="news-article">
-      <a href={props.url} target="_blank">
+      <a className="article-title" href={props.url} target="_blank">
         {props.title}
       </a>
       {/* <div className="author">By: {props.author}</div> */}

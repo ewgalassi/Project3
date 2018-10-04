@@ -5,7 +5,9 @@ import "./Register.css";
 class Register extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    firstName: "",
+    lastName: ""
   };
 
   handleInput = event => {

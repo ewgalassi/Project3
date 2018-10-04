@@ -24,13 +24,25 @@ class Snippet extends React.Component {
               {this.props.post}
             </code>
           </pre>
-          <CopytoClipboard text={this.props.post}
-          onCopy={() => alert("copied to clipboard")}
-          >
-          <button>Copy Snippet</button>
-          
-          
-          </CopytoClipboard>
+          <div className="icons">
+            <CopytoClipboard text={this.props.post}
+              onCopy={() => alert("copied to clipboard")}
+            >
+              <button className="copy-btn btn btn-link btn-sm fa fa-copy">
+                <span class="tooltiptext">Copy</span>
+              </button>
+            </CopytoClipboard>
+            <button
+              // onClick={() => this.saveSnippet(postData)}
+              onClick= {this.props.onClick}
+              type="button"
+              className="snippet-btn btn btn-link btn-sm fa fa-save"
+            >
+            <span class="tooltiptext">{this.props.isSaved ? "Unsave" : "Save"}</span>
+            </button>
+          </div>
+        
+         
         </div>
       </div>
     );
