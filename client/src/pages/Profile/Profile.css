@@ -1,3 +1,22 @@
-body {
-  color: white;
+.test1 {
+  color: #ffffff;
+  background-color: #343637;
+  margin-top: 100px;
+}
+
+.test2 {
+  color: #ffffff;
+  background-color: #343637;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.testHeader {
+  text-align: center;
+  font-size: 36px;
+  padding-top: 12px;
+}
+
+.test1 hr {
+  border-color: #ffffff;
 }
