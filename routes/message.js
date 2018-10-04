@@ -9,18 +9,23 @@ router.route("/")
   // body: to, message
   .post((req, res) => {
     if (!req.user) return res.json({ success: false, message: "Not signed in" });
-    db.Message.create({
-      conversation: [{
-        message: req.body.message,
-        from: req.user._id,
-        to: req.body.to
-      }]
-    }).then(data => {
-      return res.json({ success: true, message: data })
+    db.User.findOne({ username: req.body.to }).then(user => {
+      db.Message.create({
+        conversation: [{
+          message: req.body.message,
+          from: req.user._id,
+          to: user._id
+        }]
+      }).then(data => {
+        return res.json({ success: true, message: data })
+      }).catch(err => {
+        console.log(err);
+        return res.json({ success: false, message: err });
+      });
     }).catch(err => {
       console.log(err);
-      return res.json({ success: false, message: err });
-    });
+    })
+
   })
 
   // GET ALL MESSAGES ----------------
@@ -39,7 +44,7 @@ router.route("/")
   })
 
   // REPLY TO A MESSAGE -----------------
-  // PUT /api/message/reply
+  // PUT /api/message
   // body: message_id, reply
   .put((req, res) => {
     if (!req.user) return res.json({ success: false, message: "Not signed in" });
@@ -58,6 +63,21 @@ router.route("/")
       res.send(err);
     });
   })
+
+  // DELETE A MESSAGE -----------------
+  // DELETE /api/message
+  // body: message_id
+  .delete((req, res) => {
+    if (!req.user) return res.json({ success: false, message: "Not signed in" });
+    console.log(req.body.message_id);
+    db.Message.findByIdAndDelete(req.body.message_id).then(data => {
+      res.send(data);
+    }).catch(err => {
+      console.log(err);
+      res.json({ success: false, message: err });
+    });
+  })
+
 
 router.route("/unread")
 

@@ -4,6 +4,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import "./Messages.css";
 import MessageAPI from "../../utils/messageAPI";
 import Message from "../../components/Message/Message";
+import NewMessageInput from "../../components/Message/NewMessagInput";
 
 class Messages extends React.Component {
   state = {
@@ -25,6 +26,15 @@ class Messages extends React.Component {
     });
   };
 
+  handleDelete = id => {
+    console.log(id);
+    MessageAPI.delete(id).then(data => {
+      console.log(data);
+      // window.location.replace("/messages");
+    }).catch(err => {
+      console.log(err);
+    });
+  };
 
   render() {
     return (
@@ -41,6 +51,10 @@ class Messages extends React.Component {
             </Col>
           </Row>
 
+          <NewMessageInput />
+
+          <hr />
+
           {this.state.messages.map(message => {
             return (
               <div key={message._id}>
@@ -50,7 +64,7 @@ class Messages extends React.Component {
                   conversation={message.conversation}
                   from={message.from}
                 />
-
+                <button onClick={() => this.handleDelete(message._id)}>X</button>
               </div>
             );
           })}

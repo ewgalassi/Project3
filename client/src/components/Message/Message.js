@@ -8,12 +8,14 @@ class Message extends React.Component {
   };
 
 
+
   render() {
     return (
       <div>
         <h5>
           Your conversation with: {this.props.from.fullName}
         </h5>
+
         {
           this.state.conversation.map(msg => {
             return (
@@ -23,13 +25,13 @@ class Message extends React.Component {
                   fromId={msg.from._id}
                   message={msg.message}
                 />
-                
+
               </div>
             );
           })}
-          <ReplyInput
+        <ReplyInput
           id={this.props.id} />
-          <hr />
+
       </div>
     );
   };
