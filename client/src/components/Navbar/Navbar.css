@@ -6,7 +6,7 @@
 }
 
 #accountLogo {
-  color: white;
+  color: #ffffff;
 }
 
 #accountNav .nav-link {
@@ -25,7 +25,8 @@
 
 .userSearch {
   position: relative;
-  left: 17%;
+  left: 12%;
+  margin-top: 3.5px;
 }
 
 .userSearchInput {
@@ -33,9 +34,10 @@
   background: none;
   border: 1px solid #eee8aa;
   color: #ffffff;
-  padding: 2px 0px 5.5px 8px;
+  padding: 5.5px 0px 7.5px 8px;
   margin-right: 3px;
   border-radius: 6px;
+  font-size: 13px;
 }
 
 .userSearchInput:focus {

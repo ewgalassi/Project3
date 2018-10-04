@@ -6,15 +6,15 @@
 
 p {
   margin-top: 10px;
-  color:white;
+  color: #ffffff;
 }
 
 .article-title {
-  color:#48c5da;
+  color: #48c5da;
 }
 
 .article-title:hover {
-  color:#48c5da;
+  color: #48c5da;
 }
 
 /* Snippet Card ================ */
@@ -29,33 +29,32 @@ p {
   height: auto;
   background-color: rgba(245, 245, 245, 0.82);
   border: 1px solid rgba(0, 0, 0, 0.125);
-  position:relative;
+  position: relative;
 }
 
 /* Snippet - Copy and Save Buttons*/
 .copy-btn,
 .snippet-btn {
-  color:#343637;
-  
+  color: #343637;
 }
 
 .icons {
-  position:absolute;
-  right:0;
-  top:0;
-  margin:10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px;
 }
 
 .tooltiptext {
   visibility: hidden;
   width: auto;
-  background-color: white;
-  color: black;
+  background-color: #ffffff;
+  color: #000000;
   text-align: center;
   padding: 5px;
   border-radius: 3px;
-  font-family:"Ubuntu";
-  font-weight:300;
+  font-family: "Ubuntu";
+  font-weight: 300;
 
   /* Fade in tooltip */
   opacity: 0;
@@ -89,7 +88,7 @@ p {
   margin: 10px 30px;
   width: 90%;
   text-align: left;
-  color:white !important;
+  color: #ffffff !important;
 }
 
 /* User inputs */

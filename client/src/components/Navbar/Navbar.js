@@ -62,7 +62,7 @@ class Navbar extends React.Component {
                   to="/"
                   className={
                     window.location.pathname === "/" ||
-                      window.location.pathname === "/newsfeed"
+                    window.location.pathname === "/newsfeed"
                       ? "nav-link active"
                       : "nav-link"
                   }
