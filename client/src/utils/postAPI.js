@@ -1,5 +1,4 @@
 import axios from "axios";
-import mongoose from "mongoose";
 
 export default  {
     // get all the posts
@@ -41,12 +40,11 @@ export default  {
 
     getSnippets: function(){
         return axios.get("/api/posts/types/snippets")
-    },
+    }
 
-    deleteComment: function(id) {
-        let object_id = mongoose.Types.ObjectId(id)
-        console.log("client side " + object_id);
-        return axios.delete("/api/posts/comment", {comment_id: object_id});
-    },
+    // deleteComment: function(id) {
+    //     console.log("client side " + id);
+    //     return axios.delete("/api/posts/comment/" + id);
+    // }
 
 };

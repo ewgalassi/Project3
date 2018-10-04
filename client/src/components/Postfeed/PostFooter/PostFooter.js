@@ -49,22 +49,21 @@ class PostFooter extends React.Component {
       });
   };
 
-  handleDelete = id => {
-    console.log(id);
-    PostAPI.deleteComment(id)
-      .then(data => {
-        console.log(data);
-        if (data.data.success) {
-          console.log("success");
-          window.location.reload();
-        } else {
-          console.log(data.data);
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  // handleDelete = id => {
+  //   console.log("delete " + id);
+  //   PostAPI.deleteComment(id)
+  //     .then(data => {
+  //       console.log(data);
+  //       if (data.data.success) {
+  //         window.location.reload();
+  //       } else {
+  //         console.log(data.data);
+  //       }
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
 
   displayComments = () => {
     return this.state.comments.map(comment => {
@@ -74,7 +73,7 @@ class PostFooter extends React.Component {
           return (
             <button
               className="comment-x btn btn-sm btn-light mr-2 align-middle"
-              onClick={() => this.handleDelete(comment._id)}
+              // onClick={() => this.handleDelete(comment._id)}
             >
               X
             </button>
