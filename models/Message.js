@@ -4,7 +4,6 @@ const MessageSchema = new mongoose.Schema({
 
   conversation: [
     {
-
       message: {
         type: String,
         required: "No message provided",
@@ -17,8 +16,7 @@ const MessageSchema = new mongoose.Schema({
       to: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
-      },
-
+      }
     }
   ],
 
@@ -43,15 +41,9 @@ const MessageSchema = new mongoose.Schema({
 });
 
 // Appending to a conversation ("REPLY")
-MessageSchema.methods.reply = function (msg, from) {
-
-  const newMsg = {
-    message: msg,
-    from: from
-  };
-
-  this.conversation.push(newMsg);
-
+MessageSchema.methods.reply = function (reply) {
+  this.conversation.push(reply);
+  return this.save();
 };
 
 // Mark as read
@@ -61,10 +53,13 @@ MessageSchema.methods.markAsRead = function () {
 };
 
 // Save the OG from and to IDs
-MessageSchema.pre("init", function (next) {
-  this.from = this.conversation[0].from;
-  this.to = this.conversation[0].to;
-  return next();
+MessageSchema.pre("save", function (next) {
+  if (this.isNew) {
+    console.log("IS NEW")
+    this.from = this.conversation[0].from;
+    this.to = this.conversation[0].to;
+  };
+    return next();
 });
 
 module.exports = mongoose.model("Message", MessageSchema);
