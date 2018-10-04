@@ -1,5 +1,6 @@
 #newPostCard {
   margin-top: 85px;
+  padding: 20px;
 }
 
 #newPostCard:after {

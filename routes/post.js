@@ -15,7 +15,10 @@ router.route('/posts')
 // Add a comment
 router.route('/posts/comment')
   .post(postController.commentPost)
-  // .delete(postController.deleteComment)
+
+// Delete a comment
+// router.route('/posts/comment/:id')
+//   .delete(postController.deleteComment)
 
 // Get one post by id
 router.route('/posts/:id')
