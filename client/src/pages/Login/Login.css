@@ -1,6 +1,9 @@
 body {
-  background-color: #120f0a;
+  background-color: #111717f0;
   /* overflow: hidden; */
+  font-family: 'Ubuntu', sans-serif;
+
+
 }
 
 body::-webkit-scrollbar {
