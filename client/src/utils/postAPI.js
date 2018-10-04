@@ -1,4 +1,5 @@
 import axios from "axios";
+import mongoose from "mongoose";
 
 export default  {
     // get all the posts
@@ -43,7 +44,9 @@ export default  {
     },
 
     deleteComment: function(id) {
-        return axios.delete("/api/posts/comment", {comment_id: id});
+        let object_id = mongoose.Types.ObjectId(id)
+        console.log("client side " + object_id);
+        return axios.delete("/api/posts/comment", {comment_id: object_id});
     },
 
 };

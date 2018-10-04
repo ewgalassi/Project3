@@ -53,7 +53,9 @@ class PostFooter extends React.Component {
     console.log(id);
     PostAPI.deleteComment(id)
       .then(data => {
+        console.log(data);
         if (data.data.success) {
+          console.log("success");
           window.location.reload();
         } else {
           console.log(data.data);
