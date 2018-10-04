@@ -1,5 +1,6 @@
 import React from "react";
 import UserAPI from "../../utils/userAPI";
+import "./Profile.css";
 
 class EditProfile extends React.Component {
   state = {

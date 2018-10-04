@@ -1,6 +1,5 @@
 #dropdownMenuButton2 {
   background-color: #343637;
-  color: #ffffff;
   border: 1px solid #eee8aa;
   color: #a8a7a3;
 }
@@ -12,6 +11,15 @@
 
 .dropdown-item #editProfile:hover {
   color: #48c5da !important;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  background-color: #5a6268;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  background-color: #5a6268;
 }
 
 /* .dropdown-item:hover {

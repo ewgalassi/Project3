@@ -6,7 +6,7 @@ import UserInfo from "../../components/UserInfo/UserInfo";
 import NewPost from "../../components/NewPost/NewPost";
 import Navbar from "../../components/Navbar/Navbar";
 import UserAPI from "../../utils/userAPI";
-import "./Profile.css";
+// import "./Profile.css";
 
 class Profile extends Component {
   state = {
@@ -39,7 +39,7 @@ class Profile extends Component {
       .then(data => {
         if (data.data.success === false) {
           window.location.replace("/login");
-        };
+        }
         this.setState({
           user: data.data,
           loggedInUser: data.data._id,
