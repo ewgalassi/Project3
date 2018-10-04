@@ -57,24 +57,6 @@ class Post extends Component {
       
       this.saveSnippet(postData);
 
-<<<<<<< HEAD
-  returnSaveSnip = type => {
-
-    if (!window.location.href.includes('snippet')) {
-      switch (type) {
-        case "snippet":
-          return (
-            <div>
-              {this.saveOrUnsave()}
-            </div>
-          );
-        default:
-          // return (
-          //   <div>
-          //     {this.saveOrUnsave()}
-          //   </div>
-          // );
-=======
     } else if (this.state.isSaved) {
       const postData = {
         post: this.props.post,
@@ -83,7 +65,6 @@ class Post extends Component {
         numLikes: this.props.numLikes,
         comments: this.props.comments || [],
         saves: this.props.saves,
->>>>>>> master
       }
       this.unSaveSnippet(postData);
   
