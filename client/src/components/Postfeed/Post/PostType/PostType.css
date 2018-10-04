@@ -19,7 +19,7 @@ p {
 
 /* Snippet Card ================ */
 .content {
-  margin: 10px 30px;
+  margin: 0px 30px;
   text-align: left;
 }
 
@@ -27,15 +27,17 @@ p {
   padding: 20px;
   margin-top: 10px;
   height: auto;
-  background-color: rgba(245, 245, 245, 0.82);
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: rgba(199, 208, 215, 0.95);
+  border: 1px solid rgb(30, 36, 36);
   position:relative;
 }
+
 
 /* Snippet - Copy and Save Buttons*/
 .copy-btn,
 .snippet-btn {
-  color:#343637;
+  color:#343637 !important;
+  padding:4px;
   
 }
 
@@ -66,7 +68,7 @@ p {
   position: absolute;
   z-index: 1;
   top: -100%;
-  right: -50%;
+  right: -70%;
   margin-left: -60px;
 }
 
@@ -74,7 +76,7 @@ p {
   position: absolute;
   z-index: 1;
   top: -100%;
-  right: 0%;
+  right: -20%;
   margin-left: -60px;
 }
 

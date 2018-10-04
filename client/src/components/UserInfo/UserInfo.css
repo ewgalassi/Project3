@@ -2,9 +2,10 @@
 .skills-card {
   padding: 30px;
   background-color: #343637;
-  color: #48c5da;
+  color: #fff;
   margin: 20px 0px;
 }
+
 
 .languages,
 .technologies {
@@ -12,11 +13,18 @@
   margin: 10px 0px;
 }
 
+.info-card h5,
+.info-card p,
+.languages h6,
+.technologies h6 {
+  color:#48c5da;
+}
+
 li {
   margin-left: 20px;
   list-style: none;
 }
 
-.profile-links {
+.profile-links a {
   color: #ffffff;
 }
