@@ -1,11 +1,20 @@
 /* Article Card ================ */
 .articleCard {
-  margin: 0 30px;
+  margin: 10px 30px;
   text-align: left;
 }
 
 p {
   margin-top: 10px;
+  color:white;
+}
+
+.article-title {
+  color:#48c5da;
+}
+
+.article-title:hover {
+  color:#48c5da;
 }
 
 /* Snippet Card ================ */
@@ -80,6 +89,7 @@ p {
   margin: 10px 30px;
   width: 90%;
   text-align: left;
+  color:white !important;
 }
 
 /* User inputs */

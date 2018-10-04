@@ -115,8 +115,9 @@ class Post extends Component {
           authorId={this.props.authorId}
           id={this.props.id}
           loggedInUser={this.props.loggedInUser}
+          time={this.props.time}
         />
-        <hr />
+       
 
         {this.returnType(this.props.type)}
         <hr />
