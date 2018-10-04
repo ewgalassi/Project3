@@ -85,11 +85,11 @@ class Post extends Component {
             </div>
           );
         default:
-          return (
-            <div>
-              {this.saveOrUnsave()}
-            </div>
-          );
+          // return (
+          //   <div>
+          //     {this.saveOrUnsave()}
+          //   </div>
+          // );
       }
     } else {
       console.log("not snippet page");
