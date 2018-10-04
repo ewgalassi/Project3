@@ -152,7 +152,7 @@ class Profile extends Component {
               />
               <div>
                 <h4>Stack Overflow Search</h4>
-                <input type="text" 
+                <input
                 type="text"
                 name="searchInput"
                 placeholder="Search"

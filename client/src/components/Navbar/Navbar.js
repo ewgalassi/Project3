@@ -52,7 +52,7 @@ class Navbar extends React.Component {
               id="userSearchBtn"
               onClick={this.handleSearch}
             >
-              <span class="fas fa-search" />
+              <span className="fas fa-search" />
             </button>
           </form>
           <div>
