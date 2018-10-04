@@ -29,7 +29,7 @@ class Snippet extends React.Component {
               onCopy={() => alert("copied to clipboard")}
             >
               <button className="copy-btn btn btn-link fa fa-copy">
-                <span class="tooltiptext">Copy</span>
+                <span className="tooltiptext">Copy</span>
               </button>
             </CopytoClipboard>
             <button
