@@ -20,7 +20,7 @@ class NewMessageInput extends React.Component {
       return alert("Please fill out all the forms");
     };
     MessageAPI.newMessage(this.state.message, this.state.to).then(data => {
-      console.log(data);
+      console.log(data.data)
       window.location.replace("/messages");
     }).catch(err => {
       console.log(err);

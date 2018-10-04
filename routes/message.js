@@ -64,20 +64,19 @@ router.route("/")
     });
   })
 
+router.route("/:id")
   // DELETE A MESSAGE -----------------
-  // DELETE /api/message
-  // body: message_id
+  // DELETE /api/message/:id
+  // params- id
   .delete((req, res) => {
     if (!req.user) return res.json({ success: false, message: "Not signed in" });
-    console.log(req.body.message_id);
-    db.Message.findByIdAndDelete(req.body.message_id).then(data => {
+    db.Message.findByIdAndDelete(req.params.id).then(data => {
       res.send(data);
     }).catch(err => {
       console.log(err);
       res.json({ success: false, message: err });
     });
   })
-
 
 router.route("/unread")
 
