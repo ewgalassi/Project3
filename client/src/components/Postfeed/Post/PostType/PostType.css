@@ -1,14 +1,23 @@
-/* Article Card */
+/* Article Card ================ */
 .articleCard {
-  margin: 0 30px;
+  margin: 10px 30px;
   text-align: left;
 }
 
 p {
   margin-top: 10px;
+  color:white;
 }
 
-/* Snippet Card */
+.article-title {
+  color:#48c5da;
+}
+
+.article-title:hover {
+  color:#48c5da;
+}
+
+/* Snippet Card ================ */
 .content {
   margin: 10px 30px;
   text-align: left;
@@ -20,13 +29,67 @@ p {
   height: auto;
   background-color: rgba(245, 245, 245, 0.82);
   border: 1px solid rgba(0, 0, 0, 0.125);
+  position:relative;
 }
 
-/* Status Card */
+/* Snippet - Copy and Save Buttons*/
+.copy-btn,
+.snippet-btn {
+  color:#343637;
+  
+}
+
+.icons {
+  position:absolute;
+  right:0;
+  top:0;
+  margin:10px;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: auto;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 5px;
+  border-radius: 3px;
+  font-family:"Ubuntu";
+  font-weight:300;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.snippet-btn .tooltiptext {
+  position: absolute;
+  z-index: 1;
+  top: -100%;
+  right: -50%;
+  margin-left: -60px;
+}
+
+.copy-btn .tooltiptext {
+  position: absolute;
+  z-index: 1;
+  top: -100%;
+  right: 0%;
+  margin-left: -60px;
+}
+
+.copy-btn:hover .tooltiptext,
+.snippet-btn:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Status Card ================ */
 .status-content {
   margin: 10px 30px;
   width: 90%;
   text-align: left;
+  color:white !important;
 }
 
 /* User inputs */

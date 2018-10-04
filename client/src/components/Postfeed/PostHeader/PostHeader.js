@@ -4,20 +4,41 @@ import "./PostHeader.css";
 import PostAPI from "../../../utils/postAPI";
 import SavedAPI from "../../../utils/savedAPI";
 
-// const styles = {
-//   head: {
-//     fontFamily: "Helvetica",
-//     fontSize: 18,
-//     color: "red"
-//   }
-// }
 
 class PostHeader extends React.Component {
 
+
+  renderType = () => {
+    if (window.location.href.includes('profile')){
+      return(
+        <div className="postheader">
+          {this.renderDeleteBtn()}
+        </div>
+      )
+    } else {
+      return(
+        <div className="postheader">
+          {/* <PicIcon pic={this.props.pic} /> */}
+          <div className="thumbnail-div">
+            <img className="thumbnail" src={this.props.pic} alt="Profile pic"/>
+          </div>
+          <div>
+            <a href={"/profile/" + this.props.authorId}>
+              <h5 className="author">{this.props.author}</h5>
+            </a>
+            <p className="timestamp">{this.props.time}}</p>
+          </div>
+          
+          {this.renderDeleteBtn()}
+        </div>
+      )
+    }
+  }
+
   handleDelete = (id) => {
-    console.log(id);
+    // console.log(id);
     if (window.location.href.includes('snippets')){
-      console.log("working")
+      // console.log("working")
       SavedAPI.unSaveSnippet(id).then(data =>{
         if (data.data.success) {
           window.location.reload();
@@ -27,7 +48,7 @@ class PostHeader extends React.Component {
       })
     } else {
     PostAPI.deletePost(id).then(data => {
-      console.log("not working")
+      // console.log("not working")
       if (data.data.success) {
         window.location.reload();
       } else {
@@ -43,7 +64,7 @@ class PostHeader extends React.Component {
     if (this.props.authorId === this.props.loggedInUser) {
       return (
         <button 
-        className="btn btn-sm btn-light float-right"
+        className="btn btn-sm btn-light float-right delete-btn"
         onClick={() => this.handleDelete(this.props.id)}
         >X</button>
       );
@@ -52,16 +73,9 @@ class PostHeader extends React.Component {
 
   render() {
     return (
-      <div className="postheader">
-        {/* <PicIcon pic={this.props.pic} /> */}
-        <img className="thumbnail" src={this.props.pic} alt="Profile pic"/>
-        <a href={"/profile/" + this.props.authorId}>
-          <h5 className="author">{this.props.author}</h5>
-        </a>
-        
-      {this.renderDeleteBtn()}
-
-      </div>
+    
+      this.renderType()
+    
     )
   };
 };

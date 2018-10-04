@@ -23,6 +23,32 @@
   flex-direction: row;
 }
 
+.userSearch {
+  position: relative;
+  left: 17%;
+}
+
+.userSearchInput {
+  width: 280px;
+  background: none;
+  border: 1px solid #eee8aa;
+  color: #ffffff;
+  padding: 2px 0px 5.5px 8px;
+  margin-right: 3px;
+  border-radius: 6px;
+}
+
+.userSearchInput:focus {
+  outline: none;
+}
+
+#userSearchBtn {
+  background-color: #343637;
+  border: 1px solid #eee8aa;
+  color: #a8a7a3;
+  padding: 5px 10px 5px 10px;
+}
+
 @media only screen and (max-width: 414px) {
   .navbar-nav {
     margin-bottom: 1.5rem;

@@ -7,7 +7,7 @@ class Article extends Component {
     return (
       <div className="articleCard">
         <div>
-          <a target="_blank" href={this.props.post}>
+          <a className="article-title" target="_blank" href={this.props.post}>
             <h4>{this.props.articleMetadata.title}</h4>
           </a>
             <div>

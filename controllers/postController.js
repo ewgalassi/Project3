@@ -71,7 +71,10 @@ module.exports = {
   route- GET /api/posts
   */
   getAll: (req, res, next) => {
-    db.Post.find({author: {$in: req.user.following}})
+    db.Post.find({ $or: [
+      {author: {$in: req.user.following}},
+      {author: req.user._id}
+      ]})
       .sort({ _id: -1 })
       .populate('author', ['fullName', 'username', 'profile.pic'])
       .populate('comments.author', ['fullName', 'username', 'firstName', 'profile.pic'])

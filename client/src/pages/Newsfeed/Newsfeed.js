@@ -9,7 +9,7 @@ import "./Newsfeed.css";
 import UserAPI from "../../utils/userAPI";
 
 const NewsAPI = require("newsapi");
-const newsapi = new NewsAPI("2879ab41a44141b3a1c9a2fb6174199d");
+const newsapi = new NewsAPI(process.env.REACT_APP_NEWSAPI);
 
 class Newsfeed extends Component {
   state = {
@@ -57,7 +57,7 @@ class Newsfeed extends Component {
         category: "technology",
         language: "en",
         country: "us",
-        apiKey: "2879ab41a44141b3a1c9a2fb6174199d"
+        apiKey: process.env.REACT_APP_NEWSAPI
       })
       .then(response => {
         // console.log(response.articles);
@@ -77,17 +77,14 @@ class Newsfeed extends Component {
             {/* <Sidebar /> */}
             {/* </Col> */}
             <Col size="md-8">
-              <NewPost />
-              <Postfeed loggedInUser={this.state.loggedInUser} />
+              <div className="not-stuck">
+                <NewPost />
+                <Postfeed loggedInUser={this.state.loggedInUser} />
+              </div>
+              5
             </Col>
             <Col size="md-4">
-              <div
-                className="p-4"
-                style={{
-                  border: "1px solid rgba(0,0,0,.125)",
-                  backgroundColor: "#fff"
-                }}
-              >
+              <div className="stuck">
                 <h4>Latest Tech News</h4>
                 {this.state.newsArticles.map(newsArticle => {
                   return (

@@ -22,32 +22,36 @@ class UserPic extends React.Component {
     for (let i = 0; i < this.props.following.length; i++) {
       if (this.props.following[i]._id === this.props.userId) {
         followStatus = true;
-        return console.log(followStatus);
-      };
-    };
+        return;
+      }
+    }
   };
 
   handleFollow = id => {
-    UserAPI.followUser(id).then(data => {
-      followStatus = true;
-      this.setState({
-        following: true
+    UserAPI.followUser(id)
+      .then(data => {
+        followStatus = true;
+        this.setState({
+          following: true
+        });
+      })
+      .catch(err => {
+        console.log(err);
       });
-    }).catch(err => {
-      console.log(err);
-    });
   };
 
   handleUnfollow = id => {
-    UserAPI.unfollowUser(id).then(data => {
-      console.log(data);
-      followStatus = false;
-      this.setState({
-        following: false
+    UserAPI.unfollowUser(id)
+      .then(data => {
+        followStatus = false;
+        window.location.reload();
+        this.setState({
+          following: false
+        });
+      })
+      .catch(err => {
+        console.log(err);
       });
-    }).catch(err => {
-      console.log(err);
-    });
   };
 
   renderButton = () => {
@@ -58,32 +62,40 @@ class UserPic extends React.Component {
         return (
           <button
             onClick={() => this.handleUnfollow(this.props.userId)}
-            className="btn btn-danger btn-sm">
+            className="btn btn-danger btn-sm"
+          >
             Unfollow
-        </button>
+          </button>
         );
       } else {
         return (
           <button
             onClick={() => this.handleFollow(this.props.userId)}
-            className="btn btn-primary btn-sm">
+            className="btn btn-primary btn-sm"
+          >
             Follow
-        </button>
+          </button>
         );
-      };
-    };
+      }
+    }
   };
 
   render() {
     return (
       <Card className="profile-card">
         {this.checkFollowStatus()}
-        <img className="userImage img-responsive" src={this.props.pic} alt="Profile" />
+        <div className="image-div" style={{border:"1px solid", borderRadius:"50%"}}>
+          <img
+            className="userImage img-responsive"
+            src={this.props.pic}
+            alt="Profile"
+          />
+        </div>
         <h2 className="profile-name">{this.props.fullName}</h2>
         {this.renderButton()}
       </Card>
     );
-  };
-};
+  }
+}
 
 export default UserPic;

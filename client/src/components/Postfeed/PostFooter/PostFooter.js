@@ -1,15 +1,16 @@
 import React from "react";
 import "./PostFooter.css";
 import PostAPI from "../../../utils/postAPI";
-import savedAPI from "../../../utils/savedAPI";
+import CommentBox from "../../CommentBox/CommentBox";
 
 class PostFooter extends React.Component {
   state = {
-    
     numLikes: this.props.numLikes,
+    comment:"",
     comments: this.props.comments || [],
     saves: this.props.saves,
-    isLiked: this.props.isLiked || false
+    isLiked: this.props.isLiked || false,
+    isHidden: true
   };
 
   handleLike = id => {
@@ -29,19 +30,29 @@ class PostFooter extends React.Component {
       });
     });
   };
+  
+  toggleComment = () => {
+    this.setState({
+      isHidden: !this.state.isHidden
+    });
+  };
 
-  handleComment = id => {
-    const comment = prompt("Add a comment:");
-    if (comment === "") {
-      return;
-    }
+  handleInput = event => {
+    this.setState({
+      comment: event.target.value
+    });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
     PostAPI.commentPost({
-      post_id: id,
-      comment: comment
+      post_id: this.props.id,
+      comment: this.state.comment
     })
       .then(data => {
         this.setState({
-          comments: data.data.comments || []
+          comments: data.data.comments || [],
+          comment: ''
         });
       })
       .catch(err => {
@@ -119,10 +130,10 @@ class PostFooter extends React.Component {
         <button
           onClick={() => this.handleUnlike(this.props.id)}
           type="button"
-          className="post-btn like-btn btn btn-danger btn-sm"
+          className="post-btn like-btn btn btn-secondary btn-sm"
         >
-          <span className="fa fa-thumbs-down" /> Unlike ({this.state.numLikes}
-          )
+          <span id="likeColor" className="fas fa-thumbs-up" /> Like (
+          {this.state.numLikes})
         </button>
       );
     } else {
@@ -143,12 +154,13 @@ class PostFooter extends React.Component {
       <div className="cardfooter">
         <div>
           <button
-            onClick={() => this.handleComment(this.props.id)}
+            onClick={this.toggleComment}
             type="button"
             className="post-btn comment-btn btn btn-secondary btn-sm"
           >
             Comment
           </button>
+          
           {this.renderLikeButton()}
           {/* <button
             onClick={() => this.saveSnippet(this.props.id)}
@@ -157,10 +169,21 @@ class PostFooter extends React.Component {
           >
             <span /> Save Snippet
           </button> */}
-
-          <div className="row comment-row" style={{ margin: 10 }}>
-            <div className="comments">{this.displayComments()}</div>
+          
+          {!this.state.isHidden && 
+          <div>
+            <CommentBox 
+              displayComments={this.displayComments}
+              onChange={this.handleInput}
+              comment={this.state.comment}
+              onSubmit={this.handleSubmit}
+            />
+            <div className="row comment-row" style={{ margin: 10 }}>
+              <div className="comments">{this.displayComments()}</div>
+            </div>
           </div>
+        }
+          
         </div>
       </div>
     );

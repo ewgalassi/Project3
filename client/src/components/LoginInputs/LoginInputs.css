@@ -17,7 +17,8 @@
   border-color: #eee8aa;
 }
 .loginInput:focus {
-  outline-color: #48c5da;
+  /* outline-color: #48c5da; */
+  outline: none;
 }
 
 .login-form {

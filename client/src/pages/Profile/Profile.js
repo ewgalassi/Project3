@@ -6,7 +6,15 @@ import UserInfo from "../../components/UserInfo/UserInfo";
 import NewPost from "../../components/NewPost/NewPost";
 import Navbar from "../../components/Navbar/Navbar";
 import UserAPI from "../../utils/userAPI";
-import "./Profile.css";
+import StackResults from "../../components/StackResults/stackResults"
+import axios from "axios";
+// import "./Profile.css";
+
+
+
+
+
+
 
 class Profile extends Component {
   state = {
@@ -20,8 +28,31 @@ class Profile extends Component {
     technologies: [],
     jobTitle: "",
     jobCompany: "",
-    following: []
+    following: [],
+    searchInput: "",
+    searchResults: []
   };
+
+  handleInput = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  searchStack (search) {
+    
+    const stackExURL = "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=" + search + "&site=stackoverflow";
+    axios.get(
+      stackExURL
+    ).then(response => {
+      
+      this.setState({
+        searchResults: response.data.items
+      })
+      console.log(this.state.searchResults)
+    })
+  }
 
   componentDidMount() {
     const {
@@ -39,8 +70,7 @@ class Profile extends Component {
       .then(data => {
         if (data.data.success === false) {
           window.location.replace("/login");
-        };
-        console.log(data.data.following)
+        }
         this.setState({
           user: data.data,
           loggedInUser: data.data._id,
@@ -67,7 +97,6 @@ class Profile extends Component {
 
   getUserDataById = id => {
     UserAPI.getUser().then(data => {
-      console.log("LOGGED IN: " + data.data._id);
       this.setState({
         loggedInUser: data.data._id,
         following: data.data.following || []
@@ -121,6 +150,29 @@ class Profile extends Component {
                 title={this.state.jobTitle}
                 company={this.state.jobCompany}
               />
+              <div>
+                <h4>Stack Overflow Search</h4>
+                <input type="text" 
+                type="text"
+                name="searchInput"
+                placeholder="Search"
+                value={this.state.searchInput}
+                onChange={this.handleInput}></input>
+                <button onClick={() => this.searchStack(this.state.searchInput)}>Search</button>
+                </div>
+                <div>
+                  <br></br>
+                  <h4>Search Results</h4>
+                  {this.state.searchResults.map(searchResult => {
+                    return (
+                      <StackResults
+                      url={searchResult.link}
+                      title={searchResult.title}
+                      />
+                    )
+                  })}
+                    
+                </div>
             </Col>
             <Col size="md-8">
               <NewPost />

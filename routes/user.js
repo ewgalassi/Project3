@@ -14,6 +14,8 @@ router.post('/login', function (req, res, next) {
 },
   passport.authenticate('local'),
   (req, res) => {
+    console.log("------ req.user: --------");
+    console.log(req.user);
     res.send(req.user);
   }
 );
@@ -30,7 +32,10 @@ router.get("/:id", userController.getUserDataById);
 // Update profile data
 router.put("/profile", userController.updateProfile);
 
-router.get("/follow/:id", userController.getUserProfile);
+// router.get("/follow/:id", userController.getUserProfile);
+
+// Search for a user
+router.get("/search/:username", userController.searchUsers);
 
 // Follow user
 router.post("/follow", userController.followUser);
