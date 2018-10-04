@@ -1,5 +1,7 @@
 import React from "react";
 import UserAPI from "../../utils/userAPI";
+import { Col, Row, Container } from "../../components/Grid";
+import Navbar from "../../components/Navbar/Navbar";
 import "./Profile.css";
 
 class EditProfile extends React.Component {
@@ -117,121 +119,136 @@ class EditProfile extends React.Component {
   render() {
     return (
       <div>
-        <form>
-          <label>Profile Pic:</label>
-          <input
-            name="pic"
-            value={this.state.pic}
-            onChange={this.handleInput}
-            type="text"
-          />
-          <br />
+        <Navbar />
+        <Container>
+          <Row>
+            <Col size="md-8">
+              <div className="test1">
+                <div className="testHeader">Edit Profile</div>
+                <hr />
+                <form>
+                  <label>Profile Pic:</label>
+                  <input
+                    name="pic"
+                    value={this.state.pic}
+                    onChange={this.handleInput}
+                    type="text"
+                  />
+                  <br />
 
-          <label>Github:</label>
-          <input
-            name="github"
-            value={this.state.github}
-            onChange={this.handleInput}
-            type="text"
-          />
-          <br />
+                  <label>Github:</label>
+                  <input
+                    name="github"
+                    value={this.state.github}
+                    onChange={this.handleInput}
+                    type="text"
+                  />
+                  <br />
 
-          <label>LinkedIn:</label>
-          <input
-            name="linkedin"
-            value={this.state.linkedin}
-            onChange={this.handleInput}
-            type="text"
-          />
-          <br />
+                  <label>LinkedIn:</label>
+                  <input
+                    name="linkedin"
+                    value={this.state.linkedin}
+                    onChange={this.handleInput}
+                    type="text"
+                  />
+                  <br />
 
-          <label>Portfolio:</label>
-          <input
-            name="portfolio"
-            value={this.state.portfolio}
-            onChange={this.handleInput}
-            type="text"
-          />
-          <br />
+                  <label>Portfolio:</label>
+                  <input
+                    name="portfolio"
+                    value={this.state.portfolio}
+                    onChange={this.handleInput}
+                    type="text"
+                  />
+                  <br />
 
-          <label>Job Title:</label>
-          <input
-            name="jobTitle"
-            value={this.state.jobTitle}
-            onChange={this.handleInput}
-            type="text"
-          />
-          <br />
+                  <label>Job Title:</label>
+                  <input
+                    name="jobTitle"
+                    value={this.state.jobTitle}
+                    onChange={this.handleInput}
+                    type="text"
+                  />
+                  <br />
 
-          <label>Company:</label>
-          <input
-            name="jobCompany"
-            value={this.state.jobCompany}
-            onChange={this.handleInput}
-            type="text"
-          />
-          <br />
+                  <label>Company:</label>
+                  <input
+                    name="jobCompany"
+                    value={this.state.jobCompany}
+                    onChange={this.handleInput}
+                    type="text"
+                  />
+                  <br />
 
-          <label>Languages (separate with comma):</label>
-          <input
-            name="languages"
-            value={this.state.languages}
-            onChange={this.handleInput}
-            type="text"
-          />
-          <br />
+                  <label>Languages (separate with comma):</label>
+                  <input
+                    name="languages"
+                    value={this.state.languages}
+                    onChange={this.handleInput}
+                    type="text"
+                  />
+                  <br />
 
-          <label>Technologies (separate with comma):</label>
-          <input
-            name="technologies"
-            value={this.state.technologies}
-            onChange={this.handleInput}
-            type="text"
-          />
-          <br />
+                  <label>Technologies (separate with comma):</label>
+                  <input
+                    name="technologies"
+                    value={this.state.technologies}
+                    onChange={this.handleInput}
+                    type="text"
+                  />
+                  <br />
 
-          <button onClick={this.cancel}>Cancel</button>
-          <button onClick={this.handleSubmit}>Submit</button>
-        </form>
+                  <button onClick={this.cancel}>Cancel</button>
+                  <button onClick={this.handleSubmit}>Submit</button>
+                </form>
+              </div>
+            </Col>
+          </Row>
 
-        <hr />
+          <Row>
+            <Col size="md-8">
+              <div className="test2">
+                <h3>You are following:</h3>
 
-        <h3>You are following:</h3>
+                {this.state.following.map(user => {
+                  return (
+                    <div key={user._id}>
+                      {user.fullName}
+                      <button onClick={() => this.handleUnfollow(user._id)}>
+                        Unfollow
+                      </button>
+                    </div>
+                  );
+                })}
 
-        {this.state.following.map(user => {
-          return (
-            <div key={user._id}>
-              {user.fullName}
-              <button onClick={() => this.handleUnfollow(user._id)}>
-                Unfollow
-              </button>
-            </div>
-          );
-        })}
+                <p>Follow a user (by id):</p>
+                <form>
+                  <input
+                    type="text"
+                    name="followInput"
+                    value={this.state.followInput}
+                    onChange={this.handleInput}
+                  />
+                  <button onClick={this.handleFollow}>Follow</button>
+                </form>
 
-        <p>Follow a user (by id):</p>
-        <form>
-          <input
-            type="text"
-            name="followInput"
-            value={this.state.followInput}
-            onChange={this.handleInput}
-          />
-          <button onClick={this.handleFollow}>Follow</button>
-        </form>
+                <hr />
 
-        <hr />
-
-        <p>Search for a user (by username):</p>
-        <form>
-          <input
-            type="text"
-            name="searchInput"
-            value={this.state.searchInput}
-            onChange={this.handleInput}
-          />
-          <button onClick={this.handleSearch}>Search</button>
-        </form>
+                <p>Search for a user (by username):</p>
+                <form>
+                  <input
+                    type="text"
+                    name="searchInput"
+                    value={this.state.searchInput}
+                    onChange={this.handleInput}
+                  />
+                  <button onClick={this.handleSearch}>Search</button>
+                </form>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }
