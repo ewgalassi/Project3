@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logout from "../Logout/Logout";
+import Dropdown2 from "../Dropdown2/Dropdown2";
 import { Container } from "../Grid";
 import UserAPI from "../../utils/userAPI";
 import "./Navbar.css";
@@ -30,8 +31,7 @@ class Navbar extends React.Component {
         console.log(err);
       });
   };
-  // }
-  // const Navbar = () => (
+
   render() {
     return (
       <nav id="accountNav" className="navbar fixed-top navbar-expand-lg">
@@ -39,26 +39,22 @@ class Navbar extends React.Component {
           <Link id="accountLogo" className="navbar-brand" to="/">
             Project 3
           </Link>
-          {/* <form className="form-inline my-2 my-lg-0">
-        <input
-          id="searchbox"
-          className="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form> */}
-          <form>
+          <form className="userSearch">
             <input
+              className="userSearchInput"
               type="text"
               name="searchInput"
+              placeholder="Search"
               value={this.state.searchInput}
               onChange={this.handleInput}
             />
-            <button onClick={this.handleSearch}>Search</button>
+            <button
+              className="logout-btn btn"
+              id="userSearchBtn"
+              onClick={this.handleSearch}
+            >
+              <span class="fas fa-search" />
+            </button>
           </form>
           <div>
             <ul className="navbar-nav">
@@ -112,7 +108,7 @@ class Navbar extends React.Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Logout />
+                <Dropdown2 />
               </li>
             </ul>
           </div>

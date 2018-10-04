@@ -19,7 +19,27 @@
   color: #ffffff;
 }
 
-/* #searchbox {
-  border: 2px solid white;
-  height: 35px;
-} */
+.userSearch {
+  position: relative;
+  left: 12.5%;
+}
+
+.userSearchInput {
+  width: 280px;
+  background: none;
+  border: 1px solid #eee8aa;
+  color: #ffffff;
+  padding-bottom: 5px;
+  margin-right: 3px;
+}
+
+.userSearchInput:focus {
+  outline: none;
+}
+
+#userSearchBtn {
+  background-color: #343637;
+  color: #ffffff;
+  border: 1px solid #eee8aa;
+  color: #a8a7a3;
+}
