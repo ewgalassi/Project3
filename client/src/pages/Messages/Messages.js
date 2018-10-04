@@ -49,33 +49,26 @@ class Messages extends React.Component {
                 <NewMessageInput />
               </div>
             </Col>
-          </Row>
-
-          {/* <Row>
-            <Col size="md-4">
-              <h3>Messages</h3>
+            <Col size="md-8">
+              <div className="messageList">
+                {this.state.messages.map(message => {
+                  return (
+                    <div key={message._id}>
+                      <Message
+                        key={message._id}
+                        id={message._id}
+                        conversation={message.conversation}
+                        from={message.from}
+                      />
+                      <button onClick={() => this.handleDelete(message._id)}>
+                        X
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
             </Col>
           </Row>
-
-          <NewMessageInput /> */}
-
-          <hr />
-
-          {this.state.messages.map(message => {
-            return (
-              <div key={message._id}>
-                <Message
-                  key={message._id}
-                  id={message._id}
-                  conversation={message.conversation}
-                  from={message.from}
-                />
-                <button onClick={() => this.handleDelete(message._id)}>
-                  X
-                </button>
-              </div>
-            );
-          })}
         </Container>
       </div>
     );

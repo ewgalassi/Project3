@@ -1,8 +1,10 @@
-body {
+.newMessage {
   color: white;
+  margin-top: 85px;
+  background-color: #343637;
 }
 
-.newMessage {
+.messageList {
   color: white;
   margin-top: 85px;
   background-color: #343637;
