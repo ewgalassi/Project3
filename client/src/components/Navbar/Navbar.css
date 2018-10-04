@@ -19,6 +19,10 @@
   color: #ffffff;
 }
 
+.navbar-nav {
+  flex-direction: row;
+}
+
 .userSearch {
   position: relative;
   left: 17%;
@@ -43,4 +47,15 @@
   border: 1px solid #eee8aa;
   color: #a8a7a3;
   padding: 5px 10px 5px 10px;
+}
+
+@media only screen and (max-width: 414px) {
+  .navbar-nav {
+    margin-bottom: 1.5rem;
+    width: 100vw;
+  }
+
+  #accountNav {
+    height: 90px;
+  }
 }
