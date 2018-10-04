@@ -8,32 +8,36 @@ import NewMessageInput from "../../components/Message/NewMessagInput";
 
 class Messages extends React.Component {
   state = {
-    messages: [],
+    messages: []
   };
 
   componentDidMount() {
     this.getMessages();
-  };
+  }
 
   getMessages = () => {
-    MessageAPI.getMessages().then(data => {
-      console.log(data.data);
-      this.setState({
-        messages: data.data || []
+    MessageAPI.getMessages()
+      .then(data => {
+        console.log(data.data);
+        this.setState({
+          messages: data.data || []
+        });
+      })
+      .catch(err => {
+        console.log(err);
       });
-    }).catch(err => {
-      console.log(err);
-    });
   };
 
   handleDelete = id => {
     console.log(id);
-    MessageAPI.delete(id).then(data => {
-      console.log(data);
-      // window.location.replace("/messages");
-    }).catch(err => {
-      console.log(err);
-    });
+    MessageAPI.delete(id)
+      .then(data => {
+        console.log(data);
+        // window.location.replace("/messages");
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   render() {
@@ -42,16 +46,20 @@ class Messages extends React.Component {
         <Navbar />
         <Container>
           <Row>
-            <br /><br /><br />
+            <Col size="md-4">
+              <div className="newMessage">
+                <NewMessageInput />
+              </div>
+            </Col>
           </Row>
 
-          <Row>
+          {/* <Row>
             <Col size="md-4">
               <h3>Messages</h3>
             </Col>
           </Row>
 
-          <NewMessageInput />
+          <NewMessageInput /> */}
 
           <hr />
 
@@ -64,16 +72,16 @@ class Messages extends React.Component {
                   conversation={message.conversation}
                   from={message.from}
                 />
-                <button onClick={() => this.handleDelete(message._id)}>X</button>
+                <button onClick={() => this.handleDelete(message._id)}>
+                  X
+                </button>
               </div>
             );
           })}
-          <hr />
-
         </Container>
       </div>
     );
-  };
-};
+  }
+}
 
 export default Messages;

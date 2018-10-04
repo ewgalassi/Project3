@@ -1,3 +1,13 @@
 body {
-    color: white;
+  color: white;
+}
+
+.newMessage {
+  color: white;
+  margin-top: 85px;
+  background-color: #343637;
+}
+
+hr {
+  border-color: red;
 }
