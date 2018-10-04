@@ -38,33 +38,27 @@ class PostFooter extends React.Component {
   };
 
   handleInput = event => {
-    // const comment = prompt("Add a comment:");
-    console.log(event.target)
     this.setState({
       comment: event.target.value
     });
-    // if (comment === "") {
-    //   return;
-    // }
-
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
     PostAPI.commentPost({
-      // post_id: id,
+      post_id: this.props.id,
       comment: this.state.comment
     })
       .then(data => {
-        console.log(this.state.comment, "comment posted")
         this.setState({
-          comments: data.data.comments || []
+          comments: data.data.comments || [],
+          comment: ''
         });
       })
       .catch(err => {
         console.log(err);
       });
-  }
+  };
 
 
 
