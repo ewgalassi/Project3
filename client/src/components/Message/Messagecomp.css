@@ -1,6 +1,7 @@
 #messageCard {
-  /* margin-top: 85px; */
   padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(238, 232, 170, 0.34);
 }
 
 #messageCard hr {
@@ -16,4 +17,13 @@
 
 .messageboard #exchanges {
   margin-bottom: 10px;
+}
+
+#testdelete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  color: #ffffff;
+  border: none;
 }

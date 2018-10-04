@@ -56,15 +56,18 @@ class Messages extends React.Component {
                 {this.state.messages.map(message => {
                   return (
                     <div key={message._id}>
+                      <button
+                        id="messageDeleteBtn"
+                        onClick={() => this.handleDelete(message._id)}
+                      >
+                        X
+                      </button>
                       <Message
                         key={message._id}
                         id={message._id}
                         conversation={message.conversation}
                         from={message.from}
                       />
-                      <button onClick={() => this.handleDelete(message._id)}>
-                        X
-                      </button>
                     </div>
                   );
                 })}
