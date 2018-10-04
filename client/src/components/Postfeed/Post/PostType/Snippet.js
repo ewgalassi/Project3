@@ -1,14 +1,16 @@
 import React from "react";
 import "./PostType.css";
 import CopytoClipboard from "react-copy-to-clipboard";
-
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/styles/hljs';
 
 class Snippet extends React.Component {
 
 
   state = {
     copied: false
-  }
+  };
+
 
   render() {
 
@@ -19,11 +21,11 @@ class Snippet extends React.Component {
 
         <h5 className="description">{this.props.description}</h5>
         <div className="snippet">
-          <pre>
-            <code>
-              {this.props.post}
-            </code>
-          </pre>
+
+          <SyntaxHighlighter language="javascript" style={dracula}>
+            {this.props.post}
+          </SyntaxHighlighter>
+
           <div className="icons">
             <CopytoClipboard text={this.props.post}
               onCopy={() => alert("copied to clipboard")}
@@ -34,15 +36,15 @@ class Snippet extends React.Component {
             </CopytoClipboard>
             <button
               // onClick={() => this.saveSnippet(postData)}
-              onClick= {this.props.onClick}
+              onClick={this.props.onClick}
               type="button"
               className="snippet-btn btn btn-link fa fa-save"
             >
-            <span class="tooltiptext">{this.props.isSaved ? "Unsave" : "Save"}</span>
+              <span class="tooltiptext">{this.props.isSaved ? "Unsave" : "Save"}</span>
             </button>
           </div>
-        
-         
+
+
         </div>
       </div>
     );
