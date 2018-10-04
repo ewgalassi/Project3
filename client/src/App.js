@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Snippets from "./pages/Snippets/Snippets";
 import EditProfile from "./pages/Profile/EditProfile";
+import Messages from "./pages/Messages/Messages";
 
 const App = () => (
   <Router>
@@ -18,6 +19,7 @@ const App = () => (
       <Route exact path="/snippets" component={Snippets} />
       <Route exact path="/profile/:id" component={Profile} />
       <Route exact path="/editProfile" component={EditProfile} />
+      <Route exact path="/messages" component={Messages} />
     </div>
   </Router>
 );
