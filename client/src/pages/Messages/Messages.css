@@ -1,16 +1,20 @@
-/* .newMessage {
-  color: #48c5da;
-  margin-top: 85px;
-  background-color: #343637;
-  padding: 20px;
+.bumper {
+  height: 85px;
 }
 
-.messageList {
-  color: white;
-  margin-top: 85px;
-  background-color: #343637;
+.stationary {
+  position: fixed;
+  top: 0px;
+  width: 380px;
+  overflow-y: scroll;
 }
 
-hr {
-  border-color: red;
-} */
+.stationary::-webkit-scrollbar {
+  width: 0 !important;
+}
+.stationary {
+  -ms-overflow-style: none;
+}
+.stationary {
+  overflow: -moz-scrollbars-none;
+}

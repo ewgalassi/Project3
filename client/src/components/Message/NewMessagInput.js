@@ -38,10 +38,13 @@ class NewMessageInput extends React.Component {
           <h3>Send a message!</h3>
 
           <form>
-            <label>To: (username)</label>
+            <label>To:</label>
+            <br />
             <input
+              id="toUser"
               type="text"
               name="to"
+              placeholder="Username"
               onChange={this.handleInput}
               value={this.state.to}
             />
@@ -49,14 +52,18 @@ class NewMessageInput extends React.Component {
             <br />
 
             <label>Message:</label>
+            <br />
             <input
+              id="messageTextArea"
               type="text"
               name="message"
               onChange={this.handleInput}
               value={this.state.message}
             />
-
-            <button onClick={this.handleSubmit}>Send</button>
+            <br />
+            <button id="submitMessageBtn" onClick={this.handleSubmit}>
+              Send
+            </button>
           </form>
         </Card>
       </div>

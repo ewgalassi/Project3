@@ -45,10 +45,14 @@ class Messages extends React.Component {
         <Container>
           <Row>
             <Col size="md-5">
-              <NewMessageInput />
+              <div className="stationary">
+                <NewMessageInput />
+              </div>
             </Col>
             <Col size="md-7">
-              <div className="messageList">
+              <div className="scrolly">
+                <div className="bumper" />
+
                 {this.state.messages.map(message => {
                   return (
                     <div key={message._id}>
