@@ -72,7 +72,7 @@ class NewPost extends Component {
 
   render() {
     return (
-      <Card id="newPostCard" style={{ padding: 20 }}>
+      <Card id="newPostCard">
         <PostBox
           onChange={this.handleInput}
           post={this.state.post}

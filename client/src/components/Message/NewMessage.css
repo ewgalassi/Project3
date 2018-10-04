@@ -1,9 +1,9 @@
-#newPostCard {
+#newMessageCard {
   margin-top: 85px;
   padding: 20px;
 }
 
-#newPostCard:after {
+#newMessageCard:after {
   content: "";
   position: absolute;
   top: 0;

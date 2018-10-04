@@ -44,12 +44,10 @@ class Messages extends React.Component {
         <Navbar />
         <Container>
           <Row>
-            <Col size="md-4">
-              <div className="newMessage">
-                <NewMessageInput />
-              </div>
+            <Col size="md-5">
+              <NewMessageInput />
             </Col>
-            <Col size="md-8">
+            <Col size="md-7">
               <div className="messageList">
                 {this.state.messages.map(message => {
                   return (
