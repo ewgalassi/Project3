@@ -120,8 +120,16 @@
   color: #ffffff;
 }
 
+#followFriend {
+  margin-bottom: 15px;
+}
+
+.card-body button:focus {
+  outline: none;
+}
+
 @media screen and (max-width: 414px) {
   .profile-card {
     margin-top: 8rem;
-  }  
+  }
 }
