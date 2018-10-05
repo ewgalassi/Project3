@@ -23,7 +23,7 @@ class Snippet extends React.Component {
         className="snippet-btn btn btn-link fa fa-save"
         disabled
       >
-        {/* <span class="tooltiptext"></span> */}
+        {/* <span className="tooltiptext"></span> */}
       </button>
       )
     } else {
@@ -34,7 +34,7 @@ class Snippet extends React.Component {
         type="button"
         className="snippet-btn btn btn-link fa fa-save"
       >
-        <span class="tooltiptext">Save</span>
+        <span className="tooltiptext">Save</span>
       </button>
       )
     }

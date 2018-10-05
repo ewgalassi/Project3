@@ -24,10 +24,14 @@
   margin-bottom: 10px;
   /* position:absolute; */
   /* display: inline-block; */
-  display: inline;
+  display: block;
   margin: auto;
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  max-height: auto;
+  object-fit: contain;
+  transform:scale(1); 
+  transform-origin:center;
+  background-size:content;
 }
 
 h2.profile-name {
