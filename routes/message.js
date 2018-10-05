@@ -32,11 +32,16 @@ router.route("/")
   // GET /api/message
   .get((req, res) => {
     if (!req.user) return res.json({ success: false, message: "Not signed in" });
-    db.Message.find({ to: req.user._id })
+    db.Message.find({
+      $or: [
+        {from: req.user._id}, {to: req.user._id}
+      ]
+    })
       .sort({ _id: -1 })
       .populate("conversation.from", ["profile.pic", "fullName", "firstName"])
       .populate("conversation.to", ["profile.pic", "fullName", "firstName"])
       .populate("from", ["profile.pic", "fullName", "firstName"])
+      .populate("to", ["profile.pic", "fullName", "firstName"])
       .exec((err, messages) => {
         if (err) return res.send(err);
         res.send(messages);
