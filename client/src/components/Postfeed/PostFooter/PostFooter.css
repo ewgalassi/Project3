@@ -21,3 +21,7 @@
 #likeColor {
   color: #48c5da;
 }
+
+.comments li {
+  margin-left: 0px !important;
+}
