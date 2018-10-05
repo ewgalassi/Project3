@@ -56,18 +56,20 @@ class Post extends Component {
       }
       
       this.saveSnippet(postData);
+      // document.querySelectorAll(".snippet-btn").addClass("disabled");
 
     } else if (this.state.isSaved) {
-      const postData = {
-        post: this.props.post,
-        type: this.props.type,
-        description: this.props.description,
-        numLikes: this.props.numLikes,
-        comments: this.props.comments || [],
-        saves: this.props.saves,
-      }
-      this.unSaveSnippet(postData);
+      // const postData = {
+      //   post: this.props.post,
+      //   type: this.props.type,
+      //   description: this.props.description,
+      //   numLikes: this.props.numLikes,
+      //   comments: this.props.comments || [],
+      //   saves: this.props.saves,
+      // }
+      // this.unSaveSnippet(postData);
   
+      alert("You've already saved this one!")
     }
   }
 
