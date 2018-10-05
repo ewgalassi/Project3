@@ -20,6 +20,13 @@
   position: relative;
 }
 
+.only-delete {
+  position:absolute;
+  top:0;
+  right:0;
+  
+}
+
 .thumbnail-div {
   width: 60px;
   height: 60px;
@@ -39,6 +46,18 @@
   top: 0;
   right: 0;
   background: none;
-  color: #ffffff;
+  color:rgba(212, 212, 212, 0.29);
   border: none;
+  font-size:17px;
+}
+
+.delete-btn:hover {
+  color:rgba(255, 0, 0, 0.5);
+}
+
+.newsfeed-delete {
+  position:absolute;
+  top:-30%;
+  right:-3%;
+  z-index:5;
 }
