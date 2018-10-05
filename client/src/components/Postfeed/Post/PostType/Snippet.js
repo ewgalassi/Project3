@@ -2,7 +2,7 @@ import React from "react";
 import "./PostType.css";
 import CopytoClipboard from "react-copy-to-clipboard";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/styles/hljs";
+import { atelierSeasideLight } from "react-syntax-highlighter/styles/hljs";
 
 class Snippet extends React.Component {
   state = {
@@ -44,7 +44,7 @@ class Snippet extends React.Component {
       <div className="content">
         <h5 className="description">{this.props.description}</h5>
         <div className="snippet">
-          <SyntaxHighlighter language="javascript" style={dracula}>
+          <SyntaxHighlighter language="javascript" style={atelierSeasideLight}>
             {this.props.post}
           </SyntaxHighlighter>
 
