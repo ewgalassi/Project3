@@ -24,3 +24,15 @@
 .stuck {
   overflow: -moz-scrollbars-none;
 }
+
+@media screen and (max-width: 414px) {
+  .not-stuck {
+    position: relative;
+    float: left;
+  }
+
+  .stuck {
+    position: relative;
+    margin: 0 auto;
+  }
+}

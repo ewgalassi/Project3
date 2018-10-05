@@ -23,29 +23,30 @@ p {
   text-align: left;
 }
 
-/* .snippet {
-  padding: 20px;
+.snippet {
+  /* padding: 20px; */
   margin-top: 10px;
   height: auto;
-  background-color: rgba(199, 208, 215, 0.95);
-  border: 1px solid rgb(30, 36, 36);
+  /* background-color: rgba(199, 208, 215, 0.95);
+  border: 1px solid rgb(30, 36, 36); */
   position:relative;
-} */
+}
 
 
 /* Snippet - Copy and Save Buttons*/
 .copy-btn,
 .snippet-btn {
-  color:#343637 !important;
   padding:4px;
   
 }
 
 .icons {
+  color:white;
   position: absolute;
   right: 0;
   top: 0;
   margin: 10px;
+
 }
 
 .tooltiptext {

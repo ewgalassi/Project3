@@ -119,3 +119,9 @@
   background-color: rgba(255, 0, 0, 0.64);
   color: #ffffff;
 }
+
+@media screen and (max-width: 414px) {
+  .profile-card {
+    margin-top: 8rem;
+  }  
+}
