@@ -25,7 +25,7 @@
 
 .userSearch {
   position: relative;
-  left: 12%;
+  left: 8%;
   margin-top: 3.5px;
 }
 
@@ -51,13 +51,30 @@
   padding: 5px 10px 5px 10px;
 }
 
-@media only screen and (max-width: 414px) {
-  .navbar-nav {
-    margin-bottom: 1.5rem;
-    width: 100vw;
+@media screen and (max-width: 980px) {
+  .userSearch {
+    left: 5%;
   }
 
   #accountNav {
     height: 90px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .userSearch {
+    left: 0%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .navbar-nav {
+    margin-bottom: 1rem;
+    margin-top: 0.4rem;
+    width: 100vw;
+  }
+
+  #accountNav {
+    height: 120px;
   }
 }

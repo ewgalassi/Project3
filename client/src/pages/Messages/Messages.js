@@ -67,6 +67,7 @@ class Messages extends React.Component {
                         id={message._id}
                         conversation={message.conversation}
                         from={message.from}
+                        to={message.to}
                       />
                     </div>
                   );

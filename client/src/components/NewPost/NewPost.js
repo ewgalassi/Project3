@@ -11,7 +11,7 @@ class NewPost extends Component {
   state = {
     posts: [],
     post: "",
-    type: "",
+    type: "" || "status",
     description: ""
   };
 
