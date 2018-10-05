@@ -51,6 +51,14 @@
   padding: 5px 10px 5px 10px;
 }
 
+.socialCodeChar {
+  color: #a7a6ba;
+}
+
+.socialCodeText {
+  color: #48c5da;
+}
+
 @media screen and (max-width: 980px) {
   .userSearch {
     left: 5%;

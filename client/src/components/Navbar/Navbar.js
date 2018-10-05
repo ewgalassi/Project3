@@ -36,7 +36,9 @@ class Navbar extends React.Component {
       <nav id="accountNav" className="navbar fixed-top navbar-expand-lg">
         <Container>
           <Link id="accountLogo" className="navbar-brand" to="/">
-            Project 3
+            <span className="socialCodeChar">
+              &lt; <span className="socialCodeText">SocialCode </span> /&gt;{" "}
+            </span>
           </Link>
           <form className="userSearch">
             <input
