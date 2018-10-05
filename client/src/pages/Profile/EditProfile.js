@@ -62,7 +62,7 @@ class EditProfile extends React.Component {
     })
       .then(data => {
         if (data.data.success) {
-          window.location.replace("/profile");
+          window.location.replace("/editProfile");
         } else {
           console.log(data.data);
         }
@@ -155,6 +155,7 @@ class EditProfile extends React.Component {
                         <label />
                         <input
                           name="pic"
+                          placeholder="Picture URL..."
                           value={this.state.pic}
                           onChange={this.handleInput}
                           type="text"
@@ -191,6 +192,7 @@ class EditProfile extends React.Component {
                         <label />
                         <input
                           name="github"
+                          placeholder="Add your link..."
                           value={this.state.github}
                           onChange={this.handleInput}
                           type="text"
@@ -227,6 +229,7 @@ class EditProfile extends React.Component {
                         <label />
                         <input
                           name="linkedin"
+                          placeholder="Add your link..."
                           value={this.state.linkedin}
                           onChange={this.handleInput}
                           type="text"
@@ -263,6 +266,7 @@ class EditProfile extends React.Component {
                         <label />
                         <input
                           name="portfolio"
+                          placeholder="Add your link..."
                           value={this.state.portfolio}
                           onChange={this.handleInput}
                           type="text"
@@ -299,6 +303,7 @@ class EditProfile extends React.Component {
                         <label />
                         <input
                           name="jobTitle"
+                          placeholder="Job title..."
                           value={this.state.jobTitle}
                           onChange={this.handleInput}
                           type="text"
@@ -335,6 +340,7 @@ class EditProfile extends React.Component {
                         <label />
                         <input
                           name="jobCompany"
+                          placeholder="Company..."
                           value={this.state.jobCompany}
                           onChange={this.handleInput}
                           type="text"
@@ -371,6 +377,7 @@ class EditProfile extends React.Component {
                         <label>(separate with commas)</label>
                         <input
                           name="languages"
+                          placeholder="Languages..."
                           value={this.state.languages}
                           onChange={this.handleInput}
                           type="text"
@@ -407,6 +414,7 @@ class EditProfile extends React.Component {
                         <label>(separate with commas)</label>
                         <input
                           name="technologies"
+                          placeholder="Technologies..."
                           value={this.state.technologies}
                           onChange={this.handleInput}
                           type="text"
@@ -429,7 +437,7 @@ class EditProfile extends React.Component {
 
                 {this.state.following.map(user => {
                   return (
-                    <div key={user._id}>
+                    <div id="followFriend" key={user._id}>
                       {user.fullName}
                       <button
                         id="editUnfollow"
@@ -448,6 +456,7 @@ class EditProfile extends React.Component {
                   <input
                     type="text"
                     name="followInput"
+                    placeholder="Username..."
                     value={this.state.followInput}
                     onChange={this.handleInput}
                   />
