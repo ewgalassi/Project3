@@ -24,9 +24,7 @@ const userSchema = new Schema({
 			company: { type: String, trim: true },
 		}
 	},
-	followers: [
-		{ type: mongoose.Schema.Types.ObjectId, ref: "User" }
-	],
+	numFollowers: { type: Number, default: 0 },
 	following: [
 		{ type: mongoose.Schema.Types.ObjectId, ref: "User" }
 	]
@@ -45,7 +43,7 @@ userSchema.methods.hashPassword = plainTextPassword => {
 // Handle followers/following
 userSchema.methods.follow = function (user_id) {
 	if (this.following.indexOf(user_id) === -1) {
-		this.following.push(user_id)
+		this.following.push(user_id);
 	};
 	return this.save();
 };
@@ -60,8 +58,10 @@ userSchema.methods.unfollow = function (user_id) {
 	return this.save();
 };
 
-userSchema.methods.addFollower = function (f) {
-	this.followers.push(f);
+userSchema.methods.incrementFollowers = function () {
+	this.numFollowers += 1;
+	console.log("--- NUM FOLLOWERS: " + this.numFollowers);
+	return this.save();
 };
 
 // Hash password, generate full name

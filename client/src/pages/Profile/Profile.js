@@ -30,7 +30,8 @@ class Profile extends Component {
     jobCompany: "",
     following: [],
     searchInput: "",
-    searchResults: []
+    searchResults: [],
+    numFollowers: 0
   };
 
   handleInput = event => {
@@ -40,13 +41,13 @@ class Profile extends Component {
     });
   };
 
-  searchStack (search) {
-    
+  searchStack(search) {
+
     const stackExURL = "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=" + search + "&site=stackoverflow";
     axios.get(
       stackExURL
     ).then(response => {
-      
+
       this.setState({
         searchResults: response.data.items
       })
@@ -87,7 +88,8 @@ class Profile extends Component {
           jobCompany: data.data.profile.jobInfo
             ? data.data.profile.jobInfo.company
             : "Job Company",
-          following: data.data.following || []
+          following: data.data.following || [],
+          numFollowers: data.data.numFollowers || 0
         });
       })
       .catch(err => {
@@ -99,7 +101,8 @@ class Profile extends Component {
     UserAPI.getUser().then(data => {
       this.setState({
         loggedInUser: data.data._id,
-        following: data.data.following || []
+        following: data.data.following || [],
+        numFollowers: data.data.numFollowers || 0
       });
     });
     UserAPI.getUserById(id)
@@ -113,6 +116,7 @@ class Profile extends Component {
           portfolio: data.data.profile.portfolio,
           languages: data.data.profile.languages,
           technologies: data.data.profile.technologies,
+          numFollowers: data.data.numFollowers || 0,
           jobTitle: data.data.profile.jobInfo
             ? data.data.profile.jobInfo.title
             : "Job Title",
@@ -139,6 +143,7 @@ class Profile extends Component {
                 userId={this.state.id}
                 loggedInUser={this.state.loggedInUser}
                 following={this.state.following}
+                numFollowers={this.state.numFollowers}
               />
               <UserInfo
                 id={this.state.id}
@@ -153,26 +158,26 @@ class Profile extends Component {
               <div>
                 <h4>Stack Overflow Search</h4>
                 <input
-                type="text"
-                name="searchInput"
-                placeholder="Search"
-                value={this.state.searchInput}
-                onChange={this.handleInput}></input>
+                  type="text"
+                  name="searchInput"
+                  placeholder="Search"
+                  value={this.state.searchInput}
+                  onChange={this.handleInput}></input>
                 <button onClick={() => this.searchStack(this.state.searchInput)}>Search</button>
-                </div>
-                <div>
-                  <br></br>
-                  <h4>Search Results</h4>
-                  {this.state.searchResults.map(searchResult => {
-                    return (
-                      <StackResults
+              </div>
+              <div>
+                <br></br>
+                <h4>Search Results</h4>
+                {this.state.searchResults.map(searchResult => {
+                  return (
+                    <StackResults
                       url={searchResult.link}
                       title={searchResult.title}
-                      />
-                    )
-                  })}
-                    
-                </div>
+                    />
+                  )
+                })}
+
+              </div>
             </Col>
             <Col size="md-8">
               <NewPost />
