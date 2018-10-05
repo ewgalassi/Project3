@@ -1,3 +1,9 @@
 .bumper {
   height: 58px;
 }
+
+@media screen and (max-width: 414px) {
+  .bumper {
+    height: 100px;
+  }
+}
