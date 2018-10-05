@@ -8,8 +8,37 @@ class Snippet extends React.Component {
 
 
   state = {
-    copied: false
+    copied: false,
+    isDisabled: this.props.isDisabled
   };
+
+  renderButton = () => {
+    console.log(this.state.isDisabled)
+    if (this.state.isDisabled) {
+      console.log("disabled true")
+      return(
+      <button
+        // onClick={this.props.onClick}
+        type="button"
+        className="snippet-btn btn btn-link fa fa-save"
+        disabled
+      >
+        {/* <span class="tooltiptext"></span> */}
+      </button>
+      )
+    } else {
+      console.log("disabled false")
+      return (
+      <button
+        onClick={this.props.onClick}
+        type="button"
+        className="snippet-btn btn btn-link fa fa-save"
+      >
+        <span class="tooltiptext">Save</span>
+      </button>
+      )
+    }
+  }
 
 
   render() {
@@ -34,14 +63,8 @@ class Snippet extends React.Component {
                 <span className="tooltiptext">Copy</span>
               </button>
             </CopytoClipboard>
-            <button
-              // onClick={() => this.saveSnippet(postData)}
-              onClick={this.props.onClick}
-              type="button"
-              className="snippet-btn btn btn-link fa fa-save"
-            >
-              <span class="tooltiptext">{this.props.isSaved ? "Unsave" : "Save"}</span>
-            </button>
+            {this.renderButton()}
+     
           </div>
 
 
