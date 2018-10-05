@@ -89,7 +89,7 @@ class Profile extends Component {
             ? data.data.profile.jobInfo.company
             : "Job Company",
           following: data.data.following || [],
-          numFollowers: data.data.numFollowers || 0
+          numFollowers: data.data.numFollowers
         });
       })
       .catch(err => {
@@ -102,7 +102,7 @@ class Profile extends Component {
       this.setState({
         loggedInUser: data.data._id,
         following: data.data.following || [],
-        numFollowers: data.data.numFollowers || 0
+        numFollowers: data.data.numFollowers
       });
     });
     UserAPI.getUserById(id)
@@ -116,7 +116,7 @@ class Profile extends Component {
           portfolio: data.data.profile.portfolio,
           languages: data.data.profile.languages,
           technologies: data.data.profile.technologies,
-          numFollowers: data.data.numFollowers || 0,
+          numFollowers: data.data.numFollowers,
           jobTitle: data.data.profile.jobInfo
             ? data.data.profile.jobInfo.title
             : "Job Title",
