@@ -16,6 +16,7 @@ module.exports = {
         Saved.find({author: req.user._id})
         
         .sort({_id: -1})
+        .populate('ogAuthor', ['profile.pic', 'fullName'])
         .then(function(savedSnippets) {
             // console.log(savedSnippets);
             // If all Users are successfully found, send them back to the client

@@ -25,6 +25,7 @@ class Postfeed extends Component {
             });
         } else if (window.location.href.includes("snippets")) {
             SavedAPI.getSavedSnippets().then(data => {
+                console.log(data);
                 // console.log(data);
                 this.setState({
                     posts: data.data
@@ -66,9 +67,9 @@ class Postfeed extends Component {
                         key={post._id}
                         id={post._id}
                         isLiked={isLiked}
-                        authorId={post.author._id}
+                        authorId={post.ogAuthor ? post.ogAuthor._id : post.author._id}
                         loggedInUser={this.props.loggedInUser}
-                        author={post.author.fullName} 
+                        author={post.ogAuthor ? post.ogAuthor.fullName : post.author.fullName} 
                         post={post.post}
                         type={post.type}
                         articleMetadata={post.articleMetadata || "not an article"}
