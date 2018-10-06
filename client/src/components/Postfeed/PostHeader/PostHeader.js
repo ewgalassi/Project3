@@ -11,7 +11,8 @@ class PostHeader extends React.Component {
 
 
   renderType = () => {
-    if (window.location.href.includes('profile')){
+    if (window.location.href.includes('profile') || window.location.href.includes('snippets')){
+      console.log('renderType is working')
       return(
         <div className=".postheader only-delete">
           {this.renderDeleteBtn()}
@@ -42,7 +43,7 @@ class PostHeader extends React.Component {
   handleDelete = (id) => {
     // console.log(id);
     if (window.location.href.includes('snippets')){
-      // console.log("working")
+      console.log("working")
       SavedAPI.unSaveSnippet(id).then(data =>{
         if (data.data.success) {
           window.location.reload();
@@ -52,7 +53,7 @@ class PostHeader extends React.Component {
       })
     } else {
     PostAPI.deletePost(id).then(data => {
-      // console.log("not working")
+      console.log("not working")
       if (data.data.success) {
         window.location.reload();
       } else {
@@ -65,7 +66,8 @@ class PostHeader extends React.Component {
   };
 
   renderDeleteBtn = () => {
-    if (this.props.authorId === this.props.loggedInUser) {
+    if (this.props.authorId === this.props.loggedInUser || this.props.author._id === this.props.loggedInUser) {
+      console.log("renderDelete works")
       return (
         <button 
         className="float-right delete-btn"
