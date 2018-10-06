@@ -1,48 +1,65 @@
 import React from "react";
 import "./PostType.css";
 import CopytoClipboard from "react-copy-to-clipboard";
-
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { atelierSeasideLight } from "react-syntax-highlighter/styles/hljs";
 
 class Snippet extends React.Component {
-
-
   state = {
-    copied: false
+    copied: false,
+    isDisabled: this.props.isDisabled
+  };
+
+  renderButton = () => {
+    console.log(this.state.isDisabled)
+    if (this.state.isDisabled) {
+      console.log("disabled true")
+      return(
+      <button
+        // onClick={this.props.onClick}
+        type="button"
+        className="snippet-btn btn btn-link fa fa-save"
+        disabled
+      >
+        {/* <span className="tooltiptext"></span> */}
+      </button>
+      )
+    } else {
+      console.log("disabled false")
+      return (
+      <button
+        onClick={this.props.onClick}
+        type="button"
+        className="snippet-btn btn btn-link fa fa-save"
+      >
+        <span className="tooltiptext">Save</span>
+      </button>
+      )
+    }
   }
 
+
   render() {
-
     return (
-
-
       <div className="content">
-
-        <p>{this.props.description}</p>
+        <h5 className="description">{this.props.description}</h5>
         <div className="snippet">
-          <pre>
-            <code>
-              {this.props.post}
-            </code>
-          </pre>
+          <SyntaxHighlighter language="javascript" style={atelierSeasideLight}>
+            {this.props.post}
+          </SyntaxHighlighter>
+
           <div className="icons">
-            <CopytoClipboard text={this.props.post}
+            <CopytoClipboard
+              text={this.props.post}
               onCopy={() => alert("copied to clipboard")}
             >
-              <button className="copy-btn btn btn-link btn-sm fa fa-copy">
-                <span class="tooltiptext">Copy</span>
+              <button className="copy-btn btn btn-link fa fa-copy">
+                <span className="tooltiptext">Copy</span>
               </button>
             </CopytoClipboard>
-            <button
-              // onClick={() => this.saveSnippet(postData)}
-              onClick= {this.props.onClick}
-              type="button"
-              className="snippet-btn btn btn-link btn-sm fa fa-save"
-            >
-            <span class="tooltiptext">{this.props.isSaved ? "Unsave" : "Save"}</span>
-            </button>
+            {this.renderButton()}
+     
           </div>
-        
-         
         </div>
       </div>
     );

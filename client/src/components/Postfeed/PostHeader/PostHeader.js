@@ -4,6 +4,8 @@ import "./PostHeader.css";
 import PostAPI from "../../../utils/postAPI";
 import SavedAPI from "../../../utils/savedAPI";
 
+const moment = require("moment");
+
 
 class PostHeader extends React.Component {
 
@@ -11,7 +13,7 @@ class PostHeader extends React.Component {
   renderType = () => {
     if (window.location.href.includes('profile')){
       return(
-        <div className="postheader">
+        <div className=".postheader only-delete">
           {this.renderDeleteBtn()}
         </div>
       )
@@ -26,10 +28,12 @@ class PostHeader extends React.Component {
             <a href={"/profile/" + this.props.authorId}>
               <h5 className="author">{this.props.author}</h5>
             </a>
-            <p className="timestamp">{this.props.time}}</p>
+            <p className="timestamp">{moment(this.props.time).format('dddd, MMM Do YYYY, h:mm a')}
+            </p>
           </div>
-          
-          {this.renderDeleteBtn()}
+          <div className="newsfeed-delete">
+            {this.renderDeleteBtn()}
+          </div>
         </div>
       )
     }
@@ -64,7 +68,7 @@ class PostHeader extends React.Component {
     if (this.props.authorId === this.props.loggedInUser) {
       return (
         <button 
-        className="btn btn-sm btn-light float-right delete-btn"
+        className="float-right delete-btn"
         onClick={() => this.handleDelete(this.props.id)}
         >X</button>
       );

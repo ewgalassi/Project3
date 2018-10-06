@@ -8,7 +8,9 @@ const Navbar2 = () => (
   <nav className="navbar navbar-expand-lg">
     <Container>
       <Link id="logo" className="navbar-brand" to="/">
-        Project 3
+        <span className="socialCodeChar">
+          &lt; <span className="socialCodeText">SocialCode </span> /&gt;{" "}
+        </span>
       </Link>
       <LoginInputs />
     </Container>

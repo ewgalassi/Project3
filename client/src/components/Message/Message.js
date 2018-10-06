@@ -13,8 +13,7 @@ class Message extends React.Component {
     return (
       <div>
         <Card id="messageCard">
-          {/* <h5>Your conversation with: {this.props.from.fullName}</h5> */}
-          <h5>{this.props.from.fullName}</h5>
+          <h5>{this.props.from.fullName} to {this.props.to.fullName}</h5>
           <hr />
           <div className="messageboard">
             {this.state.conversation.map(msg => {

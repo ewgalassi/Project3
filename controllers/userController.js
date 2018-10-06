@@ -1,6 +1,13 @@
 const db = require("../models");
 // const passport = require('../passport');
 
+// Update number of followers helper function
+function updateFollowers(id) {
+ db.User.findById(id).then(user => {
+   user.incrementFollowers();
+ });
+};
+
 // User controller
 module.exports = {
 
@@ -111,6 +118,7 @@ module.exports = {
     if (!req.user) return res.json({ success: false, message: "Not signed in" });
     db.User.findById(req.user._id).then(user => {
       return user.follow(req.body.user_id).then(() => {
+        updateFollowers(req.body.user_id);
         return res.json({ success: true, message: "Followed!" });
       })
     }).catch(err => {

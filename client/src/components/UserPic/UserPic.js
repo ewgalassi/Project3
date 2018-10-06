@@ -11,7 +11,8 @@ class UserPic extends React.Component {
     userId: this.props.userId,
     loggedInUser: this.props.loggedInUser,
     isFollowing: false,
-    followStatus: false
+    followStatus: false,
+    numFollowers: this.props.numFollowers
   };
 
   componentDidMount() {
@@ -84,7 +85,7 @@ class UserPic extends React.Component {
     return (
       <Card className="profile-card">
         {this.checkFollowStatus()}
-        <div className="image-div" style={{border:"1px solid", borderRadius:"50%"}}>
+        <div className="image-div">
           <img
             className="userImage img-responsive"
             src={this.props.pic}
@@ -92,6 +93,7 @@ class UserPic extends React.Component {
           />
         </div>
         <h2 className="profile-name">{this.props.fullName}</h2>
+        <div>Followers: {this.props.numFollowers}</div>
         {this.renderButton()}
       </Card>
     );

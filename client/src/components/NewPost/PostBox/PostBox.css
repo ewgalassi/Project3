@@ -6,9 +6,10 @@
   border: none;
   font-size: 1.2rem;
 }
+
 .form-control:focus {
   box-shadow: none !important;
-  color: #8b9dc3;
+  color: #fff;
 }
 
 .snippet-text {
@@ -16,6 +17,12 @@
   border-radius: 5px;
   width:100%;
   height:200px;
+  background-color:#1e2424;
+  color:#fff;
+}
+
+.snippet-desc {
+  color:#fff;
 }
 
 #userPost {

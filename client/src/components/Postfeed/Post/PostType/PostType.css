@@ -24,10 +24,10 @@ p {
 }
 
 .snippet {
-  padding: 20px;
-  margin-top: 10px;
+  /* padding: 20px; */
+  /* margin-top: 10px; */
   height: auto;
-  background-color: rgba(245, 245, 245, 0.82);
+  /* background-color: rgba(245, 245, 245, 0.82); */
   border: 1px solid rgba(0, 0, 0, 0.125);
   position: relative;
 }
@@ -103,7 +103,6 @@ p {
 
 .snippet-text {
   background: none;
-  color: rgb(167, 167, 167);
 }
 
 .snippet-text:focus {

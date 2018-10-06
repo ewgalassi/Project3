@@ -12,6 +12,7 @@
   height: 250px;
   position: relative;
   overflow: hidden;
+  border: 1px solid #343637;
   border-radius: 50%;
   margin:20px auto;
 }
@@ -23,15 +24,19 @@
   margin-bottom: 10px;
   /* position:absolute; */
   /* display: inline-block; */
-  display: inline;
+  display: block;
   margin: auto;
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  max-height: auto;
+  object-fit: contain;
+  transform:scale(1); 
+  transform-origin:center;
+  background-size:content;
 }
 
 h2.profile-name {
   padding: 8px 0px 20px 0px;
-  color: #48c5da;
+  color: #efe8a2;
 }
 
 .skills-row {
