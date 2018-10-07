@@ -17,7 +17,7 @@ class UserPic extends React.Component {
 
   componentDidMount() {
     this.checkFollowStatus();
-  };
+  }
 
   checkFollowStatus = () => {
     for (let i = 0; i < this.props.following.length; i++) {
@@ -93,7 +93,7 @@ class UserPic extends React.Component {
           />
         </div>
         <h2 className="profile-name">{this.props.fullName}</h2>
-        <div>Followers: {this.props.numFollowers}</div>
+        <div id="followersNum">Followers: {this.props.numFollowers}</div>
         {this.renderButton()}
       </Card>
     );

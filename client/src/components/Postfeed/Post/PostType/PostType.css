@@ -4,9 +4,11 @@
   text-align: left;
 }
 
-p {
-  margin-top: 10px;
+#articleParagraph {
+  margin-top: 18px;
   color: #ffffff;
+  text-align: center;
+  margin-bottom: 0px;
 }
 
 .article-title {
@@ -15,6 +17,10 @@ p {
 
 .article-title:hover {
   color: #48c5da;
+}
+
+.articleCard img {
+  margin-top: 8px;
 }
 
 /* Snippet Card ================ */
@@ -83,9 +89,17 @@ p {
   opacity: 1;
 }
 
+.snippet-text {
+  background: none;
+}
+
+.snippet-text:focus {
+  outline: none;
+}
+
 /* Status Card ================ */
 .status-content {
-  margin: 10px 30px;
+  margin: 10px;
   width: 90%;
   text-align: left;
   color: #ffffff !important;
@@ -99,12 +113,4 @@ p {
 
 .form-control:focus {
   background: none;
-}
-
-.snippet-text {
-  background: none;
-}
-
-.snippet-text:focus {
-  outline: none;
 }

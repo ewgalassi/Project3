@@ -10,16 +10,14 @@ class Article extends Component {
           <a className="article-title" target="_blank" href={this.props.post}>
             <h4>{this.props.articleMetadata.title}</h4>
           </a>
-            <div>
-              <img
-                src={this.props.articleMetadata.image}
-                className="img-fluid"
-                alt={this.props.post}
-              />
-            </div>
-            <p>
-              {this.props.articleMetadata.description}
-            </p>
+          <div>
+            <img
+              src={this.props.articleMetadata.image}
+              className="img-fluid"
+              alt={this.props.post}
+            />
+          </div>
+          <p id="articleParagraph">{this.props.articleMetadata.description}</p>
         </div>
       </div>
     );

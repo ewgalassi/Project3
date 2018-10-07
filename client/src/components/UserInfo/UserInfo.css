@@ -1,11 +1,10 @@
 .info-card,
 .skills-card {
-  padding: 30px;
+  padding: 20px;
   background-color: #343637;
   color: #fff;
   margin: 20px 0px;
 }
-
 
 .languages,
 .technologies {
@@ -17,7 +16,7 @@
 .info-card p,
 .languages h6,
 .technologies h6 {
-  color:#48c5da;
+  color: #48c5da;
 }
 
 li {
@@ -27,4 +26,23 @@ li {
 
 .profile-links a {
   color: #ffffff;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.userCardInfo {
+  color: #48c5da;
+  margin-bottom: 1rem;
+  background-color: rgba(139, 144, 146, 0.31);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.userinfoP {
+  margin-bottom: 0.5rem !important;
+  margin-left: 10px;
+}
+
+#avatarIcon {
+  margin-right: 8px;
 }
