@@ -1,7 +1,7 @@
 import React from "react";
-import "./PostFooter.css";
 import PostAPI from "../../../utils/postAPI";
 import CommentBox from "../../CommentBox/CommentBox";
+import "./PostFooter.css";
 
 class PostFooter extends React.Component {
   state = {

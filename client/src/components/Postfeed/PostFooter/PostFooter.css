@@ -16,6 +16,7 @@
 
 .cardfooter .post-btn {
   margin: 5px;
+  float: right;
 }
 
 #likeColor {
@@ -24,4 +25,10 @@
 
 .comments li {
   margin-left: 0px !important;
+  margin-top: 8px;
+}
+
+.comments a {
+  color: #eee8aa;
+  margin-right: 2px;
 }
