@@ -1,9 +1,10 @@
 import React from "react";
+import "./StackResults.css";
 
 
 const StackResults = props => {
   return (
-    <div className="">
+    <div className="stack-results">
       <a href={props.url} target="_blank">
         {props.title}
       </a>
