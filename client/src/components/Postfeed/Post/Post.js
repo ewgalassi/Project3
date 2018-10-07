@@ -19,14 +19,17 @@ class Post extends Component {
     numLikes: this.props.numLikes,
     comments: this.props.comments || [],
     saves: this.props.saves,
-    isLiked: this.props.isLiked || false
+    isLiked: this.props.isLiked || false,
+    isDisabled: false
   };
 
   saveSnippet = postData => {
     alert("Snippet Saved!")
     savedAPI.saveSnippet(postData).then(data => {
+      console.log("save snippet running")
       this.setState({
         isSaved: true,
+        isDisabled:true
       })
       // console.log("saved?", this.state.isSaved)
 
@@ -58,19 +61,20 @@ class Post extends Component {
       this.saveSnippet(postData);
       // document.querySelectorAll(".snippet-btn").addClass("disabled");
 
-    } else if (this.state.isSaved) {
-      // const postData = {
-      //   post: this.props.post,
-      //   type: this.props.type,
-      //   description: this.props.description,
-      //   numLikes: this.props.numLikes,
-      //   comments: this.props.comments || [],
-      //   saves: this.props.saves,
-      // }
-      // this.unSaveSnippet(postData);
+    } 
+    // else if (this.state.isSaved) {
+    //   // const postData = {
+    //   //   post: this.props.post,
+    //   //   type: this.props.type,
+    //   //   description: this.props.description,
+    //   //   numLikes: this.props.numLikes,
+    //   //   comments: this.props.comments || [],
+    //   //   saves: this.props.saves,
+    //   // }
+    //   // this.unSaveSnippet(postData);
   
-      alert("You've already saved this one!")
-    }
+    //   alert("You've already saved this one!")
+    // }
   }
 
 
@@ -93,6 +97,7 @@ class Post extends Component {
             description={this.props.description}
             onClick={this.handleClick}
             isSaved={this.state.isSaved}
+            isDisabled={this.state.isDisabled}
           >
 
           </Snippet>

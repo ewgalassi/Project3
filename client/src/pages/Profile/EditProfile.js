@@ -58,7 +58,9 @@ class EditProfile extends React.Component {
       "profile.linkedin": this.state.linkedin,
       "profile.portfolio": this.state.portfolio,
       "profile.languages": this.state.languages.split(","),
-      "profile.technologies": this.state.technologies.split(",")
+      "profile.technologies": this.state.technologies.split(","),
+      "profile.jobInfo.title": this.state.jobTitle,
+      "profile.jobInfo.company": this.state.jobCompany
     })
       .then(data => {
         if (data.data.success) {

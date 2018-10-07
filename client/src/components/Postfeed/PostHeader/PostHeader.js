@@ -8,8 +8,12 @@ const moment = require("moment");
 
 class PostHeader extends React.Component {
   renderType = () => {
-    if (window.location.href.includes("profile")) {
-      return <div className="postheader">{this.renderDeleteBtn()}</div>;
+    if (window.location.href.includes('profile')){
+      return(
+        <div className=".postheader only-delete">
+          {this.renderDeleteBtn()}
+        </div>
+      )
     } else {
       return (
         <div className="postheader">
@@ -25,8 +29,14 @@ class PostHeader extends React.Component {
               {moment(this.props.time).format("dddd, MMM Do YYYY, h:mm a")}
             </p>
           </div>
+<<<<<<< HEAD
 
           {this.renderDeleteBtn()}
+=======
+          <div className="newsfeed-delete">
+            {this.renderDeleteBtn()}
+          </div>
+>>>>>>> master
         </div>
       );
     }
@@ -62,12 +72,19 @@ class PostHeader extends React.Component {
   renderDeleteBtn = () => {
     if (this.props.authorId === this.props.loggedInUser) {
       return (
+<<<<<<< HEAD
         <button
           className="btn btn-sm btn-light float-right delete-btn"
           onClick={() => this.handleDelete(this.props.id)}
         >
           X
         </button>
+=======
+        <button 
+        className="float-right delete-btn"
+        onClick={() => this.handleDelete(this.props.id)}
+        >X</button>
+>>>>>>> master
       );
     }
   };
