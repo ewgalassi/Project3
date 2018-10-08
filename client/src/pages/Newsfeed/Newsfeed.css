@@ -25,14 +25,37 @@
   overflow: -moz-scrollbars-none;
 }
 
-@media screen and (max-width: 414px) {
-  .not-stuck {
-    position: relative;
-    float: left;
+
+
+@media screen and (max-width: 1024px) {
+  .container {
+    margin:0px;
+    padding:20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin:0px;
+    padding:20px;
   }
 
   .stuck {
-    position: relative;
-    margin: 0 auto;
+    width:25%;
+  }
+
+  .stuck h4{
+    font-size:20px;
+  }
+
+  .stuck .article-title {
+    font-size:15px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+
+  .stuck {
+    display:none;
   }
 }

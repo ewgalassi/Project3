@@ -60,30 +60,46 @@
   color: #48c5da;
 }
 
+
+/* MEDIA QUERIES ---------------------------- */
+
+
 @media screen and (max-width: 980px) {
   .userSearch {
-    left: 5%;
+    left: 5%;   
   }
 
   #accountNav {
     height: 90px;
   }
+
 }
 
 @media screen and (max-width: 768px) {
   .userSearch {
     left: 0%;
+    /* width:20%; */
   }
+
 }
 
 @media screen and (max-width: 414px) {
-  .navbar-nav {
-    margin-bottom: 1rem;
-    margin-top: 0.4rem;
-    width: 100vw;
+
+  .nav-wrapper {
+    /* margin-bottom: 1rem;
+    margin-top: 0.4rem; */
+    width: 100%;
+    margin:0px auto;
+    text-align:center;
   }
 
-  #accountNav {
-    height: 120px;
+  #accountLogo {
+    margin:auto;
   }
+
+  .userSearch {
+    width:20%;
+    display:none;
+  }
+
 }
