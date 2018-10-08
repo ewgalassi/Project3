@@ -24,10 +24,19 @@ li {
   list-style: none;
 }
 
+.profile-links {
+  text-align: center;
+}
+
 .profile-links a {
   color: #ffffff;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+.profile-links a:hover {
+  color: #eee8aa;
+  text-decoration: none;
 }
 
 .userCardInfo {
@@ -45,4 +54,8 @@ li {
 
 #avatarIcon {
   margin-right: 8px;
+}
+
+.languages li {
+  margin-left: 40%;
 }

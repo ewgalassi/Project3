@@ -14,7 +14,7 @@
   overflow: hidden;
   border: 1px solid #343637;
   border-radius: 50%;
-  margin: 20px auto;
+  margin: 15px auto;
 }
 
 .userImage {
@@ -35,9 +35,9 @@
 }
 
 h2.profile-name {
-  padding: 8px 0px 8px 0px;
+  /* padding: 8px 0px 8px 0px; */
   color: #efe8a2;
-  margin-bottom: 10px !important;
+  /* margin-bottom: 10px !important; */
 }
 
 .skills-row {
@@ -46,5 +46,5 @@ h2.profile-name {
 
 .followers-profile {
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
