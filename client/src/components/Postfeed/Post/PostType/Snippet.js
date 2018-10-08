@@ -50,7 +50,7 @@ class Snippet extends React.Component {
           <div className="icons">
             <CopytoClipboard
               text={this.props.post}
-              onCopy={() => alert("copied to clipboard")}
+              // onCopy={() => alert("copied to clipboard")}
             >
               <button className="copy-btn btn btn-link fa fa-copy">
                 <span className="tooltiptext">Copy</span>
