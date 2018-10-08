@@ -6,8 +6,7 @@ import "./PostBox.css";
 // }
 
 class PostBox extends Component {
-
-  renderType = (type) => {
+  renderType = type => {
     switch (type) {
       case "status":
         return (
@@ -67,21 +66,20 @@ class PostBox extends Component {
           />
         );
     }
-  }
+  };
 
   render() {
-
-
     return (
       <form className="post">
         <div className="userInput">
-          <h5>What would you like to share? (select a type!)</h5>
+          <h5>
+            What would you like to share? <small>(select a type)</small>
+          </h5>
           {this.renderType(this.props.type)}
         </div>
       </form>
-    )
+    );
   }
-
-};
+}
 
 export default PostBox;

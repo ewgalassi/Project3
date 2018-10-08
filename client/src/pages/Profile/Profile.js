@@ -6,15 +6,9 @@ import UserInfo from "../../components/UserInfo/UserInfo";
 import NewPost from "../../components/NewPost/NewPost";
 import Navbar from "../../components/Navbar/Navbar";
 import UserAPI from "../../utils/userAPI";
-import StackResults from "../../components/StackResults/stackResults"
+import StackResults from "../../components/StackResults/stackResults";
 import axios from "axios";
 // import "./Profile.css";
-
-
-
-
-
-
 
 class Profile extends Component {
   state = {
@@ -42,17 +36,16 @@ class Profile extends Component {
   };
 
   searchStack(search) {
-
-    const stackExURL = "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=" + search + "&site=stackoverflow";
-    axios.get(
-      stackExURL
-    ).then(response => {
-
+    const stackExURL =
+      "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=" +
+      search +
+      "&site=stackoverflow";
+    axios.get(stackExURL).then(response => {
       this.setState({
         searchResults: response.data.items
-      })
-      console.log(this.state.searchResults)
-    })
+      });
+      console.log(this.state.searchResults);
+    });
   }
 
   componentDidMount() {
@@ -155,28 +148,36 @@ class Profile extends Component {
                 title={this.state.jobTitle}
                 company={this.state.jobCompany}
               />
-              <div>
-                <h4>Stack Overflow Search</h4>
-                <input
-                  type="text"
-                  name="searchInput"
-                  placeholder="Search"
-                  value={this.state.searchInput}
-                  onChange={this.handleInput}></input>
-                <button onClick={() => this.searchStack(this.state.searchInput)}>Search</button>
-              </div>
-              <div>
-                <br></br>
-                <h4>Search Results</h4>
-                {this.state.searchResults.map(searchResult => {
-                  return (
-                    <StackResults
-                      url={searchResult.link}
-                      title={searchResult.title}
+              <div className="stack-results">
+                <div>
+                  <h5>Search StackOverflow</h5>
+                  <form className="search-form">
+                    <input
+                      type="text"
+                      name="searchInput"
+                      placeholder="Search"
+                      value={this.state.searchInput}
+                      onChange={this.handleInput}
                     />
-                  )
-                })}
-
+                    <button
+                      className="btn btn-sm"
+                      onClick={() => this.searchStack(this.state.searchInput)}
+                    >
+                      <span className="fas fa-search" />
+                    </button>
+                  </form>
+                </div>
+                <div>
+                  <br />
+                  {this.state.searchResults.map(searchResult => {
+                    return (
+                      <StackResults
+                        url={searchResult.link}
+                        title={searchResult.title}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </Col>
             <Col size="md-8">

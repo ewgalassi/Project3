@@ -4,7 +4,7 @@
   /* position:relative; */
   text-align: center;
   background: #343637;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .image-div {
@@ -14,7 +14,7 @@
   overflow: hidden;
   border: 1px solid #343637;
   border-radius: 50%;
-  margin:20px auto;
+  margin: 15px auto;
 }
 
 .userImage {
@@ -29,16 +29,22 @@
   max-width: 100%;
   max-height: auto;
   object-fit: contain;
-  transform:scale(1); 
-  transform-origin:center;
-  background-size:content;
+  transform: scale(1);
+  transform-origin: center;
+  background-size: content;
 }
 
 h2.profile-name {
-  padding: 8px 0px 20px 0px;
+  /* padding: 8px 0px 8px 0px; */
   color: #efe8a2;
+  /* margin-bottom: 10px !important; */
 }
 
 .skills-row {
   margin: 0;
+}
+
+.followers-profile {
+  color: #fff;
+  margin-bottom: 15px;
 }

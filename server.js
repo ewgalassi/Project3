@@ -56,9 +56,9 @@ app.use("/api", postRoutes);
 app.use("/api/message", messageRoutes);
 
 // Handle React routing, return all requests to React app
-// app.get('*', function (req, res) {
-//   res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
-// });
+app.get('/login', function (req, res) {
+  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+});
 
 
 // Start Server 

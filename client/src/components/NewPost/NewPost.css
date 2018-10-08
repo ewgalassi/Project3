@@ -17,6 +17,11 @@
   margin-top: -22px;
 }
 
+#newPostBoxHR {
+  margin-top: 0px !important;
+  margin-bottom: 1.2rem !important;
+}
+
 @media screen and (max-width: 414px) {
   #newPostCard {
     margin-top: 9rem;

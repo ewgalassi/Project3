@@ -24,13 +24,17 @@ class UserInfo extends Component {
     return (
       <div className="info-content">
         <Card className="info-card">
-          <h5>{this.props.title}</h5>
-          <p>{this.props.company}</p>
+          <div className="userCardInfo">
+            <span id="avatarIcon" className="fas fa-user" />
+            About
+          </div>
+          <p className="userinfoP">{this.props.title}</p>
+          <p className="userinfoP">{this.props.company}</p>
           <div className="profile-links">
             <a href={this.props.github} target="_blank">
               GitHub
             </a>{" "}
-            |
+            <span>|</span>
             <a href={this.props.portfolio} target="_blank">
               {" "}
               Portfolio
