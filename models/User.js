@@ -17,8 +17,8 @@ const userSchema = new Schema({
 		linkedin: { type: String, trim: true },
 		portfolio: { type: String, trim: true },
 		projects: { type: Array, trim: true },
-		languages: { type: Array, trim: true }, // favorite programming languages
-		technologies: { type: Array, trim: true }, // technologies
+		languages: { type: Array, trim: true, default: "" }, // favorite programming languages
+		technologies: { type: Array, trim: true, default: "" }, // technologies
 		jobInfo: {
 			title: { type: String, trim: true },
 			company: { type: String, trim: true },
