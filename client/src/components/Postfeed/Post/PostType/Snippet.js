@@ -71,7 +71,7 @@ class Snippet extends React.Component {
                   </button>
                 </button>
                 {/* <ToastContainer /> */}
-                <ToastContainer autoClose={10000} />
+                <ToastContainer autoClose={2000} />
               </div>
             </CopytoClipboard>
             {this.renderButton()}
