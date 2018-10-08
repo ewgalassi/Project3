@@ -14,6 +14,7 @@ class Post extends Component {
   state = {
     post: this.props.post,
     type: this.props.type,
+    ogAuthor: this.props.authorId,
     description: this.props.description,
     isSaved: this.props.isSaved || false,
     numLikes: this.props.numLikes,
@@ -52,11 +53,13 @@ class Post extends Component {
       const postData = {
         post: this.props.post,
         type: this.props.type,
+        ogAuthor: this.state.ogAuthor,
         description: this.props.description,
         numLikes: this.props.numLikes,
         comments: this.props.comments || [],
         saves: this.props.saves,
       }
+      console.log(postData);
       
       this.saveSnippet(postData);
       // document.querySelectorAll(".snippet-btn").addClass("disabled");
@@ -118,6 +121,7 @@ class Post extends Component {
       <Card style={{ marginTop: 30, padding: 20 }}>
         <PostHeader
           author={this.props.author}
+          ogAuthor={this.props.authorId}
           pic={this.props.pic}
           authorId={this.props.authorId}
           id={this.props.id}

@@ -8,10 +8,13 @@ const moment = require("moment");
 
 class PostHeader extends React.Component {
   renderType = () => {
-    if (window.location.href.includes("profile")) {
-      return (
-        <div className=".postheader only-delete">{this.renderDeleteBtn()}</div>
-      );
+    if (window.location.href.includes('profile')){
+      // console.log('renderType is working')
+      return(
+        <div className=".postheader only-delete">
+          {this.renderDeleteBtn()}
+        </div>
+      )
     } else {
       return (
         <div className="postheader">
@@ -35,9 +38,9 @@ class PostHeader extends React.Component {
 
   handleDelete = id => {
     // console.log(id);
-    if (window.location.href.includes("snippets")) {
+    if (window.location.href.includes('snippets')){
       // console.log("working")
-      SavedAPI.unSaveSnippet(id).then(data => {
+      SavedAPI.unSaveSnippet(id).then(data =>{
         if (data.data.success) {
           window.location.reload();
         } else {
@@ -45,23 +48,22 @@ class PostHeader extends React.Component {
         }
       });
     } else {
-      PostAPI.deletePost(id)
-        .then(data => {
-          // console.log("not working")
-          if (data.data.success) {
-            window.location.reload();
-          } else {
-            console.log(data.data);
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
+    PostAPI.deletePost(id).then(data => {
+      // console.log("not working")
+      if (data.data.success) {
+        window.location.reload();
+      } else {
+        console.log(data.data);
+      };
+    }).catch(err => {
+      console.log(err);
+    });
+  }
   };
 
   renderDeleteBtn = () => {
-    if (this.props.authorId === this.props.loggedInUser) {
+    if (this.props.authorId === this.props.loggedInUser || this.props.author._id === this.props.loggedInUser) {
+      // console.log("renderDelete works")
       return (
         <button
           className="float-right delete-btn"
