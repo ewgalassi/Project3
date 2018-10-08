@@ -3,6 +3,8 @@ import "./PostType.css";
 import CopytoClipboard from "react-copy-to-clipboard";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atelierSeasideLight } from "react-syntax-highlighter/styles/hljs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Snippet extends React.Component {
   state = {
@@ -10,34 +12,43 @@ class Snippet extends React.Component {
     isDisabled: this.props.isDisabled
   };
 
-  renderButton = () => {
-    console.log(this.state.isDisabled)
-    if (this.state.isDisabled) {
-      console.log("disabled true")
-      return(
-      <button
-        // onClick={this.props.onClick}
-        type="button"
-        className="snippet-btn btn btn-link fa fa-save"
-        disabled
-      >
-        {/* <span className="tooltiptext"></span> */}
-      </button>
-      )
-    } else {
-      console.log("disabled false")
-      return (
-      <button
-        onClick={this.props.onClick}
-        type="button"
-        className="snippet-btn btn btn-link fa fa-save"
-      >
-        <span className="tooltiptext">Save</span>
-      </button>
-      )
-    }
-  }
+  notify = () => toast("Copied");
+  notifyTwo = () => toast("Snippet Saved");
 
+  renderButton = () => {
+    if (
+      window.location.href === "http://localhost:3000/profile" ||
+      window.location.href.includes("snippets")
+    ) {
+      // console.log("working")
+    } else {
+      console.log(this.state.isDisabled);
+      if (this.state.isDisabled) {
+        console.log("disabled true");
+        return (
+          <button
+            // onClick={this.props.onClick}
+            type="button"
+            className="snippet-btn btn btn-link fa fa-save"
+            disabled
+          >
+            {/* <span className="tooltiptext"></span> */}
+          </button>
+        );
+      } else {
+        console.log("disabled false");
+        return (
+          <button
+            onClick={this.props.onClick && this.notifyTwo}
+            type="button"
+            className="snippet-btn btn btn-link fa fa-save"
+          >
+            <span className="tooltiptext">Save</span>
+          </button>
+        );
+      }
+    }
+  };
 
   render() {
     return (
@@ -51,14 +62,19 @@ class Snippet extends React.Component {
           <div className="icons">
             <CopytoClipboard
               text={this.props.post}
-              onCopy={() => alert("copied to clipboard")}
+              // onCopy={() => alert("copied to clipboard")}
             >
-              <button className="copy-btn btn btn-link fa fa-copy">
-                <span className="tooltiptext">Copy</span>
-              </button>
+              <div id="copySnipDiv">
+                <button id="copySnipBtn" onClick={this.notify}>
+                  <button className="copy-btn btn btn-link fa fa-copy">
+                    <span className="tooltiptext">Copy</span>
+                  </button>
+                </button>
+                {/* <ToastContainer /> */}
+                <ToastContainer autoClose={2000} />
+              </div>
             </CopytoClipboard>
             {this.renderButton()}
-     
           </div>
         </div>
       </div>

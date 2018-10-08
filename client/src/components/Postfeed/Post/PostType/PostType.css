@@ -50,16 +50,21 @@
   position: absolute;
   right: 0;
   top: 0;
-  margin: 10px;
+}
+
+#copySnipBtn {
+  background: none;
+  border: none;
+  padding: 0px;
 }
 
 .tooltiptext {
   visibility: hidden;
   width: auto;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #111717f0;
+  color: #48c5da;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
   border-radius: 3px;
   font-family: "Ubuntu";
   font-weight: 300;
@@ -99,6 +104,19 @@
   outline: none;
 }
 
+#copySnipDiv {
+  display: inline-block;
+}
+
+/* Snippet alert */
+.Toastify__toast-container {
+  width: 148px !important;
+}
+
+.Toastify__toast--default {
+  color: red !important;
+}
+
 /* STATUS CARD ---------------------------- */
 
 .status-content {
@@ -117,6 +135,7 @@
 .form-control:focus {
   background: none;
 }
+
 
 
 /* MEDIA QUERIES ---------------------------- */
@@ -143,3 +162,4 @@
   }
 
 }
+
