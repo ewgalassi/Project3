@@ -55,7 +55,7 @@
 #copySnipBtn {
   background: none;
   border: none;
-  padding: 0px;
+  /* padding: 0px; */
 }
 
 .tooltiptext {
@@ -108,20 +108,14 @@
   display: inline-block;
 }
 
-/* 
-------------------------------- */
-
 /* Snippet alert */
-.Toastify__toast-container {
+/* .Toastify__toast-container {
   width: 148px !important;
 }
 
 .Toastify__toast--default {
   color: red !important;
-}
-
-/* 
-------------------------------- */
+} */
 
 /* STATUS CARD ---------------------------- */
 

@@ -101,6 +101,10 @@
   border-radius: 6px;
 }
 
+.followers button:focus {
+  outline: none;
+}
+
 .followers input {
   width: 400px;
   background: none;
@@ -120,6 +124,10 @@
   color: #ffffff;
 }
 
+#editUnfollow:focus {
+  outline: none;
+}
+
 #followFriend {
   margin-bottom: 15px;
 }
@@ -135,6 +143,7 @@
   max-height: 600px;
   overflow-y: scroll;
   position: relative;
+  border: 1px solid #eee8aa;
 }
 
 .search-wrapper {
@@ -157,9 +166,23 @@
   height: auto;
 }
 
+.stack-search a:hover {
+  color: #48c5da;
+}
+
 .stack-search h5 {
   color: #efe8a2;
   padding: 20px;
+}
+
+.stack-search::-webkit-scrollbar {
+  width: 0 !important;
+}
+.stack-search {
+  -ms-overflow-style: none;
+}
+.stack-search {
+  overflow: -moz-scrollbars-none;
 }
 
 .search-form {

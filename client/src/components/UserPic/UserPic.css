@@ -48,3 +48,41 @@ h2.profile-name {
   color: #fff;
   margin-bottom: 15px;
 }
+
+#unfollowProfileBtn {
+  margin-bottom: 15px;
+  background-color: #343637;
+  color: #48c5da;
+  border: 1px solid #eee8aa;
+  padding: 5px 10px 5px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+#unfollowProfileBtn:hover {
+  color: #fff;
+  background-color: rgba(255, 0, 0, 0.64);
+}
+
+#unfollowProfileBtn:focus {
+  box-shadow: none;
+}
+
+#followProfileBtn {
+  margin-bottom: 15px;
+  background-color: #343637;
+  color: #48c5da;
+  border: 1px solid #eee8aa;
+  padding: 5px 10px 5px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+#followProfileBtn:hover {
+  color: #ffffff;
+  background-color: #57c158;
+}
+
+#followProfileBtn:focus {
+  box-shadow: none;
+}

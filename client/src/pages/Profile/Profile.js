@@ -128,15 +128,11 @@ class Profile extends Component {
   renderPostfeed = () => {
     console.log(this.state.id);
     if (this.state.id) {
-      return (
-        <Postfeed userId={this.state.id} />
-      );
+      return <Postfeed userId={this.state.id} />;
     } else {
-      return (
-        <Postfeed />
-      )
+      return <Postfeed />;
     }
-  }
+  };
 
   render() {
     return (

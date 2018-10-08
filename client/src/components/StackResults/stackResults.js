@@ -1,7 +1,6 @@
 import React from "react";
 import "./StackResults.css";
 
-
 const StackResults = props => {
   return (
     <div className="stack-results">

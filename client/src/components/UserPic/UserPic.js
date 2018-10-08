@@ -62,8 +62,9 @@ class UserPic extends React.Component {
       if (followStatus) {
         return (
           <button
+            id="unfollowProfileBtn"
             onClick={() => this.handleUnfollow(this.props.userId)}
-            className="btn btn-danger btn-sm"
+            className="btn btn-sm"
           >
             Unfollow
           </button>
@@ -71,8 +72,9 @@ class UserPic extends React.Component {
       } else {
         return (
           <button
+            id="followProfileBtn"
             onClick={() => this.handleFollow(this.props.userId)}
-            className="btn btn-primary btn-sm"
+            className="btn btn-sm"
           >
             Follow
           </button>
