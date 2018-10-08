@@ -3,12 +3,16 @@ import "./PostType.css";
 import CopytoClipboard from "react-copy-to-clipboard";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atelierSeasideLight } from "react-syntax-highlighter/styles/hljs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Snippet extends React.Component {
   state = {
     copied: false,
     isDisabled: this.props.isDisabled
   };
+
+  notify = () => toast("Copied");
 
   renderButton = () => {
     console.log(this.state.isDisabled);
@@ -52,9 +56,14 @@ class Snippet extends React.Component {
               text={this.props.post}
               // onCopy={() => alert("copied to clipboard")}
             >
-              <button className="copy-btn btn btn-link fa fa-copy">
-                <span className="tooltiptext">Copy</span>
-              </button>
+              <div>
+                <button id="copySnipBtn" onClick={this.notify}>
+                  <button className="copy-btn btn btn-link fa fa-copy">
+                    {/* <span className="tooltiptext">Copy</span> */}
+                  </button>
+                </button>
+                <ToastContainer />
+              </div>
             </CopytoClipboard>
             {this.renderButton()}
           </div>

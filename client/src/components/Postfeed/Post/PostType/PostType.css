@@ -51,6 +51,11 @@
   margin: 10px;
 }
 
+#copySnipBtn {
+  background: none;
+  border: none;
+}
+
 .tooltiptext {
   visibility: hidden;
   width: auto;
