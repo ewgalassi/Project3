@@ -22,6 +22,8 @@
   margin-bottom: 1.2rem !important;
 }
 
+/* MEDIA QUERIES ---------------------------- */
+
 @media screen and (max-width: 768px) {
   #newPostCard {
     margin-top: 6.5rem;

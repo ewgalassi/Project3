@@ -14,6 +14,11 @@ class Snippet extends React.Component {
 
   notify = () => toast("Copied");
   notifyTwo = () => toast("Snippet Saved");
+  
+  onClick = () => {
+    this.props.onClick()
+    this.notifyTwo()
+  }
 
   renderButton = () => {
     if (
@@ -22,9 +27,7 @@ class Snippet extends React.Component {
     ) {
       // console.log("working")
     } else {
-      console.log(this.state.isDisabled);
       if (this.state.isDisabled) {
-        console.log("disabled true");
         return (
           <button
             // onClick={this.props.onClick}
@@ -36,10 +39,9 @@ class Snippet extends React.Component {
           </button>
         );
       } else {
-        console.log("disabled false");
         return (
           <button
-            onClick={this.props.onClick && this.notifyTwo}
+            onClick={this.onClick}
             type="button"
             className="snippet-btn btn btn-link fa fa-save"
           >
@@ -65,10 +67,10 @@ class Snippet extends React.Component {
               // onCopy={() => alert("copied to clipboard")}
             >
               <div id="copySnipDiv">
-                <button id="copySnipBtn" onClick={this.notify}>
-                  <button className="copy-btn btn btn-link fa fa-copy">
+                <button id="copySnipBtn" className="copy-btn btn btn-link fa fa-copy" onClick={this.notify}>
+                 
                     <span className="tooltiptext">Copy</span>
-                  </button>
+                  
                 </button>
                 {/* <ToastContainer /> */}
                 <ToastContainer autoClose={2000} />

@@ -11,11 +11,11 @@ class Postfeed extends Component {
     state = {
         user: {},
         posts: [],
+        userId: this.props.userId
     };
 
     componentDidMount() {
         if (this.props.userId) {
-
             PostAPI.getPostId(this.props.userId).then(data => {
                 this.setState({
                     posts: data.data || []
@@ -25,39 +25,38 @@ class Postfeed extends Component {
             });
         } else if (window.location.href.includes("snippets")) {
             SavedAPI.getSavedSnippets().then(data => {
-                // console.log(data);
+                // console.log();
                 // console.log(data);
                 this.setState({
                     posts: data.data
-                })  
-            })
-        } else if (window.location.href.includes("profile")) {
-            UserAPI.getUser().then(data =>{
-                PostAPI.getPostId(data.data._id)
-                .then(data => {
-                    this.setState({
-                        posts: data.data || []
-                    });
-                })
-            })
-        }  else {
-        PostAPI.getPosts().then(data => {
-            this.setState({
-                posts: data.data || []
+                });
             });
-        }); 
-    }
+        } else if (window.location.href.includes("profile")) {
+            UserAPI.getUser().then(data => {
+                PostAPI.getPostId(data.data._id)
+                    .then(data => {
+                        this.setState({
+                            posts: data.data || []
+                        });
+                    });
+            });
+        } else {
+            PostAPI.getPosts().then(data => {
+                this.setState({
+                    posts: data.data || []
+                });
+            });
+        }
     };
 
-
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                
+
                 {this.state.posts.map(post => {
                     // Check if post is liked
                     let isLiked = false;
-                    for (let i=0; i < post.likes.length; i++) {
+                    for (let i = 0; i < post.likes.length; i++) {
                         if (this.props.loggedInUser === post.likes[i].author) {
                             isLiked = true;
                         };
@@ -76,18 +75,19 @@ class Postfeed extends Component {
                         numLikes={post.numLikes}
                         comments={post.comments}
                         description={post.description}
-                        pic={post.author.profile ? post.author.profile.pic : ""}
+                        
+                        pic={window.location.href.includes("profile") ? "" :(post.ogAuthor ? post.ogAuthor.profile.pic : post.author.profile.pic)}
                         time={post.createdAt}
                         />
                     )
                 })}
-                
+
                 <br></br>
             </div>
-            
-            
+
+
         )
-     
+
     }
 
 }
