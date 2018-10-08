@@ -13,6 +13,10 @@ Social Code incorporates a news feed of posts from followers. Posts can be statu
 - Direct message other users
 - Stay up-to-date on latest tech news
 
+## Demo
+
+Check it out [here](https://project3-ey.herokuapp.com)!
+
 
 
 ## Contributors
