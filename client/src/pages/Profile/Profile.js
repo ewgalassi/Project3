@@ -6,15 +6,9 @@ import UserInfo from "../../components/UserInfo/UserInfo";
 import NewPost from "../../components/NewPost/NewPost";
 import Navbar from "../../components/Navbar/Navbar";
 import UserAPI from "../../utils/userAPI";
-import StackResults from "../../components/StackResults/stackResults"
+import StackResults from "../../components/StackResults/stackResults";
 import axios from "axios";
 // import "./Profile.css";
-
-
-
-
-
-
 
 class Profile extends Component {
   state = {
@@ -43,6 +37,7 @@ class Profile extends Component {
     // console.log(this.state.searchInput)
   };
 
+<<<<<<< HEAD
   searchStack = search => {    
     const stackExURL = "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=" + search + "&site=stackoverflow";
     // console.log(stackExURL);
@@ -50,11 +45,19 @@ class Profile extends Component {
       stackExURL
     ).then(response => {
       console.log("response")
+=======
+  searchStack(search) {
+    const stackExURL =
+      "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=" +
+      search +
+      "&site=stackoverflow";
+    axios.get(stackExURL).then(response => {
+>>>>>>> master
       this.setState({
         searchResults: response.data.items
-      })
-      console.log(this.state.searchResults)
-    })
+      });
+      console.log(this.state.searchResults);
+    });
   }
 
   componentDidMount = () => {
@@ -185,9 +188,8 @@ class Profile extends Component {
                         url={searchResult.link}
                         title={searchResult.title}
                       />
-                    )
+                    );
                   })}
-
                 </div>
               </div>
             </Col>

@@ -17,3 +17,8 @@
   /* background: #ffffff; */
   border-radius: 0.4em;
 }
+
+/* Comment box */
+.col-md-12 {
+  padding: 0px;
+}

@@ -79,7 +79,7 @@ class NewPost extends Component {
           type={this.state.type}
           description={this.state.description}
         />
-        <hr />
+        <hr id="newPostBoxHR" />
         <div className="postbox-footer">
           <PostBtn onClick={this.handleSubmit} />
           <Dropdown
