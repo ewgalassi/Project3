@@ -88,7 +88,7 @@ class Postfeed extends Component {
                         comments={post.comments}
                         description={post.description}
                         
-                        pic={this.whichPic()}
+                        pic={post.author.profile ? post.author.profile.pic : ""}
                         time={post.createdAt}
                         />
                     )
