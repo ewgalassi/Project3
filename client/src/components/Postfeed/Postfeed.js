@@ -11,11 +11,11 @@ class Postfeed extends Component {
     state = {
         user: {},
         posts: [],
+        userId: this.props.userId
     };
 
     componentDidMount() {
         if (this.props.userId) {
-
             PostAPI.getPostId(this.props.userId).then(data => {
                 this.setState({
                     posts: data.data || []
@@ -29,48 +29,34 @@ class Postfeed extends Component {
                 // console.log(data);
                 this.setState({
                     posts: data.data
-                })
-
-            })
-        } else if (window.location.href.includes("profile")) {
-            console.log(this.props.author);
-            UserAPI.getUser().then(data =>{
-                console.log(data.data._id);
-                PostAPI.getPostId(data.data._id)
-                .then(data => {
-                    this.setState({
-                        posts: data.data || []
-                    });
-                })
-            })
-        }  else {
-        PostAPI.getPosts().then(data => {
-            this.setState({
-                posts: data.data || []
+                });
             });
-        }); 
-    }
+        } else if (window.location.href.includes("profile")) {
+            UserAPI.getUser().then(data => {
+                PostAPI.getPostId(data.data._id)
+                    .then(data => {
+                        this.setState({
+                            posts: data.data || []
+                        });
+                    });
+            });
+        } else {
+            PostAPI.getPosts().then(data => {
+                this.setState({
+                    posts: data.data || []
+                });
+            });
+        }
     };
 
-    whichPic(){
-        if (window.location.href.includes("snippets")) {
-            return (
-                this.post.ogAuthor ? this.post.ogAuthor.profile.pic : ""
-            )
-        } else {
-            this.post.author ? this.post.author.profile.pic : ""
-        }
-    }
-
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                
+
                 {this.state.posts.map(post => {
-                    console.log(post.ogAuthor ? post.ogAuthor.profile.pic : "" );
                     // Check if post is liked
                     let isLiked = false;
-                    for (let i=0; i < post.likes.length; i++) {
+                    for (let i = 0; i < post.likes.length; i++) {
                         if (this.props.loggedInUser === post.likes[i].author) {
                             isLiked = true;
                         };
@@ -95,13 +81,13 @@ class Postfeed extends Component {
                         />
                     )
                 })}
-                
+
                 <br></br>
             </div>
-            
-            
+
+
         )
-     
+
     }
 
 }
