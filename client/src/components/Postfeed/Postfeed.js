@@ -11,11 +11,11 @@ class Postfeed extends Component {
     state = {
         user: {},
         posts: [],
+        userId: this.props.userId
     };
 
     componentDidMount() {
         if (this.props.userId) {
-
             PostAPI.getPostId(this.props.userId).then(data => {
                 this.setState({
                     posts: data.data || []
@@ -29,77 +29,65 @@ class Postfeed extends Component {
                 // console.log(data);
                 this.setState({
                     posts: data.data
-                })
-
-            })
-        } else if (window.location.href.includes("profile")) {
-            UserAPI.getUser().then(data =>{
-                PostAPI.getPostId(data.data._id)
-                .then(data => {
-                    this.setState({
-                        posts: data.data || []
-                    });
-                })
-            })
-        }  else {
-        PostAPI.getPosts().then(data => {
-            this.setState({
-                posts: data.data || []
+                });
             });
-        }); 
-    }
+        } else if (window.location.href.includes("profile")) {
+            UserAPI.getUser().then(data => {
+                PostAPI.getPostId(data.data._id)
+                    .then(data => {
+                        this.setState({
+                            posts: data.data || []
+                        });
+                    });
+            });
+        } else {
+            PostAPI.getPosts().then(data => {
+                this.setState({
+                    posts: data.data || []
+                });
+            });
+        }
     };
 
-    whichPic(){
-        if (window.location.href.includes("snippets")) {
-            return (
-                this.post.ogAuthor ? this.post.ogAuthor.profile.pic : ""
-            )
-        } else {
-            this.post.author ? this.post.author.profile.pic : ""
-        }
-    }
-
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                
+
                 {this.state.posts.map(post => {
-                    console.log(post.ogAuthor ? post.ogAuthor.profile.pic : "" );
                     // Check if post is liked
                     let isLiked = false;
-                    for (let i=0; i < post.likes.length; i++) {
+                    for (let i = 0; i < post.likes.length; i++) {
                         if (this.props.loggedInUser === post.likes[i].author) {
                             isLiked = true;
                         };
                     };
                     return (
-                        <Post 
-                        key={post._id}
-                        id={post._id}
-                        isLiked={isLiked}
-                        authorId={post.ogAuthor ? post.ogAuthor._id : post.author._id}
-                        loggedInUser={this.props.loggedInUser}
-                        author={post.ogAuthor ? post.ogAuthor.fullName : post.author.fullName} 
-                        post={post.post}
-                        type={post.type}
-                        articleMetadata={post.articleMetadata || "not an article"}
-                        numLikes={post.numLikes}
-                        comments={post.comments}
-                        description={post.description}
-                        
-                        pic={post.author.profile ? post.author.profile.pic : ""}
-                        time={post.createdAt}
+                        <Post
+                            key={post._id}
+                            id={post._id}
+                            isLiked={isLiked}
+                            authorId={post.ogAuthor ? post.ogAuthor._id : post.author._id}
+                            loggedInUser={this.props.loggedInUser}
+                            author={post.ogAuthor ? post.ogAuthor.fullName : post.author.fullName}
+                            post={post.post}
+                            type={post.type}
+                            articleMetadata={post.articleMetadata || "not an article"}
+                            numLikes={post.numLikes}
+                            comments={post.comments}
+                            description={post.description}
+
+                            pic={post.author.profile ? post.author.profile.pic : ""}
+                            time={post.createdAt}
                         />
                     )
                 })}
-                
+
                 <br></br>
             </div>
-            
-            
+
+
         )
-     
+
     }
 
 }

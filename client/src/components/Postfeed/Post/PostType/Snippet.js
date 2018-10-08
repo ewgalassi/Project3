@@ -27,9 +27,7 @@ class Snippet extends React.Component {
     ) {
       // console.log("working")
     } else {
-      console.log(this.state.isDisabled);
       if (this.state.isDisabled) {
-        console.log("disabled true");
         return (
           <button
             // onClick={this.props.onClick}
@@ -41,7 +39,6 @@ class Snippet extends React.Component {
           </button>
         );
       } else {
-        console.log("disabled false");
         return (
           <button
             onClick={this.onClick}
