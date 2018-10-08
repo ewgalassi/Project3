@@ -11,33 +11,32 @@ class Snippet extends React.Component {
   };
 
   renderButton = () => {
-    console.log(this.state.isDisabled)
+    console.log(this.state.isDisabled);
     if (this.state.isDisabled) {
-      console.log("disabled true")
-      return(
-      <button
-        // onClick={this.props.onClick}
-        type="button"
-        className="snippet-btn btn btn-link fa fa-save"
-        disabled
-      >
-        {/* <span className="tooltiptext"></span> */}
-      </button>
-      )
-    } else {
-      console.log("disabled false")
+      console.log("disabled true");
       return (
-      <button
-        onClick={this.props.onClick}
-        type="button"
-        className="snippet-btn btn btn-link fa fa-save"
-      >
-        <span className="tooltiptext">Save</span>
-      </button>
-      )
+        <button
+          // onClick={this.props.onClick}
+          type="button"
+          className="snippet-btn btn btn-link fa fa-save"
+          disabled
+        >
+          {/* <span className="tooltiptext"></span> */}
+        </button>
+      );
+    } else {
+      console.log("disabled false");
+      return (
+        <button
+          onClick={this.props.onClick}
+          type="button"
+          className="snippet-btn btn btn-link fa fa-save"
+        >
+          <span className="tooltiptext">Save</span>
+        </button>
+      );
     }
-  }
-
+  };
 
   render() {
     return (
@@ -58,7 +57,6 @@ class Snippet extends React.Component {
               </button>
             </CopytoClipboard>
             {this.renderButton()}
-     
           </div>
         </div>
       </div>
