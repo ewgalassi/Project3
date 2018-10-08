@@ -1,4 +1,3 @@
-/* global $ */
 import React, { Component } from "react";
 import Card from "../../Card/Card";
 import Article from "./PostType/Article";
