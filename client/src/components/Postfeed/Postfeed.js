@@ -25,7 +25,7 @@ class Postfeed extends Component {
             });
         } else if (window.location.href.includes("snippets")) {
             SavedAPI.getSavedSnippets().then(data => {
-                console.log(data);
+                // console.log(data);
                 // console.log(data);
                 this.setState({
                     posts: data.data
