@@ -44,7 +44,7 @@ h2.profile-name {
   margin: 0;
 }
 
-#followersNum {
-  color: #ffffff;
-  margin-bottom: 10px;
+.followers-profile {
+  color: #fff;
+  margin-bottom: 20px;
 }

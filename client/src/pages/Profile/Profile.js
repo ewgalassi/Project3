@@ -148,32 +148,36 @@ class Profile extends Component {
                 title={this.state.jobTitle}
                 company={this.state.jobCompany}
               />
-              <div>
-                <h4>Stack Overflow Search</h4>
-                <input
-                  type="text"
-                  name="searchInput"
-                  placeholder="Search"
-                  value={this.state.searchInput}
-                  onChange={this.handleInput}
-                />
-                <button
-                  onClick={() => this.searchStack(this.state.searchInput)}
-                >
-                  Search
-                </button>
-              </div>
-              <div>
-                <br />
-                <h4>Search Results</h4>
-                {this.state.searchResults.map(searchResult => {
-                  return (
-                    <StackResults
-                      url={searchResult.link}
-                      title={searchResult.title}
+              <div className="stack-results">
+                <div>
+                  <h5>Search StackOverflow</h5>
+                  <form className="search-form">
+                    <input
+                      type="text"
+                      name="searchInput"
+                      placeholder="Search"
+                      value={this.state.searchInput}
+                      onChange={this.handleInput}
                     />
-                  );
-                })}
+                    <button
+                      className="btn btn-sm"
+                      onClick={() => this.searchStack(this.state.searchInput)}
+                    >
+                      <span className="fas fa-search" />
+                    </button>
+                  </form>
+                </div>
+                <div>
+                  <br />
+                  {this.state.searchResults.map(searchResult => {
+                    return (
+                      <StackResults
+                        url={searchResult.link}
+                        title={searchResult.title}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </Col>
             <Col size="md-8">
