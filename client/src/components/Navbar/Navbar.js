@@ -57,7 +57,7 @@ class Navbar extends React.Component {
               <span className="fas fa-search" />
             </button>
           </form>
-          <div>
+          <div className="nav-wrapper">
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link
