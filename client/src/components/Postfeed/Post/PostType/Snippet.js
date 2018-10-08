@@ -14,6 +14,11 @@ class Snippet extends React.Component {
 
   notify = () => toast("Copied");
   notifyTwo = () => toast("Snippet Saved");
+  
+  onClick = () => {
+    this.props.onClick()
+    this.notifyTwo()
+  }
 
   renderButton = () => {
     if (
@@ -39,7 +44,7 @@ class Snippet extends React.Component {
         console.log("disabled false");
         return (
           <button
-            onClick={this.props.onClick && this.notifyTwo}
+            onClick={this.onClick}
             type="button"
             className="snippet-btn btn btn-link fa fa-save"
           >

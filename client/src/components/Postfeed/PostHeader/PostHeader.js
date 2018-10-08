@@ -5,10 +5,10 @@ import PostAPI from "../../../utils/postAPI";
 import SavedAPI from "../../../utils/savedAPI";
 
 const moment = require("moment");
-
+ 
 class PostHeader extends React.Component {
   renderType = () => {
-    if (window.location.href.includes('profile')){
+    if (window.location.href.includes('profile') || window.location.href.includes('snippets') ){
       // console.log('renderType is working')
       return(
         <div className=".postheader only-delete">
