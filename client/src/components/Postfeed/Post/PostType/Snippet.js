@@ -11,6 +11,9 @@ class Snippet extends React.Component {
   };
 
   renderButton = () => {
+    if (window.location.href === "http://localhost:3000/profile" || window.location.href.includes("snippets")){
+      // console.log("working")
+    } else {
     console.log(this.state.isDisabled)
     if (this.state.isDisabled) {
       console.log("disabled true")
@@ -36,6 +39,7 @@ class Snippet extends React.Component {
       </button>
       )
     }
+  }
   }
 
 
