@@ -7,9 +7,17 @@ There is no complete social network for software developers. Stack Overflow is v
 Social Code incorporates a news feed of posts from followers. Posts can be status updates, code snippets, and article links. Users can like and comment on posts. There is a sidebar with the latest tech articles for easy access. 
 
 ## Features
-- Direct messaging
+- Follow users and their posts
 - Post and save useful code snippets
-- Follow your favorite posts
+- Search Stack Overflow for questions
+- Direct message other users
+- Stay up-to-date on latest tech news
+
+## Demo
+
+Check it out [here](https://project3-ey.herokuapp.com)!
+
+
 
 ## Contributors
 - Eddy Yousef
