@@ -37,22 +37,12 @@ class Profile extends Component {
     // console.log(this.state.searchInput)
   };
 
-<<<<<<< HEAD
-  searchStack = search => {    
-    const stackExURL = "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=" + search + "&site=stackoverflow";
-    // console.log(stackExURL);
-    axios.get(
-      stackExURL
-    ).then(response => {
-      console.log("response")
-=======
   searchStack(search) {
     const stackExURL =
       "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=" +
       search +
       "&site=stackoverflow";
     axios.get(stackExURL).then(response => {
->>>>>>> master
       this.setState({
         searchResults: response.data.items
       });
