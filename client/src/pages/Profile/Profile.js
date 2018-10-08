@@ -59,7 +59,7 @@ class Profile extends Component {
     } else {
       this.getUserData();
     }
-  }
+  };
 
   getUserData = () => {
     UserAPI.getUser()
@@ -156,22 +156,27 @@ class Profile extends Component {
                     <h5>Search StackOverflow</h5>
                     <form className="search-form">
                       <input
+                        id="stackSearchInput"
                         type="text"
                         name="searchInput"
                         placeholder="Search"
                         value={this.state.searchInput}
-                        onChange={this.handleInput}></input>
-                      <button className="btn btn-sm" onClick={
-                        event => {
-                          event.preventDefault()
-                          this.searchStack(this.state.searchInput)
-                        }
-                        }><span className="fas fa-search"></span></button>
+                        onChange={this.handleInput}
+                      />
+                      <button
+                        className="btn btn-sm"
+                        onClick={event => {
+                          event.preventDefault();
+                          this.searchStack(this.state.searchInput);
+                        }}
+                      >
+                        <span className="fas fa-search" />
+                      </button>
                     </form>
                   </div>
                 </div>
                 <div className="search-results">
-                  <br></br>
+                  <br />
                   {this.state.searchResults.map(searchResult => {
                     return (
                       <StackResults

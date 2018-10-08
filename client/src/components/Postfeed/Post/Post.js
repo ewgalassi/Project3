@@ -5,12 +5,11 @@ import Snippet from "./PostType/Snippet";
 import Status from "./PostType/Status";
 import PostHeader from "../PostHeader/PostHeader";
 import PostFooter from "../PostFooter/PostFooter";
-import savedAPI from "../../../utils/savedAPI"
+import savedAPI from "../../../utils/savedAPI";
 
 import "./Post.css";
 
 class Post extends Component {
-
   state = {
     post: this.props.post,
     type: this.props.type,
@@ -25,31 +24,29 @@ class Post extends Component {
   };
 
   saveSnippet = postData => {
-    alert("Snippet Saved!")
+    // alert("Snippet Saved!")
     savedAPI.saveSnippet(postData).then(data => {
-      console.log("save snippet running")
+      console.log("save snippet running");
       this.setState({
         isSaved: true,
-        isDisabled:true
-      })
+        isDisabled: true
+      });
       // console.log("saved?", this.state.isSaved)
-
     });
   };
 
   unSaveSnippet = postData => {
-    alert("snippet unsaved")
+    // alert("snippet unsaved");
     savedAPI.unSaveSnippet(postData).then(data => {
       this.setState({
         isSaved: false
-      })
+      });
       // console.log("saved?", this.state.isSaved)
-    })
-  }
+    });
+  };
 
   handleClick = () => {
     if (!this.state.isSaved) {
-
       const postData = {
         post: this.props.post,
         type: this.props.type,
@@ -57,14 +54,13 @@ class Post extends Component {
         description: this.props.description,
         numLikes: this.props.numLikes,
         comments: this.props.comments || [],
-        saves: this.props.saves,
-      }
+        saves: this.props.saves
+      };
       console.log(postData);
-      
+
       this.saveSnippet(postData);
       // document.querySelectorAll(".snippet-btn").addClass("disabled");
-
-    } 
+    }
     // else if (this.state.isSaved) {
     //   // const postData = {
     //   //   post: this.props.post,
@@ -75,11 +71,10 @@ class Post extends Component {
     //   //   saves: this.props.saves,
     //   // }
     //   // this.unSaveSnippet(postData);
-  
+
     //   alert("You've already saved this one!")
     // }
-  }
-
+  };
 
   returnType = type => {
     switch (type) {
@@ -101,10 +96,7 @@ class Post extends Component {
             onClick={this.handleClick}
             isSaved={this.state.isSaved}
             isDisabled={this.state.isDisabled}
-          >
-
-          </Snippet>
-
+          />
         );
       default:
         return (
@@ -128,7 +120,6 @@ class Post extends Component {
           loggedInUser={this.props.loggedInUser}
           time={this.props.time}
         />
-       
 
         {this.returnType(this.props.type)}
         <hr />
@@ -141,12 +132,9 @@ class Post extends Component {
           isLiked={this.props.isLiked}
           loggedInUser={this.props.loggedInUser}
         />
-
       </Card>
     );
   }
 }
 
 export default Post;
-
-
