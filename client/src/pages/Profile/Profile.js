@@ -29,10 +29,12 @@ class Profile extends Component {
   };
 
   handleInput = event => {
+    // console.log(event.target.value);
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
+    // console.log(this.state.searchInput)
   };
 
   searchStack(search) {
@@ -48,7 +50,7 @@ class Profile extends Component {
     });
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     const {
       match: { params }
     } = this.props;
@@ -148,27 +150,28 @@ class Profile extends Component {
                 title={this.state.jobTitle}
                 company={this.state.jobCompany}
               />
-              <div className="stack-results">
-                <div>
-                  <h5>Search StackOverflow</h5>
-                  <form className="search-form">
-                    <input
-                      type="text"
-                      name="searchInput"
-                      placeholder="Search"
-                      value={this.state.searchInput}
-                      onChange={this.handleInput}
-                    />
-                    <button
-                      className="btn btn-sm"
-                      onClick={() => this.searchStack(this.state.searchInput)}
-                    >
-                      <span className="fas fa-search" />
-                    </button>
-                  </form>
+              <div className="stack-search">
+                <div className="search-wrapper">
+                  <div className="search-bar sticky-top">
+                    <h5>Search StackOverflow</h5>
+                    <form className="search-form">
+                      <input
+                        type="text"
+                        name="searchInput"
+                        placeholder="Search"
+                        value={this.state.searchInput}
+                        onChange={this.handleInput}></input>
+                      <button className="btn btn-sm" onClick={
+                        event => {
+                          event.preventDefault()
+                          this.searchStack(this.state.searchInput)
+                        }
+                        }><span className="fas fa-search"></span></button>
+                    </form>
+                  </div>
                 </div>
-                <div>
-                  <br />
+                <div className="search-results">
+                  <br></br>
                   {this.state.searchResults.map(searchResult => {
                     return (
                       <StackResults
