@@ -25,11 +25,12 @@ class Postfeed extends Component {
             });
         } else if (window.location.href.includes("snippets")) {
             SavedAPI.getSavedSnippets().then(data => {
-                // console.log(data);
+                // console.log();
                 // console.log(data);
                 this.setState({
                     posts: data.data
-                })  
+                })
+
             })
         } else if (window.location.href.includes("profile")) {
             UserAPI.getUser().then(data =>{
@@ -49,12 +50,22 @@ class Postfeed extends Component {
     }
     };
 
+    whichPic(){
+        if (window.location.href.includes("snippets")) {
+            return (
+                this.post.ogAuthor ? this.post.ogAuthor.profile.pic : ""
+            )
+        } else {
+            this.post.author ? this.post.author.profile.pic : ""
+        }
+    }
 
     render(){
         return(
             <div>
                 
                 {this.state.posts.map(post => {
+                    console.log(post.ogAuthor ? post.ogAuthor.profile.pic : "" );
                     // Check if post is liked
                     let isLiked = false;
                     for (let i=0; i < post.likes.length; i++) {
@@ -76,6 +87,7 @@ class Postfeed extends Component {
                         numLikes={post.numLikes}
                         comments={post.comments}
                         description={post.description}
+                        
                         pic={post.author.profile ? post.author.profile.pic : ""}
                         time={post.createdAt}
                         />
