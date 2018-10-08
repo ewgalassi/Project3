@@ -70,10 +70,10 @@ class Snippet extends React.Component {
               // onCopy={() => alert("copied to clipboard")}
             >
               <div id="copySnipDiv">
-                <button id="copySnipBtn" onClick={this.notify}>
-                  <button className="copy-btn btn btn-link fa fa-copy">
+                <button id="copySnipBtn" className="copy-btn btn btn-link fa fa-copy" onClick={this.notify}>
+                 
                     <span className="tooltiptext">Copy</span>
-                  </button>
+                  
                 </button>
                 {/* <ToastContainer /> */}
                 <ToastContainer autoClose={2000} />
