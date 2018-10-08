@@ -14,8 +14,8 @@
 
 .info-card h5,
 .info-card p,
-.languages h6,
-.technologies h6 {
+.languages .languageInfo,
+.technologies .techInfo {
   color: #48c5da;
 }
 
@@ -48,7 +48,7 @@ li {
 }
 
 .userinfoP {
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.8rem !important;
   margin-left: 10px;
 }
 
@@ -56,6 +56,14 @@ li {
   margin-right: 8px;
 }
 
-.languages li {
-  margin-left: 40%;
+#langAndTech {
+  margin-bottom: 0px !important;
+}
+
+.languages .languageList {
+  color: #ffffff;
+}
+
+.technologies .techList {
+  color: #ffffff;
 }

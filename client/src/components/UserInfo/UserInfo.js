@@ -50,20 +50,32 @@ class UserInfo extends Component {
                     </div> */}
         </Card>
         <Card className="skills-card">
-          <div>
+          <div id="langAndTech" className="content row">
             <div className="col-xs-6">
               <ul className="languages">
-                <h6>Language(s):</h6>
-                {this.generateLanguages()}
+                <div className="languageInfo row">
+                  <div className="languageLeftDiv col-xs-6">Language(s):</div>{" "}
+                  <div className="languageList col-xs-6">
+                    {this.generateLanguages()}
+                  </div>
+                </div>
+
+                {/* <span className="test">{this.generateLanguages()}</span> */}
                 {/* <li>JavaScript</li>
                             <li>Python</li>
                             <li>PHP</li> */}
               </ul>
             </div>
+
             <div className="col-xs-6">
               <ul className="technologies">
-                <h6>Technologies:</h6>
-                {this.generateTechnologies()}
+                <div className="techInfo row">
+                  <div className="techLeftDiv col-sx-6">Technologies:</div>{" "}
+                  <div className="techList col-xs-6">
+                    {this.generateTechnologies()}
+                  </div>
+                </div>
+
                 {/* <li>HTML/CSS</li>
                             <li>React</li>
                             <li>MongoDB</li> */}
