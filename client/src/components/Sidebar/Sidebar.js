@@ -10,7 +10,7 @@ const Sidebar = props => {
       {/* <div className="author">By: {props.author}</div> */}
       <p className="source">{props.source}</p>
       <p className="summary">{props.description}</p>
-      <hr />
+      {/* <hr /> */}
     </div>
   );
 };

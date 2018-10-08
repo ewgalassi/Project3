@@ -1,12 +1,12 @@
 import React from "react";
-import "./PostFooter.css";
 import PostAPI from "../../../utils/postAPI";
 import CommentBox from "../../CommentBox/CommentBox";
+import "./PostFooter.css";
 
 class PostFooter extends React.Component {
   state = {
     numLikes: this.props.numLikes,
-    comment:"",
+    comment: "",
     comments: this.props.comments || [],
     saves: this.props.saves,
     isLiked: this.props.isLiked || false,
@@ -30,7 +30,7 @@ class PostFooter extends React.Component {
       });
     });
   };
-  
+
   toggleComment = () => {
     this.setState({
       isHidden: !this.state.isHidden
@@ -43,7 +43,7 @@ class PostFooter extends React.Component {
     });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     PostAPI.commentPost({
       post_id: this.props.id,
@@ -52,7 +52,7 @@ class PostFooter extends React.Component {
       .then(data => {
         this.setState({
           comments: data.data.comments || [],
-          comment: ''
+          comment: ""
         });
       })
       .catch(err => {
@@ -160,7 +160,7 @@ class PostFooter extends React.Component {
           >
             Comment
           </button>
-          
+
           {this.renderLikeButton()}
           {/* <button
             onClick={() => this.saveSnippet(this.props.id)}
@@ -169,21 +169,24 @@ class PostFooter extends React.Component {
           >
             <span /> Save Snippet
           </button> */}
-          
-          {!this.state.isHidden && 
-          <div>
-            <CommentBox 
-              displayComments={this.displayComments}
-              onChange={this.handleInput}
-              comment={this.state.comment}
-              onSubmit={this.handleSubmit}
-            />
-            <div className="row comment-row" style={{ margin: 10 }}>
-              <div className="comments">{this.displayComments()}</div>
+
+          {!this.state.isHidden && (
+            <div>
+              <CommentBox
+                displayComments={this.displayComments}
+                onChange={this.handleInput}
+                comment={this.state.comment}
+                onSubmit={this.handleSubmit}
+              />
+              <div
+                id="commentRow"
+                className="row comment-row"
+                style={{ margin: 10 }}
+              >
+                <div className="comments">{this.displayComments()}</div>
+              </div>
             </div>
-          </div>
-        }
-          
+          )}
         </div>
       </div>
     );
