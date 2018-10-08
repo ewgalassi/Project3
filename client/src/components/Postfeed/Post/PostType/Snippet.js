@@ -15,30 +15,37 @@ class Snippet extends React.Component {
   notify = () => toast("Copied");
 
   renderButton = () => {
-    console.log(this.state.isDisabled);
-    if (this.state.isDisabled) {
-      console.log("disabled true");
-      return (
-        <button
-          // onClick={this.props.onClick}
-          type="button"
-          className="snippet-btn btn btn-link fa fa-save"
-          disabled
-        >
-          {/* <span className="tooltiptext"></span> */}
-        </button>
-      );
+    if (
+      window.location.href === "http://localhost:3000/profile" ||
+      window.location.href.includes("snippets")
+    ) {
+      // console.log("working")
     } else {
-      console.log("disabled false");
-      return (
-        <button
-          onClick={this.props.onClick}
-          type="button"
-          className="snippet-btn btn btn-link fa fa-save"
-        >
-          <span className="tooltiptext">Save</span>
-        </button>
-      );
+      console.log(this.state.isDisabled);
+      if (this.state.isDisabled) {
+        console.log("disabled true");
+        return (
+          <button
+            // onClick={this.props.onClick}
+            type="button"
+            className="snippet-btn btn btn-link fa fa-save"
+            disabled
+          >
+            {/* <span className="tooltiptext"></span> */}
+          </button>
+        );
+      } else {
+        console.log("disabled false");
+        return (
+          <button
+            onClick={this.props.onClick}
+            type="button"
+            className="snippet-btn btn btn-link fa fa-save"
+          >
+            <span className="tooltiptext">Save</span>
+          </button>
+        );
+      }
     }
   };
 
