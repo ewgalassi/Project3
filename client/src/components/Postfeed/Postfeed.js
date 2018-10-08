@@ -33,7 +33,9 @@ class Postfeed extends Component {
 
             })
         } else if (window.location.href.includes("profile")) {
+            console.log(this.props.author);
             UserAPI.getUser().then(data =>{
+                console.log(data.data._id);
                 PostAPI.getPostId(data.data._id)
                 .then(data => {
                     this.setState({
@@ -88,7 +90,7 @@ class Postfeed extends Component {
                         comments={post.comments}
                         description={post.description}
                         
-                        pic={post.author.profile ? post.author.profile.pic : ""}
+                        pic={window.location.href.includes("profile") ? "" :(post.ogAuthor ? post.ogAuthor.profile.pic : post.author.profile.pic)}
                         time={post.createdAt}
                         />
                     )
