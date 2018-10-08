@@ -22,8 +22,14 @@
   margin-bottom: 1.2rem !important;
 }
 
+@media screen and (max-width: 768px) {
+  #newPostCard {
+    margin-top: 6.5rem;
+  }
+}
+
 @media screen and (max-width: 414px) {
   #newPostCard {
-    margin-top: 9rem;
+    margin-top: 6.5rem;
   }
 }
