@@ -11,7 +11,7 @@ class PostHeader extends React.Component {
 
 
   renderType = () => {
-    if (window.location.href.includes('profile') || window.location.href.includes('snippets')){
+    if (window.location.href.includes('profile')){
       console.log('renderType is working')
       return(
         <div className=".postheader only-delete">
