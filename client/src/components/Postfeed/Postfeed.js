@@ -33,7 +33,9 @@ class Postfeed extends Component {
 
             })
         } else if (window.location.href.includes("profile")) {
+            console.log(this.props.author);
             UserAPI.getUser().then(data =>{
+                console.log(data.data._id);
                 PostAPI.getPostId(data.data._id)
                 .then(data => {
                     this.setState({
