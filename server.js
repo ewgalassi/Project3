@@ -57,6 +57,7 @@ app.use("/api/message", messageRoutes);
 
 // Handle React routing, return all requests to React app
 app.get('*', function (req, res) {
+	console.log("HIT DEFAULT ROUTE");
   res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
 
