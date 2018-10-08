@@ -62,22 +62,22 @@ class Postfeed extends Component {
                         };
                     };
                     return (
-                        <Post
-                            key={post._id}
-                            id={post._id}
-                            isLiked={isLiked}
-                            authorId={post.ogAuthor ? post.ogAuthor._id : post.author._id}
-                            loggedInUser={this.props.loggedInUser}
-                            author={post.ogAuthor ? post.ogAuthor.fullName : post.author.fullName}
-                            post={post.post}
-                            type={post.type}
-                            articleMetadata={post.articleMetadata || "not an article"}
-                            numLikes={post.numLikes}
-                            comments={post.comments}
-                            description={post.description}
-
-                            pic={post.author.profile ? post.author.profile.pic : ""}
-                            time={post.createdAt}
+                        <Post 
+                        key={post._id}
+                        id={post._id}
+                        isLiked={isLiked}
+                        authorId={post.ogAuthor ? post.ogAuthor._id : post.author._id}
+                        loggedInUser={this.props.loggedInUser}
+                        author={post.ogAuthor ? post.ogAuthor.fullName : post.author.fullName} 
+                        post={post.post}
+                        type={post.type}
+                        articleMetadata={post.articleMetadata || "not an article"}
+                        numLikes={post.numLikes}
+                        comments={post.comments}
+                        description={post.description}
+                        
+                        pic={window.location.href.includes("profile") ? "" :(post.ogAuthor ? post.ogAuthor.profile.pic : post.author.profile.pic)}
+                        time={post.createdAt}
                         />
                     )
                 })}
