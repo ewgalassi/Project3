@@ -108,6 +108,9 @@
   display: inline-block;
 }
 
+/* 
+------------------------------- */
+
 /* Snippet alert */
 .Toastify__toast-container {
   width: 148px !important;
@@ -116,6 +119,9 @@
 .Toastify__toast--default {
   color: red !important;
 }
+
+/* 
+------------------------------- */
 
 /* STATUS CARD ---------------------------- */
 
@@ -136,8 +142,6 @@
   background: none;
 }
 
-
-
 /* MEDIA QUERIES ---------------------------- */
 
 @media screen and (max-width: 414px) {
@@ -150,16 +154,14 @@
   }
 
   .snippet {
-    font-size:12px;
+    font-size: 12px;
   }
 
-  .article-title h4{
-    font-size:18px;
+  .article-title h4 {
+    font-size: 18px;
   }
 
   #articleParagraph {
-    font-size:12px;
+    font-size: 12px;
   }
-
 }
-
