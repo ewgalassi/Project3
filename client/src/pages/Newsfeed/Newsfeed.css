@@ -1,6 +1,6 @@
 .stuck {
   position: fixed;
-  top: 103px;
+  top: 85px;
   /* left: 10px; */
   bottom: 23px;
   width: 280px;
@@ -39,7 +39,8 @@
     padding: 20px;
   } */
   .stuck {
-    margin-top: 25px;
+    top: 130px;
+    width: 210px;
   }
 }
 
