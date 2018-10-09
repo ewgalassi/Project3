@@ -76,7 +76,7 @@ class Postfeed extends Component {
                         comments={post.comments}
                         description={post.description}
                         
-                        pic={window.location.href.includes("profile") ? "" :(post.ogAuthor ? post.ogAuthor.profile.pic : post.author.profile.pic)}
+                        pic={(window.location.href.includes("profile") || window.location.href.includes("snippet") )? "" :(post.ogAuthor ? post.ogAuthor.profile.pic : post.author.profile.pic)}
                         time={post.createdAt}
                         />
                     )

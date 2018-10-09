@@ -12,7 +12,8 @@ class NewPost extends Component {
     posts: [],
     post: "",
     type: "" || "status",
-    description: ""
+    description: "",
+    // ogAuthor: this.loggedInUser
   };
 
   handleInput = event => {
@@ -36,12 +37,14 @@ class NewPost extends Component {
     const post = {
       type: this.state.type,
       post: this.state.post,
-      description: this.state.description
+      description: this.state.description,
+      ogAuthor:this.props.authorId
     };
     if (post.type === "snippet") {
+      console.log(this.state.ogAuthor);
       PostAPI.savePost(post)
         .then(data => {
-          // console.log(data);
+          console.log(data);
           if (window.location.href === "http://localhost:3000/profile") {
             window.location.replace("/profile");
           } else {
@@ -51,9 +54,9 @@ class NewPost extends Component {
         .catch(err => {
           console.log(err);
         });
-      savedAPI.saveSnippet(post).then(data => {
-        // console.log("saved snippet");
-      });
+      // savedAPI.saveSnippet(post).then(data => {
+      //   console.log(data);
+      // });
     } else {
       PostAPI.savePost(post)
         .then(data => {
