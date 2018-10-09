@@ -54,8 +54,8 @@ class UserInfo extends Component {
             <div className="col-xs-6">
               <ul className="languages">
                 <div className="languageInfo row">
-                  <div className="languageLeftDiv col-xs-6">Language(s):</div>{" "}
-                  <div className="languageList col-xs-6">
+                  <div className="languageLeftDiv">Language(s):</div>{" "}
+                  <div className="languageList">
                     {this.generateLanguages()}
                   </div>
                 </div>
