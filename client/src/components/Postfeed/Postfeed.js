@@ -68,7 +68,7 @@ class Postfeed extends Component {
                         isLiked={isLiked}
                         authorId={post.ogAuthor ? post.ogAuthor._id : post.author._id}
                         loggedInUser={this.props.loggedInUser}
-                        author={post.ogAuthor ? post.ogAuthor.fullName : post.author.fullName} 
+                        author={post.ogAuthor ? post.ogAuthor.fullName : post.author.fullName || "By You"} 
                         post={post.post}
                         type={post.type}
                         articleMetadata={post.articleMetadata || "not an article"}
@@ -76,7 +76,7 @@ class Postfeed extends Component {
                         comments={post.comments}
                         description={post.description}
                         
-                        pic={window.location.href.includes("profile") ? "" :(post.ogAuthor ? post.ogAuthor.profile.pic : post.author.profile.pic)}
+                        pic={window.location.href.includes("profile") ? "" :(post.ogAuthor ? post.ogAuthor.profile.pic : "") || ""}
                         time={post.createdAt}
                         />
                     )
