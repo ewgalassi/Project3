@@ -4,6 +4,7 @@
   background-color: #343637;
   color: #fff;
   margin: 20px 0px;
+  border-radius:.25rem;
 }
 
 .languages,
@@ -66,4 +67,38 @@ li {
 
 .technologies .techList {
   color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+
+  .userCardInfo {
+    margin-bottom: 1rem;
+    padding:5px 10px;
+    border-radius: 20px;
+  }
+
+  .info-card,
+  .skills-card {
+    padding:15px;
+  }
+  .userinfoP {
+
+    font-size:13px;
+
+  }
+
+  .profile-links a {
+    font-size:12px;
+    padding-left: 3px;
+    padding-right: 3px;
+  } 
+
+  .content {
+    margin:20px;
+  }
+
+ #langAndTech {
+    font-size:13px;
+  }
+
 }
