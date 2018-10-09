@@ -3,6 +3,8 @@ import React from "react";
 import UserAPI from "../../utils/userAPI";
 import { Col, Row, Container } from "../../components/Grid";
 import Navbar from "../../components/Navbar/Navbar";
+import { ToastContainer, toast } from "react-toastify";
+
 import "./Profile.css";
 
 class EditProfile extends React.Component {
@@ -43,6 +45,14 @@ class EditProfile extends React.Component {
     });
   }
 
+  follow = () => toast("Followed!");
+  notFound = () => toast("User not found");
+  unfollowed = () => toast("Unfollowed user");
+  error = () => toast("There was an error :( ");
+  noUser = () => toast("No user found");
+
+
+
   handleInput = event => {
     const { name, value } = event.target;
     this.setState({
@@ -82,14 +92,15 @@ class EditProfile extends React.Component {
 
   handleFollow = event => {
     event.preventDefault();
+    
     UserAPI.followUser(this.state.followInput)
       .then(data => {
         if (data.data.success) {
-          alert("Successfully followed user!");
+          this.follow();
+          // alert("Successfully followed user!");
           window.location.replace("/editProfile");
         } else {
-          alert("User not found");
-        }
+          this.notFound();        }
       })
       .catch(err => {
         console.log(err);
@@ -100,11 +111,13 @@ class EditProfile extends React.Component {
     UserAPI.unfollowUser(id)
       .then(data => {
         console.log(data.data);
-        alert(data.data);
+        this.unfollow();
+        // alert(data.data);
       })
       .catch(err => {
         console.log(err);
-        alert("There was an error :(");
+        // alert("There was an error :(");
+        this.error();
       });
   };
 
@@ -113,7 +126,8 @@ class EditProfile extends React.Component {
     UserAPI.searchUsers(this.state.searchInput)
       .then(data => {
         if (!data.data) {
-          return alert("No user found");
+          this.noUser();
+          // return alert("No user found");
         }
         window.location.replace("/profile/" + data.data._id);
       })
@@ -463,6 +477,8 @@ class EditProfile extends React.Component {
                     onChange={this.handleInput}
                   />
                   <button onClick={this.handleFollow}>Follow</button>
+                  <ToastContainer autoClose={4000} />
+
                 </form>
               </div>
             </Col>

@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 import LogoutDrop from "../LogoutDrop/LogoutDrop";
 import { Container } from "../Grid";
 import UserAPI from "../../utils/userAPI";
+import { ToastContainer, toast } from "react-toastify";
+
 import "./Navbar.css";
+
 
 class Navbar extends React.Component {
   state = {
     searchInput: ""
   };
+
+  noUser = () => toast("No user found");
 
   handleInput = event => {
     const { name, value } = event.target;
@@ -22,7 +27,7 @@ class Navbar extends React.Component {
     UserAPI.searchUsers(this.state.searchInput)
       .then(data => {
         if (!data.data) {
-          return alert("No user found");
+          return this.noUser();
         }
         window.location.replace("/profile/" + data.data._id);
       })
