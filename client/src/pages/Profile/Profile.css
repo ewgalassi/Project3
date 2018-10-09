@@ -213,8 +213,8 @@
 }
 
 .search-results {
-  padding:0px 15px;
-  padding-bottom:15px;
+  padding: 0px 15px;
+  padding-bottom: 15px;
   margin-top: 100px;
 }
 
@@ -222,28 +222,31 @@
   outline: none;
 }
 
+@media screen and (max-width: 992px) {
+  .container {
+    margin: auto;
+  }
+}
+
 @media screen and (max-width: 768px) {
- 
   .stack-search h5 {
     padding: 20px;
-    padding-bottom:10px;
-    font-size:15px;
+    padding-bottom: 10px;
+    font-size: 15px;
   }
 
   .stack-search {
-    min-height:120px;
+    min-height: 120px;
   }
 
   .search-form input {
-    width:78%;
+    width: 78%;
   }
- 
- .search-results {
-   font-size:11px;
-   max-height:200px;
- }
 
-
+  .search-results {
+    font-size: 11px;
+    max-height: 200px;
+  }
 }
 
 @media screen and (max-width: 414px) {
@@ -251,7 +254,7 @@
     margin-top: 8rem;
   }
 
+  .testNewPost {
+    margin-top: 28px;
+  }
 }
-
-
-

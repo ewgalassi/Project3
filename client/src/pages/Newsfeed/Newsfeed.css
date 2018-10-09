@@ -8,8 +8,7 @@
   padding: 4px;
   border: 1px solid #eee8a1;
   background-color: #343637;
-  border-radius:.25rem;
-
+  border-radius: 0.25rem;
 }
 
 .stuck h4 {
@@ -27,40 +26,35 @@
   overflow: -moz-scrollbars-none;
 }
 
-
-
 @media screen and (max-width: 1024px) {
   .container {
-    margin:0px;
-    padding:20px;
+    margin: 0px;
+    padding: 20px;
   }
+}
 
-  
+@media screen and (max-width: 992px) {
+  /* .container {
+    margin: 0px;
+    padding: 20px;
+  } */
+  .stuck {
+    margin-top: 25px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    margin:0px auto;
-    padding:20px;
+    margin: auto !important;
   }
 
   .stuck {
-    width:25%;
-    top: 124px;
-  }
-
-  .stuck h4{
-    font-size:20px;
-  }
-
-  .stuck .article-title {
-    font-size:15px;
+    display: none;
   }
 }
 
 @media screen and (max-width: 414px) {
-
-  .stuck {
+  /* .stuck {
     display:none;
-  }
+  } */
 }

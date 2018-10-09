@@ -24,14 +24,23 @@
 
 /* MEDIA QUERIES ---------------------------- */
 
+@media screen and (max-width: 992px) {
+  #newPostCard {
+    margin-top: 104px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   #newPostCard {
-    margin-top: 6.5rem;
+    margin-top: 118px;
   }
 }
 
 @media screen and (max-width: 414px) {
   #newPostCard {
-    margin-top: 6.5rem;
+    margin-top: 125px;
   }
+}
+
+@media screen and (max-width: 370px) {
 }

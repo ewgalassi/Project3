@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
+import { Col, Row, Container } from "../../components/Grid";
 import "./UserInfo.css";
 
 //function to iterate through languages array and create li
@@ -50,38 +51,25 @@ class UserInfo extends Component {
                     </div> */}
         </Card>
         <Card className="skills-card">
-          <div id="langAndTech" className="content row">
-            <div className="col-xs-6">
-              <ul className="languages">
-                <div className="languageInfo row">
-                  <div className="languageLeftDiv">Language(s):</div>{" "}
-                  <div className="languageList">
-                    {this.generateLanguages()}
-                  </div>
-                </div>
+          <Row>
+            <Col size="md-4">
+              <div className="languageLeftDiv">Language(s):</div>{" "}
+            </Col>
+            <Col size="md-8">
+              <div className="languageList">{this.generateLanguages()}</div>
+            </Col>
+          </Row>
 
-                {/* <span className="test">{this.generateLanguages()}</span> */}
-                {/* <li>JavaScript</li>
-                            <li>Python</li>
-                            <li>PHP</li> */}
-              </ul>
-            </div>
-
-            <div className="col-xs-6">
-              <ul className="technologies">
-                <div className="techInfo row">
-                  <div className="techLeftDiv col-sx-6">Technologies:</div>{" "}
-                  <div className="techList col-xs-6">
-                    {this.generateTechnologies()}
-                  </div>
-                </div>
-
-                {/* <li>HTML/CSS</li>
-                            <li>React</li>
-                            <li>MongoDB</li> */}
-              </ul>
-            </div>
-          </div>
+          <Row>
+            <Col size="md-4">
+              <div className="techLeftDiv">Technologies:</div>{" "}
+            </Col>
+            <Col size="md-8">
+              <div className="techList col-xs-6">
+                {this.generateTechnologies()}
+              </div>
+            </Col>
+          </Row>
         </Card>
       </div>
     );
