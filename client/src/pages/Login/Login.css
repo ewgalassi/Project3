@@ -1,9 +1,7 @@
 body {
-  background-color: #111717f0;
+  background-color: rgba(17, 23, 23, 0.92);
   /* overflow: hidden; */
-  font-family: 'Ubuntu', sans-serif;
-
-
+  font-family: "Ubuntu", sans-serif;
 }
 
 body::-webkit-scrollbar {

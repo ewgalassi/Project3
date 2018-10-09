@@ -81,7 +81,6 @@ class Newsfeed extends Component {
                 <NewPost />
                 <Postfeed loggedInUser={this.state.loggedInUser} />
               </div>
-              5
             </Col>
             <Col size="md-3">
               <div className="stuck">
