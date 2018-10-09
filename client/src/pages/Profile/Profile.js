@@ -161,8 +161,8 @@ class Profile extends Component {
               />
               <div className="stack-search">
                 <div className="search-wrapper">
-                  <div className="search-bar sticky-top">
-                    <h5>Search StackOverflow</h5>
+                  <div className="search-bar">
+                    <h5>Search Stack Overflow</h5>
                     <form className="search-form">
                       <input
                         id="stackSearchInput"
