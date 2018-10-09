@@ -76,14 +76,13 @@ class Newsfeed extends Component {
             {/* <Col size="md-3"> */}
             {/* <Sidebar /> */}
             {/* </Col> */}
-            <Col size="sm-9">
+            <Col size="md-9">
               <div className="not-stuck">
                 <NewPost />
                 <Postfeed loggedInUser={this.state.loggedInUser} />
               </div>
-              5
             </Col>
-            <Col size="sm-3">
+            <Col size="md-3">
               <div className="stuck">
                 <h4>Latest Tech News</h4>
                 {this.state.newsArticles.map(newsArticle => {

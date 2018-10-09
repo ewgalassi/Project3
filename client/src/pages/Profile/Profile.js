@@ -198,7 +198,7 @@ class Profile extends Component {
               </div>
             </Col>
             <Col size="md-8">
-              <NewPost />
+              <NewPost className="testNewPost" />
               <Postfeed userId={this.props.match.params.id} />
             </Col>
           </Row>

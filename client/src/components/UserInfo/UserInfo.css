@@ -4,7 +4,7 @@
   background-color: #343637;
   color: #fff;
   margin: 20px 0px;
-  border-radius:.25rem;
+  border-radius: 0.25rem;
 }
 
 .languages,
@@ -57,48 +57,50 @@ li {
   margin-right: 8px;
 }
 
-#langAndTech {
-  margin-bottom: 0px !important;
-}
-
-.languages .languageList {
+.languageList {
   color: #ffffff;
+  margin-bottom: 15px;
 }
 
-.technologies .techList {
+.languageLeftDiv {
+  color: #48c5da;
+}
+
+.techLeftDiv {
+  color: #48c5da;
+}
+
+.techList {
   color: #ffffff;
 }
 
 @media screen and (max-width: 768px) {
-
   .userCardInfo {
     margin-bottom: 1rem;
-    padding:5px 10px;
+    padding: 5px 10px;
     border-radius: 20px;
   }
 
   .info-card,
   .skills-card {
-    padding:15px;
+    padding: 15px;
   }
+
   .userinfoP {
-
-    font-size:13px;
-
+    font-size: 13px;
   }
 
   .profile-links a {
-    font-size:12px;
+    font-size: 12px;
     padding-left: 3px;
     padding-right: 3px;
-  } 
+  }
 
   .content {
-    margin:20px;
+    margin: 20px;
   }
 
- #langAndTech {
-    font-size:13px;
+  #langAndTech {
+    font-size: 13px;
   }
-
 }
