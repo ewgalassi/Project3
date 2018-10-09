@@ -78,6 +78,7 @@
   color: #ffffff;
   background-color: #343637;
   margin-top: 25px;
+  margin-bottom: 35px;
   border: 1px solid #eee8aa;
   padding: 25px;
 }
@@ -101,6 +102,10 @@
   border-radius: 6px;
 }
 
+.followers button:focus {
+  outline: none;
+}
+
 .followers input {
   width: 400px;
   background: none;
@@ -120,6 +125,10 @@
   color: #ffffff;
 }
 
+#editUnfollow:focus {
+  outline: none;
+}
+
 #followFriend {
   margin-bottom: 15px;
 }
@@ -131,10 +140,11 @@
 .stack-search {
   background-color: #343637;
   /* padding:10px; */
-  min-height: 150px;
+  height: auto;
   max-height: 600px;
   overflow-y: scroll;
   position: relative;
+  border: 1px solid #eee8aa;
 }
 
 .search-wrapper {
@@ -149,7 +159,7 @@
   /* height:200px; */
   /* position:fixed; */
   /* top:0; */
-  width: 90%;
+  /* width: 90%; */
 }
 
 .stack-search a {
@@ -157,14 +167,28 @@
   height: auto;
 }
 
+.stack-search a:hover {
+  color: #48c5da;
+}
+
 .stack-search h5 {
   color: #efe8a2;
   padding: 20px;
 }
 
+.stack-search::-webkit-scrollbar {
+  width: 0 !important;
+}
+.stack-search {
+  -ms-overflow-style: none;
+}
+.stack-search {
+  overflow: -moz-scrollbars-none;
+}
+
 .search-form {
   margin: 10px 20px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .search-form input {
@@ -189,7 +213,8 @@
 }
 
 .search-results {
-  padding: 15px;
+  padding:0px 15px;
+  padding-bottom:15px;
   margin-top: 100px;
 }
 
@@ -197,8 +222,36 @@
   outline: none;
 }
 
+@media screen and (max-width: 768px) {
+ 
+  .stack-search h5 {
+    padding: 20px;
+    padding-bottom:10px;
+    font-size:15px;
+  }
+
+  .stack-search {
+    min-height:120px;
+  }
+
+  .search-form input {
+    width:78%;
+  }
+ 
+ .search-results {
+   font-size:11px;
+   max-height:200px;
+ }
+
+
+}
+
 @media screen and (max-width: 414px) {
   .profile-card {
     margin-top: 8rem;
   }
+
 }
+
+
+

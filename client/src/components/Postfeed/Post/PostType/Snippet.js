@@ -14,11 +14,11 @@ class Snippet extends React.Component {
 
   notify = () => toast("Copied");
   notifyTwo = () => toast("Snippet Saved");
-  
+
   onClick = () => {
-    this.props.onClick()
-    this.notifyTwo()
-  }
+    this.props.onClick();
+    this.notifyTwo();
+  };
 
   renderButton = () => {
     if (
@@ -67,10 +67,12 @@ class Snippet extends React.Component {
               // onCopy={() => alert("copied to clipboard")}
             >
               <div id="copySnipDiv">
-                <button id="copySnipBtn" className="copy-btn btn btn-link fa fa-copy" onClick={this.notify}>
-                 
-                    <span className="tooltiptext">Copy</span>
-                  
+                <button
+                  id="copySnipBtn"
+                  className="copy-btn btn btn-link fa fa-copy"
+                  onClick={this.notify}
+                >
+                  <span className="tooltiptext">Copy</span>
                 </button>
                 {/* <ToastContainer /> */}
                 <ToastContainer autoClose={2000} />
