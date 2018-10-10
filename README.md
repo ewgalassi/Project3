@@ -15,7 +15,7 @@ Social Code incorporates a news feed of posts from followers. Posts can be statu
 
 ## Demo
 
-Check it out [here](https://project3-ey.herokuapp.com)!
+Check it out [here](https://socialcode-22.herokuapp.com)!
 
 
 
