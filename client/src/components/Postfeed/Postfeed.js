@@ -10,7 +10,8 @@ class Postfeed extends Component {
   state = {
     user: {},
     posts: [],
-    userId: this.props.userId
+    userId: this.props.userId,
+    onOwnProfile: false
   };
 
   componentDidMount() {

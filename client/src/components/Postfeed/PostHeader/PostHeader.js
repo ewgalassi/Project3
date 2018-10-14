@@ -46,7 +46,6 @@ class PostHeader extends React.Component {
     } else {
       PostAPI.deletePost(id)
         .then(data => {
-          // console.log("not working")
           if (data.data.success) {
             window.location.reload();
           } else {
@@ -61,10 +60,8 @@ class PostHeader extends React.Component {
 
   renderDeleteBtn = () => {
     if (
-      this.props.authorId === this.props.loggedInUser ||
-      this.props.author._id === this.props.loggedInUser
+      this.props.authorId === this.props.loggedInUser || this.props.onOwnProfile
     ) {
-      // console.log("renderDelete works")
       return (
         <button
           className="float-right delete-btn"
@@ -77,6 +74,7 @@ class PostHeader extends React.Component {
   };
 
   render() {
+    // console.log(this.props.onOwnProfile)
     return this.renderType();
   }
 }

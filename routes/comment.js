@@ -53,4 +53,16 @@ router.route("/:postId")
       });
   })
 
+  // Delete a comment
+  .delete((req, res) => {
+    // we use postId param as comment id
+    db.Comment.findByIdAndDelete(req.params.postId)
+      .then(data => {
+        return res.json({ success: true, message: data });
+      }).catch(err => {
+        console.log(err);
+        return res.json({ success: false, message: err });
+      });
+  })
+
 module.exports = router;

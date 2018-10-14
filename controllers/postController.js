@@ -71,10 +71,12 @@ module.exports = {
   route- GET /api/posts
   */
   getAll: (req, res, next) => {
-    db.Post.find({ $or: [
-      {author: {$in: req.user.following}},
-      {author: req.user._id}
-      ]})
+    db.Post.find({
+      $or: [
+        { author: { $in: req.user.following } },
+        { author: req.user._id }
+      ]
+    })
       .sort({ _id: -1 })
       .populate('author', ['fullName', 'username', 'profile.pic'])
       .populate({
@@ -82,7 +84,7 @@ module.exports = {
         populate: {
           path: 'author',
           select: ['username', 'firstName', 'fullName']
-          }
+        }
       })
       .exec((err, post) => {
         if (err)
@@ -102,7 +104,14 @@ module.exports = {
   getAllById: (req, res, next) => {
     db.Post.find({ author: req.params.id })
       .sort({ _id: -1 })
-      .populate('comments.author').exec((err, post) => {
+      .populate({
+        path: 'comments',
+        populate: {
+          path: 'author',
+          select: ['username', 'firstName', 'fullName']
+        }
+      })
+      .exec((err, post) => {
         if (err)
           res.json({ success: false, message: err });
         else if (!post)
