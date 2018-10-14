@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./PostType.css";
 // import Row from "../../Grid/Row";
+import "../../../../mobile.css";
 
 class Article extends Component {
   render() {

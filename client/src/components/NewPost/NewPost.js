@@ -6,13 +6,14 @@ import Dropdown from "../Dropdown/Dropdown";
 import Card from "../Card/Card";
 import "./NewPost.css";
 import savedAPI from "../../utils/savedAPI";
+import "../../mobile.css";
 
 class NewPost extends Component {
   state = {
     posts: [],
     post: "",
     type: "" || "status",
-    description: "",
+    description: ""
     // ogAuthor: this.loggedInUser
   };
 
@@ -38,7 +39,7 @@ class NewPost extends Component {
       type: this.state.type,
       post: this.state.post,
       description: this.state.description,
-      ogAuthor:this.props.authorId
+      ogAuthor: this.props.authorId
     };
     if (post.type === "snippet") {
       console.log(this.state.ogAuthor);

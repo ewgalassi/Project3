@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./PostBox.css";
+import "../../../mobile.css";
 
 // const styles = {
 //   color: "rgb(75, 75, 75)"

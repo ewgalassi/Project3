@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserAPI from "../../utils/userAPI";
 import "./RegisterInputs.css";
+import "../../mobile.css";
 
 class Register extends Component {
   state = {

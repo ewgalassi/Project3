@@ -3,18 +3,20 @@ import React from "react";
 import "./PostHeader.css";
 import PostAPI from "../../../utils/postAPI";
 import SavedAPI from "../../../utils/savedAPI";
+import "../../../mobile.css";
 
 const moment = require("moment");
- 
+
 class PostHeader extends React.Component {
   renderType = () => {
-    if (window.location.href.includes('profile') || window.location.href.includes('snippet')){
+    if (
+      window.location.href.includes("profile") ||
+      window.location.href.includes("snippet")
+    ) {
       // console.log('renderType is working')
-      return(
-        <div className=".postheader only-delete">
-          {this.renderDeleteBtn()}
-        </div>
-      )
+      return (
+        <div className=".postheader only-delete">{this.renderDeleteBtn()}</div>
+      );
     } else {
       return (
         <div className="postheader">
@@ -38,9 +40,9 @@ class PostHeader extends React.Component {
 
   handleDelete = id => {
     // console.log(id);
-    if (window.location.href.includes('snippets')){
+    if (window.location.href.includes("snippets")) {
       // console.log("working")
-      SavedAPI.unSaveSnippet(id).then(data =>{
+      SavedAPI.unSaveSnippet(id).then(data => {
         if (data.data.success) {
           window.location.reload();
         } else {
@@ -48,21 +50,26 @@ class PostHeader extends React.Component {
         }
       });
     } else {
-    PostAPI.deletePost(id).then(data => {
-      // console.log("not working")
-      if (data.data.success) {
-        window.location.reload();
-      } else {
-        console.log(data.data);
-      };
-    }).catch(err => {
-      console.log(err);
-    });
-  }
+      PostAPI.deletePost(id)
+        .then(data => {
+          // console.log("not working")
+          if (data.data.success) {
+            window.location.reload();
+          } else {
+            console.log(data.data);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   };
 
   renderDeleteBtn = () => {
-    if (this.props.authorId === this.props.loggedInUser || this.props.author._id === this.props.loggedInUser) {
+    if (
+      this.props.authorId === this.props.loggedInUser ||
+      this.props.author._id === this.props.loggedInUser
+    ) {
       // console.log("renderDelete works")
       return (
         <button

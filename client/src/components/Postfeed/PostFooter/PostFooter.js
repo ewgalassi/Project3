@@ -2,6 +2,7 @@ import React from "react";
 import PostAPI from "../../../utils/postAPI";
 import CommentBox from "../../CommentBox/CommentBox";
 import "./PostFooter.css";
+import "../../../mobile.css";
 
 class PostFooter extends React.Component {
   state = {
