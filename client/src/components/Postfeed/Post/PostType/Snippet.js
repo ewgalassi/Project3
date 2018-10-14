@@ -5,6 +5,7 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { atelierSeasideLight } from "react-syntax-highlighter/styles/hljs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../../../../mobile.css";
 
 class Snippet extends React.Component {
   state = {

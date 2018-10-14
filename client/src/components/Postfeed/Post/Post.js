@@ -6,6 +6,7 @@ import Status from "./PostType/Status";
 import PostHeader from "../PostHeader/PostHeader";
 import PostFooter from "../PostFooter/PostFooter";
 import savedAPI from "../../../utils/savedAPI";
+import "../../../mobile.css";
 
 import "./Post.css";
 

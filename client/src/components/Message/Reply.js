@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Reply.css";
+import "../../mobile.css";
 
 class Reply extends React.Component {
   render() {

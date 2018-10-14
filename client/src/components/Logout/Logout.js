@@ -1,6 +1,7 @@
 import React from "react";
 import UserAPI from "../../utils/userAPI";
 import "./Logout.css";
+import "../../mobile.css";
 
 class Logout extends React.Component {
   state = {

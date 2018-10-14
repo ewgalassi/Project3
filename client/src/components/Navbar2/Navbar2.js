@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Container } from "../Grid";
 import LoginInputs from "../LoginInputs";
 import "./Navbar2.css";
+import "../../mobile.css";
 
 const Navbar2 = () => (
   <nav className="navbar navbar-expand-lg">

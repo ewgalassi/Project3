@@ -1,0 +1,179 @@
+/*===============  Media Queries ================*/
+
+/* Very Large Devices, Wide Screens */
+@media only screen and (max-width: 1300px) {
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  #newMessageCard {
+    margin-top: 7rem;
+  }
+  .userSearch {
+    left: 5%;
+  }
+  #accountNav {
+    height: 110px;
+  }
+  #accountLogo {
+    display: none;
+  }
+  #accountNav {
+    height: 78px;
+  }
+  .navbar > .container,
+  .navbar > .container-fluid {
+    padding-top: 2px;
+  }
+  #newPostCard {
+    margin-top: 63px;
+  }
+  .stuck {
+    width: 183px !important;
+  }
+  .stuck h4 {
+    font-size: 1.2rem;
+  }
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .dropdown-menu.show {
+    position: absolute;
+  }
+  .userSearch {
+    left: 0%;
+    /* width:20%; */
+  }
+  #accountNav {
+    height: 118px;
+  }
+  .userSearch {
+    display: none;
+  }
+  #newPostCard {
+    margin-top: 118px;
+  }
+  .userCardInfo {
+    margin-bottom: 1rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  .info-card,
+  .skills-card {
+    padding: 15px;
+  }
+  .userinfoP {
+    font-size: 13px;
+  }
+  .profile-links a {
+    font-size: 12px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .content {
+    margin: 20px;
+  }
+  #langAndTech {
+    font-size: 13px;
+  }
+  .image-div {
+    max-width: 180px;
+    height: auto;
+  }
+  .profile-card {
+    margin-top: 105px;
+  }
+  h2.profile-name {
+    font-size: 20px;
+  }
+  .followers-profile {
+    font-size: 12px;
+  }
+  .stack-search h5 {
+    padding: 20px;
+    padding-bottom: 10px;
+    font-size: 15px;
+  }
+  .stack-search {
+    min-height: 120px;
+  }
+  .search-form input {
+    width: 78%;
+  }
+  .search-results {
+    font-size: 11px;
+    max-height: 200px;
+  }
+  .stuck {
+    display: none;
+  }
+}
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .dropdown-menu.show {
+    left: -7rem;
+  }
+  #newMessageCard {
+    margin-top: 9rem;
+    width: 90vw;
+  }
+  .nav-wrapper {
+    /* margin-bottom: 1rem;
+    margin-top: 0.4rem; */
+    width: 100%;
+    margin: 0px auto;
+    text-align: center;
+  }
+
+  #accountLogo {
+    margin: auto;
+  }
+
+  .userSearch {
+    width: 20%;
+    display: none;
+  }
+
+  #accountNav {
+    height: 125px;
+  }
+  #newPostCard {
+    margin-top: 125px;
+  }
+  .articleCard {
+    margin: 10px;
+  }
+
+  .content {
+    margin: 10px;
+  }
+
+  .snippet {
+    font-size: 12px;
+  }
+
+  .article-title h4 {
+    font-size: 18px;
+  }
+
+  #articleParagraph {
+    font-size: 12px;
+  }
+  .bumper {
+    height: 100px;
+  }
+  .profile-card {
+    margin-top: 8rem;
+  }
+
+  .testNewPost {
+    margin-top: 28px;
+  }
+}
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 370px) {
+}
+
+/*================================================*/
