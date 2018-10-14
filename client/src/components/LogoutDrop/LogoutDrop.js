@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Logout from "../Logout/Logout";
 import "./LogoutDrop.css";
+import "../../mobile.css";
 
 class LogoutDrop extends Component {
   state = {

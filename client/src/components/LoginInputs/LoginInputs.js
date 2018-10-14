@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserAPI from "../../utils/userAPI";
 import "./LoginInputs.css";
+import "../../mobile.css";
 
 class LoginInputs extends Component {
   state = {

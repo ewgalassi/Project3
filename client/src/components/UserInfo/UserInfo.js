@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "../Card/Card";
 import { Col, Row, Container } from "../../components/Grid";
 import "./UserInfo.css";
+import "../../mobile.css";
 
 //function to iterate through languages array and create li
 //function to iterate through technologies and create li

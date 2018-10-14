@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./Dropdown.css"; 
-
+import "./Dropdown.css";
+import "../../mobile.css";
 
 class Dropdown extends Component {
   state = {
-    isOpen: false,
+    isOpen: false
   };
 
   toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
@@ -22,14 +22,26 @@ class Dropdown extends Component {
         >
           {this.props.name}
         </button>
-        <div className={menuClass} aria-labelledby="dropdownMenuButton" >
-          <a className="dropdown-item" type="status" onClick={this.props.handleSelect}>
+        <div className={menuClass} aria-labelledby="dropdownMenuButton">
+          <a
+            className="dropdown-item"
+            type="status"
+            onClick={this.props.handleSelect}
+          >
             {this.props.option1}
           </a>
-          <a className="dropdown-item" type="snippet" onClick={this.props.handleSelect}>
+          <a
+            className="dropdown-item"
+            type="snippet"
+            onClick={this.props.handleSelect}
+          >
             {this.props.option2}
           </a>
-          <a className="dropdown-item" type="article" onClick={this.props.handleSelect}>
+          <a
+            className="dropdown-item"
+            type="article"
+            onClick={this.props.handleSelect}
+          >
             {this.props.option3}
           </a>
         </div>
@@ -37,6 +49,5 @@ class Dropdown extends Component {
     );
   }
 }
-
 
 export default Dropdown;

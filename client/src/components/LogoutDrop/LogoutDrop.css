@@ -25,15 +25,3 @@
 /* .dropdown-item:hover {
   background: none;
 } */
-
-@media screen and (max-width: 768px) {
-  .dropdown-menu.show {
-    position: absolute;
-  }
-}
-
-@media screen and (max-width: 414px) {
-  .dropdown-menu.show {
-    left: -7rem;
-  }
-}

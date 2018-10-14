@@ -2,6 +2,7 @@ import React from "react";
 import MessageAPI from "../../utils/messageAPI";
 import Card from "../Card/Card";
 import "./NewMessage.css";
+import "../../mobile.css";
 
 class NewMessageInput extends React.Component {
   state = {
