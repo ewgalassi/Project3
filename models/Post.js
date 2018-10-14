@@ -61,6 +61,7 @@ let PostSchema = new mongoose.Schema({
 		type: String,
 		trim: true
 	},
+	/*
 	comments: [
 		{
 			author: {
@@ -77,6 +78,12 @@ let PostSchema = new mongoose.Schema({
 			}
 		}
 	]
+	*/
+	
+	comments: [
+		{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }
+	]
+
 });
 
 // Add user who liked the post to array

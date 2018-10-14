@@ -50,10 +50,12 @@ const userRoutes = require('./routes/user');
 const postRoutes = require("./routes/post");
 const savedRoutes = require('./routes/saved');
 const messageRoutes = require("./routes/message");
+const commentRoutes = require("./routes/comment");
 app.use('/api', savedRoutes);
 app.use('/user', userRoutes);
 app.use("/api", postRoutes);
 app.use("/api/message", messageRoutes);
+app.use("/api/comment", commentRoutes);
 
 // Handle React routing, return all requests to React app
 app.get('/login', function (req, res) {
