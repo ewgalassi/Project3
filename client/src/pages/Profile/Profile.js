@@ -29,12 +29,10 @@ class Profile extends Component {
   };
 
   handleInput = event => {
-    // console.log(event.target.value);
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-    // console.log(this.state.searchInput)
   };
 
   searchStack(search) {
@@ -135,6 +133,7 @@ class Profile extends Component {
   };
 
   render() {
+    const onOwnProfile = (this.state.loggedInUser === this.state.id);
     return (
       <div>
         <Navbar />
@@ -199,7 +198,13 @@ class Profile extends Component {
             </Col>
             <Col size="md-8">
               <NewPost className="testNewPost" />
-              <Postfeed userId={this.props.match.params.id} />
+
+              <Postfeed
+              userId={this.props.match.params.id}
+              loggedInUser={this.state.loggedInUser}
+              onOwnProfile={onOwnProfile}
+              />
+
             </Col>
           </Row>
         </Container>

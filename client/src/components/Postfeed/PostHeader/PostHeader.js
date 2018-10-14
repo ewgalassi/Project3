@@ -1,26 +1,23 @@
 import React from "react";
-// import PicIcon from "../../NewPost/PicIcon/PicIcon";
 import "./PostHeader.css";
 import PostAPI from "../../../utils/postAPI";
 import SavedAPI from "../../../utils/savedAPI";
+import moment from "moment";
 import "../../../mobile.css";
 
-const moment = require("moment");
+
 
 class PostHeader extends React.Component {
   renderType = () => {
-    if (
-      window.location.href.includes("profile") ||
-      window.location.href.includes("snippet")
-    ) {
-      // console.log('renderType is working')
+    if (window.location.href.includes('profile') || window.location.href.includes('snippet')) {
       return (
-        <div className=".postheader only-delete">{this.renderDeleteBtn()}</div>
-      );
+        <div className="postheader only-delete">
+          {this.renderDeleteBtn()}
+        </div>
+      )
     } else {
       return (
         <div className="postheader">
-          {/* <PicIcon pic={this.props.pic} /> */}
           <div className="thumbnail-div">
             <img className="thumbnail" src={this.props.pic} alt="Profile pic" />
           </div>
@@ -39,9 +36,13 @@ class PostHeader extends React.Component {
   };
 
   handleDelete = id => {
+<<<<<<< HEAD
     // console.log(id);
     if (window.location.href.includes("snippets")) {
       // console.log("working")
+=======
+    if (window.location.href.includes('snippets')) {
+>>>>>>> master
       SavedAPI.unSaveSnippet(id).then(data => {
         if (data.data.success) {
           window.location.reload();
@@ -50,6 +51,7 @@ class PostHeader extends React.Component {
         }
       });
     } else {
+<<<<<<< HEAD
       PostAPI.deletePost(id)
         .then(data => {
           // console.log("not working")
@@ -71,6 +73,22 @@ class PostHeader extends React.Component {
       this.props.author._id === this.props.loggedInUser
     ) {
       // console.log("renderDelete works")
+=======
+      PostAPI.deletePost(id).then(data => {
+        if (data.data.success) {
+          window.location.reload();
+        } else {
+          console.log(data.data);
+        };
+      }).catch(err => {
+        console.log(err);
+      });
+    };
+  };
+
+  renderDeleteBtn = () => {
+    if (this.props.authorId === this.props.loggedInUser || this.props.onOwnProfile) {
+>>>>>>> master
       return (
         <button
           className="float-right delete-btn"
@@ -84,7 +102,7 @@ class PostHeader extends React.Component {
 
   render() {
     return this.renderType();
-  }
-}
+  };
+};
 
 export default PostHeader;
