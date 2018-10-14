@@ -119,6 +119,7 @@ class Post extends Component {
           id={this.props.id}
           loggedInUser={this.props.loggedInUser}
           time={this.props.time}
+          onOwnProfile={this.props.onOwnProfile}
         />
 
         {this.returnType(this.props.type)}
