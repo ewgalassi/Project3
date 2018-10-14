@@ -125,12 +125,4 @@ PostSchema.methods.addAuthor = function (author_id) {
 	return this.save();
 };
 
-// Get one user's posts
-PostSchema.methods.getUserPosts = function (_id) {
-	Post.find({ 'author': _id }).then((article) => {
-		return article;
-	});
-};
-
-
 module.exports = mongoose.model('Post', PostSchema);

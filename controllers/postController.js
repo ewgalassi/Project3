@@ -77,7 +77,13 @@ module.exports = {
       ]})
       .sort({ _id: -1 })
       .populate('author', ['fullName', 'username', 'profile.pic'])
-      .populate('comments.author', ['fullName', 'username', 'firstName', 'profile.pic'])
+      .populate({
+        path: 'comments',
+        populate: {
+          path: 'author',
+          select: ['username', 'firstName', 'fullName']
+          }
+      })
       .exec((err, post) => {
         if (err)
           res.json({ success: false, message: err });
