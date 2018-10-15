@@ -25,14 +25,12 @@ class Post extends Component {
   };
 
   saveSnippet = postData => {
-    // alert("Snippet Saved!")
     savedAPI.saveSnippet(postData).then(data => {
       console.log("save snippet running");
       this.setState({
         isSaved: true,
         isDisabled: true
       });
-      // console.log("saved?", this.state.isSaved)
     });
   };
 
@@ -42,7 +40,6 @@ class Post extends Component {
       this.setState({
         isSaved: false
       });
-      // console.log("saved?", this.state.isSaved)
     });
   };
 
@@ -110,6 +107,7 @@ class Post extends Component {
   };
 
   render() {
+    // console.log(this.props.onOwnProfile)
     return (
       <Card style={{ marginTop: 30, padding: 20 }}>
         <PostHeader

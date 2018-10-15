@@ -61,6 +61,7 @@ let PostSchema = new mongoose.Schema({
 		type: String,
 		trim: true
 	},
+	/*
 	comments: [
 		{
 			author: {
@@ -77,6 +78,12 @@ let PostSchema = new mongoose.Schema({
 			}
 		}
 	]
+	*/
+	
+	comments: [
+		{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }
+	]
+
 });
 
 // Add user who liked the post to array
@@ -117,13 +124,5 @@ PostSchema.methods.addAuthor = function (author_id) {
 	this.author = author_id;
 	return this.save();
 };
-
-// Get one user's posts
-PostSchema.methods.getUserPosts = function (_id) {
-	Post.find({ 'author': _id }).then((article) => {
-		return article;
-	});
-};
-
 
 module.exports = mongoose.model('Post', PostSchema);
