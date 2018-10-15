@@ -1,5 +1,6 @@
 import React from "react";
 import "./StackResults.css";
+import "../../mobile.css";
 
 const StackResults = props => {
   return (

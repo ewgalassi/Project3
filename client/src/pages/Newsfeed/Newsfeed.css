@@ -25,37 +25,3 @@
 .stuck {
   overflow: -moz-scrollbars-none;
 }
-
-@media screen and (max-width: 1024px) {
-  .container {
-    margin: 0px;
-    padding: 20px;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  /* .container {
-    margin: 0px;
-    padding: 20px;
-  } */
-  .stuck {
-    top: 130px;
-    width: 210px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-    margin: auto !important;
-  }
-
-  .stuck {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 414px) {
-  /* .stuck {
-    display:none;
-  } */
-}

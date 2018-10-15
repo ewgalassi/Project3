@@ -1,6 +1,7 @@
 import React from "react";
 import MessageAPI from "../../utils/messageAPI";
 import "./ReplyInput.css";
+import "../../mobile.css";
 
 class ReplyInput extends React.Component {
   state = {

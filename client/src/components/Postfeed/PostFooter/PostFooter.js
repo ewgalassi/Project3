@@ -2,6 +2,7 @@ import React from "react";
 import PostAPI from "../../../utils/postAPI";
 import CommentBox from "../../CommentBox/CommentBox";
 import "./PostFooter.css";
+import "../../../mobile.css";
 
 class PostFooter extends React.Component {
   state = {
@@ -45,11 +46,9 @@ class PostFooter extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    PostAPI.commentPost({
-      post_id: this.props.id,
-      comment: this.state.comment
-    })
+    PostAPI.commentPost(this.props.id, this.state.comment)
       .then(data => {
+        console.log(data.data);
         this.setState({
           comments: data.data.comments || [],
           comment: ""
@@ -60,21 +59,21 @@ class PostFooter extends React.Component {
       });
   };
 
-  // handleDelete = id => {
-  //   console.log("delete " + id);
-  //   PostAPI.deleteComment(id)
-  //     .then(data => {
-  //       console.log(data);
-  //       if (data.data.success) {
-  //         window.location.reload();
-  //       } else {
-  //         console.log(data.data);
-  //       }
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
+  handleDelete = id => {
+    console.log("delete " + id);
+    PostAPI.deleteComment(id)
+      .then(data => {
+        console.log(data);
+        if (data.data.success) {
+          window.location.reload();
+        } else {
+          console.log(data.data);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   displayComments = () => {
     return this.state.comments.map(comment => {
@@ -84,7 +83,7 @@ class PostFooter extends React.Component {
           return (
             <button
               className="comment-x btn btn-sm btn-light mr-2 align-middle"
-              // onClick={() => this.handleDelete(comment._id)}
+              onClick={() => this.handleDelete(comment._id)}
             >
               X
             </button>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
+import "../../mobile.css";
 
 const Sidebar = props => {
   return (

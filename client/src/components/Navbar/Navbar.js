@@ -4,9 +4,8 @@ import LogoutDrop from "../LogoutDrop/LogoutDrop";
 import { Container } from "../Grid";
 import UserAPI from "../../utils/userAPI";
 import { ToastContainer, toast } from "react-toastify";
-
+import "../../mobile.css";
 import "./Navbar.css";
-
 
 class Navbar extends React.Component {
   state = {

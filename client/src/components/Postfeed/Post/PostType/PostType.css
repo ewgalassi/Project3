@@ -135,27 +135,3 @@
 .form-control:focus {
   background: none;
 }
-
-/* MEDIA QUERIES ---------------------------- */
-
-@media screen and (max-width: 414px) {
-  .articleCard {
-    margin: 10px;
-  }
-
-  .content {
-    margin: 10px;
-  }
-
-  .snippet {
-    font-size: 12px;
-  }
-
-  .article-title h4 {
-    font-size: 18px;
-  }
-
-  #articleParagraph {
-    font-size: 12px;
-  }
-}

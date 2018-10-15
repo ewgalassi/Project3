@@ -14,13 +14,12 @@ Social Code incorporates a news feed of posts from followers. Posts can be statu
 - Stay up-to-date on latest tech news
 
 ### How to use it
-
-Check it out [here](https://socialcode-22.herokuapp.com)!
+Check it out [here](https://socialcode-22.herokuapp.com)! Use "test" and "1234" as login credentials for testing purposes. Otherwise, feel free to create an account!
 
 
 
 ### Contributors
-- Eddy Yousef
+- Adnan Yousef
 - Tommie Behrenbeck
 - Brittani Slimp
 - Momin Ahmad
@@ -33,4 +32,4 @@ Please contact me.  I maintain my repositories regularly, so I will try to work 
 
 
 ### Languages and resources
-This app uses React, JSX, Bootstrap, Node.js, Express, MongoDB, Mongoose, Passport, .
+This app uses React, JSX, Bootstrap, Node.js, Express, MongoDB, Mongoose, Passport, and API calls.

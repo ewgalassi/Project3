@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import "./CommentBox.css";
+import "../../mobile.css";
 
 const styles = {
   rowStyle: {

@@ -18,8 +18,8 @@ export default  {
         return axios.put("/api/posts", {post_id: id, action: "unlike"})
     },
 
-    commentPost: function (commentData) {
-        return axios.post("/api/posts/comment", commentData)
+    commentPost: function (postId, text) {
+        return axios.post("/api/comment/" + postId, {text: text})
     },
     // Gets the post with the given id
     getOnePost: function (id) {
@@ -40,11 +40,10 @@ export default  {
 
     getSnippets: function(){
         return axios.get("/api/posts/types/snippets")
-    }
+    },
 
-    // deleteComment: function(id) {
-    //     console.log("client side " + id);
-    //     return axios.delete("/api/posts/comment/" + id);
-    // }
+    deleteComment: function(id) {
+        return axios.delete("/api/comment/" + id);
+    }
 
 };

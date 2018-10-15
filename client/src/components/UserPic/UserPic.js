@@ -1,8 +1,9 @@
 import React from "react";
 import Card from "../Card/Card";
 import UserAPI from "../../utils/userAPI";
-
+import "../../mobile.css";
 import "./UserPic.css";
+import "../../mobile.css";
 
 let followStatus = false;
 

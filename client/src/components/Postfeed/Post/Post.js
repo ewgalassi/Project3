@@ -6,6 +6,7 @@ import Status from "./PostType/Status";
 import PostHeader from "../PostHeader/PostHeader";
 import PostFooter from "../PostFooter/PostFooter";
 import savedAPI from "../../../utils/savedAPI";
+import "../../../mobile.css";
 
 import "./Post.css";
 
@@ -24,14 +25,12 @@ class Post extends Component {
   };
 
   saveSnippet = postData => {
-    // alert("Snippet Saved!")
     savedAPI.saveSnippet(postData).then(data => {
       console.log("save snippet running");
       this.setState({
         isSaved: true,
         isDisabled: true
       });
-      // console.log("saved?", this.state.isSaved)
     });
   };
 
@@ -41,7 +40,6 @@ class Post extends Component {
       this.setState({
         isSaved: false
       });
-      // console.log("saved?", this.state.isSaved)
     });
   };
 
@@ -109,6 +107,7 @@ class Post extends Component {
   };
 
   render() {
+    // console.log(this.props.onOwnProfile)
     return (
       <Card style={{ marginTop: 30, padding: 20 }}>
         <PostHeader
@@ -119,6 +118,7 @@ class Post extends Component {
           id={this.props.id}
           loggedInUser={this.props.loggedInUser}
           time={this.props.time}
+          onOwnProfile={this.props.onOwnProfile}
         />
 
         {this.returnType(this.props.type)}

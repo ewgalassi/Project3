@@ -1,5 +1,6 @@
 import React from "react";
 import "./Grid.css";
+import "../../mobile.css";
 
 export const Col = ({ size, children }) => (
   <div
