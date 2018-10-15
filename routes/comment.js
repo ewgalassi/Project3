@@ -1,3 +1,5 @@
+// NOTE- Will be creating a comment controller soon. 
+
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
