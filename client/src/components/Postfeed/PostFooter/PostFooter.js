@@ -48,6 +48,7 @@ class PostFooter extends React.Component {
     event.preventDefault();
     PostAPI.commentPost(this.props.id, this.state.comment)
       .then(data => {
+        console.log(data.data);
         this.setState({
           comments: data.data.comments || [],
           comment: ""
