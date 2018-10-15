@@ -35,8 +35,8 @@ router.route("/:postId")
     })
       .then(comment => {
         db.Post.findById(req.params.postId).then(post => {
-          return post.comment(comment._id).then(() => {
-            return res.json({ success: true });
+          return post.comment(comment._id).then(data => {
+            return res.json({success: true});
           }).catch(err => {
             console.log(err);
             return res.json({ success: false, message: err });
