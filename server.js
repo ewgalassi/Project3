@@ -61,6 +61,18 @@ app.use("/api/comment", commentRoutes);
 app.get('/login', function (req, res) {
   res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
+app.get('/profile', function (req, res) {
+  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+});
+app.get('/editProfile', function (req, res) {
+  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+});
+app.get('/profile/*', function (req, res) {
+  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+});
+app.get('/messages', function (req, res) {
+  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+});
 
 
 // Start Server 
