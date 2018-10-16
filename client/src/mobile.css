@@ -5,6 +5,28 @@
 }
 /* Large Devices, Wide Screens */
 @media only screen and (max-width: 1200px) {
+  .stuck {
+    width: 195px !important;
+  }
+  .stuck h4 {
+    font-size: 1.2rem;
+  }
+  .dropdown-item {
+    padding-left: 1rem;
+  }
+  #newMessageCard {
+    width: 85%;
+  }
+  .profile-links a {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  .search-form input {
+    width: 80% !important;
+  }
+  #commentDrop input {
+    margin-left: 13px;
+  }
 }
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
@@ -42,18 +64,34 @@
   .dropdown-menu.show {
     position: absolute;
   }
-  .userSearch {
-    left: 0%;
-    /* width:20%; */
-  }
   #accountNav {
-    height: 118px;
+    height: 93px !important;
+    padding-top: 0px;
   }
   .userSearch {
-    display: none;
+    /* display: none; */
+    left: 0%;
+    margin: auto;
+    padding-top: 0px;
+  }
+  .nav-wrapper {
+    margin: auto;
+    padding-top: 9px;
+  }
+  .navbar-nav li {
+    margin-left: 10px;
   }
   #newPostCard {
-    margin-top: 118px;
+    margin-top: 119px !important;
+  }
+  .card {
+    padding: 15px;
+  }
+  .card .content {
+    margin: 20px 20px 0px 20px;
+  }
+  .hr {
+    margin-top: 0px;
   }
   .userCardInfo {
     margin-bottom: 1rem;
@@ -71,9 +109,6 @@
     font-size: 12px;
     padding-left: 3px;
     padding-right: 3px;
-  }
-  .content {
-    margin: 20px;
   }
   #langAndTech {
     font-size: 13px;
@@ -109,6 +144,13 @@
   .stuck {
     display: none;
   }
+  #commentDrop input {
+    width: 98% !important;
+    margin-left: 18px !important;
+  }
+  .card .postheader {
+    margin-bottom: 0px;
+  }
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
@@ -131,10 +173,9 @@
     margin: auto;
   }
 
-  .userSearch {
+  /* .userSearch {
     width: 20%;
-    display: none;
-  }
+  } */
 
   #accountNav {
     height: 125px;
@@ -173,7 +214,35 @@
   }
 }
 /* Custom, iPhone Retina */
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 380px) {
+  .userSearch {
+    left: 0% !important;
+  }
+  .nav-wrapper {
+    margin-left: 6px;
+  }
+  #newPostCard {
+    padding: 10px !important;
+  }
+  .cardfooter .post-btn {
+    font-size: 0.7rem;
+    margin-left: 5px;
+    padding: 6px;
+  }
+  #commentDrop input {
+    width: 92% !important;
+    margin-left: 24px !important;
+  }
+  .userSearchInput {
+    padding: 6px 0px 6px 8px;
+  }
+  #newMessageCard {
+    margin-top: 118px !important;
+  }
+  /* #messageCard {
+    position: relative;
+    top: 400px;
+  } */
 }
 
 /*================================================*/

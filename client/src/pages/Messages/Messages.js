@@ -44,12 +44,12 @@ class Messages extends React.Component {
         <Navbar />
         <Container>
           <Row>
-            <Col size="md-5">
+            <Col size="sm-12 md-5">
               <div className="stationary">
                 <NewMessageInput />
               </div>
             </Col>
-            <Col size="md-7">
+            <Col size="sm-12 md-7">
               <div className="scrolly">
                 <div className="bumper" />
 
