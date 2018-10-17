@@ -1,7 +1,7 @@
 #newMessageCard {
   margin-top: 85px;
   padding: 20px 30px;
-  /* border: 1px solid #48c5da; */
+  border: 1px solid rgba(72, 197, 218, 0.62);
 }
 
 #newMessageCard:after {

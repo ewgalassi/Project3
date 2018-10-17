@@ -12,7 +12,7 @@ class Snippet extends Component {
         <Container>
           <Row>
             <Col size="md-8">
-              <div className="bumper" />
+              <div className="snipBumper" />
               <Postfeed />
             </Col>
           </Row>

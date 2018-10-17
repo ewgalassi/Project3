@@ -51,8 +51,6 @@ class EditProfile extends React.Component {
   error = () => toast("There was an error :( ");
   noUser = () => toast("No user found");
 
-
-
   handleInput = event => {
     const { name, value } = event.target;
     this.setState({
@@ -92,7 +90,7 @@ class EditProfile extends React.Component {
 
   handleFollow = event => {
     event.preventDefault();
-    
+
     UserAPI.followUser(this.state.followInput)
       .then(data => {
         if (data.data.success) {
@@ -100,7 +98,8 @@ class EditProfile extends React.Component {
           // alert("Successfully followed user!");
           window.location.replace("/editProfile");
         } else {
-          this.notFound();        }
+          this.notFound();
+        }
       })
       .catch(err => {
         console.log(err);
@@ -478,7 +477,6 @@ class EditProfile extends React.Component {
                   />
                   <button onClick={this.handleFollow}>Follow</button>
                   <ToastContainer autoClose={4000} />
-
                 </form>
               </div>
             </Col>

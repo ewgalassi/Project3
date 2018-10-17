@@ -5,7 +5,7 @@ import PostAPI from "../../utils/postAPI";
 import Dropdown from "../Dropdown/Dropdown";
 import Card from "../Card/Card";
 import "./NewPost.css";
-import savedAPI from "../../utils/savedAPI";
+// import savedAPI from "../../utils/savedAPI";
 import "../../mobile.css";
 
 class NewPost extends Component {
