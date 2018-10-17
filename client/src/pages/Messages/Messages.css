@@ -1,26 +1,3 @@
-.bumper {
-  height: 85px;
-}
-
-.stationary {
-  position: fixed;
-  top: 0px;
-  width: 380px;
-  overflow-y: scroll;
-}
-
-.stationary::-webkit-scrollbar {
-  width: 0 !important;
-}
-
-.stationary {
-  -ms-overflow-style: none;
-}
-
-.stationary {
-  overflow: -moz-scrollbars-none;
-}
-
 #messageDeleteBtn {
   position: absolute;
   z-index: 10;
@@ -32,4 +9,12 @@
 
 #messageDeleteBtn:hover {
   color: rgba(255, 0, 0, 0.5);
+}
+
+.messageBump {
+  padding: 10px;
+}
+
+.col-sm-12 {
+  margin: auto;
 }

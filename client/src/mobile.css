@@ -109,9 +109,15 @@
     font-size: 13px;
   }
   .profile-links a {
-    font-size: 12px;
+    font-size: 10px !important;
     padding-left: 3px;
     padding-right: 3px;
+  }
+  .languageList {
+    margin-left: 18px;
+  }
+  .techList {
+    margin-left: 20px;
   }
   #langAndTech {
     font-size: 13px;
@@ -138,7 +144,7 @@
     min-height: 120px;
   }
   .search-form input {
-    width: 78%;
+    width: 75% !important;
   }
   .search-results {
     font-size: 11px;
@@ -153,6 +159,21 @@
   }
   .card .postheader {
     margin-bottom: 0px;
+  }
+  .editTitle {
+    margin-top: 108px !important;
+  }
+  .card-body input {
+    width: 300px !important;
+  }
+  #accordion .card {
+    padding: 4px !important;
+  }
+  .followers input {
+    width: 200px !important;
+  }
+  #newMessageCard {
+    margin-top: 119px !important;
   }
 }
 /* Extra Small Devices, Phones */
@@ -184,7 +205,7 @@
     height: 125px;
   }
   #newPostCard {
-    margin-top: 125px;
+    margin-top: 125px !important;
   }
   .articleCard {
     margin: 10px;
@@ -209,9 +230,8 @@
     height: 100px;
   }
   .profile-card {
-    margin-top: 8rem;
+    margin-top: 7rem !important;
   }
-
   .testNewPost {
     margin-top: 28px;
   }
@@ -219,13 +239,17 @@
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 380px) {
   .userSearch {
-    left: 0% !important;
+    margin: 3px 0px 0px 0px !important;
   }
   .nav-wrapper {
     margin-left: 6px;
   }
+  .newsBumper {
+    padding: 45px;
+  }
   #newPostCard {
     padding: 10px !important;
+    margin-top: 30px !important;
   }
   .cardfooter .post-btn {
     font-size: 0.7rem;
@@ -299,6 +323,32 @@
   }
   .regSubmit {
     margin-left: 65px;
+  }
+  .languageList {
+    margin-left: 85px;
+  }
+  .techList {
+    margin-left: 85px;
+  }
+  .editTitle {
+    margin-top: 118px !important;
+  }
+  .card-header {
+    text-align: center;
+  }
+  #accordion .card {
+    padding: 0px;
+  }
+  .card-body input {
+    width: 250px !important;
+  }
+  .followers input {
+    width: 200px !important;
+  }
+  .profile-links a {
+    font-size: 14px !important;
+    padding-left: 3px;
+    padding-right: 3px;
   }
 }
 

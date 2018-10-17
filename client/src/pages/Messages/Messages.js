@@ -44,15 +44,16 @@ class Messages extends React.Component {
         <Navbar />
         <Container>
           <Row>
-            <Col size="sm-12 md-5">
+            <Col size="sm-12 md-7">
               <div className="stationary">
                 <NewMessageInput />
               </div>
             </Col>
+          </Row>
+          <div className="messageBump" />
+          <Row>
             <Col size="sm-12 md-7">
               <div className="scrolly">
-                <div className="bumper" />
-
                 {this.state.messages.map(message => {
                   return (
                     <div key={message._id}>
