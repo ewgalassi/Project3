@@ -60,7 +60,7 @@ class PostHeader extends React.Component {
 
   renderDeleteBtn = () => {
     if (
-      this.props.authorId === this.props.loggedInUser || this.props.onOwnProfile
+      this.props.authorId === this.props.loggedInUser || window.location.href.includes('snippet') || window.location.href == "http://localhost:3000/profile"
     ) {
       return (
         <button

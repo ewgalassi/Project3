@@ -135,3 +135,17 @@
 .form-control:focus {
   background: none;
 }
+
+.Toastify__toast--default {
+  background: #343637 !important;
+  color: #ffffff !important;
+}
+
+.Toastify__toast-container {
+  padding: 7px !important;
+  width: 180px !important;
+}
+
+.Toastify__progress-bar--default {
+  background: linear-gradient(to right, #eee8aa, #48c5da) !important;
+}

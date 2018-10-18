@@ -1,7 +1,6 @@
 .profile-card {
   margin: 0px;
   margin-top: 85px;
-  /* position:relative; */
   text-align: center;
   background: #343637;
   overflow: hidden;
@@ -9,22 +8,13 @@
 }
 
 .image-div {
-  width: 250px;
-  height: 250px;
   position: relative;
   overflow: hidden;
-  border: 1px solid #343637;
-  border-radius: 50%;
   margin: 15px auto;
 }
 
 .userImage {
-  /* border: 1px solid #000000; */
-  /* border-radius: 50%; */
-  /* margin: 30px auto; */
   margin-bottom: 10px;
-  /* position:absolute; */
-  /* display: inline-block; */
   display: block;
   margin: auto;
   max-width: 100%;
@@ -33,12 +23,11 @@
   transform: scale(1);
   transform-origin: center;
   background-size: content;
+  border: 2px solid #17a2b8;
 }
 
 h2.profile-name {
-  /* padding: 8px 0px 8px 0px; */
   color: #efe8a2;
-  /* margin-bottom: 10px !important; */
 }
 
 .skills-row {

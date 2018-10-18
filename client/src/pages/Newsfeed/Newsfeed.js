@@ -78,6 +78,7 @@ class Newsfeed extends Component {
             {/* </Col> */}
             <Col size="md-9">
               <div className="not-stuck">
+                <div className="newsBumper" />
                 <NewPost />
                 <Postfeed loggedInUser={this.state.loggedInUser} />
               </div>

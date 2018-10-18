@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import LogoutDrop from "../LogoutDrop/LogoutDrop";
 import { Container } from "../Grid";
 import UserAPI from "../../utils/userAPI";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "../../mobile.css";
 import "./Navbar.css";
 
